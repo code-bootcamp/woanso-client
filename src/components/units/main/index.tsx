@@ -1,4 +1,4 @@
-import { BookSliderTop, BookSliderBottom } from "../../carousel";
+import { BookSliderTop, BookSliderBottom } from "../../commons/carousel";
 import * as S from "./style";
 
 export default function Main() {
