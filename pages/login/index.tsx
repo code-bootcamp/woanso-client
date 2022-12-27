@@ -1,3 +1,6 @@
+import LoginUI from "../../src/components/commons/login/Login.container";
+
 export default function LoginPage() {
-  return <>로그인페이지입니당!!</>;
+  return <LoginUI/>
+  
 }
