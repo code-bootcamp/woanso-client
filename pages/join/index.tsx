@@ -1,3 +1,5 @@
+import SignupUI from "../../src/components/commons/signup/Signup.container";
+
 export default function JoinPage() {
-  return <>회원가입 페이지~~!</>;
+  return <SignupUI/>
 }
