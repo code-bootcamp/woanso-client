@@ -1,3 +1,3 @@
 export default function MarketsPage() {
-  return <>많이 사줘라~</>;
+  return <>마켓 페이지!!~</>;
 }
