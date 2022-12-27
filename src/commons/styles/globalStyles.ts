@@ -14,6 +14,8 @@ export const globalStyles = css`
   body {
     font-size: 16px;
     font-weight: 400;
+    max-width: 1920px;
+    margin: 0 auto;
   }
 
   @font-face {
