@@ -1,21 +1,21 @@
+import BestSellingBooks from "../../commons/bestsell";
 import { BookSliderTop, BookSliderBottom } from "../../commons/carousel";
+import Picks from "../../commons/picks/style";
+import Recommand from "../../commons/recommand";
+
 import * as S from "./style";
 
 export default function Main() {
   return (
     <S.OuterWrap>
       <S.InnerWrap>
-        <S.AddmoreBtnWrap>
-          <S.AddMoreBtn>더보기</S.AddMoreBtn>
-        </S.AddmoreBtnWrap>
+        <BookSliderTop />
+        <BestSellingBooks />
+        <Picks />
+        <Recommand />
 
-        <S.MovingBooksWrap>
-          <BookSliderTop />
-          <BookSliderBottom />
-        </S.MovingBooksWrap>
-
-        <S.Title>Weekly Hot Pick</S.Title>
-        <S.WeeklyHotPicksWrap>
+        {/* <S.Title>Weekly Hot Pick</S.Title> */}
+        {/* <S.WeeklyHotPicksWrap>
           {Array.from([1, 2, 3, 4, 5, 6, 7])
             .fill("채우기")
             .map((el, index) => (
@@ -28,7 +28,7 @@ export default function Main() {
                 </S.ItemTextsWrap>
               </S.ItemWrap>
             ))}
-        </S.WeeklyHotPicksWrap>
+        </S.WeeklyHotPicksWrap> */}
       </S.InnerWrap>
     </S.OuterWrap>
   );

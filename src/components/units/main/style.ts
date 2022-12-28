@@ -2,33 +2,7 @@ import styled from "@emotion/styled";
 
 export const OuterWrap = styled.div``;
 
-export const InnerWrap = styled.div`
-  padding: 50px 100px;
-`;
-
-export const AddmoreBtnWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-bottom: 50px;
-`;
-
-export const AddMoreBtn = styled.button`
-  background-color: #e642aa;
-  padding: 10px 30px;
-  border-radius: 5px;
-  color: #fff;
-`;
-
-export const MovingBooksWrap = styled.div`
-  margin-bottom: 50px;
-`;
-
-export const Book = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: red;
-`;
+export const InnerWrap = styled.div``;
 
 export const Title = styled.h1`
   margin: 100px 0 50px 0;

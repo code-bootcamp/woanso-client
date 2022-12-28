@@ -1,3 +1,11 @@
+import Recommand from "../../src/components/commons/recommand";
+import Rents from "../../src/components/units/rents";
+
 export default function RentsPage() {
-  return <>대여페이지!!</>;
+  return (
+    <>
+      <Recommand />
+      <Rents />
+    </>
+  );
 }

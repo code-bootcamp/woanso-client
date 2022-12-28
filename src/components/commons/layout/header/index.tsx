@@ -1,37 +1,58 @@
+import { useRouter } from "next/router";
+import { Fragment } from "react";
 import * as S from "./style";
 
 export default function LayoutHeader() {
-  const onClickMoveToLogin = () => {
-    console.log("라우터로 로그인페이지 연동하기");
+  const router = useRouter();
+
+  const onClickMoveToHome = () => {
+    router.push("/");
   };
 
-  const onClickMoveToJoin = () => {
-    console.log("라우터로 회원가입페이지 연동하기");
+  const onClickMoveToPage = (e) => {
+    router.push(`/${e.currentTarget.id}`);
   };
+
+  const UserList = [
+    { name: "로그인", id: "login" },
+    { name: "회원가입", id: "join" },
+  ];
+  const MenuList = [
+    { name: "♡", id: "mypick" },
+    { name: "장바구니", id: "mycart" },
+    { name: "마이페이지", id: "mypage" },
+  ];
 
   return (
-    <>
-      <S.OuterWrap>
-        <S.InnerWrap>
-          <S.UserBtnsWrap>
-            <S.UserLogin onClick={onClickMoveToLogin}>로그인</S.UserLogin>
-            <S.UserJoin onClick={onClickMoveToJoin}>회원가입</S.UserJoin>
-          </S.UserBtnsWrap>
+    <S.OuterWrap>
+      <S.InnerWrap>
+        <S.MenuWrap>
+          <S.Logo ocClick={onClickMoveToHome}>WoanSo</S.Logo>
+          <S.BtnsWrap>
+            {UserList.map((el) => (
+              <Fragment key={el.id}>
+                <S.Btn id={el.id} onClick={onClickMoveToPage}>
+                  {el.name}
+                </S.Btn>
+              </Fragment>
+            ))}
+          </S.BtnsWrap>
+        </S.MenuWrap>
 
-          <S.FlexWrap>
-            <S.LogoWrap>
-              <S.LogoImg src="/logo_pink.png" />
-            </S.LogoWrap>
+        <S.MenuWrap2>
+          <S.LogoWrap>
+            <S.LogoImg src="/logo_white.png" />
+          </S.LogoWrap>
 
-            <S.IconsWrap>
-              <S.IconBell />
-              <S.IconCart />
-              <S.IconStar />
-              <S.IconUser />
-            </S.IconsWrap>
-          </S.FlexWrap>
-        </S.InnerWrap>
-      </S.OuterWrap>
-    </>
+          <S.BtnsWrap>
+            {MenuList.map((el) => (
+              <S.Btn2 id={el.id} onClick={onClickMoveToPage}>
+                {el.name}
+              </S.Btn2>
+            ))}
+          </S.BtnsWrap>
+        </S.MenuWrap2>
+      </S.InnerWrap>
+    </S.OuterWrap>
   );
 }
