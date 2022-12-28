@@ -38,6 +38,7 @@ export const Logo = styled.div`
   color: #fff;
   padding: 20px 10px;
   font-weight: bold;
+  font-family: "yang";
   letter-spacing: 10px;
   color: #333;
   cursor: pointer;

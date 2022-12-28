@@ -1,13 +1,15 @@
 import { css } from "@emotion/react";
 
 export const globalStyles = css`
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
   /* 다운받은 폰트 연동하기 */
   /* @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css); */
 
   * {
     margin: 0px;
     box-sizing: border-box;
-    font-family: "yang", "sans-serif";
+    font-family: "Noto Sans KR", "sans-serif";
   }
 
   html,
