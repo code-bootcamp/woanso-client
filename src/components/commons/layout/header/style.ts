@@ -28,8 +28,8 @@ export const MenuWrap2 = styled.div`
   padding: 50px 100px;
   position: relative;
   /* box-shadow: 0 4px 0 0 #dfe2e4, 0px 4px 8px rgb(90 0 0 / 20%); */
-  background-image: url("/header_bg.jpeg");
-  background-position: bottom;
+  background-image: url("/header_test2.png");
+  background-position: center;
   background-size: cover;
   height: 600px;
 `;
