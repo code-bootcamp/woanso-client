@@ -114,16 +114,14 @@ export const Footer2 = styled.div`
   text-decoration: underline;
   cursor: pointer;
 `;
-export const BackgroundImage = styled.img`
-  width: 1400px;
-  height: 1200px;
-  background-image: url("/login_bg.jpeg");
-  background-size: cover;
-  background-position: bottom;
-`;
 
 export const Wrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
 `;
+
+export const NoUserButton = styled.button`
+margin-left: 250px;
+margin-top: 40px;
+`

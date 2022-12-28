@@ -11,7 +11,6 @@ export default function LoginUI() {
 
   return (
     <S.Wrapper>
-      <S.BackgroundImage />
       <S.LoginWrapper>
         <S.TitleWrapper>
           <S.TitleMain>Login</S.TitleMain>
@@ -25,6 +24,7 @@ export default function LoginUI() {
             <S.Footer1>아직 계정이 없으신가요?</S.Footer1>
             <S.Footer2 onClick={onClickMoveToSingUp}>회원가입</S.Footer2>
           </S.Footer>
+          <S.NoUserButton>비회원 주문조회</S.NoUserButton>
         </S.ContentsWrapper>
         {/* </form> */}
       </S.LoginWrapper>
