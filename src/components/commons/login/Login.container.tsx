@@ -25,6 +25,9 @@ export default function LoginUI() {
             <S.Footer1>아직 계정이 없으신가요?</S.Footer1>
             <S.Footer2 onClick={onClickMoveToSingUp}>회원가입</S.Footer2>
           </S.Footer>
+          <S.Footer3>
+            <S.Footer4 onClick={onClickMoveToSingUp}>비화원 주문조회</S.Footer4>
+          </S.Footer3>
         </S.ContentsWrapper>
         {/* </form> */}
       </S.LoginWrapper>

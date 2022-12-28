@@ -17,12 +17,18 @@ export const MenuListWrap = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin-left: 50px;
+  margin-left: 4rem;
 `;
 
 export const MenuList = styled.div`
   font-size: 24px;
-  margin: 0 50px;
+  margin-left: 4rem;
+  padding-bottom: 8px;
+  cursor: pointer;
+
+  color: ${(props) => (props.isActive ? "#77170d" : "#000000")};
+  border-bottom: ${(props) =>
+    props.isActive ? "3px solid #77170d" : "3px solid #ffffff"};
 `;
 
 export const BooksListWrap = styled.div`
@@ -33,10 +39,7 @@ export const BooksListWrap = styled.div`
 `;
 
 export const BookList = styled.div``;
-export const BookImgBox = styled.div`
-  /* padding: 5px; */
-  /* border: 1px solid grey; */
-`;
+export const BookImgBox = styled.div``;
 export const BookImg = styled.img`
   object-fit: cover;
   width: 400px;

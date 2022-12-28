@@ -1,60 +1,56 @@
 import * as S from "./style";
+import { MouseEvent, useState } from "react";
+import Action from "../../units/section/action";
+import Romance from "../../units/section/romance";
+import Mystery from "../../units/section/mystery";
+import Horror from "../../units/section/horror";
+import Academy from "../../units/section/academy";
+import All from "../../units/section/all";
+
+const MenuLists = [
+  { id: "all", name: "전체" },
+  { id: "romance", name: "로맨스" },
+  { id: "action", name: "액션" },
+  { id: "academy", name: "학원" },
+  { id: "mystery", name: "추리" },
+  { id: "horror", name: "공포" },
+];
 
 export default function BestSellingBooks() {
+  const [section, setSection] = useState<string>("all");
+  const [isActive, setIsActive] = useState<string>("all");
+
+  const onClickMenu = (e: MouseEvent<HTMLDivElement>) => {
+    setSection(e.currentTarget?.id);
+    setIsActive(e.currentTarget?.id);
+  };
+
   return (
     <>
       <S.OuterWrap>
         <S.InnerWrap>
           <S.ListWrap>
-            <S.SectionTitle>가장 핫한 중고 만화</S.SectionTitle>
+            <S.SectionTitle>가장 핫한 대여 만화</S.SectionTitle>
             <S.MenuListWrap>
-              <S.MenuList>로맨스</S.MenuList>
-              <S.MenuList>액션</S.MenuList>
-              <S.MenuList>학원</S.MenuList>
-              <S.MenuList>추리</S.MenuList>
-              <S.MenuList>공포</S.MenuList>
+              {MenuLists.map((el) => (
+                <S.MenuList
+                  id={el.id}
+                  onClick={onClickMenu}
+                  isActive={isActive === el.id ? "active" : ""}
+                >
+                  {el.name}
+                </S.MenuList>
+              ))}
             </S.MenuListWrap>
           </S.ListWrap>
+
           <S.BooksListWrap>
-            <S.BookList>
-              <S.BookImgBox>
-                <S.BookImg src="/item4.png" />
-              </S.BookImgBox>
-              <S.BookInfoWrap>
-                <S.BookName>히로 서클</S.BookName>
-                <S.BookPrice>15,550원</S.BookPrice>
-              </S.BookInfoWrap>
-            </S.BookList>
-
-            <S.BookList>
-              <S.BookImgBox>
-                <S.BookImg src="/item1.png" />
-              </S.BookImgBox>
-              <S.BookInfoWrap>
-                <S.BookName>순정만화</S.BookName>
-                <S.BookPrice>15,550원</S.BookPrice>
-              </S.BookInfoWrap>
-            </S.BookList>
-
-            <S.BookList>
-              <S.BookImgBox>
-                <S.BookImg src="/item2.png" />
-              </S.BookImgBox>
-              <S.BookInfoWrap>
-                <S.BookName>어쩌고 저쩌고</S.BookName>
-                <S.BookPrice>15,550원</S.BookPrice>
-              </S.BookInfoWrap>
-            </S.BookList>
-
-            <S.BookList>
-              <S.BookImgBox>
-                <S.BookImg src="/item3.png" />
-              </S.BookImgBox>
-              <S.BookInfoWrap>
-                <S.BookName>건방진 그녀석</S.BookName>
-                <S.BookPrice>15,550원</S.BookPrice>
-              </S.BookInfoWrap>
-            </S.BookList>
+            {section === "all" && <All />}
+            {section === "romance" && <Romance />}
+            {section === "action" && <Action />}
+            {section === "academy" && <Academy />}
+            {section === "mystery" && <Mystery />}
+            {section === "horror" && <Horror />}
           </S.BooksListWrap>
         </S.InnerWrap>
       </S.OuterWrap>

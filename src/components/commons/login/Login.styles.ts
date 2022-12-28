@@ -114,6 +114,25 @@ export const Footer2 = styled.div`
   text-decoration: underline;
   cursor: pointer;
 `;
+
+export const Footer3 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+`;
+
+export const Footer4 = styled.div`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  /* text-decoration: underline; */
+  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #cccccc;
+`;
+
 export const BackgroundImage = styled.img`
   width: 1400px;
   height: 1200px;
