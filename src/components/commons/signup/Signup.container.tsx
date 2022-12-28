@@ -6,6 +6,7 @@ export default function SignupUI() {
   return (
     <S.OuterWrap>
       <S.InnerWrap>
+      <S.BackgroundImage />
         <S.Wrapper>
           <S.TitleWrapper>
             <S.TitleMain>회원가입</S.TitleMain>
