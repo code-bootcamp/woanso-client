@@ -13,7 +13,6 @@ export const BgImg = styled.img`
 `;
 
 export const Wrapper = styled.div`
-  width: 1200px;
   padding: 0 50px;
   height: 903px;
   background: #ffffff;
@@ -69,12 +68,11 @@ export const ButtonWrapper = styled.div`
   margin: auto;
   margin-top: 90px;
   justify-content: center;
-  margin-right: 200px;
 `;
 export const SignupButton = styled.div`
   width: 330px;
   height: 70px;
-  background: #e642aa;
+  background: #f5efe3;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -90,7 +88,7 @@ export const SignupButton = styled.div`
 export const BackButton = styled.div`
   width: 330px;
   height: 70px;
-  background: #000000;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,9 +96,10 @@ export const BackButton = styled.div`
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
-  color: #ffffff;
+  color: #000000;
   letter-spacing: -0.05em;
   cursor: pointer;
+  border: 1px solid #000000;
 `;
 export const Footer = styled.div`
   display: flex;
@@ -108,7 +107,6 @@ export const Footer = styled.div`
   margin-top: 40px;
   align-items: center;
   justify-content: center;
-  margin-right: 200px;
 `;
 export const Footer1 = styled.div`
   width: 199px;
@@ -133,7 +131,7 @@ export const Input = styled.input`
   width: 786.96px;
   height: 64px;
   background: white;
-  border: 1px solid #e642aa;
+  border: 3px solid #f5efe3;
   border-radius: 5px;
   padding: 40px;
   font-style: normal;
