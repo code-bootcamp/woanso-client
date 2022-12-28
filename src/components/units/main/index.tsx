@@ -1,5 +1,5 @@
 import BestSellingBooks from "../../commons/bestsell";
-import { BookSliderTop, BookSliderBottom } from "../../commons/carousel";
+import { BookSliderTop } from "../../commons/carousel";
 import Picks from "../../commons/picks/style";
 import Recommand from "../../commons/recommand";
 
@@ -10,9 +10,9 @@ export default function Main() {
     <S.OuterWrap>
       <S.InnerWrap>
         <BookSliderTop />
-        <BestSellingBooks />
-        <Picks />
         <Recommand />
+        <Picks />
+        <BestSellingBooks />
 
         {/* <S.Title>Weekly Hot Pick</S.Title> */}
         {/* <S.WeeklyHotPicksWrap>
