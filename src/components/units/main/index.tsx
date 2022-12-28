@@ -1,4 +1,4 @@
-import BestSellingBooks from "../../commons/bestsell";
+import BestBooks from "../../commons/bestbooks";
 import { BookSliderTop } from "../../commons/carousel";
 import FaqMini from "../../commons/faqmini";
 import Picks from "../../commons/picks/style";
@@ -13,7 +13,7 @@ export default function Main() {
         <BookSliderTop />
         <Recommand />
         <Picks />
-        <BestSellingBooks />
+        <BestBooks />
         <FaqMini />
       </S.InnerWrap>
     </S.OuterWrap>

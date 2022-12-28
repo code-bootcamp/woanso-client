@@ -16,7 +16,7 @@ const MenuLists = [
   { id: "horror", name: "공포" },
 ];
 
-export default function BestSellingBooks() {
+export default function BestBooks() {
   const [section, setSection] = useState<string>("all");
   const [isActive, setIsActive] = useState<string>("all");
 

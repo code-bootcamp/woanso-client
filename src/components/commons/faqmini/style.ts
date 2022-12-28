@@ -9,21 +9,22 @@ export const InnerWrap = styled.div`
 `;
 
 export const Title = styled.h1`
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 `;
 
 export const ListWrap = styled.ul`
-  margin-top: 20px;
+  padding: 20px 0;
 `;
+
 export const List = styled.li`
   list-style: none;
   padding: 20px 0;
 `;
+
 export const Qustion = styled.div`
   font-size: 24px;
-  margin-bottom: 20px;
-  cursor: pointer;
   padding: 30px 20px;
+  cursor: pointer;
   color: #000;
   border-bottom: 1px solid #77170d;
   display: flex;
@@ -38,8 +39,8 @@ export const Text = styled.p`
 
 export const Qmark = styled.div`
   color: #fff;
-  padding: 3px;
   background-color: #77170d;
+  padding: 3px;
   border-radius: 50%;
   margin-right: 20px;
 `;
@@ -47,5 +48,5 @@ export const Qmark = styled.div`
 export const Answer = styled.div`
   font-size: 20px;
   line-height: 30px;
-  padding-left: 65px;
+  padding: 20px 0 0 65px;
 `;
