@@ -5,6 +5,8 @@ export default function FreeBoard(){
         <S.OutWrapper>
             <S.TitleWrapper>
                 <S.Title>자유게시판</S.Title>
+                <S.SearchBar></S.SearchBar>
+                <S.Search>검색</S.Search>
             </S.TitleWrapper>
             <S.Wrapper>
             <S.FreeBoardWrapper>
@@ -36,6 +38,18 @@ export default function FreeBoard(){
                         </S.ViewWrapper>
                     </S.ContentsViewWrapper>
                 </S.ContentsWrapper>
+                <S.PageNumber> 
+                    <S.Page style={{color: "#77170d"}}>1</S.Page>
+                    <S.Page>2</S.Page>
+                    <S.Page>3</S.Page>
+                    <S.Page>4</S.Page>
+                    <S.Page>5</S.Page>
+                    <S.Page>6</S.Page>
+                    <S.Page>7</S.Page>
+                    <S.Page>8</S.Page>
+                    <S.Page>9</S.Page>
+                    <S.Page>10</S.Page>
+                     </S.PageNumber>
             </S.FreeBoardWrapper>
             <S.FreeBoardWrapper>
                 <S.BoardTitle>짤 공유</S.BoardTitle>
