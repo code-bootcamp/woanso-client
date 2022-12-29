@@ -17,14 +17,15 @@ export default function LoginUI() {
         </S.TitleWrapper>
         {/* <form onSubmit={handleSubmit(onClickSubmit)}> */}
         <S.ContentsWrapper>
-          <S.ID type="text"></S.ID>
-          <S.Password type="password"></S.Password>
+          <S.Label>이메일</S.Label>
+          <S.Input type="text"></S.Input>
+          <S.Label>비밀번호</S.Label>
+          <S.Input type="password"></S.Input>
           <S.LoginButton>로그인</S.LoginButton>
           <S.Footer>
-            <S.Footer1>아직 계정이 없으신가요?</S.Footer1>
-            <S.Footer2 onClick={onClickMoveToSingUp}>회원가입</S.Footer2>
+            <S.Footer1>회원가입</S.Footer1>
+            <S.Footer1>이메일/비밀번호 찾기</S.Footer1>
           </S.Footer>
-          <S.NoUserButton>비회원 주문조회</S.NoUserButton>
         </S.ContentsWrapper>
         {/* </form> */}
       </S.LoginWrapper>
