@@ -21,7 +21,7 @@ export const MainBox = styled.div`
   margin-top: 200px;
   width: 750px;
   /* border: 1px solid black; */
-  height: 900px;
+  height: auto;
   border: 1px solid rgba(0, 0, 0, 0.03);
   :hover {
     background-color: rgba(0, 0, 0, 0.03);
@@ -41,6 +41,7 @@ export const ImageBox = styled.img`
 
 export const UnderIcons = styled.div`
   margin-top: 50px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   gap: 150px;
