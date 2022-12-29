@@ -34,13 +34,12 @@ export const Contents = styled.div`
   flex-direction: column;
   gap: 15px;
 `;
-export const ImageBox = styled.div`
+export const ImageBox = styled.img`
   width: 450px;
   height: 600px;
   border-radius: 30px;
   margin-top: 25px;
-  background-position: center center;
-  background-color: rebeccapurple;
+  object-fit: cover;
 `;
 
 export const UnderIcons = styled.div`

@@ -1,9 +1,21 @@
 import * as S from "./style";
 
 const FreeBoardsContents = [
-  { nickName: "닉네임", time: "1시간", contents: "이거봄?" },
-  { nickName: "ㄸㅜ", time: "3시간", contents: "오히려..." },
-  { nickName: "해강", time: "6시간", contents: "음..." },
+  {
+    nickName: "닉네임",
+    time: "1시간",
+    contents: "이거봄?",
+  },
+  {
+    nickName: "ㄸㅜ",
+    time: "3시간",
+    contents: "오히려...",
+  },
+  {
+    nickName: "해강",
+    time: "6시간",
+    contents: "음...",
+  },
 ];
 export default function FreeBoards() {
   return (
@@ -26,9 +38,7 @@ export default function FreeBoards() {
                     <div>내용내용내용내용</div>
                     <div>내용내용내용내용</div>
                   </div>
-                  <S.ImageBox>
-                    <img src="/test_img.png" />
-                  </S.ImageBox>
+                  <S.ImageBox alt="" src="/test_img.png" />
                 </S.Contents>
               </S.TalkContents>
               <S.UnderIcons>
