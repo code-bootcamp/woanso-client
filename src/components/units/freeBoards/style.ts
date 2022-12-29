@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const TalkBox = styled.div`
-  margin-top: 200px;
   display: flex;
   flex-direction: column;
 
@@ -9,13 +8,13 @@ export const TalkBox = styled.div`
 `;
 export const TalkContents = styled.div`
   display: flex;
-  margin: 40px 25px;
+  margin: 75px 60px;
 `;
 export const ProfileImg = styled.img`
   width: 120px;
   height: 130px;
 `;
-export const Profile = styled.div``;
+
 export const NameAndTime = styled.div`
   display: flex;
   gap: 10px;
@@ -42,17 +41,16 @@ export const ImageBox = styled.img`
 `;
 
 export const UnderIcons = styled.div`
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
+
   gap: 150px;
 `;
 
 export const CommentAndLikeIcon = styled.img`
   width: 15px;
   height: 15px;
-
   :hover {
     cursor: pointer;
   }

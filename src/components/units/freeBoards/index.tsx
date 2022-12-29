@@ -13,9 +13,7 @@ export default function FreeBoards() {
           <>
             <S.MainBox>
               <S.TalkContents>
-                <S.Profile>
-                  <S.ProfileImg src="/profile-freeboard.png" />
-                </S.Profile>
+                <S.ProfileImg src="/profile-freeboard.png" />
                 <S.Contents>
                   <S.NameAndTime>
                     <span>{el.nickName}</span>
