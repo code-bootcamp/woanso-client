@@ -4,10 +4,12 @@ import LayoutHeader from "./header";
 interface ILayoutProps {
   children: JSX.Element;
 }
+
 // prettier-ignore
 const HIDDEN_LAYOUT = [
   "/login",
   "/join",
+  "/publicuser"
 ];
 
 export default function LayoutPage(props: ILayoutProps) {

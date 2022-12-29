@@ -1,3 +1,5 @@
+import MypageUI from "../../src/components/units/mypage";
+
 export default function MyPageMain() {
-  return <>마이페이지예요~</>;
+  return <MypageUI />;
 }

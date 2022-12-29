@@ -28,8 +28,8 @@ export const MenuWrap2 = styled.div`
   padding: 50px 100px;
   position: relative;
   /* box-shadow: 0 4px 0 0 #dfe2e4, 0px 4px 8px rgb(90 0 0 / 20%); */
-  background-image: url("/header_test2.png");
-  background-position: center;
+  background-image: url("/header_bg.jpeg");
+  background-position: bottom;
   background-size: cover;
   height: 600px;
 `;
@@ -38,7 +38,6 @@ export const Logo = styled.div`
   color: #fff;
   padding: 20px 10px;
   font-weight: bold;
-  font-family: "yang";
   letter-spacing: 10px;
   color: #333;
   cursor: pointer;

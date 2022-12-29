@@ -27,7 +27,7 @@ export default function LayoutHeader() {
     <S.OuterWrap>
       <S.InnerWrap>
         <S.MenuWrap>
-          <S.Logo onClick={onClickMoveToHome}>WoanSo</S.Logo>
+          <S.Logo ocClick={onClickMoveToHome}>WoanSo</S.Logo>
           <S.BtnsWrap>
             {UserList.map((el) => (
               <Fragment key={el.id}>
@@ -40,9 +40,9 @@ export default function LayoutHeader() {
         </S.MenuWrap>
 
         <S.MenuWrap2>
-          {/* <S.LogoWrap>
+          <S.LogoWrap>
             <S.LogoImg src="/logo_white.png" />
-          </S.LogoWrap> */}
+          </S.LogoWrap>
 
           <S.BtnsWrap>
             {MenuList.map((el) => (
