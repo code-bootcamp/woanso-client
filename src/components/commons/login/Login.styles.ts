@@ -47,27 +47,18 @@ export const ContentsWrapper = styled.div`
   box-sizing: border-box;
   margin-top: 60px;
 `;
-export const ID = styled.input`
+
+export const Label = styled.div`
+margin-top: 40px;
+font-size: 20px;
+margin-bottom: 20px;
+`
+export const Input = styled.input`
   width: 600px;
   height: 77.48px;
   background: #f6f6f6;
   border: 1px solid #cccccc;
   border-radius: 10px;
-  margin-top: 20px;
-  padding: 40px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  color: #6b6b6b;
-`;
-export const Password = styled.input`
-  width: 600px;
-  height: 77.48px;
-  background: #f6f6f6;
-  border: 1px solid #cccccc;
-  border-radius: 10px;
-  margin-top: 60px;
   padding: 40px;
   font-style: normal;
   font-weight: 400;
@@ -78,8 +69,7 @@ export const Password = styled.input`
 export const LoginButton = styled.button`
   width: 600px;
   height: 88px;
-  background: #e642aa;
-  background: #f5efe3;
+  background: #77170D;
   border-radius: 10px;
   border: none;
   font-style: normal;
@@ -88,31 +78,23 @@ export const LoginButton = styled.button`
   line-height: 100%;
   margin-top: 100px;
   cursor: pointer;
+  color: #ffffff;
 `;
 export const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 60px;
+  margin-right: 50px;
 `;
 export const Footer1 = styled.div`
-  width: 183px;
+  width: 170px;
   height: 18px;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 100%;
-  color: #888888;
-`;
-export const Footer2 = styled.div`
-  width: 67px;
-  height: 18px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 100%;
-  text-decoration: underline;
-  cursor: pointer;
+  text-align: center;
 `;
 
 export const Wrapper = styled.div`
@@ -120,8 +102,3 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 `;
-
-export const NoUserButton = styled.button`
-margin-left: 250px;
-margin-top: 40px;
-`
