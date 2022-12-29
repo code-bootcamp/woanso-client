@@ -1,8 +1,11 @@
 import styled from "@emotion/styled";
 
 export const TalkBox = styled.div`
+  margin-top: 200px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
+  align-items: center;
 `;
 export const TalkContents = styled.div`
   display: flex;
@@ -18,7 +21,6 @@ export const NameAndTime = styled.div`
   gap: 10px;
 `;
 export const MainBox = styled.div`
-  margin-top: 200px;
   width: 750px;
   /* border: 1px solid black; */
   height: auto;
