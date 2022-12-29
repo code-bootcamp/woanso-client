@@ -109,7 +109,7 @@ export const Footer = styled.div`
   justify-content: center;
 `;
 export const Footer1 = styled.div`
-  width: 199px;
+  width: 210px;
   height: 18px;
   font-style: normal;
   font-weight: 400;
@@ -152,6 +152,4 @@ export const CheckBox = styled.input`
   margin: 10px;
 `;
 
-export const Radio = styled.input`
-  margin: 20px;
-`;
+
