@@ -29,7 +29,7 @@ export const MenuWrap2 = styled.div`
   position: relative;
   /* box-shadow: 0 4px 0 0 #dfe2e4, 0px 4px 8px rgb(90 0 0 / 20%); */
   background-image: url("/header_bg.jpeg");
-  background-position: bottom;
+  background-position: center;
   background-size: cover;
   height: 600px;
 `;
@@ -55,16 +55,6 @@ export const Btn2 = styled.div`
   padding: 0 10px;
   font-size: 20px;
   cursor: pointer;
-`;
-
-export const LogoWrap = styled.div`
-  position: absolute;
-  bottom: 40px;
-  left: 50px;
-`;
-
-export const LogoImg = styled.img`
-  width: 150px;
 `;
 
 export const IconsWrap = styled.div``;

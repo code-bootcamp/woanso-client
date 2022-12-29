@@ -40,10 +40,6 @@ export default function LayoutHeader() {
         </S.MenuWrap>
 
         <S.MenuWrap2>
-          <S.LogoWrap>
-            <S.LogoImg src="/logo_white.png" />
-          </S.LogoWrap>
-
           <S.BtnsWrap>
             {MenuList.map((el) => (
               <S.Btn2 id={el.id} onClick={onClickMoveToPage}>
