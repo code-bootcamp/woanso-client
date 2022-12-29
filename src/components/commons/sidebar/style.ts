@@ -21,6 +21,7 @@ export const Box = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 
 export const PhoneIcon = styled(PhoneOutlined)`
