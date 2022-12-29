@@ -9,7 +9,7 @@ export const TalkBox = styled.div`
 `;
 export const TalkContents = styled.div`
   display: flex;
-  margin: 40px 25px;
+  margin: 75px 60px;
 `;
 export const ProfileImg = styled.img`
   width: 120px;
@@ -34,25 +34,27 @@ export const Contents = styled.div`
   flex-direction: column;
   gap: 15px;
 `;
-export const ImageBox = styled.img`
+export const ImageBox = styled.div`
   width: 450px;
   height: 600px;
   border-radius: 30px;
   margin-top: 25px;
+  background-position: center center;
+  background-color: rebeccapurple;
 `;
 
 export const UnderIcons = styled.div`
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+
   gap: 150px;
 `;
 
 export const CommentAndLikeIcon = styled.img`
   width: 15px;
   height: 15px;
-
   :hover {
     cursor: pointer;
   }

@@ -26,7 +26,9 @@ export default function FreeBoards() {
                     <div>내용내용내용내용</div>
                     <div>내용내용내용내용</div>
                   </div>
-                  <S.ImageBox src="/test_img.png" />
+                  <S.ImageBox>
+                    <img src="/test_img.png" />
+                  </S.ImageBox>
                 </S.Contents>
               </S.TalkContents>
               <S.UnderIcons>
