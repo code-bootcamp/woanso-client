@@ -17,7 +17,6 @@ export const MenuListWrap = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin-left: 4rem;
 `;
 
 export const MenuList = styled.div`
@@ -34,7 +33,7 @@ export const MenuList = styled.div`
 export const BooksListWrap = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 50px;
+  margin-top: 3rem;
   gap: 30px;
 `;
 

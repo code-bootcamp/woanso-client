@@ -46,7 +46,7 @@ export const Qmark = styled.div`
 `;
 
 export const Answer = styled.div`
-  font-size: 20px;
+  /* font-size: 20px; */
   line-height: 30px;
   padding: 20px 0 0 65px;
 `;

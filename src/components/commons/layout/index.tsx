@@ -4,6 +4,7 @@ import LayoutHeader from "./header";
 interface ILayoutProps {
   children: JSX.Element;
 }
+
 // prettier-ignore
 const HIDDEN_LAYOUT = [
   "/login",
