@@ -1,60 +1,65 @@
+import { useState } from "react";
 import * as S from "./style";
 
+const MyBaskets = [
+  { market: "출판사명", productName: "상품명", price: "가격" },
+  { market: "출판사명", productName: "상품명", price: "대여불가" },
+];
 export default function MyBasketUI() {
   return (
     <S.MyBasket>
       <S.BasketList>
         <h1>장바구니</h1>
         <S.TopRow>
-          <input type="checkbox" />
           <div>구매 / 삭제</div>
         </S.TopRow>
+        {MyBaskets.map((el) => (
+          <S.ListRow>
+            <S.ListContents>
+              <S.ProductImgBox>
+                <S.ProductImg src="/action/02.jpeg" />
+              </S.ProductImgBox>
+              <S.List>
+                <div>{el.market}</div>
+                <div>{el.productName}</div>
+                <S.PriceOrNot>{el.price}</S.PriceOrNot>
+              </S.List>
+              <S.Buttons>
+                <S.BuyButton>구매</S.BuyButton>
+                <S.DeleteButton>삭제</S.DeleteButton>
+              </S.Buttons>
+            </S.ListContents>
+          </S.ListRow>
+        ))}
         <S.ListRow>
-          <input type="checkbox" />
           <S.ListContents>
-            <div>
-              <img src="/action/02.jpeg" />
-            </div>
+            <S.ProductImgBox>
+              <S.ProductImg src="/action/02.jpeg" />
+            </S.ProductImgBox>
             <S.List>
               <div>출판사명</div>
               <div>상품이름</div>
-              <div>가격</div>
+              <S.PriceOrNot>대여 불가</S.PriceOrNot>
             </S.List>
-            <div>
-              <button>구매</button>
-              <button>삭제</button>
-            </div>
+            <S.Buttons>
+              <S.BuyButton>구매</S.BuyButton>
+              <S.DeleteButton>삭제</S.DeleteButton>
+            </S.Buttons>
           </S.ListContents>
         </S.ListRow>
-        <div>
-          <input type="checkbox" />
-          <div>
-            <div>
-              <img src="/action/02.jpeg" />
-            </div>
-            <div>
-              <div>출판사명</div>
-              <div>상품이름</div>
-              <div>가격</div>
-            </div>
-          </div>
-          <button>구매</button>
-          <button>삭제</button>
-        </div>
-        <div>
+
+        {/* <S.AllPrice>
           <div>
             <div>상품가격</div>
-            <div>10000원</div>
-          </div>
-          <div>
             <div>배송비</div>
-            <div>3000원</div>
-          </div>
-          <div>
             <div>총 결제금액</div>
-            <div>13000원</div>
           </div>
-        </div>
+          <S.Price>
+            <div>10000 원</div>
+            <div>3000 원</div>
+            <div>13000 원</div>
+          </S.Price>
+        </S.AllPrice> */}
       </S.BasketList>
     </S.MyBasket>
   );
