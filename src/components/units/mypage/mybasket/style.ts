@@ -1,3 +1,4 @@
+import { CloseOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 export const MyBasket = styled.div`
@@ -62,6 +63,13 @@ export const PriceOrNot = styled.div`
   font-size: 20px;
   font-weight: 600;
 `;
+export const RentError = styled(CloseOutlined)`
+  color: red;
+  margin-left: 20px;
+  * {
+    font-size: 30px;
+  }
+`;
 export const Buttons = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,9 +78,19 @@ export const Buttons = styled.div`
   gap: 10px;
   margin-left: 200px;
 `;
-export const BuyButton = styled.button`
+export const RentButton = styled.button`
   background-color: #751312;
   color: #ffffff;
+  width: 80px;
+  height: 30px;
+  font-size: 15px;
+  :hover {
+    cursor: pointer;
+  }
+`;
+export const RentButton2 = styled.button`
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #d1c9c17f;
   width: 80px;
   height: 30px;
   font-size: 15px;
@@ -84,6 +102,9 @@ export const DeleteButton = styled.button`
   width: 80px;
   height: 30px;
   font-size: 15px;
+  :hover {
+    cursor: pointer;
+  }
 `;
 // export const AllPrice = styled.div`
 //   display: flex;

@@ -1,9 +1,24 @@
-import { useState } from "react";
 import * as S from "./style";
 
 const MyBaskets = [
-  { market: "출판사명", productName: "상품명", price: "가격" },
-  { market: "출판사명", productName: "상품명", price: "대여불가" },
+  {
+    market: "출판사명",
+    productName: "상품명",
+    status: "대여가능",
+    price: "가격",
+  },
+  {
+    market: "출판사명",
+    productName: "상품명",
+    status: "대여가능",
+    price: "가격",
+  },
+  {
+    market: "출판사명",
+    productName: "상품명",
+    status: "대여가능",
+    price: "가격",
+  },
 ];
 export default function MyBasketUI() {
   return (
@@ -22,10 +37,11 @@ export default function MyBasketUI() {
               <S.List>
                 <div>{el.market}</div>
                 <div>{el.productName}</div>
-                <S.PriceOrNot>{el.price}</S.PriceOrNot>
+                <div>{el.price}</div>
+                <S.PriceOrNot>{el.status}</S.PriceOrNot>
               </S.List>
               <S.Buttons>
-                <S.BuyButton>구매</S.BuyButton>
+                <S.RentButton>대여</S.RentButton>
                 <S.DeleteButton>삭제</S.DeleteButton>
               </S.Buttons>
             </S.ListContents>
@@ -39,10 +55,14 @@ export default function MyBasketUI() {
             <S.List>
               <div>출판사명</div>
               <div>상품이름</div>
-              <S.PriceOrNot>대여 불가</S.PriceOrNot>
+              <div>가격</div>
+              <S.PriceOrNot>
+                대여 불가
+                <S.RentError />
+              </S.PriceOrNot>
             </S.List>
             <S.Buttons>
-              <S.BuyButton>구매</S.BuyButton>
+              <S.RentButton2>대여</S.RentButton2>
               <S.DeleteButton>삭제</S.DeleteButton>
             </S.Buttons>
           </S.ListContents>
