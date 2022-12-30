@@ -5,6 +5,7 @@ import { DatePicker, Space } from "antd";
 import type { RangePickerProps } from "antd/es/date-picker";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import RentsReviewList from "../../rentsReview/list/rentsReviewList.container";
 
 dayjs.extend(customParseFormat);
 
@@ -111,8 +112,14 @@ export default function RentDetailUI() {
               <S.InfoContent2>123</S.InfoContent2>
             </S.InfoWrap>
           </S.MiddleContainer>
-          <S.BottomContainer></S.BottomContainer>
           <RentsReviewWrite />
+          <S.ReviewListBox>
+            <RentsReviewList />
+            <RentsReviewList />
+            <RentsReviewList />
+            <RentsReviewList />
+            <RentsReviewList />
+          </S.ReviewListBox>
         </S.Container>
       </S.Wrapper>
     </>

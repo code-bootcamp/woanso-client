@@ -47,9 +47,9 @@ export const Name2 = styled.h3`
 
 export const editBtn = styled.button`
   cursor: pointer;
-  background-color: white;
-  border: 1px solid #f5efe3;
+  background-color: #f5efe3;
   border-radius: 3px;
+  padding: 5px 25px;
 `;
 
 // export const DltBtn = styled.button`
@@ -127,7 +127,9 @@ export const Button1 = styled.button`
   border-radius: 5px;
   font-size: 18px;
   font-weight: 500;
+  cursor: pointer;
 `;
+
 export const Button2 = styled.button`
   width: 48%;
   height: 6rem;
@@ -136,6 +138,7 @@ export const Button2 = styled.button`
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
+  cursor: pointer;
 `;
 
 export const BtnWrapper2 = styled.div`
@@ -147,22 +150,9 @@ export const MiddleContainer = styled.div`
   margin: 30px 0;
 `;
 
-export const BottomContainer = styled.div``;
-
-export const ReviewTitle = styled.div``;
-
-export const ReviewContainer = styled.div``;
-
-export const Star = styled.div``;
-
-export const ReviewWrite = styled.div``;
-
-export const EnrollBtn = styled.button``;
-
-export const ReviewList = styled.div``;
-
-export const ReviewWriter = styled.div``;
-
-export const ReviewContents = styled.div``;
-
-export const ReviewDate = styled.div``;
+export const ReviewListBox = styled.div`
+  width: 100%;
+  padding: 30px 0;
+  border-top: 1px solid grey;
+  margin-top: 15px;
+`;
