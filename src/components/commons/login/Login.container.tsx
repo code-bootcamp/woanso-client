@@ -1,3 +1,4 @@
+import SignupBenefit from "../signupbenefit";
 import * as S from "./Login.styles";
 
 export default function LoginUI() {
@@ -28,6 +29,7 @@ export default function LoginUI() {
           </S.Footer>
         </S.ContentsWrapper>
         {/* </form> */}
+        <SignupBenefit />
       </S.LoginWrapper>
     </S.Wrapper>
   );

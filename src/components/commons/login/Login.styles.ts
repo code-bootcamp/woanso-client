@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const LoginWrapper = styled.div`
   width: 742px;
-  height: 1200px;
+  /* height: 1200px; */
   background: #ffffff;
   box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.07);
   border-radius: 10px;
@@ -49,10 +49,10 @@ export const ContentsWrapper = styled.div`
 `;
 
 export const Label = styled.div`
-margin-top: 40px;
-font-size: 20px;
-margin-bottom: 20px;
-`
+  margin-top: 40px;
+  font-size: 20px;
+  margin-bottom: 20px;
+`;
 export const Input = styled.input`
   width: 600px;
   height: 77.48px;
@@ -69,7 +69,7 @@ export const Input = styled.input`
 export const LoginButton = styled.button`
   width: 600px;
   height: 88px;
-  background: #77170D;
+  background: #77170d;
   border-radius: 10px;
   border: none;
   font-style: normal;
@@ -95,10 +95,11 @@ export const Footer1 = styled.div`
   font-size: 18px;
   line-height: 100%;
   text-align: center;
+  margin-bottom: 70px;
+  cursor: pointer;
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
   width: 100%;
   height: 100%;
 `;

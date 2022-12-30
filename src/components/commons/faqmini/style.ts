@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const OuterWrap = styled.div`
-  border-top: 1px solid #77170d;
+  border-top: 2px dashed #77170d;
 `;
 
 export const InnerWrap = styled.div`

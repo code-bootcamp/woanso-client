@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div`
-  padding: 50px 100px;
+  padding: 50px;
   background-color: #f4efe4;
 
   display: flex;
