@@ -26,7 +26,7 @@ export default function MyBasketUI() {
       <S.BasketList>
         <h1>장바구니</h1>
         <S.TopRow>
-          <div>구매 / 삭제</div>
+          <div>대여 / 삭제</div>
         </S.TopRow>
         {MyBaskets.map((el) => (
           <S.ListRow>
