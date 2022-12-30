@@ -13,12 +13,7 @@ const onClickEmail = () => {
     setBbb(true)
 }
 
- const onClickPassword = () => {
-        console.log("비밀번호 찾아줘!!")
-        setQqq(false)
-        setCcc(true)
-        setBbb(false)
-    }
+
 
 
 

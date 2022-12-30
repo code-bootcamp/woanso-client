@@ -1,5 +1,12 @@
-import FreeBoard from "../../src/components/units/freeBoards/list/freeBoards.container";
+import FreeBoards from "../../src/components/units/freeBoards";
+import FreeBoardsWrite from "../../src/components/units/freeBoards/write";
+// import FreeBoard from "../../src/components/units/freeBoards/list/freeBoards.container";
 
 export default function FreeBoardPage() {
-  return <FreeBoard/>
+  return (
+    <>
+      <FreeBoardsWrite />
+      <FreeBoards />
+    </>
+  );
 }

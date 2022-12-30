@@ -14,16 +14,17 @@ export default function SignupUI() {
           {/* <form onSubmit={handleSubmit(onClickSubmit)}> */}
           <S.ContentsWrapper>
             <S.SubWrapper>
-              <S.Label>아이디</S.Label>
+              <S.Label>닉네임</S.Label>
               <S.Input
-                placeholder="이메일 아이디를 @까지 정확하게 입력하세요."
+                placeholder="사용할 닉네임을 입력해주세요."
                 type="text"
               ></S.Input>
             </S.SubWrapper>
             <S.SubWrapper>
-              <S.Label>닉네임</S.Label>
+              <S.Label>이메일</S.Label>
               <S.Input
-                placeholder="사용할 닉네임을 입력하세요."
+                placeholder=
+                "이메일 아이디를 @까지 정확하게 입력해주세요."
                 type="text"
               ></S.Input>
             </S.SubWrapper>
@@ -35,16 +36,18 @@ export default function SignupUI() {
               ></S.Input>
             </S.SubWrapper>
             <S.SubWrapper>
-              <S.Label>비밀번호확인</S.Label>
+              <S.Label>비밀번호 확인</S.Label>
               <S.Input
                 placeholder="영문+숫자 조합 8~16자리를 입력해주세요."
                 type="password"
               ></S.Input>
             </S.SubWrapper>
             <S.SubWrapper>
-              <S.Label>성별</S.Label>
-              <S.Radio type="radio" id="woman" name="radio-button" />여
-              <S.Radio type="radio" id="man" name="radio-button" />남
+              <S.Label>전화번호</S.Label>
+              <S.Input
+                placeholder="전화번호를 입력해주세요."
+                type="text"
+              ></S.Input>
             </S.SubWrapper>
             <S.SubWrapper>
               <S.Label>장르 선택</S.Label>
