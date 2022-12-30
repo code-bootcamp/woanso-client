@@ -24,7 +24,7 @@ export const MainWrapper = styled.div`
 
 export const Name = styled.div`
   width: 120px;
-  margin: 20px 0px 30px;
+  margin: 20px 0px 20px;
   span {
     font-size: 20px;
     font-weight: 400;
@@ -42,20 +42,19 @@ export const Button = styled.button`
 `;
 
 export const Button2 = styled.button`
-  width: 160px;
-  height: 55px;
+  width: 120px;
+  height: 40px;
   border: none;
   margin: 50px 7px;
   background-color: #751312;
   color: white;
-  font-size: 20px;
+  border-radius: 3px;
   cursor: pointer;
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin: 60px 0 20px;
 `;
 
 export const Input = styled.input`
@@ -90,7 +89,7 @@ export const ImageButton = styled.label`
   display: inline-block;
   width: 150px;
   height: 150px;
-  margin-right: 0.8rem;
+  margin-right: 5px;
   background-color: lightgray;
   display: flex;
   justify-content: center;

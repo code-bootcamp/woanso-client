@@ -1,19 +1,36 @@
-import { useRouter } from "next/router";
 import * as S from "./style";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { allDatas } from "../section/detas";
+import PointChangeModal from "../pointmanagement";
+import { Modal } from "antd";
 
 const MenuLists = [
   { id: "additem", name: "상품 추가" },
-  { id: "point", name: "포인트 관리" },
+  { id: "additem", name: "유저 게시글 관리" },
+  { id: "usermanagement", name: "유저 권한 관리" },
   { id: "event", name: "진행중인 이벤트" },
-  { id: "logout", name: "로그아웃" },
 ];
 
 export default function AdminpageUI() {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
 
   const onClickMoveToPage = (e) => {
     router.push(e.currentTarget.id);
+  };
+
+  const onClickOpenModal = () => {
+    setOpen(true);
+  };
+
+  const onClickLogout = () => {
+    Modal.success({
+      content: "로그아웃 되었습니다!",
+      afterClose() {
+        router.push("/adminlogin");
+      },
+    });
   };
 
   return (
@@ -30,11 +47,16 @@ export default function AdminpageUI() {
             <S.MenuLists>
               {MenuLists.map((el) => (
                 <S.MenuList key={el.id} id={el.id} onClick={onClickMoveToPage}>
-                  <a>
-                    <S.MenuName>{el.name}</S.MenuName>
-                  </a>
+                  <S.MenuName>{el.name}</S.MenuName>
                 </S.MenuList>
               ))}
+              <S.MenuList onClick={onClickOpenModal}>
+                <S.MenuName>포인트 지불 관리</S.MenuName>
+              </S.MenuList>
+              <PointChangeModal open={open} setOpen={setOpen} />
+              <S.MenuList onClick={onClickLogout}>
+                <S.MenuName>로그아웃</S.MenuName>
+              </S.MenuList>
             </S.MenuLists>
           </S.MenuBarWrap>
         </S.SideWrap>
@@ -127,12 +149,7 @@ export default function AdminpageUI() {
                   <th>탈퇴 일</th>
                 </tr>
               </thead>
-              {/* <tfoot>
-                <tr>
-                  <td colspan="4">SUM</td>
-                  <td>118</td>
-                </tr>
-              </tfoot> */}
+
               <tbody>
                 <tr>
                   <th scope="row">1</th>

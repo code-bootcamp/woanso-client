@@ -5,7 +5,7 @@ const MenuLists = [
   { id: "rentslist", name: "대여목록" },
   { id: "reservationlist", name: "예약내역" },
   { id: "userinfoedit", name: "회원정보 수정" },
-  { id: "askkakao", name: "1문의" },
+  { id: "askkakao", name: "1:1 문의" },
   { id: "faq", name: "FAQ" },
 ];
 

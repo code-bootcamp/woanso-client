@@ -10,7 +10,9 @@ export const InnerWrap = styled.div`
 
 export const SideWrap = styled.div`
   width: 24%;
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 `;
@@ -20,13 +22,11 @@ export const MainWrap = styled.div`
 `;
 
 export const UserInfoWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 `;
 
 export const UserAvatar = styled.div`
-  margin-bottom: 20px;
+  margin: 50px 0 20px 0;
   border: 1px solid #ddd;
   border-radius: 50%;
 `;
@@ -45,7 +45,6 @@ export const MenuBarWrap = styled.div`
 export const MenuLists = styled.ul`
   list-style: none;
   padding: 0;
-  padding-left: 50px;
 `;
 
 export const MenuList = styled.li`

@@ -1,3 +1,4 @@
+import "antd/dist/antd.css";
 import { Global } from "@emotion/react";
 import { AppProps } from "next/app";
 import { globalStyles } from "../src/commons/styles/globalStyles";
