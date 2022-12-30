@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div`
-  padding: 50px 100px;
+  padding: 50px;
   background-color: #f4efe4;
 
   display: flex;
@@ -51,9 +51,13 @@ export const PointBox = styled.div`
 `;
 
 export const PointText = styled.p`
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 20px;
+  font-family: "yang";
 `;
 export const PointAmount = styled.p`
   font-size: 50px;
+  font-family: "yang";
+  color: #000;
+  letter-spacing: 1px;
 `;
