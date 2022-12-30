@@ -14,7 +14,7 @@ export const ProductInfo = styled.div`
   flex-direction: column;
 `;
 
-export const ProductTitle = styled.div`
+export const ProductTitle = styled.h1`
   margin: 2rem 0;
 `;
 
@@ -32,17 +32,17 @@ export const TitleRight = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
+  margin-bottom: 2rem;
 `;
 
-export const h1 = styled.h1``;
+export const NameBox = styled.div``;
 
-export const Name = styled.div``;
-
-export const Name2 = styled.div`
+export const Name2 = styled.h3`
   width: 20rem;
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: 500;
   padding-right: 10rem;
+  margin: 0;
 `;
 
 export const editBtn = styled.button`
@@ -61,16 +61,25 @@ export const editBtn = styled.button`
 
 export const TopContainer = styled.div`
   display: flex;
+  height: 700px;
+  justify-content: space-between;
   flex-direction: row;
 `;
 
-export const InfoImage = styled.div``;
+export const InfoImage = styled.div`
+  width: 100%;
+  img {
+    width: 100%;
+    border: 2px solid #751312;
+    height: 100%;
+    border-radius: 15px;
+  }
+`;
 
 export const InfoLeft = styled.div`
-  width: 50%;
+  width: 46%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: 2.1rem;
 `;
 
 export const InfoRight = styled.div`
@@ -78,11 +87,9 @@ export const InfoRight = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  width: 95%;
-  height: 50rem;
+  width: 100%;
   background-color: #f5efe3;
   border-radius: 20px;
-  margin: 20px 30px;
   padding: 20px 30px;
 `;
 
@@ -94,18 +101,18 @@ export const InfoWrap = styled.div`
 export const InfoName = styled.div`
   margin: 20px 40px;
   font-weight: 500;
+  font-size: 1.375rem;
 `;
 
 export const InfoContent1 = styled.div``;
 
-export const InfoContent2 = styled.div`
+export const InfoContent2 = styled.p`
   margin: 2rem 0;
+  font-size: 1.25rem;
 `;
 
 export const BtnWrapper = styled.div`
-  flex-direction: colum;
-  margin: 20px 30px;
-  padding-top: 120px;
+  margin-top: 130px;
 `;
 
 // export const BtnWrap1 = styled.div``;
@@ -113,7 +120,7 @@ export const BtnWrapper = styled.div`
 // export const BtnWrap2 = styled.div``;
 
 export const Button1 = styled.button`
-  width: 12rem;
+  width: 100%;
   height: 3rem;
   background-color: #eae3e3;
   margin-bottom: 0.7rem;
@@ -122,14 +129,18 @@ export const Button1 = styled.button`
   font-weight: 500;
 `;
 export const Button2 = styled.button`
-  width: 12rem;
+  width: 48%;
   height: 6rem;
   background-color: #751312;
   color: white;
-  margin-right: 0.5rem;
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
+`;
+
+export const BtnWrapper2 = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const MiddleContainer = styled.div`

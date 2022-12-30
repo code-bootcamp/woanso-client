@@ -15,11 +15,12 @@ export const WriteWrapper = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-  width: 80%;
+  width: 84%;
 `;
 
 export const Textarea = styled.textarea`
   width: 100%;
+  height: 8rem;
   border-radius: 5px;
   padding: 10px;
   resize: none;
@@ -39,6 +40,7 @@ export const ContentsLength = styled.div``;
 
 export const Button = styled.button`
   width: 15%;
+  height: 8rem;
   background-color: #77170d;
   color: white;
   border-radius: 5px;

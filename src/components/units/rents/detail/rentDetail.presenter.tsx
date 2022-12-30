@@ -1,5 +1,18 @@
 import RentsReviewWrite from "../../rentsReview/write/rentsReviewWrite.container";
 import * as S from "./rentDetail.styles";
+import React from "react";
+import { DatePicker, Space } from "antd";
+import type { RangePickerProps } from "antd/es/date-picker";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+
+dayjs.extend(customParseFormat);
+
+const { RangePicker } = DatePicker;
+
+const disabledDate: RangePickerProps["disabledDate"] = (current) => {
+  return current && current < dayjs().endOf("day");
+};
 
 export default function RentDetailUI() {
   return (
@@ -7,28 +20,24 @@ export default function RentDetailUI() {
       <S.Wrapper>
         <S.Container>
           <S.ProductInfo>
-            <S.ProductTitle>
-              <S.h1>상품명</S.h1>
-            </S.ProductTitle>
+            <S.ProductTitle>상품명</S.ProductTitle>
             <S.Title>
               <S.TitleLeft>
-                <div>저자</div>
-                <div>출판사</div>
-                <div>등록날짜</div>
+                <S.NameBox>저자</S.NameBox>
+                <S.NameBox>출판사</S.NameBox>
+                <S.NameBox>등록날짜</S.NameBox>
               </S.TitleLeft>
-              <S.TitleRight>
-                <S.editBtn>수정</S.editBtn>
-                <S.editBtn>삭제</S.editBtn>
-              </S.TitleRight>
             </S.Title>
           </S.ProductInfo>
+          <S.TitleRight>
+            <S.editBtn>수정</S.editBtn>
+            <S.editBtn>삭제</S.editBtn>
+          </S.TitleRight>
           <S.TopContainer>
             <S.InfoLeft>
-              <S.InfoImage />
-              <img
-                src="/item1.png"
-                style={{ width: "500px", height: "780px" }}
-              />
+              <S.InfoImage>
+                <img src="/item1.png" />
+              </S.InfoImage>
             </S.InfoLeft>
             <S.InfoRight>
               <S.RightContainer>
@@ -53,28 +62,30 @@ export default function RentDetailUI() {
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <S.InfoContent1>3000원</S.InfoContent1>
                     <S.InfoContent1 style={{ color: "grey" }}>
-                      (10,0000원 이상 무료배송)
+                      (100,000원 이상 무료배송)
                     </S.InfoContent1>
                   </div>
                 </S.InfoWrap>
-                <S.InfoWrap style={{ marginBottom: "100px" }}>
+                <S.InfoWrap>
                   <S.InfoName>대여기간 선택</S.InfoName>
-                  <S.InfoContent1>캘린더넣기~~~</S.InfoContent1>
+                  <S.InfoContent1>
+                    <RangePicker disabledDate={disabledDate} />
+                  </S.InfoContent1>
                 </S.InfoWrap>
                 <S.InfoWrap>
                   <S.InfoName>수령예상일</S.InfoName>
                   <S.InfoContent1>지금 주문하면 내일 수령</S.InfoContent1>
                 </S.InfoWrap>
-                <S.BtnWrapper>
-                  <div>
-                    <S.Button1>입고알림</S.Button1>
-                  </div>
-                  <div>
-                    <S.Button2 style={{ opacity: "0.7" }}>장바구니</S.Button2>
-                    <S.Button2>대여하기</S.Button2>
-                  </div>
-                </S.BtnWrapper>
               </S.RightContainer>
+              <S.BtnWrapper>
+                <div>
+                  <S.Button1>입고알림</S.Button1>
+                </div>
+                <S.BtnWrapper2>
+                  <S.Button2 style={{ opacity: "0.7" }}>장바구니</S.Button2>
+                  <S.Button2>대여하기</S.Button2>
+                </S.BtnWrapper2>
+              </S.BtnWrapper>
             </S.InfoRight>
           </S.TopContainer>
           <S.MiddleContainer>
