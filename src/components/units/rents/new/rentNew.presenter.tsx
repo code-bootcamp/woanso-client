@@ -53,40 +53,45 @@ export default function RentNewUI() {
             </S.Category3>
             <S.Category3>
               <S.Name>
-                <span>출판사</span>{" "}
+                <span>작화가</span>{" "}
               </S.Name>
               <S.Input />
             </S.Category3>
           </S.Category2>
-          <S.Category>
+          <S.Category3>
             <S.Name>
-              <span>정가</span>{" "}
+              <span>출판사</span>{" "}
             </S.Name>
-            <S.PriceContainer>
+            <S.Input />
+          </S.Category3>
+          <S.Category2>
+            <S.Category3>
+              <S.Name>
+                {" "}
+                <span>대여가</span>{" "}
+              </S.Name>
+              <S.PriceContainer>
+                <S.PriceInputContainer>
+                  <S.Input />
+                </S.PriceInputContainer>
+                <span>원</span>
+              </S.PriceContainer>
+            </S.Category3>
+            <S.Category3>
+              <S.Name>
+                {" "}
+                <span>배송비</span>{" "}
+              </S.Name>
               <S.PriceInputContainer>
                 <S.Input />
               </S.PriceInputContainer>
-              <span>원</span>
-            </S.PriceContainer>
-          </S.Category>
+            </S.Category3>
+          </S.Category2>
           <S.Category>
             <S.Name>
-              {" "}
-              <span>판매가</span>{" "}
+              <span>한줄 요약</span>
             </S.Name>
-            <S.PriceContainer>
-              <S.PriceInputContainer>
-                <S.Input />
-              </S.PriceInputContainer>
-              <span>원</span>
-            </S.PriceContainer>
-          </S.Category>
-          <S.Category>
-            <S.Name>
-              {" "}
-              <span>품질체크</span>{" "}
-            </S.Name>
-            <S.Button>품질등급 체크</S.Button>
+            <S.Input />
           </S.Category>
           <S.Category>
             <S.Name>
@@ -97,7 +102,7 @@ export default function RentNewUI() {
               style={{
                 width: "600px",
                 height: "200px",
-                marginBottom: "60px",
+                marginBottom: "100px",
               }}
             />
           </S.Category>
@@ -126,31 +131,11 @@ export default function RentNewUI() {
               </S.ImageButton>
             </S.ImageContainer>
           </S.Category>
-          <S.Category>
-            <S.Name>
-              {" "}
-              <span>배송비</span>{" "}
-            </S.Name>
-            <S.PriceInputContainer>
-              <S.Input />
-            </S.PriceInputContainer>
-          </S.Category>
-          <S.Category>
-            <S.Name>
-              {" "}
-              <span>발행일</span>{" "}
-            </S.Name>
-            <S.PriceInputContainer>
-              <S.Input />
-            </S.PriceInputContainer>
-
-            {/* 달력 라이브러리 */}
-          </S.Category>
         </S.MainWrapper>
         <S.BottomContainer>
           <S.ButtonWrapper>
             <S.Button2>등록</S.Button2>
-            <S.Button2>취소</S.Button2>
+            <S.Button2 style={{ backgroundColor: "#bdbdbd" }}>취소</S.Button2>
           </S.ButtonWrapper>
         </S.BottomContainer>
         {/* </S.Form> */}
