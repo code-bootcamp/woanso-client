@@ -34,7 +34,7 @@ export default function MyPointUI() {
           <S.Status>상태(충전/사용)</S.Status>
           <S.Amount>금액(p)</S.Amount>
           <S.Status>사용내역</S.Status>
-          <S.Status>잔액(p)</S.Status>
+          <S.Balance>잔액(p)</S.Balance>
         </S.TopRow>
         {Point.map((el) => (
           <S.PointList>
@@ -42,8 +42,7 @@ export default function MyPointUI() {
             <S.Status>{el.status}</S.Status>
             <S.Amount>{el.amount}</S.Amount>
             <S.Status>{el.usedItem}</S.Status>
-            <S.Status>{el.balance}</S.Status>
-            <S.DetailBt>상세보기</S.DetailBt>
+            <S.Balance>{el.balance}</S.Balance>
           </S.PointList>
         ))}
       </S.PointMainList>

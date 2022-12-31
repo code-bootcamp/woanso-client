@@ -34,10 +34,7 @@ export const Amount = styled.div`
   width: 200px;
   margin-left: 20px;
 `;
-export const DetailBt = styled.button`
-  background-color: #751312;
-  color: #ffffff;
-  width: 100px;
-  height: 40px;
-  border-radius: 4px;
+export const Balance = styled.div`
+  width: 250px;
+  padding-left: 120px;
 `;
