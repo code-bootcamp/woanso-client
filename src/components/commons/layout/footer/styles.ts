@@ -63,6 +63,7 @@ export const IconWrap = styled.div`
   display: flex;
   flex-direction: row;
   gap: 15px;
+  margin-bottom: 7rem;
 `;
 
 export const Icon = styled.div`
