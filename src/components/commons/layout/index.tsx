@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
+import LayoutFooter from "./footer";
 import LayoutHeader from "./header";
+import LayoutNavigation from "./navigation";
 
 interface ILayoutProps {
   children: JSX.Element;
@@ -9,7 +11,7 @@ interface ILayoutProps {
 const HIDDEN_LAYOUT = [
   "/login",
   "/join",
-  
+  "/publicuser"
 ];
 
 export default function LayoutPage(props: ILayoutProps) {
@@ -19,7 +21,9 @@ export default function LayoutPage(props: ILayoutProps) {
   return (
     <>
       {!isHiddenLayout && <LayoutHeader />}
+      <LayoutNavigation />
       {props.children}
+      <LayoutFooter />
     </>
   );
 }
