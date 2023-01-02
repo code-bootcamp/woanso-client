@@ -11,25 +11,25 @@ export default function Payment(){
                     <S.ContentsTitle>주문/배송 정보</S.ContentsTitle>
                     <S.Label>주문자</S.Label>
                     <S.SubWrapper>
-                        <S.Input>홍길동</S.Input>
-                        <S.Input>010-1234-5678</S.Input>
+                        <S.Input placeholder="이름"></S.Input>
+                        <S.Input placeholder="전화번호"></S.Input>
                     </S.SubWrapper>
-                        <S.Input2>user@a.com</S.Input2>
+                        <S.Input2 placeholder="이메일"></S.Input2>
                 </S.ContentsWrapper>
                 <S.ContentsWrapper>
                     <S.Label>배송지 정보</S.Label>
                     <S.SubWrapper>
-                        <S.Input>홍길동</S.Input>
-                        <S.Input>010-1234-5678</S.Input>
+                        <S.Input placeholder="이름"></S.Input>
+                        <S.Input placeholder="전화번호"></S.Input>
                     </S.SubWrapper>
-                    <S.Input2>서울특별시 구로구 디지털로 300 패스트파이브 구로점</S.Input2>
-                    <S.Input2>13층 1324호</S.Input2>
+                    <S.Input2 placeholder="주소"></S.Input2>
+                    <S.Input2 placeholder="상세주소"></S.Input2>
                 </S.ContentsWrapper>
                 <S.ContentsWrapper>
                     <S.Label>쿠폰</S.Label>
                     <S.SubWrapper>
-                        <S.Input3>1,000</S.Input3>
-                            <S.Input4>쿠폰적용</S.Input4>
+                        <S.CouponPrice>원</S.CouponPrice>
+                            <S.Coupon>쿠폰적용</S.Coupon>
                     </S.SubWrapper>
                 </S.ContentsWrapper>
                 <S.ContentsWrapper>
