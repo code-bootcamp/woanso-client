@@ -1,9 +1,12 @@
+import Searchbar from "../../commons/searchbar";
 import * as S from "./style";
 
 export default function Rents() {
   return (
     <S.OuterWrap>
       <S.InnerWrap>
+        <Searchbar />
+
         <S.ListWrap>
           <S.BookImgBox>
             <S.BookImg src="/item1.png" />
