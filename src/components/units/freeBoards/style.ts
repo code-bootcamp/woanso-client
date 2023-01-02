@@ -45,7 +45,7 @@ export const UnderIcons = styled.div`
   display: flex;
   justify-content: center;
 
-  gap: 150px;
+  gap: 80px;
 `;
 
 export const CommentAndLikeIcon = styled.img`
@@ -55,6 +55,21 @@ export const CommentAndLikeIcon = styled.img`
     cursor: pointer;
   }
 `;
+export const LikeDisLike = styled.div`
+  display: flex;
+  gap: 60px;
+`;
+
+export const CommentsLikeDisLikeButton = styled.button`
+  all: unset;
+  width: 20px;
+  :hover {
+    cursor: pointer;
+  }
+`;
 export const LikeCount = styled.span`
+  font-size: 10px;
+`;
+export const DisLikeCount = styled.span`
   font-size: 10px;
 `;

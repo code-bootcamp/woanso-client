@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { SmileOutlined } from "@ant-design/icons";
+
 export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div`
@@ -22,21 +22,54 @@ export const BookImg = styled.img`
 
 export const BookInfoWrap = styled.div`
   padding: 10px 50px;
-  width: 300px;
+  width: 350px;
   height: 100%;
+`;
+
+export const MiddleWrap = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
 `;
 
 export const BookStory = styled.div`
-  padding: 10px 50px;
-  width: 50%;
-  height: 100%;
+  width: 100%;
+  margin-bottom: 50px;
 `;
 
-export const Title = styled.h2`
+export const BookBtnWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const BtnCart = styled.button`
+  width: 100%;
+  height: 50px;
+  background-color: #f5efe3;
+  color: #77170d;
+  font-weight: 700;
+  margin: 20px 0;
+  border-radius: 45px;
+`;
+export const BtnRent = styled.button`
+  width: 100%;
+  height: 50px;
+  background-color: #f5efe3;
+  color: #77170d;
+  font-weight: 700;
+  border-radius: 45px;
+`;
+
+export const Title = styled.h3`
   margin-bottom: 20px;
 `;
 
-export const Info = styled.h3`
+export const Info = styled.h5`
   margin-bottom: 50px;
 `;
 
@@ -45,39 +78,43 @@ export const BookIsRent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 380px;
 `;
 
-export const BookBtnWrap = styled.div`
+export const TextCircle = styled.div`
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: 3px solid #77170d;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 300px;
+  justify-content: center;
+  align-items: center;
 `;
-export const Like = styled(SmileOutlined)`
-  font-size: 40px;
+
+export const Open = styled.p`
+  text-align: center;
+  font-size: 16px;
+  line-height: 30px;
   color: #77170d;
+  font-family: "yang";
 `;
-export const LikeCount = styled.div`
-  font-size: 20px;
-  margin-right: 12px;
-  margin-bottom: 50px;
-  color: #77170d;
+
+export const TextCircle2 = styled.div`
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
-export const BtnCart = styled.button`
-  width: 200px;
-  height: 50px;
-  background-color: #f5efe3;
-  color: #77170d;
-  font-weight: 700;
-  margin: 20px 0;
-  border-radius: 4px;
-`;
-export const BtnRent = styled.button`
-  width: 200px;
-  height: 50px;
-  background-color: #f5efe3;
-  color: #77170d;
-  font-weight: 700;
-  border-radius: 4px;
+
+export const Close = styled.p`
+  text-align: center;
+  font-size: 16px;
+  line-height: 30px;
+  color: #ddd;
+  font-family: "yang";
 `;

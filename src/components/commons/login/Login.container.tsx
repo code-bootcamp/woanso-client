@@ -22,7 +22,9 @@ export default function LoginUI() {
           <S.Input type="text"></S.Input>
           <S.Label>비밀번호</S.Label>
           <S.Input type="password"></S.Input>
-          <S.LoginButton>로그인</S.LoginButton>
+          <S.LoginButtonWrap>
+            <S.LoginButton>로그인</S.LoginButton>
+          </S.LoginButtonWrap>
           <S.Footer>
             <S.Footer1>회원가입</S.Footer1>
             <S.Footer1>이메일/비밀번호 찾기</S.Footer1>

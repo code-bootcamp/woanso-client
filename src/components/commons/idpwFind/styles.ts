@@ -41,29 +41,38 @@ padding: 7px 20px;
 `
 export const InputWrapper = styled.div`
 display: flex;
-width: 400px;
+width: 450px;
 margin-bottom: 60px;
 flex-direction: column;
 border: 2px solid ${props => props.bbb ? "#F5EFE3" : "#F5EFE3"};
+align-items: center;
+padding:40px;
 `
-
-// export const InputWrapper2 = styled.div`
-// display: flex;
-// width: 350px;
-// height: 100px;
-// margin-bottom: 60px;
-// flex-direction: column;
-// background-color: ${props => props.bbb ? "#F5EFE3" : "purple"};
-// `
-
-export const Input = styled.div`
+export const Input = styled.input`
+border: none;
 border-bottom: 1px solid gray;
 text-align: start;
 margin-bottom: 40px;
-padding: 10px;
+padding: 15px;
 width: 300px;
-margin-left: 20px;
 margin-top: 20px;
+display: flex;
+`
+
+export const Input2 = styled.input`
+border: none;
+text-align: start;
+padding: 15px;
+width: 250px;
+margin-top: 20px;
+display: flex;
+`
+export const Line = styled.div`
+background-color: gray;
+width: 300px;
+margin-bottom: 40px;
+height: 0px;
+border-bottom: 1px solid gray;
 `
 export const ButtonWrapper = styled.div`
 display: flex;
@@ -75,4 +84,25 @@ height: 40px;
 color: #ffffff;
 padding: 10px;
 background-color: #77170D;
+`
+export const Button = styled.button`
+width: 50px;
+height: 28px;
+/* color: #ffffff; */
+padding: 6px;
+background-color: #F5EFE3;
+font-size: 12px;
+margin-top: 30px;
+/* margin-right: 100px; */
+/* margin-left: 80px; */
+`
+
+export const CheckWrapper = styled.div`
+display: flex;
+flex-direction: column;
+
+`
+
+export const CheckWrapper2 = styled.div`
+display: flex;
 `

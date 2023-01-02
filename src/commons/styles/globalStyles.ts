@@ -31,4 +31,20 @@ export const globalStyles = css`
   button {
     border: none;
   }
+
+  input {
+    outline-color: rgba(250, 173, 20, 0.5);
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: none;
+  }
+
+  p {
+    margin: 0;
+  }
 `;
