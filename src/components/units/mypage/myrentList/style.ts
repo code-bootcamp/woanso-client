@@ -55,10 +55,9 @@ export const RentSearchButton = styled.button`
 `;
 
 export const RentBook = styled.div`
-  width: 200px;
+  width: 180px;
   height: 180px;
-  background-color: none;
-  margin-left: 20px;
+  margin-left: 40px;
 `;
 export const RentBookImg = styled.img`
   width: 100%;
@@ -67,12 +66,13 @@ export const RentBookImg = styled.img`
 `;
 export const Detail = styled.div`
   display: flex;
-  margin-left: 80px;
+  background-color: red;
+  /* padding-left: 80px; */
+  border-top: 1px solid #f5c4c3;
 `;
 export const Rents = styled.div`
   display: flex;
-  padding: 15px 15px;
-  border-top: 1px solid #f5c4c3;
+  padding: 20px 15px;
 `;
 export const TitlePrice = styled.div`
   display: flex;
