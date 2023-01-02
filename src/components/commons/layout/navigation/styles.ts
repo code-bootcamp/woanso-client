@@ -24,7 +24,7 @@ export const Navigation = styled.nav`
       text-align: center;
       cursor: pointer;
       :hover {
-        color: #751313;
+        color: #7ab688;
       }
     }
   }
