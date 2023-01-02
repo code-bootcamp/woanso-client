@@ -1,10 +1,17 @@
 import styled from "@emotion/styled";
 
+export const Wrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+`;
+
 export const TalkBox = styled.div`
   display: flex;
   flex-direction: column;
 
-  align-items: center;
+  align-items: flex-start;
 `;
 export const TalkContents = styled.div`
   display: flex;

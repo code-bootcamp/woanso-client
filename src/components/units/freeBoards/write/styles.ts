@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const WriteBoard = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 200px;
 `;
 export const BoardWrite = styled.div`
