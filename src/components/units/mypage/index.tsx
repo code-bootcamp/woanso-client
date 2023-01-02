@@ -1,16 +1,22 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
+import FaqModal from "../../commons/customModal/faqModal";
 import * as S from "./style";
 
 const MenuLists = [
-  { id: "rentslist", name: "대여목록" },
-  { id: "reservationlist", name: "예약내역" },
-  { id: "userinfoedit", name: "회원정보 수정" },
-  { id: "askkakao", name: "1:1 문의" },
-  { id: "faq", name: "FAQ" },
+  { id: "myrentList", name: "대여목록" },
+  { id: "myreservationList", name: "예약내역" },
+  { id: "userEdit", name: "회원정보 수정" },
 ];
+
+const onClickMoveToKakao = () => {
+  const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
+  window.open(kakaoUrl, "_blank");
+};
 
 export default function MypageUI() {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
 
   const onClickMoveToPage = (e) => {
     if (e.currentTarget.id === "askkakao") {
@@ -21,12 +27,20 @@ export default function MypageUI() {
     }
   };
 
+  const onClickMoveToProfileEdit = () => {
+    router.push("/userEdit");
+  };
+
+  const onClickOpenModal = () => {
+    setOpen(true);
+  };
+
   return (
     <S.OuterWrap>
       <S.InnerWrap>
         <S.SideWrap>
           <S.UserInfoWrap>
-            <S.UserAvatar>
+            <S.UserAvatar onClick={onClickMoveToProfileEdit}>
               <S.AvatarImg src="/" />
             </S.UserAvatar>
             <S.UserName>완소님</S.UserName>
@@ -39,6 +53,13 @@ export default function MypageUI() {
                   <S.MenuName>{el.name}</S.MenuName>
                 </S.MenuList>
               ))}
+              <S.MenuList onClick={onClickMoveToKakao}>
+                <S.MenuName>1:1 문의</S.MenuName>
+              </S.MenuList>
+              <S.MenuList onClick={onClickOpenModal}>
+                <S.MenuName>FAQ</S.MenuName>
+              </S.MenuList>
+              <FaqModal open={open} setOpen={setOpen} />
             </S.MenuLists>
           </S.MenuBarWrap>
         </S.SideWrap>

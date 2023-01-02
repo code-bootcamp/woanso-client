@@ -23,8 +23,7 @@ export default function SignupUI() {
             <S.SubWrapper>
               <S.Label>이메일</S.Label>
               <S.Input
-                placeholder=
-                "이메일 아이디를 @까지 정확하게 입력해주세요."
+                placeholder="이메일 아이디를 @까지 정확하게 입력해주세요."
                 type="text"
               ></S.Input>
             </S.SubWrapper>

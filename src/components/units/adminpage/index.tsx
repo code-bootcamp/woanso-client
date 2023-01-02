@@ -69,14 +69,6 @@ export default function AdminpageUI() {
                 <S.ContentBox>
                   현재 접속 중 <br /> 20
                 </S.ContentBox>
-                <S.FlexBox>
-                  <S.ContentBox>
-                    신규 회원 <br /> 3
-                  </S.ContentBox>
-                  <S.ContentBox>
-                    탈퇴 회원 <br /> 0
-                  </S.ContentBox>
-                </S.FlexBox>
               </S.MiniWrap>
 
               <S.MiniWrap>
