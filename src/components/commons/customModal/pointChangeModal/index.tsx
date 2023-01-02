@@ -1,5 +1,4 @@
 import * as S from "./style";
-import { Modal } from "antd";
 
 interface ModalProps {
   open: boolean;
@@ -18,7 +17,7 @@ export default function PointChangeModal(props: ModalProps) {
       open={props.open}
       onOk={() => props.setOpen(false)}
       onCancel={() => props.setOpen(false)}
-      width={1000}
+      width={416}
     >
       <S.ModalInnerWrap>
         <S.TextBox>

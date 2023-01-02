@@ -9,7 +9,7 @@ interface ILayoutProps {
 const HIDDEN_LAYOUT = [
   "/login",
   "/join",
-  "/publicuser"
+  
 ];
 
 export default function LayoutPage(props: ILayoutProps) {

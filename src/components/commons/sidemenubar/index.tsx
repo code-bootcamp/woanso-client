@@ -1,17 +1,23 @@
 import { useState } from "react";
 import * as S from "./style";
 
-export default function KakaoAsk() {
+export default function SideMenuBar() {
   const [open, setOpen] = useState(false);
+
+  const onClickMoveToKakao = () => {
+    const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
+    window.open(kakaoUrl, "_blank");
+  };
 
   const onClickOpenMenu = () => {
     setOpen((prev) => !prev);
   };
+
   return (
     <S.OuterWrap>
       <S.InnerWrap>
         <S.Box>
-          <S.PhoneIcon />
+          <S.PhoneIcon onClick={onClickMoveToKakao} />
         </S.Box>
         <S.BoxLong open={open}>
           <S.Box onClick={onClickOpenMenu}>

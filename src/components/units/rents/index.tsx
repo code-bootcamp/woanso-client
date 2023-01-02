@@ -136,7 +136,6 @@ export default function Rents() {
             </S.BookStory>
             <S.BookBtnWrap>
               <S.BtnCart>장바구니</S.BtnCart>
-              <S.BtnRent>대여하기</S.BtnRent>
               <S.BtnRent>예약신청</S.BtnRent>
             </S.BookBtnWrap>
           </S.MiddleWrap>

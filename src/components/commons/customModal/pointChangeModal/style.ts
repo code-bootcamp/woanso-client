@@ -27,7 +27,11 @@ export const Input = styled.input`
 
 export const ModalWrap = styled(Modal)`
   .ant-modal-content {
-    width: 300px;
+    width: 416px;
+  }
+
+  .ant-modal-footer {
+    padding: 0 24px 24px 24px;
   }
 
   .ant-btn-default {
