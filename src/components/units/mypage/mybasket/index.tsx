@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./style";
 
 const MyBaskets = [
@@ -15,7 +17,7 @@ const MyBaskets = [
   },
   {
     market: "출판사명",
-    productName: "상품명",
+    productName: "명탐정 코난코난",
     status: "대여가능",
     price: "가격",
   },
@@ -23,11 +25,10 @@ const MyBaskets = [
 export default function MyBasketUI() {
   return (
     <S.MyBasket>
+      <h1>
+        <FontAwesomeIcon icon={faCartShopping} /> 장바구니
+      </h1>
       <S.BasketList>
-        <h1>장바구니</h1>
-        <S.TopRow>
-          <div>대여 / 삭제</div>
-        </S.TopRow>
         {MyBaskets.map((el) => (
           <S.ListRow>
             <S.ListContents>
