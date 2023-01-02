@@ -35,6 +35,8 @@ export const BooksListWrap = styled.div`
   flex-direction: row;
   margin-top: 3rem;
   gap: 30px;
+  width: 100%;
+  margin-bottom: 30px;
 `;
 
 export const BookList = styled.div``;

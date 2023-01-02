@@ -52,23 +52,17 @@ export default function SignupUI() {
             <S.SubWrapper>
               <S.Label>장르 선택</S.Label>
               <S.CheckBox type="checkbox" />
-              국내 순정
+              로맨스
               <S.CheckBox type="checkbox" />
-              해외 순정
+              드라마/일상
               <S.CheckBox type="checkbox" />
-              드라마
-              <S.CheckBox type="checkbox" />
-              무협
-              <S.CheckBox type="checkbox" />
-              학원
+              판타지
               <S.CheckBox type="checkbox" />
               액션
               <S.CheckBox type="checkbox" />
-              판타지/SF
+              학원
               <S.CheckBox type="checkbox" />
-              스포츠
-              <S.CheckBox type="checkbox" />
-              공포/추리
+              추리/공포
             </S.SubWrapper>
           </S.ContentsWrapper>
           <S.ButtonWrapper>

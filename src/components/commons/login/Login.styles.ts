@@ -66,11 +66,18 @@ export const Input = styled.input`
   line-height: 100%;
   color: #6b6b6b;
 `;
+
+export const LoginButtonWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const LoginButton = styled.button`
-  width: 600px;
+  width: 70%;
   height: 88px;
   background: #77170d;
-  border-radius: 10px;
+  border-radius: 45px;
   border: none;
   font-style: normal;
   font-weight: 500;

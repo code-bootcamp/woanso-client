@@ -1,10 +1,17 @@
 import * as S from "./style";
-
+import {
+  faThumbsDown,
+  faThumbsUp,
+  faCommentDots,
+} from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 const FreeBoardsContents = [
   { nickName: "닉네임", time: "1시간", contents: "이거봄?" },
   { nickName: "ㄸㅜ", time: "3시간", contents: "오히려..." },
   { nickName: "해강", time: "6시간", contents: "음..." },
 ];
+
 export default function FreeBoards() {
   return (
     <>
@@ -28,11 +35,23 @@ export default function FreeBoards() {
                 </S.Contents>
               </S.TalkContents>
               <S.UnderIcons>
-                <S.CommentAndLikeIcon src="/commentIcon.png" />
-                <div>
-                  <S.CommentAndLikeIcon src="/likeIcon.png" />
-                  <S.LikeCount>112</S.LikeCount>
-                </div>
+                <S.CommentsLikeDisLikeButton>
+                  <FontAwesomeIcon icon={faCommentDots} />
+                </S.CommentsLikeDisLikeButton>
+                <S.LikeDisLike>
+                  <div>
+                    <S.CommentsLikeDisLikeButton>
+                      <FontAwesomeIcon icon={faThumbsUp} />
+                    </S.CommentsLikeDisLikeButton>
+                    <S.LikeCount>112</S.LikeCount>
+                  </div>
+                  <div>
+                    <S.CommentsLikeDisLikeButton>
+                      <FontAwesomeIcon icon={faThumbsDown} />
+                    </S.CommentsLikeDisLikeButton>
+                    <S.DisLikeCount>12</S.DisLikeCount>
+                  </div>
+                </S.LikeDisLike>
               </S.UnderIcons>
             </S.MainBox>
           </>

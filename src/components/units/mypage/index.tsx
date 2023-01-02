@@ -5,7 +5,7 @@ const MenuLists = [
   { id: "rentslist", name: "대여목록" },
   { id: "reservationlist", name: "예약내역" },
   { id: "userinfoedit", name: "회원정보 수정" },
-  { id: "askkakao", name: "1문의" },
+  { id: "askkakao", name: "1:1 문의" },
   { id: "faq", name: "FAQ" },
 ];
 
@@ -13,7 +13,12 @@ export default function MypageUI() {
   const router = useRouter();
 
   const onClickMoveToPage = (e) => {
-    router.push(e.currentTarget.id);
+    if (e.currentTarget.id === "askkakao") {
+      const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
+      window.open(kakaoUrl, "_blank");
+    } else {
+      router.push(e.currentTarget.id);
+    }
   };
 
   return (
@@ -31,9 +36,7 @@ export default function MypageUI() {
             <S.MenuLists>
               {MenuLists.map((el) => (
                 <S.MenuList key={el.id} id={el.id} onClick={onClickMoveToPage}>
-                  <a>
-                    <S.MenuName>{el.name}</S.MenuName>
-                  </a>
+                  <S.MenuName>{el.name}</S.MenuName>
                 </S.MenuList>
               ))}
             </S.MenuLists>
