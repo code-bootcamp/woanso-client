@@ -3,11 +3,11 @@ import styled from "@emotion/styled";
 export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div`
-  margin: 100px 0;
+  padding: 100px;
 `;
 
 export const ListWrap = styled.div`
-  padding: 20px;
+  padding: 20px 0 20px 20px;
   display: flex;
   border-top: 1px solid #dddddd;
 `;
@@ -22,7 +22,7 @@ export const BookImg = styled.img`
 
 export const BookInfoWrap = styled.div`
   padding: 10px 50px;
-  width: 350px;
+  width: 500px;
   height: 100%;
 `;
 
@@ -78,7 +78,7 @@ export const BookIsRent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 380px;
+  width: 500px;
 `;
 
 export const TextCircle = styled.div`
@@ -86,17 +86,26 @@ export const TextCircle = styled.div`
   width: 90px;
   border-radius: 50%;
   border: 3px solid #77170d;
+  color: #77170d;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  /* transition: all 0.2s ease-in-out;
+  cursor: pointer;
+   :hover {
+    transform: rotateY(360deg);
+    border: none;
+    background: #77170d;
+    color: #ffffff;
+  }  */
 `;
 
 export const Open = styled.p`
   text-align: center;
   font-size: 16px;
   line-height: 30px;
-  color: #77170d;
   font-family: "yang";
 `;
 

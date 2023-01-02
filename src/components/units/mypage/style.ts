@@ -51,7 +51,12 @@ export const MenuList = styled.li`
   padding: 20px 0;
 `;
 
-export const MenuName = styled.p``;
+export const MenuName = styled.p`
+  :hover {
+    color: #751312;
+  }
+  cursor: pointer;
+`;
 
 export const TopMenusWrap = styled.div`
   display: flex;
