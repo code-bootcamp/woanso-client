@@ -1,5 +1,5 @@
 import BestBooks from "../../commons/bestbooks";
-import { BookSliderTop } from "../../commons/carousel";
+import BookSliderTop from "../../commons/carousel";
 import FaqMini from "../../commons/faqmini";
 import SideMenuBar from "../../commons/sidemenubar";
 import Picks from "../../commons/picks/style";

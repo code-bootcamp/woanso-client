@@ -3,70 +3,55 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import * as S from "./style";
+import { useRouter } from "next/router";
 
-export class BookSliderTop extends Component {
-  render() {
-    const settings = {
-      dots: false,
-      arrows: false,
-      infinite: true,
-      slidesToShow: 7,
-      slidesToScroll: 1,
-      autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 2000,
-      cssEase: "linear",
-    };
-    return (
-      <S.OuterWrap>
-        <S.InnerWrap>
-          <S.AddmoreBtnWrap>
-            <S.AddMoreBtn>더 보기</S.AddMoreBtn>
-          </S.AddmoreBtnWrap>
-          <div>
-            <Slider {...settings}>
-              {Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-                .fill(0)
-                .map((el, index) => (
-                  <div key={el.index}>
-                    <S.SliderImg src={`item${index + 1}.png`} />
-                  </div>
-                ))}
-            </Slider>
-          </div>
-        </S.InnerWrap>
-      </S.OuterWrap>
-    );
-  }
+export default function BookSliderTop() {
+  const router = useRouter();
+
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 7,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+  };
+
+  const onClickMoveToRents = () => {
+    router.push("/rents");
+  };
+
+  return (
+    <S.OuterWrap>
+      <S.InnerWrap>
+        <S.TextWrap>
+          <S.Text>
+            {/* 너와 함께했던 모든 시간이 그리웠어 */}
+            그때 그 시절 만화책 다시보고 싶나요?
+            <br />
+            완소와 함께해요
+            <br />
+            \(^0^)/
+          </S.Text>
+        </S.TextWrap>
+        <div>
+          <Slider {...settings}>
+            {Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+              .fill(0)
+              .map((el, index) => (
+                <div key={el.index}>
+                  <S.SliderImg src={`item${index + 1}.png`} />
+                </div>
+              ))}
+          </Slider>
+        </div>
+        <S.AddmoreBtnWrap>
+          <S.AddMoreBtn onClick={onClickMoveToRents}>더 보기</S.AddMoreBtn>
+        </S.AddmoreBtnWrap>
+      </S.InnerWrap>
+    </S.OuterWrap>
+  );
 }
-
-// export class BookSliderBottom extends Component {
-//   render() {
-//     const settings = {
-//       dots: false,
-//       infinite: true,
-//       slidesToShow: 6,
-//       slidesToScroll: 1,
-//       autoplay: true,
-//       speed: 2000,
-//       autoplaySpeed: 2000,
-//       cssEase: "linear",
-//       // centerMode: true,
-//       // centerPadding: "40px",
-//     };
-
-//     return (
-//       <div style={{ paddingLeft: "70px" }}>
-//         <Slider {...settings}>
-//           {Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-//             .fill(0)
-//             .map((el, index) => (
-//               <div key={el.index}>
-//                 <S.SliderImg src={`item${index + 1}.png`} />
-//               </div>
-//             ))}
-//         </Slider>
-//       </div>
-//     );
-//   }
-// }
