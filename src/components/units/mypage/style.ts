@@ -23,6 +23,7 @@ export const UserInfoWrap = styled.div`
 
 export const UserAvatar = styled.div`
   margin-bottom: 20px;
+  cursor: pointer;
 `;
 
 export const AvatarImg = styled.img`

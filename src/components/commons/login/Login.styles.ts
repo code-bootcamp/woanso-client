@@ -4,11 +4,10 @@ export const LoginWrapper = styled.div`
   width: 742px;
   /* height: 1200px; */
   background: #ffffff;
-  box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.07);
+  /* box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.07); */
   border-radius: 10px;
   padding: 60px;
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px auto 100px auto;
 `;
 
 export const TitleWrapper = styled.div`
@@ -50,14 +49,14 @@ export const ContentsWrapper = styled.div`
 
 export const Label = styled.div`
   margin-top: 40px;
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 20px;
 `;
 export const Input = styled.input`
   width: 600px;
   height: 77.48px;
-  background: #f6f6f6;
-  border: 1px solid #cccccc;
+  background: white;
+  border: 3px solid #f5efe3;
   border-radius: 10px;
   padding: 40px;
   font-style: normal;
@@ -102,8 +101,26 @@ export const Footer1 = styled.div`
   font-size: 18px;
   line-height: 100%;
   text-align: center;
-  margin-bottom: 70px;
   cursor: pointer;
+`;
+
+export const SnsLoginWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  padding: 70px 0 100px 0;
+`;
+
+export const KakaoLogin = styled.div``;
+
+export const NaverLogin = styled.div``;
+
+export const GoogleLogin = styled.div``;
+
+export const IconImg = styled.img`
+  height: 70px;
+  object-fit: contain;
 `;
 
 export const Wrapper = styled.div`

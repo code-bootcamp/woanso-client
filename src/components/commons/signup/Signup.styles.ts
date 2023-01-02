@@ -4,6 +4,7 @@ export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div`
   display: flex;
+  padding: 50px 50px 250px 50px;
 `;
 
 export const BgImg = styled.img`
@@ -102,7 +103,7 @@ export const BackButton = styled.div`
   letter-spacing: -0.05em;
   cursor: pointer;
   border: 1px solid #000000;
-    border-radius: 45px;
+  border-radius: 45px;
 `;
 export const Footer = styled.div`
   display: flex;
@@ -156,5 +157,3 @@ export const CheckBox = styled.input`
   margin: 10px;
   font-size: 16px;
 `;
-
-

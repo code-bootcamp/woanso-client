@@ -1,13 +1,20 @@
+import { useRouter } from "next/router";
 import SignupBenefit from "../signupbenefit";
 import * as S from "./Login.styles";
 
 export default function LoginUI() {
+  const router = useRouter();
+
   const onClickSubmit = () => {
     console.log("로그인 되었습니다.");
   };
 
   const onClickMoveToSingUp = () => {
-    console.log("회원가입 되었습니다.");
+    router.push("/join");
+  };
+
+  const onClickFind = () => {
+    router.push("/idpwFind");
   };
 
   return (
@@ -23,12 +30,24 @@ export default function LoginUI() {
           <S.Label>비밀번호</S.Label>
           <S.Input type="password"></S.Input>
           <S.LoginButtonWrap>
-            <S.LoginButton>로그인</S.LoginButton>
+            <S.LoginButton onClick={onClickSubmit}>로그인</S.LoginButton>
           </S.LoginButtonWrap>
           <S.Footer>
-            <S.Footer1>회원가입</S.Footer1>
-            <S.Footer1>이메일/비밀번호 찾기</S.Footer1>
+            <S.Footer1 onClick={onClickMoveToSingUp}>회원가입</S.Footer1>
+            <S.Footer1 onClick={onClickFind}>이메일/비밀번호 찾기</S.Footer1>
           </S.Footer>
+
+          <S.SnsLoginWrap>
+            <S.KakaoLogin>
+              <S.IconImg src="/icon/login_kakao.png" />
+            </S.KakaoLogin>
+            <S.NaverLogin>
+              <S.IconImg src="/icon/login_naver.png" />
+            </S.NaverLogin>
+            <S.GoogleLogin>
+              <S.IconImg src="/icon/login_google.png" />
+            </S.GoogleLogin>
+          </S.SnsLoginWrap>
         </S.ContentsWrapper>
         {/* </form> */}
         <SignupBenefit />
