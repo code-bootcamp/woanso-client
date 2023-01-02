@@ -42,7 +42,7 @@ export const ChoiceMonth = styled.button`
   }
 `;
 export const RentSearchButton = styled.button`
-  margin-left: 360px;
+  margin-left: 800px;
   background-color: #751312;
   width: 100px;
   height: 40px;
@@ -58,6 +58,7 @@ export const RentBook = styled.div`
   width: 180px;
   height: 180px;
   margin-left: 40px;
+  margin-top: 10px;
 `;
 export const RentBookImg = styled.img`
   width: 100%;
@@ -66,13 +67,14 @@ export const RentBookImg = styled.img`
 `;
 export const Detail = styled.div`
   display: flex;
-  background-color: red;
-  /* padding-left: 80px; */
-  border-top: 1px solid #f5c4c3;
+
+  width: 850px;
+  padding-left: 60px;
+  border-top: 1px solid #f5c4c354;
 `;
 export const Rents = styled.div`
   display: flex;
-  padding: 20px 15px;
+  padding: 40px 50px;
 `;
 export const TitlePrice = styled.div`
   display: flex;
@@ -105,12 +107,12 @@ export const RentDetailRow = styled.div`
   border-top: 2px solid #f5c4c354;
   align-items: flex-start;
   font-size: 20px;
-  padding: 30px 0;
-  gap: 80px;
+  padding: 25px 0;
+  gap: 50px;
 `;
 export const BookTitle = styled.div`
   width: 200px;
-  margin-right: 150px;
+  margin-right: 100px;
 `;
 export const PaymentStatus = styled.div`
   display: flex;
