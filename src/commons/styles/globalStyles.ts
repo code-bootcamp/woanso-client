@@ -41,7 +41,7 @@ export const globalStyles = css`
   }
 
   a {
-    color: none;
+    color: #000000;
   }
 
   p {

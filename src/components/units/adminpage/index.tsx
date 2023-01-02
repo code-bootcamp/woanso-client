@@ -2,12 +2,12 @@ import * as S from "./style";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { allDatas } from "../section/detas";
-import PointChangeModal from "../pointmanagement";
-import { Modal } from "antd";
+import PointChangeModal from "../../commons/customModal/pointChangeModal";
+import LogoutConfirmModal from "../../commons/customModal/logoutModal";
 
 const MenuLists = [
-  { id: "additem", name: "상품 추가" },
-  { id: "additem", name: "유저 게시글 관리" },
+  { id: "rents/new", name: "상품 추가" },
+  { id: "usermanagement", name: "유저 게시글 관리" },
   { id: "usermanagement", name: "유저 권한 관리" },
   { id: "event", name: "진행중인 이벤트" },
 ];
@@ -15,6 +15,7 @@ const MenuLists = [
 export default function AdminpageUI() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [confirm, setConfirm] = useState(false);
 
   const onClickMoveToPage = (e) => {
     router.push(e.currentTarget.id);
@@ -25,12 +26,7 @@ export default function AdminpageUI() {
   };
 
   const onClickLogout = () => {
-    Modal.success({
-      content: "로그아웃 되었습니다!",
-      afterClose() {
-        router.push("/adminlogin");
-      },
-    });
+    setConfirm(true);
   };
 
   return (
@@ -57,6 +53,7 @@ export default function AdminpageUI() {
               <S.MenuList onClick={onClickLogout}>
                 <S.MenuName>로그아웃</S.MenuName>
               </S.MenuList>
+              <LogoutConfirmModal confirm={confirm} setConfirm={setConfirm} />
             </S.MenuLists>
           </S.MenuBarWrap>
         </S.SideWrap>

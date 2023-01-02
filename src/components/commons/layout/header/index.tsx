@@ -12,7 +12,6 @@ export default function LayoutHeader() {
   const onClickMoveToHome = () => {
     router.push("/");
   };
-
   const onClickMoveToPage = (e) => {
     router.push(`/${e.currentTarget.id}`);
   };
@@ -33,12 +32,12 @@ export default function LayoutHeader() {
     { name: "장바구니", id: "mycart" },
     { name: "마이페이지", id: "mypage" },
   ];
-
   return (
     <S.OuterWrap>
       <S.InnerWrap>
         <S.MenuWrap>
           <S.Logo ocClick={onClickMoveToHome}>WoanSo</S.Logo>
+
           {!accessToken ? (
             <S.BtnsWrap>
               {UserList.map((el) => (

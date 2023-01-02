@@ -1,7 +1,7 @@
 import BestBooks from "../../commons/bestbooks";
 import { BookSliderTop } from "../../commons/carousel";
 import FaqMini from "../../commons/faqmini";
-import KakaoAsk from "../../commons/kakaoask";
+import SideMenuBar from "../../commons/sidemenubar";
 import Picks from "../../commons/picks/style";
 import Recommand from "../../commons/recommand";
 import SignupBenefit from "../../commons/signupbenefit";
@@ -18,7 +18,7 @@ export default function Main() {
         <BestBooks />
         <FaqMini />
         <SignupBenefit />
-        <KakaoAsk />
+        <SideMenuBar />
       </S.InnerWrap>
     </S.OuterWrap>
   );

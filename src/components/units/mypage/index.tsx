@@ -13,7 +13,12 @@ export default function MypageUI() {
   const router = useRouter();
 
   const onClickMoveToPage = (e) => {
-    router.push(e.currentTarget.id);
+    if (e.currentTarget.id === "askkakao") {
+      const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
+      window.open(kakaoUrl, "_blank");
+    } else {
+      router.push(e.currentTarget.id);
+    }
   };
 
   return (
@@ -31,9 +36,7 @@ export default function MypageUI() {
             <S.MenuLists>
               {MenuLists.map((el) => (
                 <S.MenuList key={el.id} id={el.id} onClick={onClickMoveToPage}>
-                  <a>
-                    <S.MenuName>{el.name}</S.MenuName>
-                  </a>
+                  <S.MenuName>{el.name}</S.MenuName>
                 </S.MenuList>
               ))}
             </S.MenuLists>
