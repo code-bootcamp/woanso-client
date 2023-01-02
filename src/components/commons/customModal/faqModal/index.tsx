@@ -11,7 +11,6 @@ export default function FaqModal(props: ModalProps) {
       centered
       open={props.open}
       onOk={() => props.setOpen(false)}
-      onCancel={() => props.setOpen(false)}
       width={1000}
     >
       <S.ModalInnerWrap>
