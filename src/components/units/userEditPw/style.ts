@@ -1,13 +1,16 @@
 import styled from "@emotion/styled";
 
-export const OutWrapper = styled.div``
+export const OutWrapper = styled.div`
+`
+
 export const InnerWrapper  = styled.div`
-margin: 100px 0px;
+margin: auto;
 `
 export const UserEditPwWrapper   = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+padding: 100px 0;
 `
 export const TitleWrapper = styled.div`
 margin-bottom: 40px;
@@ -112,6 +115,28 @@ padding: 4px;
 height: 30px;
 border-radius: 5px;
 `
+
+export const AvatarWrapper = styled.div`
+display: flex;
+gap: 110px;
+`
+export const AvatarLabel = styled.div``
+export const Avatar = styled.div`
+width: 80px;
+height: 80px;
+background-color: #F2F0F0;
+`
+export const AvatarButton = styled.div`
+margin-left: auto;
+width: 40px;
+border: 1px solid gray;
+padding: 4px;
+height: 30px;
+border-radius: 5px;
+margin-top: 50px;
+`
+
+
 export const ButtonWrapper = styled.div`
 display: flex;
 gap: 20px;
