@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { Fragment } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../../commons/store";
+import MainBanner from "../../mainbanner";
+import { BannerImg } from "../../mainbanner/style";
 import * as S from "./style";
 
 export default function LayoutHeader() {
@@ -36,7 +38,7 @@ export default function LayoutHeader() {
     <S.OuterWrap>
       <S.InnerWrap>
         <S.MenuWrap>
-          <S.Logo ocClick={onClickMoveToHome}>WoanSo</S.Logo>
+          <S.Logo onClick={onClickMoveToHome}>완소만화방</S.Logo>
 
           {!accessToken ? (
             <S.BtnsWrap>
@@ -51,9 +53,6 @@ export default function LayoutHeader() {
           ) : (
             <S.Btn onClick={onClickLogout}>로그아웃</S.Btn>
           )}
-        </S.MenuWrap>
-
-        <S.MenuWrap2>
           {accessToken ? (
             <S.BtnsWrap>
               {MenuList.map((el) => (
@@ -65,7 +64,9 @@ export default function LayoutHeader() {
           ) : (
             <></>
           )}
-        </S.MenuWrap2>
+        </S.MenuWrap>
+
+        <MainBanner />
       </S.InnerWrap>
     </S.OuterWrap>
   );
