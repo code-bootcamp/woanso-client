@@ -3,9 +3,35 @@ import { Modal } from "antd";
 
 export const ModalInnerWrap = styled.div``;
 
+export const TextWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #8a342e;
+  color: #ffffff;
+  border-radius: 4px;
+  margin-bottom: 5px;
+`;
+
+export const Text = styled.p`
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  background-color: #f5efe3;
+  color: #333;
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+`;
+
 export const ModalWrap = styled(Modal)`
   .ant-modal-content {
-    width: 1000px;
+    width: 416px;
   }
 
   .ant-modal-footer {
