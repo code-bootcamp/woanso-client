@@ -42,6 +42,11 @@ return (
                         <S.Like>로맨스, 드라마/일상</S.Like>
                         <S.LikeButton>변경</S.LikeButton>
                     </S.LikeWrapper>
+                    <S.AvatarWrapper>
+                        <S.AvatarLabel>아바타</S.AvatarLabel>
+                        <S.Avatar></S.Avatar>
+                        <S.AvatarButton>변경</S.AvatarButton>
+                    </S.AvatarWrapper>
                 </S.AddWrapper>
                 <S.ButtonWrapper>
                     <S.SubmitButton>확인</S.SubmitButton>
