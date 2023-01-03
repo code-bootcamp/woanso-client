@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import SignupBenefit from "../signupbenefit";
+import Button from "../../../commons/styles/Button";
 import * as S from "./Login.styles";
 
 export default function LoginUI() {
@@ -30,7 +31,7 @@ export default function LoginUI() {
           <S.Label>비밀번호</S.Label>
           <S.Input type="password"></S.Input>
           <S.LoginButtonWrap>
-            <S.LoginButton onClick={onClickSubmit}>로그인</S.LoginButton>
+          <Button size="large" text="dfsdf" />
           </S.LoginButtonWrap>
           <S.Footer>
             <S.Footer1 onClick={onClickMoveToSingUp}>회원가입</S.Footer1>

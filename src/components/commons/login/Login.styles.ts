@@ -70,20 +70,20 @@ export const LoginButtonWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 70px;
 `;
 
 export const LoginButton = styled.button`
-  width: 70%;
+  /* width: 70%; */
+  width: 400px;
   height: 88px;
   background: #77170d;
   border-radius: 45px;
-  border: none;
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 100%;
   margin-top: 100px;
-  cursor: pointer;
   color: #ffffff;
 `;
 export const Footer = styled.div`
