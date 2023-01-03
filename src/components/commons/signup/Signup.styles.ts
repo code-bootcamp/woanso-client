@@ -142,7 +142,8 @@ export const Input = styled.input`
   font-weight: 400;
   font-size: 15px;
   line-height: 100%;
-  color: #a9a9a9;
+  /* color: #a9a9a9; */
+  color: #6b6b6b;
   border-radius: 20px;
 `;
 

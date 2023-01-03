@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { LoginInput } from "../../../commons/styles/Input";
 import SignupBenefit from "../signupbenefit";
 import * as S from "./Login.styles";
 
@@ -26,9 +27,9 @@ export default function LoginUI() {
         {/* <form onSubmit={handleSubmit(onClickSubmit)}> */}
         <S.ContentsWrapper>
           <S.Label>이메일</S.Label>
-          <S.Input type="text"></S.Input>
+          <LoginInput type="text"></LoginInput>
           <S.Label>비밀번호</S.Label>
-          <S.Input type="password"></S.Input>
+          <LoginInput type="password"></LoginInput>
           <S.LoginButtonWrap>
             <S.LoginButton onClick={onClickSubmit}>로그인</S.LoginButton>
           </S.LoginButtonWrap>
@@ -36,7 +37,6 @@ export default function LoginUI() {
             <S.Footer1 onClick={onClickMoveToSingUp}>회원가입</S.Footer1>
             <S.Footer1 onClick={onClickFind}>이메일/비밀번호 찾기</S.Footer1>
           </S.Footer>
-
           <S.SnsLoginWrap>
             <S.KakaoLogin>
               <S.IconImg src="/icon/login_kakao.png" />

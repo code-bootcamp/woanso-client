@@ -1,3 +1,4 @@
+import { JoinInput } from "../../../commons/styles/Input";
 import * as S from "./Signup.styles";
 
 export default function SignupUI() {
@@ -15,38 +16,38 @@ export default function SignupUI() {
           <S.ContentsWrapper>
             <S.SubWrapper>
               <S.Label>닉네임</S.Label>
-              <S.Input
+              <JoinInput
                 placeholder="사용할 닉네임을 입력해주세요."
                 type="text"
-              ></S.Input>
+              ></JoinInput>
             </S.SubWrapper>
             <S.SubWrapper>
               <S.Label>이메일</S.Label>
-              <S.Input
+              <JoinInput
                 placeholder="이메일 아이디를 @까지 정확하게 입력해주세요."
                 type="text"
-              ></S.Input>
+              ></JoinInput>
             </S.SubWrapper>
             <S.SubWrapper>
               <S.Label>비밀번호</S.Label>
-              <S.Input
+              <JoinInput
                 placeholder="영문+숫자 조합 8~16자리를 입력해주세요."
                 type="password"
-              ></S.Input>
+              ></JoinInput>
             </S.SubWrapper>
             <S.SubWrapper>
               <S.Label>비밀번호 확인</S.Label>
-              <S.Input
+              <JoinInput
                 placeholder="영문+숫자 조합 8~16자리를 입력해주세요."
                 type="password"
-              ></S.Input>
+              ></JoinInput>
             </S.SubWrapper>
             <S.SubWrapper>
               <S.Label>전화번호</S.Label>
-              <S.Input
+              <JoinInput
                 placeholder="전화번호를 입력해주세요."
                 type="text"
-              ></S.Input>
+              ></JoinInput>
             </S.SubWrapper>
             <S.SubWrapper>
               <S.Label>장르 선택</S.Label>
@@ -68,7 +69,6 @@ export default function SignupUI() {
             <S.SignupButton>회원가입하기</S.SignupButton>
             <S.BackButton>취소</S.BackButton>
           </S.ButtonWrapper>
-
           <S.Footer>
             <S.Footer1>이미 아이디가 있으신가요?</S.Footer1>
             <S.Footer2>로그인</S.Footer2>
