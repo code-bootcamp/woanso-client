@@ -17,13 +17,14 @@ export const ReservationWrapper = styled.div`
   height: 200px;
   border-radius: 10px;
   box-shadow: 5px 5px 15px 8px rgba(0, 0, 0, 0.3);
-  padding: 0 25px 0 10px;
+  padding: 0 25px 0 20px;
   margin: 0 40px 40px 0;
 `;
 export const Wrap = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 80px;
 `;
 export const TopRowReservation = styled.div`
   display: flex;
@@ -44,8 +45,8 @@ export const Price = styled.span`
   margin-left: 100px;
 `;
 export const Icon = styled(EllipsisOutlined)`
-  width: 40px;
-  padding-left: 120px;
+  width: 30px;
+  /* padding-left: 5px; */
   * {
     font-size: 25px;
   }
@@ -53,16 +54,16 @@ export const Icon = styled(EllipsisOutlined)`
 export const ReservationDetail = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 60px;
-  padding: 15px 0;
+  padding: 20px 0;
   text-align: center;
-  background-color: red;
 `;
 
 export const ReservationNumber = styled.span`
   width: 150px;
   font-size: 20px;
-  margin-left: 50px;
+  margin-left: 20px;
 `;
 export const ReservationBookTitle = styled.span`
   width: 100px;
@@ -84,7 +85,7 @@ export const ReservationPeriod = styled.span`
   /* margin-left: 10px; */
 `;
 export const Cancel = styled.button`
-  width: 100px;
+  width: 130px;
   height: 40px;
   background-color: #c41210;
   color: #ffffff;
