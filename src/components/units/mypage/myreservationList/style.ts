@@ -56,7 +56,6 @@ export const ReservationDetail = styled.div`
   gap: 60px;
   padding: 15px 0;
   text-align: center;
-  background-color: red;
 `;
 
 export const ReservationNumber = styled.span`

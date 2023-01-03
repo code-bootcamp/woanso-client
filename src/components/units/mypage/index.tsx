@@ -4,8 +4,8 @@ import FaqModal from "../../commons/customModal/faqModal";
 import * as S from "./style";
 
 const MenuLists = [
-  { id: "myrentList", name: "대여목록" },
-  { id: "myreservationList", name: "예약내역" },
+  { id: "mypage/myrentList", name: "대여목록" },
+  { id: "mypage/myreservationList", name: "예약내역" },
   { id: "userEdit", name: "회원정보 수정" },
 ];
 
