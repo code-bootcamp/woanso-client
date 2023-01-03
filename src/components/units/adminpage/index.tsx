@@ -62,16 +62,6 @@ export default function AdminpageUI() {
           <S.SectionWrap>
             <S.LeftWrap>
               <S.MiniWrap>
-                <S.BoxTitle>회원 관리</S.BoxTitle>
-                <S.ContentBox>
-                  총 이용자 수 <br /> 100
-                </S.ContentBox>
-                <S.ContentBox>
-                  현재 접속 중 <br /> 20
-                </S.ContentBox>
-              </S.MiniWrap>
-
-              <S.MiniWrap>
                 <S.BoxTitle>매출 관리</S.BoxTitle>
                 <S.ContentBox>
                   이번 달 매출액 <br /> 100,000
@@ -83,16 +73,15 @@ export default function AdminpageUI() {
 
               <S.MiniWrap>
                 <S.BoxTitle>상품 관리</S.BoxTitle>
-                <S.FlexBox>
-                  <S.ContentBox>
-                    대여 가능 <br />
-                    80
-                  </S.ContentBox>
-                  <S.ContentBox>
-                    대여 불가
-                    <br /> 20
-                  </S.ContentBox>
-                </S.FlexBox>
+
+                <S.ContentBox>
+                  대여 가능 <br />
+                  80
+                </S.ContentBox>
+                <S.ContentBox>
+                  대여 불가
+                  <br /> 20
+                </S.ContentBox>
               </S.MiniWrap>
             </S.LeftWrap>
 

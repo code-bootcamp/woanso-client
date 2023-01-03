@@ -117,12 +117,6 @@ export const ContentBox = styled.div`
   border-radius: 4px;
 `;
 
-export const FlexBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-`;
-
 export const ItemsWrap = styled.div`
   display: flex;
   flex-wrap: wrap;

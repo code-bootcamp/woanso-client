@@ -20,10 +20,10 @@ export default function PointChangeModal(props: ModalProps) {
       width={416}
     >
       <S.ModalInnerWrap>
-        <S.TextBox>
+        <S.TextWrap>
           <S.Text>포인트 변경 전</S.Text>
           <S.Text>3000</S.Text>
-        </S.TextBox>
+        </S.TextWrap>
 
         <S.Input placeholder="포인트를 입력하세요" onChange={onChangePoint} />
       </S.ModalInnerWrap>
