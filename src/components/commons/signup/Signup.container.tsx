@@ -1,3 +1,4 @@
+import Button from "../../../commons/styles/Button";
 import * as S from "./Signup.styles";
 
 export default function SignupUI() {
@@ -65,7 +66,8 @@ export default function SignupUI() {
             </S.SubWrapper>
           </S.ContentsWrapper>
           <S.ButtonWrapper>
-            <S.SignupButton>회원가입하기</S.SignupButton>
+            {/* <S.SignupButton>회원가입하기</S.SignupButton> */}
+            <Button size="large">로그인</Button>
             <S.BackButton>취소</S.BackButton>
           </S.ButtonWrapper>
 
