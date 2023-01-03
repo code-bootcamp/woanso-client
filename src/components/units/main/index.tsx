@@ -5,7 +5,6 @@ import SideMenuBar from "../../commons/sidemenubar";
 import Picks from "../../commons/picks/style";
 import Recommand from "../../commons/recommand";
 import SignupBenefit from "../../commons/signupbenefit";
-
 import * as S from "./style";
 
 export default function Main() {

@@ -9,7 +9,7 @@ export const globalStyles = css`
   * {
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Noto Sans KR", "sans-serif";
+    font-family: "Noto Sans KR", "sans-serif", "roundGothicBold";
   }
 
   html,
@@ -21,10 +21,10 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: "yang";
-    src: url("https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff")
-      format("woff");
-    font-weight: normal;
+    font-family: "roundGothicBold";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KorailRoundGothicBold.woff2")
+      format("woff2");
+    font-weight: 500;
     font-style: normal;
   }
 
