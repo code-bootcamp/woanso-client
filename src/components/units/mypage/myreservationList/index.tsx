@@ -45,6 +45,7 @@ export default function MyReservationListUI() {
 
               <S.ReservationDetail key={el.number}>
                 <S.NumberAndTitle>
+                  <S.Icon />
                   <S.ReservationNumber>{el.number}</S.ReservationNumber>
                   <S.ReservationBookTitle>{el.title}</S.ReservationBookTitle>
                 </S.NumberAndTitle>

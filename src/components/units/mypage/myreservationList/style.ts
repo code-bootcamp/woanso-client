@@ -1,4 +1,4 @@
-// import { EllipsisOutlined } from "@ant-design/icons";
+import { EllipsisOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 export const ReservationBox = styled.div`
@@ -17,7 +17,7 @@ export const ReservationWrapper = styled.div`
   height: 200px;
   border-radius: 10px;
   box-shadow: 5px 5px 15px 8px rgba(0, 0, 0, 0.3);
-  padding: 0 25px 0 20px;
+  padding: 0 25px 0 10px;
   margin: 0 40px 40px 0;
 `;
 export const Wrap = styled.div`
@@ -43,19 +43,20 @@ export const Price = styled.span`
   width: 200px;
   margin-left: 100px;
 `;
-// export const Icon = styled(EllipsisOutlined)`
-//   width: 40px;
-//   padding-left: 120px;
-//   * {
-//     font-size: 25px;
-//   }
-// `;
+export const Icon = styled(EllipsisOutlined)`
+  width: 40px;
+  padding-left: 120px;
+  * {
+    font-size: 25px;
+  }
+`;
 export const ReservationDetail = styled.div`
   display: flex;
   justify-content: center;
   gap: 60px;
-  padding: 20px 0;
+  padding: 15px 0;
   text-align: center;
+  background-color: red;
 `;
 
 export const ReservationNumber = styled.span`
@@ -83,7 +84,7 @@ export const ReservationPeriod = styled.span`
   /* margin-left: 10px; */
 `;
 export const Cancel = styled.button`
-  width: 130px;
+  width: 100px;
   height: 40px;
   background-color: #c41210;
   color: #ffffff;
