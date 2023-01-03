@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div`
   padding: 100px;
 `;
+
 
 export const ListWrap = styled.div`
   padding: 20px 0 20px 20px;

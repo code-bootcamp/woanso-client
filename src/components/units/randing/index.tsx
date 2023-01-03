@@ -5,11 +5,11 @@ export default function Randing() {
     <>
       <S.OuterWrap>
         <S.InnerWrap>
-          <S.VideoWrap>
-            <video autoPlay>
-              <source src="/randing/randing.mp4" />
-            </video>
-          </S.VideoWrap>
+          {/* <S.VideoWrap> */}
+          <video autoPlay muted loop>
+            <source src="/randing/randing.mp4" type="video/mp4" />
+          </video>
+          {/* </S.VideoWrap> */}
           <S.ImgWrap>
             <S.LeftImg>
               <img src="/randing/1-1.png" />

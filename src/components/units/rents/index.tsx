@@ -1,12 +1,12 @@
+import { OuterWrap } from "../../../commons/styles/globalStyles";
 import Searchbar from "../../commons/searchbar";
 import * as S from "./style";
 
 export default function Rents() {
   return (
-    <S.OuterWrap>
+    <OuterWrap>
       <S.InnerWrap>
         <Searchbar />
-
         <S.ListWrap>
           <S.BookImgBox>
             <S.BookImg src="/item1.png" />
@@ -187,6 +187,6 @@ export default function Rents() {
           </S.BookIsRent>
         </S.ListWrap>
       </S.InnerWrap>
-    </S.OuterWrap>
+    </OuterWrap>
   );
 }

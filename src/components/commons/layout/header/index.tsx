@@ -5,11 +5,13 @@ import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../../commons/store";
 import MainBanner from "../../mainbanner";
 import { BannerImg } from "../../mainbanner/style";
+import SliderBanner from "../../sliderBanner";
 import * as S from "./style";
 
 export default function LayoutHeader() {
   const [accessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
+  console.log(router);
 
   const onClickMoveToHome = () => {
     router.push("/");
@@ -66,7 +68,7 @@ export default function LayoutHeader() {
           )}
         </S.MenuWrap>
 
-        <MainBanner />
+        {router.asPath === "/" ? <MainBanner /> : <SliderBanner />}
       </S.InnerWrap>
     </S.OuterWrap>
   );
