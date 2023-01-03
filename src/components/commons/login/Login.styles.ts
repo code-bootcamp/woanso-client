@@ -94,7 +94,7 @@ export const LoginButton = styled.button`
   font-weight: 500;
   font-size: 24px;
   line-height: 100%;
-  margin-top: 100px;
+  margin-top: 50px;
   color: #ffffff;
 `;
 export const Footer = styled.div`

@@ -1,3 +1,4 @@
+import { JoinInput } from "../../../commons/styles/Input";
 import * as S from "./Signup.styles";
 
 export default function SignupUI() {
@@ -66,7 +67,7 @@ export default function SignupUI() {
           </S.ContentsWrapper>
           <S.ButtonWrapper>
             {/* <S.SignupButton>회원가입하기</S.SignupButton> */}
-            <Button size="large">로그인</Button>
+            <S.SignupButton>회원가입</S.SignupButton>
             <S.BackButton>취소</S.BackButton>
           </S.ButtonWrapper>
           <S.Footer>
