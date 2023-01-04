@@ -17,7 +17,7 @@ export const Navigation = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding-right: 50px;
 
   ul {
     width: 100%;
