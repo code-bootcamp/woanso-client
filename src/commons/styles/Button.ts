@@ -17,6 +17,13 @@ export const SubmitButton1 = styled(StyleButton)`
   width: 400px;
   height: 88px;
   font-size: 24px;
+
+
+@media screen and (max-width:568px) {
+/* 모바일 */
+width: 300px;
+/* background-color: green; */
+}
 `
 
 export const SubmitButton2 = styled(StyleButton)`
@@ -41,3 +48,22 @@ export const CancelButton = styled(StyleButton)`
   color: black;
   border: 1px solid black;
 `
+
+const LigthButton = styled.button`
+  /* 공통 스타일 */
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 50px;
+  border-radius: 45px;
+  background: #f5efe3;
+  color: black;
+  cursor: pointer;
+`;
+
+export const RentBtn = styled(LigthButton)`
+  font-weight: 700;
+  color: #77170d;
+  margin: 20px 0;
+`;
+
