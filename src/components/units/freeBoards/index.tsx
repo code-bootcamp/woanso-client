@@ -9,9 +9,9 @@ import { useState } from "react";
 import ChatList from "../chat/list";
 import FreeBoardsWrite from "./write";
 const FreeBoardsContents = [
-  { nickName: "닉네임", time: "1시간", contents: "이거봄?" },
-  { nickName: "ㄸㅜ", time: "3시간", contents: "오히려..." },
-  { nickName: "해강", time: "6시간", contents: "음..." },
+  { nickName: "닉네임", time: "· 1시간", contents: "이거봄?" },
+  { nickName: "ㄸㅜ", time: "· 3시간", contents: "오히려..." },
+  { nickName: "해강", time: "· 6시간", contents: "음..." },
 ];
 
 export default function FreeBoards() {
@@ -26,8 +26,8 @@ export default function FreeBoards() {
                 <S.ProfileImg src="/profile-freeboard.png" />
                 <S.Contents>
                   <S.NameAndTime>
-                    <span>{el.nickName}</span>
-                    <span>{el.time}</span>
+                    <span className="name">{el.nickName}</span>
+                    <span className="time">{el.time}</span>
                   </S.NameAndTime>
                   <div>
                     <div>{el.contents}</div>
@@ -39,20 +39,20 @@ export default function FreeBoards() {
               </S.TalkContents>
               <S.UnderIcons>
                 <S.CommentsLikeDisLikeButton>
-                  <FontAwesomeIcon icon={faCommentDots} />
+                  <img src="/icon/speech-bubble.png" />
                 </S.CommentsLikeDisLikeButton>
                 <S.LikeDisLike>
                   <div>
                     <S.CommentsLikeDisLikeButton>
-                      <FontAwesomeIcon icon={faThumbsUp} />
+                      <img src="/icon/thumbs-up.png" />
                     </S.CommentsLikeDisLikeButton>
                     <S.LikeCount>112</S.LikeCount>
                   </div>
                   <div>
                     <S.CommentsLikeDisLikeButton>
-                      <FontAwesomeIcon icon={faThumbsDown} />
+                      <img src="/icon/thumbs-down.png" />
                     </S.CommentsLikeDisLikeButton>
-                    <S.DisLikeCount>12</S.DisLikeCount>
+                    <S.LikeCount>12</S.LikeCount>
                   </div>
                 </S.LikeDisLike>
               </S.UnderIcons>
