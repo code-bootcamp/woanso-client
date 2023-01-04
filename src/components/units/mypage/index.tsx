@@ -38,7 +38,7 @@ export default function MypageUI() {
   return (
     <S.OuterWrap>
       <S.InnerWrap>
-        <S.SideWrap>
+        {/* <S.SideWrap>
           <S.UserInfoWrap>
             <S.UserAvatar onClick={onClickMoveToProfileEdit}>
               <S.AvatarImg src="/" />
@@ -88,7 +88,7 @@ export default function MypageUI() {
               <S.BoxTitle>0장</S.BoxTitle>
             </S.BoxSmall>
           </S.ButtomMenusWrap>
-        </S.MainWrap>
+        </S.MainWrap> */}
       </S.InnerWrap>
     </S.OuterWrap>
   );

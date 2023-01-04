@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { size } from "./MediaQuery";
 
 export const globalStyles = css`
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
@@ -19,6 +20,10 @@ export const globalStyles = css`
     font-weight: 400;
     max-width: 1920px;
     margin: 0 auto;
+
+    @media ${size.mobile} {
+      font-size: 8px;
+    }
   }
 
   @font-face {
@@ -50,4 +55,3 @@ export const globalStyles = css`
     margin: 0;
   }
 `;
-
