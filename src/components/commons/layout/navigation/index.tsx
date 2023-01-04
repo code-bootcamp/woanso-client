@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
-import { userInfo } from "os";
+import { useState } from "react";
+import Searchbar from "../../searchbar";
 import * as S from "./styles";
 
 export default function LayoutNavigation() {
@@ -46,6 +47,10 @@ export default function LayoutNavigation() {
               return <li onClick={onClickMoveToPage(el.url)}>{el.name}</li>;
             })}
           </ul>
+          <S.SearchWrap>
+            <S.Input placeholder="만화책을 검색하세요" />
+            <S.SearchIcon>검색</S.SearchIcon>
+          </S.SearchWrap>
         </S.Navigation>
       </S.InnerWrap>
     </S.OuterWrap>

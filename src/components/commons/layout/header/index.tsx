@@ -8,10 +8,15 @@ import { BannerImg } from "../../mainbanner/style";
 import SliderBanner from "../../sliderBanner";
 import * as S from "./style";
 
+// prettier-ignore
+const SHOW_LAYOUT = [
+    "/rents",
+    "/event"
+  ];
 export default function LayoutHeader() {
   const [accessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
-  console.log(router);
+  const isShowLayout = SHOW_LAYOUT.includes(router.asPath);
 
   const onClickMoveToHome = () => {
     router.push("/");
@@ -68,7 +73,8 @@ export default function LayoutHeader() {
           )}
         </S.MenuWrap>
 
-        {router.asPath === "/" ? <MainBanner /> : <SliderBanner />}
+        {router.asPath === "/" && <MainBanner />}
+        {isShowLayout && <SliderBanner />}
       </S.InnerWrap>
     </S.OuterWrap>
   );
