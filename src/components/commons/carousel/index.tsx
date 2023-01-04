@@ -39,13 +39,11 @@ export default function BookSliderTop() {
         </S.TextWrap>
         <div>
           <Slider {...settings}>
-            {Array.from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-              .fill(0)
-              .map((el, index) => (
-                <div key={el.index}>
-                  <S.SliderImg src={`item${index + 1}.png`} />
-                </div>
-              ))}
+            {new Array(10).fill(0).map((el, index) => (
+              <div key={index}>
+                <S.SliderImg src={`item${index + 1}.png`} />
+              </div>
+            ))}
           </Slider>
         </div>
         <S.AddmoreBtnWrap>

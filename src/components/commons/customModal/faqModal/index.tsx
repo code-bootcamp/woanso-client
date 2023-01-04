@@ -2,17 +2,16 @@ import * as S from "./style";
 
 interface ModalProps {
   open: boolean;
-  setOpen: () => boolean;
+  setOpen: (open: boolean) => boolean;
 }
 
-export default function FaqModal(props: ModalProps) {
+export default function FaqModal({ open, setOpen }: ModalProps) {
+  const handleOk = () => {
+    setOpen(false);
+  };
+
   return (
-    <S.ModalWrap
-      centered
-      open={props.open}
-      onOk={() => props.setOpen(false)}
-      width={1000}
-    >
+    <S.ModalWrap centered open={open} onOk={handleOk} width={1000}>
       <S.ModalInnerWrap>
         <S.ListWrap>
           <S.Title>자주 묻는 질문</S.Title>

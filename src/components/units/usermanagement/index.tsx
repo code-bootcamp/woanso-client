@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import * as S from "./style";
 
 export default function UserManagement() {
-  const [userState, steState] = useState(0);
+  const [userState, steState] = useState<string>("");
 
-  const onClickUserStatus = (e) => {
+  const onClickUserStatus = (e: MouseEvent<HTMLButtonElement>) => {
     steState(e.currentTarget.id);
     console.log(e.currentTarget.id);
   };

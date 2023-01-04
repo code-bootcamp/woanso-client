@@ -2,9 +2,9 @@ import { useState } from "react";
 import * as S from "./styles";
 
 export default function IdpwFind() {
-  const [qqq, setQqq] = useState(true);
-  const [ccc, setCcc] = useState(false);
-  const [bbb, setBbb] = useState(true);
+  const [qqq, setQqq] = useState<boolean>(true);
+  const [ccc, setCcc] = useState<boolean>(false);
+  const [bbb, setBbb] = useState<boolean>(true);
 
   const onClickEmail = () => {
     console.log("이메일 찾아줘!!");

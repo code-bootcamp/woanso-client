@@ -1,22 +1,29 @@
+import { ChangeEvent } from "react";
 import * as S from "./style";
 
 interface ModalProps {
   open: boolean;
-  setOpen: () => boolean;
+  setOpen: (open: boolean) => void;
 }
 
-export default function PointChangeModal(props: ModalProps) {
-  const onChangePoint = (e) => {
+export default function PointChangeModal({ open, setOpen }: ModalProps) {
+  const onChangePoint = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
   };
+  const handleOk = () => {
+    setOpen(false);
+  };
 
+  const handleCancel = () => {
+    setOpen(false);
+  };
   return (
     <S.ModalWrap
       title="포인트 지불 금액 변경"
       centered
-      open={props.open}
-      onOk={() => props.setOpen(false)}
-      onCancel={() => props.setOpen(false)}
+      open={open}
+      onOk={handleOk}
+      onCancel={handleCancel}
       width={416}
     >
       <S.ModalInnerWrap>

@@ -1,6 +1,6 @@
 import * as S from "./style";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import { allDatas } from "../section/detas";
 import PointChangeModal from "../../commons/customModal/pointChangeModal";
 import LogoutConfirmModal from "../../commons/customModal/logoutModal";
@@ -14,10 +14,10 @@ const MenuLists = [
 
 export default function AdminpageUI() {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
-  const [confirm, setConfirm] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [confirm, setConfirm] = useState<boolean>(false);
 
-  const onClickMoveToPage = (e) => {
+  const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
     router.push(e.currentTarget.id);
   };
 

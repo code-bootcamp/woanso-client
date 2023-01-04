@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as S from "./style";
 
 export default function SideMenuBar() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   const onClickMoveToKakao = () => {
     const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
