@@ -33,18 +33,18 @@ export const MenuList = styled.div`
 export const BooksListWrap = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 1rem;
   margin-top: 3rem;
-  gap: 30px;
-  width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 `;
 
 export const BookList = styled.div``;
-export const BookImgBox = styled.div``;
+export const BookImgBox = styled.div`
+  width: 100%;
+`;
 export const BookImg = styled.img`
-  object-fit: cover;
-  width: 200px;
-  height: 280px;
+  max-width: 100%;
+  height: 100px;
 `;
 export const BookInfoWrap = styled.div`
   margin-top: 10px;
@@ -53,5 +53,3 @@ export const BookInfoWrap = styled.div`
 export const BookName = styled.h3`
   margin-bottom: 10px;
 `;
-
-export const BookPrice = styled.div``;
