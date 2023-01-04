@@ -1,4 +1,5 @@
 import { JoinInput } from "../../../commons/styles/Input";
+import { SubmitButton1, CancelButton } from "../../../commons/styles/Button"
 import * as S from "./Signup.styles";
 
 export default function SignupUI() {
@@ -49,26 +50,29 @@ export default function SignupUI() {
                 type="text"
               ></JoinInput>
             </S.SubWrapper>
-            <S.SubWrapper>
+            <S.SubWrapper1>
               <S.Label>장르 선택</S.Label>
-              <S.CheckBox type="checkbox" />
+              <S.CheckBoxWrapper>
+              <S.CheckBox type="radio" name="Genre"/>
               로맨스
-              <S.CheckBox type="checkbox" />
+              <S.CheckBox type="radio" name="Genre" />
               드라마/일상
-              <S.CheckBox type="checkbox" />
+              <S.CheckBox type="radio" name="Genre" />
               판타지
-              <S.CheckBox type="checkbox" />
+              <S.CheckBox type="radio" name="Genre"/>
               액션
-              <S.CheckBox type="checkbox" />
+              <S.CheckBox type="radio" name="Genre"/>
               학원
-              <S.CheckBox type="checkbox" />
+              <S.CheckBox type="radio" name="Genre"/>
               추리/공포
-            </S.SubWrapper>
+              </S.CheckBoxWrapper>
+            
+            </S.SubWrapper1>
           </S.ContentsWrapper>
           <S.ButtonWrapper>
             {/* <S.SignupButton>회원가입하기</S.SignupButton> */}
-            <S.SignupButton>회원가입</S.SignupButton>
-            <S.BackButton>취소</S.BackButton>
+            <SubmitButton1>회원가입</SubmitButton1>
+            <CancelButton>취소</CancelButton>
           </S.ButtonWrapper>
           <S.Footer>
             <S.Footer1>이미 아이디가 있으신가요?</S.Footer1>
