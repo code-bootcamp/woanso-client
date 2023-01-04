@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 
 export const OuterWrap = styled.div`
+  width: 25%;
   display: flex;
   align-items: flex-end;
   position: sticky;
-  top: 10%;
-  /* right: 15%; */
+  top: 15%;
+  right: 15%;
   /* transform: translateY(-50%); */
 `;
 
@@ -16,14 +17,59 @@ export const InnerWrap = styled.div`
   border-radius: 18px;
   /* box-shadow: 0 0 10px #f6bf8d; */
   background-color: rgba(246, 191, 141, 0.3);
+
+  /* box-shadow: 0 0 2px grey; */
   overflow-y: auto;
-  padding: 30px 0;
+  /* padding: 30px 0; */
+  /* margin: 30px 0; */
+`;
+
+export const TopContainer = styled.div`
+  width: 100%;
+  height: 10%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 4px grey;
+
+  p {
+    display: flex;
+    padding: 5px 20px;
+    color: black;
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    margin-top: 3px;
+  }
+`;
+
+export const TopLeft = styled.div``;
+
+export const Now = styled.div`
+  display: flex;
+  margin: 0 30px;
+  gap: 10px;
+`;
+
+export const CloseBtn = styled.button`
+  all: unset;
+  img {
+    width: 22px;
+    height: 22px;
+    margin: 0 15px;
+    cursor: pointer;
+  }
 `;
 
 export const ChatBtn = styled.button`
+  all: unset;
   position: absolute;
   top: 50%;
-  transform: translateY(1070%);
+  transform: translateY(880%);
   right: 25px;
   cursor: pointer;
   img {
@@ -44,15 +90,16 @@ export const ChatBox = styled.div`
 export const DateBox = styled.div`
   display: flex;
   justify-content: center;
-  font-size: 13px;
+  font-size: 18px;
   color: gray;
+  margin-top: 15px;
 `;
 
 export const ChatContents = styled.div`
   display: flex;
   align-items: center;
   padding: 12px;
-  font-size: 12px;
+  font-size: 16px;
 `;
 
 export const ChatWrap = styled.div`
@@ -63,6 +110,8 @@ export const ChatWrap = styled.div`
   img {
     width: 45px;
     height: 45px;
+    background-color: #f6bf8d;
+    border-radius: 50%;
   }
 `;
 
@@ -70,7 +119,9 @@ export const MyChatBox = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  font-size: 13px;
+  font-size: 16px;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const MyChat = styled.div`
@@ -103,16 +154,16 @@ export const WriteBox = styled.textarea`
   /* position: fixed; */
   /* left: 50%; */
   /* transform: translateX(-50%); */
-  transform: translateY(570%);
+  transform: translateY(440%);
 `;
 
 export const TextareaBox = styled.div`
-  width: 560px;
+  width: 420px;
   margin: 0 auto;
   position: relative;
 `;
 
 export const ChatTime = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   color: gray;
 `;

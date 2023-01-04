@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.03);
 `;
 
 export const TalkBox = styled.div`
@@ -15,16 +16,24 @@ export const TalkBox = styled.div`
 `;
 export const TalkContents = styled.div`
   display: flex;
-  margin: 75px 60px;
+  margin: 15px 55px;
 `;
 export const ProfileImg = styled.img`
-  width: 120px;
-  height: 130px;
+  width: 100px;
+  height: 110px;
 `;
 
 export const NameAndTime = styled.div`
+  width: 60%;
   display: flex;
   gap: 10px;
+
+  .name {
+    font-weight: 600;
+  }
+  .time {
+    color: gray;
+  }
 `;
 export const MainBox = styled.div`
   width: 750px;
@@ -48,7 +57,7 @@ export const ImageBox = styled.img`
 `;
 
 export const UnderIcons = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 8%;
   display: flex;
   justify-content: center;
 
@@ -63,8 +72,8 @@ export const CommentAndLikeIcon = styled.img`
   }
 `;
 export const LikeDisLike = styled.div`
-  display: flex;
   gap: 60px;
+  display: flex;
 `;
 
 export const CommentsLikeDisLikeButton = styled.button`
@@ -73,10 +82,12 @@ export const CommentsLikeDisLikeButton = styled.button`
   :hover {
     cursor: pointer;
   }
+  img {
+    width: 20px;
+    height: 20px;
+  }
 `;
 export const LikeCount = styled.span`
   font-size: 10px;
-`;
-export const DisLikeCount = styled.span`
-  font-size: 10px;
+  margin-left: 5px;
 `;
