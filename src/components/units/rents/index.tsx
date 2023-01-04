@@ -1,188 +1,135 @@
 import * as S from "./style";
 
+const MenuList = ["순정", "판타지", "무협", "코믹", "추리"];
+
 export default function Rents() {
   return (
     // <OuterWrap>
     <S.InnerWrap>
-      <S.ListWrap>
-        <S.BookImgBox>
-          <S.BookImg src="/item1.png" />
-        </S.BookImgBox>
+      <S.BooksSection>
+        <S.MenusWrap>
+          <S.MenuList>순정</S.MenuList>
+          <S.MenuList>판타지</S.MenuList>
+          <S.MenuList>무협</S.MenuList>
+          <S.MenuList>코믹</S.MenuList>
+          <S.MenuList>추리</S.MenuList>
+        </S.MenusWrap>
+      </S.BooksSection>
+      <S.AllListWrap>
+        <S.ListWrap>
+          <S.BookImgBox>
+            <S.BookSection>로맨스</S.BookSection>
+            <S.BookImg src="/item1.png" />
+            <S.BookHoverWrap>
+              <S.BookStory>
+                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
+                고등학교 때 다시 돌아와서 드디어 썸타는데...
+              </S.BookStory>
+              <S.BookGrade>★★★✩✩</S.BookGrade>
+            </S.BookHoverWrap>
+          </S.BookImgBox>
 
-        <S.BookInfoWrap>
-          <S.Title>순정만화 전권</S.Title>
-          <S.Info>
-            작가 000 <br /> 작화 000 <br />
-            출판사
-          </S.Info>
-          <S.Info>5,000원</S.Info>
-          <p>★ 0.0</p>
-        </S.BookInfoWrap>
+          <S.BookInfoWrap>
+            <S.BookTitle>순정만화 전권</S.BookTitle>
+            <S.BookInfo>정명희님/이유진님</S.BookInfo>
+          </S.BookInfoWrap>
+        </S.ListWrap>
 
-        <S.MiddleWrap>
-          <S.BookStory>
-            블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라
-          </S.BookStory>
-          <S.BookBtnWrap>
-            <S.BtnCart>장바구니</S.BtnCart>
-            <S.BtnRent>대여하기</S.BtnRent>
-          </S.BookBtnWrap>
-        </S.MiddleWrap>
+        <S.ListWrap>
+          <S.BookImgBox>
+            <S.BookSection>로맨스</S.BookSection>
+            <S.BookImg src="/item2.png" />
+            <S.BookHoverWrap>
+              <S.BookStory>
+                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
+                고등학교 때 다시 돌아와서 드디어 썸타는데...
+              </S.BookStory>
+              <S.BookGrade>★★★✩✩</S.BookGrade>
+            </S.BookHoverWrap>
+          </S.BookImgBox>
 
-        <S.BookIsRent>
-          {" "}
-          <S.TextCircle>
-            <S.Open>
-              대여
-              <br />
-              가능
-            </S.Open>
-          </S.TextCircle>
-        </S.BookIsRent>
-      </S.ListWrap>
+          <S.BookInfoWrap>
+            <S.BookTitle>순정만화 전권</S.BookTitle>
+            <S.BookInfo>정명희님/이유진님</S.BookInfo>
+          </S.BookInfoWrap>
+        </S.ListWrap>
 
-      <S.ListWrap>
-        <S.BookImgBox>
-          <S.BookImg src="/item2.png" />
-        </S.BookImgBox>
+        <S.ListWrap>
+          <S.BookImgBox>
+            <S.BookSection>로맨스</S.BookSection>
+            <S.BookImg src="/item3.png" />
+            <S.BookHoverWrap>
+              <S.BookStory>
+                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
+                고등학교 때 다시 돌아와서 드디어 썸타는데...
+              </S.BookStory>
+              <S.BookGrade>★★★✩✩</S.BookGrade>
+            </S.BookHoverWrap>
+          </S.BookImgBox>
 
-        <S.BookInfoWrap>
-          <S.Title>일본만화 전권</S.Title>
-          <S.Info>
-            작가 000 <br /> 작화 000 <br />
-            출판사
-          </S.Info>
-          <S.Info>5,000원</S.Info>
-          <p>★ 0.0</p>
-        </S.BookInfoWrap>
+          <S.BookInfoWrap>
+            <S.BookTitle>순정만화 전권</S.BookTitle>
+            <S.BookInfo>정명희님/이유진님</S.BookInfo>
+          </S.BookInfoWrap>
+        </S.ListWrap>
 
-        <S.MiddleWrap>
-          <S.BookStory>
-            블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라
-          </S.BookStory>
-          <S.BookBtnWrap>
-            <S.BtnCart>장바구니</S.BtnCart>
-            <S.BtnRent>대여하기</S.BtnRent>
-          </S.BookBtnWrap>
-        </S.MiddleWrap>
+        <S.ListWrap>
+          <S.BookImgBox>
+            <S.BookSection>로맨스</S.BookSection>
+            <S.BookImg src="/item4.png" />
+            <S.BookHoverWrap>
+              <S.BookStory>
+                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
+                고등학교 때 다시 돌아와서 드디어 썸타는데...
+              </S.BookStory>
+              <S.BookGrade>★★★✩✩</S.BookGrade>
+            </S.BookHoverWrap>
+          </S.BookImgBox>
 
-        <S.BookIsRent>
-          {" "}
-          <S.TextCircle>
-            <S.Open>
-              대여
-              <br />
-              가능
-            </S.Open>
-          </S.TextCircle>
-        </S.BookIsRent>
-      </S.ListWrap>
+          <S.BookInfoWrap>
+            <S.BookTitle>순정만화 전권</S.BookTitle>
+            <S.BookInfo>정명희님/이유진님</S.BookInfo>
+          </S.BookInfoWrap>
+        </S.ListWrap>
 
-      <S.ListWrap>
-        <S.BookImgBox>
-          <S.BookImg src="/item3.png" />
-        </S.BookImgBox>
+        <S.ListWrap>
+          <S.BookImgBox>
+            <S.BookSection>로맨스</S.BookSection>
+            <S.BookImg src="/item5.png" />
+            <S.BookHoverWrap>
+              <S.BookStory>
+                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
+                고등학교 때 다시 돌아와서 드디어 썸타는데...
+              </S.BookStory>
+              <S.BookGrade>★★★✩✩</S.BookGrade>
+            </S.BookHoverWrap>
+          </S.BookImgBox>
 
-        <S.BookInfoWrap>
-          <S.Title>건방진 그 녀석</S.Title>
-          <S.Info>
-            작가 000 <br /> 작화 000 <br />
-            출판사
-          </S.Info>
-          <S.Info>5,000원</S.Info>
-          <p>★ 0.0</p>
-        </S.BookInfoWrap>
+          <S.BookInfoWrap>
+            <S.BookTitle>순정만화 전권</S.BookTitle>
+            <S.BookInfo>정명희님/이유진님</S.BookInfo>
+          </S.BookInfoWrap>
+        </S.ListWrap>
 
-        <S.MiddleWrap>
-          <S.BookStory>
-            블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라
-          </S.BookStory>
-          <S.BookBtnWrap>
-            <S.BtnCart>장바구니</S.BtnCart>
-            <S.BtnRent>대여하기</S.BtnRent>
-          </S.BookBtnWrap>
-        </S.MiddleWrap>
+        <S.ListWrap>
+          <S.BookImgBox>
+            <S.BookSection>로맨스</S.BookSection>
+            <S.BookImg src="/item5.png" />
+            <S.BookHoverWrap>
+              <S.BookStory>
+                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
+                고등학교 때 다시 돌아와서 드디어 썸타는데...
+              </S.BookStory>
+              <S.BookGrade>★★★✩✩</S.BookGrade>
+            </S.BookHoverWrap>
+          </S.BookImgBox>
 
-        <S.BookIsRent>
-          {" "}
-          <S.TextCircle>
-            <S.Open>
-              대여
-              <br />
-              가능
-            </S.Open>
-          </S.TextCircle>
-        </S.BookIsRent>
-      </S.ListWrap>
-
-      <S.ListWrap>
-        <S.BookImgBox>
-          <S.BookImg src="/item4.png" />
-        </S.BookImgBox>
-
-        <S.BookInfoWrap>
-          <S.Title>히로 서클</S.Title>
-          <S.Info>
-            작가 000 <br /> 작화 000 <br />
-            출판사
-          </S.Info>
-          <S.Info>5,000원</S.Info>
-          <p>★ 0.0</p>
-        </S.BookInfoWrap>
-
-        <S.MiddleWrap>
-          <S.BookStory>
-            블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라
-          </S.BookStory>
-          <S.BookBtnWrap>
-            <S.BtnCart>장바구니</S.BtnCart>
-            <S.BtnRent>예약신청</S.BtnRent>
-          </S.BookBtnWrap>
-        </S.MiddleWrap>
-
-        <S.BookIsRent>
-          {" "}
-          <S.TextCircle2>
-            <S.Close>불가능</S.Close>
-          </S.TextCircle2>
-        </S.BookIsRent>
-      </S.ListWrap>
-
-      <S.ListWrap>
-        <S.BookImgBox>
-          <S.BookImg src="/item5.png" />
-        </S.BookImgBox>
-
-        <S.BookInfoWrap>
-          <S.Title>일본 만화</S.Title>
-          <S.Info>
-            작가 000 <br /> 작화 000 <br />
-            출판사
-          </S.Info>
-          <S.Info>5,000원</S.Info>
-          <p>★ 0.0</p>
-        </S.BookInfoWrap>
-
-        <S.MiddleWrap>
-          <S.BookStory>
-            블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라블라
-          </S.BookStory>
-          <S.BookBtnWrap>
-            <S.BtnCart>장바구니</S.BtnCart>
-            <S.BtnRent>대여하기</S.BtnRent>
-          </S.BookBtnWrap>
-        </S.MiddleWrap>
-
-        <S.BookIsRent>
-          <S.TextCircle>
-            <S.Open>
-              대여
-              <br />
-              가능
-            </S.Open>
-          </S.TextCircle>
-        </S.BookIsRent>
-      </S.ListWrap>
+          <S.BookInfoWrap>
+            <S.BookTitle>순정만화 전권</S.BookTitle>
+            <S.BookInfo>정명희님/이유진님</S.BookInfo>
+          </S.BookInfoWrap>
+        </S.ListWrap>
+      </S.AllListWrap>
     </S.InnerWrap>
     // </OuterWrap>
   );
