@@ -13,30 +13,31 @@ export default function RentNewUI() {
       <S.Container>
         {/* <S.Form> */}
         <S.TopContainer>
-          <S.h2>상품 기본 정보</S.h2>
+          <S.Title>상품 등록</S.Title>
+          <S.Title2>Product registration</S.Title2>
         </S.TopContainer>
         <S.MainWrapper>
           <S.Category>
             <S.Name>
               <span>ISBN</span>
             </S.Name>
-            <S.BtnInputContianer>
+            <S.BtnInputContainer>
               <S.Button>검색</S.Button>
               <S.IsbnInputContainer>
                 <S.Input />
               </S.IsbnInputContainer>
-            </S.BtnInputContianer>
+            </S.BtnInputContainer>
           </S.Category>
           <S.Category>
             <S.Name>
               <span>카테고리</span>
             </S.Name>
-            <S.BtnInputContianer>
+            <S.BtnInputContainer>
               <S.Button>카테고리 선택</S.Button>
               <S.IsbnInputContainer>
                 <S.Input />
               </S.IsbnInputContainer>
-            </S.BtnInputContianer>
+            </S.BtnInputContainer>
           </S.Category>
           <S.Category>
             <S.Name>
@@ -44,6 +45,7 @@ export default function RentNewUI() {
             </S.Name>
             <S.Input />
           </S.Category>
+          <S.Category></S.Category>
           <S.Category2>
             <S.Category3>
               <S.Name>
@@ -67,7 +69,6 @@ export default function RentNewUI() {
           <S.Category2>
             <S.Category3>
               <S.Name>
-                {" "}
                 <span>대여가</span>{" "}
               </S.Name>
               <S.PriceContainer>
@@ -79,12 +80,14 @@ export default function RentNewUI() {
             </S.Category3>
             <S.Category3>
               <S.Name>
-                {" "}
                 <span>배송비</span>{" "}
               </S.Name>
-              <S.PriceInputContainer>
-                <S.Input />
-              </S.PriceInputContainer>
+              <S.PriceContainer>
+                <S.PriceInputContainer>
+                  <S.Input />
+                </S.PriceInputContainer>
+                <span>원</span>
+              </S.PriceContainer>
             </S.Category3>
           </S.Category2>
           <S.Category>
@@ -113,15 +116,7 @@ export default function RentNewUI() {
             </S.Name>
             <S.ImageContainer>
               <S.ImageButton>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  +
-                </div>
+                <div>+</div>
               </S.ImageButton>
               <S.ImageButton>
                 <div>+</div>
@@ -135,7 +130,13 @@ export default function RentNewUI() {
         <S.BottomContainer>
           <S.ButtonWrapper>
             <S.Button2>등록</S.Button2>
-            <S.Button2 style={{ backgroundColor: "#bdbdbd" }}>취소</S.Button2>
+            <S.Button2
+              style={{
+                backgroundColor: "#bdbdbd",
+              }}
+            >
+              취소
+            </S.Button2>
           </S.ButtonWrapper>
         </S.BottomContainer>
         {/* </S.Form> */}
