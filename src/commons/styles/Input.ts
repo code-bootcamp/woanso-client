@@ -22,4 +22,15 @@ export const JoinInput = styled(StyleInput)`
 export const LoginInput = styled(StyleInput)`
   width: 600px;
   height: 77.48px;
+   
+    @media screen and (max-width:1023px) {
+/* 타블렛 */
+background-color: red;
+}
+
+@media screen and (max-width:767px) {
+/* 모바일 */
+background-color: blue;
+}
+
 `;

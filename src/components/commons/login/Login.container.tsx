@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
+import { SubmitButton1 } from "../../../commons/styles/Button";
 import { LoginInput } from "../../../commons/styles/Input";
+import { InnerWrap, OuterWrap } from "../../../commons/styles/Wrapper";
 import SignupBenefit from "../signupbenefit";
 import * as S from "./Login.styles";
 
@@ -19,8 +21,9 @@ export default function LoginUI() {
   };
 
   return (
-    <S.Wrapper>
-      <S.LoginWrapper>
+    <OuterWrap>
+      <InnerWrap>
+        <S.LoginWrapper>
         <S.TitleWrapper>
           <S.TitleMain>Login</S.TitleMain>
         </S.TitleWrapper>
@@ -31,27 +34,28 @@ export default function LoginUI() {
           <S.Label>비밀번호</S.Label>
           <LoginInput type="password"></LoginInput>
           <S.LoginButtonWrap>
-            <S.LoginButton>로그인</S.LoginButton>
+            <SubmitButton1 onClick={onClickSubmit}>로그인</SubmitButton1>
           </S.LoginButtonWrap>
           <S.Footer>
             <S.Footer1 onClick={onClickMoveToSingUp}>회원가입</S.Footer1>
             <S.Footer1 onClick={onClickFind}>이메일/비밀번호 찾기</S.Footer1>
           </S.Footer>
           <S.SnsLoginWrap>
-            <S.KakaoLogin>
+            <S.SnsLogin>
               <S.IconImg src="/icon/login_kakao.png" />
-            </S.KakaoLogin>
-            <S.NaverLogin>
+            </S.SnsLogin>
+            <S.SnsLogin>
               <S.IconImg src="/icon/login_naver.png" />
-            </S.NaverLogin>
-            <S.GoogleLogin>
+            </S.SnsLogin>
+            <S.SnsLogin>
               <S.IconImg src="/icon/login_google.png" />
-            </S.GoogleLogin>
+            </S.SnsLogin>
           </S.SnsLoginWrap>
         </S.ContentsWrapper>
         {/* </form> */}
         <SignupBenefit />
-      </S.LoginWrapper>
-    </S.Wrapper>
+        </S.LoginWrapper>
+      </InnerWrap>
+    </OuterWrap>
   );
 }
