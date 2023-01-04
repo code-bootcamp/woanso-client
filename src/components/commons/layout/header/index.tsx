@@ -1,6 +1,6 @@
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { Fragment, MouseEvent } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../../commons/store";
 import MainBanner from "../../mainbanner";
@@ -21,7 +21,7 @@ export default function LayoutHeader() {
   const onClickMoveToHome = () => {
     router.push("/");
   };
-  const onClickMoveToPage = (e) => {
+  const onClickMoveToPage = (e: MouseEvent<HTMLDivElement>) => {
     router.push(`/${e.currentTarget.id}`);
   };
   const onClickLogout = () => {

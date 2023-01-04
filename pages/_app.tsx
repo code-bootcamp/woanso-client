@@ -4,14 +4,19 @@ import { AppProps } from "next/app";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import LayoutPage from "../src/components/commons/layout/index";
 import { RecoilRoot } from "recoil";
+import ApolloSetting from "../src/components/commons/apollo";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
-      <Global styles={globalStyles} />
-      <LayoutPage>
-        <Component {...pageProps} />
-      </LayoutPage>
+      <ApolloSetting>
+        <>
+          <Global styles={globalStyles} />
+          <LayoutPage>
+            <Component {...pageProps} />
+          </LayoutPage>
+        </>
+      </ApolloSetting>
     </RecoilRoot>
   );
 }

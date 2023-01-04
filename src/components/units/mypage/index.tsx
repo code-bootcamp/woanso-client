@@ -18,14 +18,14 @@ export default function MypageUI() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
-  const onClickMoveToPage = (e) => {
-    if (e.currentTarget.id === "askkakao") {
-      const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
-      window.open(kakaoUrl, "_blank");
-    } else {
-      router.push(e.currentTarget.id);
-    }
-  };
+  // const onClickMoveToPage = (e) => {
+  //   if (e.currentTarget.id === "askkakao") {
+  //     const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
+  //     window.open(kakaoUrl, "_blank");
+  //   } else {
+  //     router.push(e.currentTarget.id);
+  //   }
+  // };
 
   const onClickMoveToProfileEdit = () => {
     router.push("/userEdit");

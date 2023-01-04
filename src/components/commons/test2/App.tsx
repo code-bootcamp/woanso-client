@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, CancelButton, SubmitButton, SubmitButton1 } from "../../../commons/styles/Button";
+import { CancelButton, SubmitButton1 } from "../../../commons/styles/Button";
 // import Button from "./components/Button";
 //Button테그는 재사용가능한 컴포넌트로부터 데려온다
 
@@ -18,7 +18,7 @@ function App() {
     <AppBlock>
       <SubmitButton1>dfhjsd</SubmitButton1>
       <CancelButton>dflksjkfd</CancelButton>
-    {/* //   <Button size="small">Button</Button>
+      {/* //   <Button size="small">Button</Button>
     //   <Button size="medium">Button</Button> */}
     </AppBlock>
   );

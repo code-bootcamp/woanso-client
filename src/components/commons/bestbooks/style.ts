@@ -19,14 +19,18 @@ export const MenuListWrap = styled.div`
   align-items: flex-end;
 `;
 
+interface IsActiveProps {
+  isActive: string;
+}
+
 export const MenuList = styled.div`
   font-size: 24px;
   margin-left: 4rem;
   padding-bottom: 8px;
   cursor: pointer;
 
-  color: ${(props) => (props.isActive ? "#77170d" : "#000000")};
-  border-bottom: ${(props) =>
+  color: ${(props: IsActiveProps) => (props.isActive ? "#77170d" : "#000000")};
+  border-bottom: ${(props: IsActiveProps) =>
     props.isActive ? "3px solid #77170d" : "3px solid #ffffff"};
 `;
 

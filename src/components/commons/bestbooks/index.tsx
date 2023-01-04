@@ -20,7 +20,7 @@ export default function BestBooks() {
   const [section, setSection] = useState<string>("all");
   const [isActive, setIsActive] = useState<string>("all");
 
-  const onClickMenu = (e: MouseEvent<HTMLDivElement>) => {
+  const onClickMenu = (e: any) => {
     setSection(e.currentTarget?.id);
     setIsActive(e.currentTarget?.id);
   };

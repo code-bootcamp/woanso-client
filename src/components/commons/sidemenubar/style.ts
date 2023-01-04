@@ -28,6 +28,10 @@ export const PhoneIcon = styled(PhoneOutlined)`
   font-size: 35px;
 `;
 
+interface StyleProps {
+  open: boolean;
+}
+
 export const BoxLong = styled.div`
   width: 90px;
   border-radius: 90px;
@@ -38,7 +42,7 @@ export const BoxLong = styled.div`
   align-items: center;
   margin-bottom: 20px;
 
-  background: ${(props) =>
+  background: ${(props: StyleProps) =>
     props.open ? "rgba(245, 239, 227, .68)" : "rgba(0,0,0,0)"};
 `;
 
