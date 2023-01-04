@@ -41,3 +41,22 @@ export const CancelButton = styled(StyleButton)`
   color: black;
   border: 1px solid black;
 `
+
+const LigthButton = styled.button`
+  /* 공통 스타일 */
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 50px;
+  border-radius: 45px;
+  background: #f5efe3;
+  color: black;
+  cursor: pointer;
+`;
+
+export const RentBtn = styled(LigthButton)`
+  font-weight: 700;
+  color: #77170d;
+  margin: 20px 0;
+`;
+
