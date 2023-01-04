@@ -1,13 +1,14 @@
 import { JoinInput } from "../../../commons/styles/Input";
 import { SubmitButton1, CancelButton } from "../../../commons/styles/Button"
 import * as S from "./Signup.styles";
+import { OuterWrap, InnerWrap } from "../../../commons/styles/Wrapper";
 
 export default function SignupUI() {
   const onClickSubmit = () => {};
 
   return (
-    <S.OuterWrap>
-      <S.InnerWrap>
+    <OuterWrap>
+      <InnerWrap>
         <S.Wrapper>
           <S.TitleWrapper>
             <S.TitleMain>회원가입</S.TitleMain>
@@ -80,7 +81,7 @@ export default function SignupUI() {
           </S.Footer>
           {/* </form> */}
         </S.Wrapper>
-      </S.InnerWrap>
-    </S.OuterWrap>
+      </InnerWrap>
+    </OuterWrap>
   );
 }

@@ -1,31 +1,23 @@
 import styled from "@emotion/styled";
 
-export const OuterWrap = styled.div``;
-
-export const InnerWrap = styled.div`
-  display: flex;
-  padding: 50px 50px 250px 50px;
-`;
-
-export const BgImg = styled.img`
-  object-fit: cover;
-  width: 600px;
-  height: 100%;
-`;
-
 export const Wrapper = styled.div`
-  padding: 0 50px;
+  /* padding: 0 50px; */
   height: 903px;
-  background: #ffffff;
   margin: auto;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-bottom: 300px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* padding: 50px 50px 250px 50px; */
+  gap: 50px;
 `;
 
 export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 `;
 
 export const TitleMain = styled.div`
@@ -48,11 +40,11 @@ export const Line = styled.div`
   width: 1002.8px;
   height: 0px;
   border: 1px solid #c9c9c9;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 `;
 export const ContentsWrapper = styled.div`
   box-sizing: border-box;
-  margin-top: 100px;
+  /* margin-top: 100px; */
 `;
 
 export const Label = styled.div`
@@ -68,15 +60,15 @@ export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   margin: auto;
-  margin-top: 90px;
+  /* margin-top: 90px; */
   justify-content: center;
   gap: 10px;
 `;
 
 export const Footer = styled.div`
   display: flex;
-  margin: auto;
-  margin-top: 40px;
+  /* margin: auto; */
+  /* margin-top: 40px; */
   align-items: center;
   justify-content: center;
 `;
@@ -102,8 +94,8 @@ export const Footer2 = styled.div`
 export const SubWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
-  gap: 20px;
+  margin-bottom: 20px;
+  gap: 30px;
 `;
 
 export const CheckBox = styled.input`
@@ -114,11 +106,11 @@ export const CheckBox = styled.input`
 export const SubWrapper1 = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   gap: 20px;
 `;
 
 export const CheckBoxWrapper = styled.div`
-margin-top: 10px;
+/* margin-top: 10px; */
 margin-left: 15px;
 `;
