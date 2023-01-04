@@ -17,6 +17,13 @@ export const SubmitButton1 = styled(StyleButton)`
   width: 400px;
   height: 88px;
   font-size: 24px;
+
+
+@media screen and (max-width:568px) {
+/* 모바일 */
+width: 300px;
+/* background-color: green; */
+}
 `
 
 export const SubmitButton2 = styled(StyleButton)`

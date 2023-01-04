@@ -3,29 +3,26 @@ import styled from "@emotion/styled";
 
 export const LoginWrapper = styled.div`
   width: 50%;
-  background: #ffffff;
   /* box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.07); */
   border-radius: 10px;
-  /* padding: 100px; */
   margin: 20px auto 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 50px;
+
+@media screen and (max-width:568px) {
+width: 350px;
+justify-content: center;
+align-items: center;
+}
 `;
 
 export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-`;
-
-export const Line = styled.div`
-  width: 597px;
-  height: 0px;
-  border: 1px solid #c9c9c9;
-  margin-top: 20px;
 `;
 
 export const TitleMain = styled.div`
@@ -47,13 +44,25 @@ export const TitleSub = styled.div`
 `;
 export const ContentsWrapper = styled.div`
   box-sizing: border-box;
-  margin-top: 60px;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+@media screen and (max-width:568px) {
+width: 350px;
+align-items: center;
+}
 `;
 
 export const Label = styled.div`
-  margin-top: 40px;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  padding: 0 12px;
+  
+@media screen and (max-width:568px) {
+width: 240px;
+align-items: center;
+}
 `;
 
 export const LoginButtonWrap = styled.div`
@@ -67,15 +76,14 @@ export const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 60px;
-  margin-right: 50px;
+  gap: 10px;
 `;
+
 export const Footer1 = styled.div`
-  width: 170px;
   height: 18px;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 100%;
   text-align: center;
   cursor: pointer;
