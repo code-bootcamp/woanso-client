@@ -20,7 +20,7 @@ export const MenuWrap = styled.div`
 
 export const Logo = styled.div`
   color: #fff;
-  padding: 20px 10px;
+  padding: 20px 0;
   font-weight: bold;
   letter-spacing: 10px;
   color: #333;

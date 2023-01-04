@@ -22,13 +22,15 @@ export const Navigation = styled.div`
 
   ul {
     width: 100%;
-    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     li {
       font-size: 16px;
-      padding: 0 16px;
+      padding-right: 16px;
+      /* padding: 0 16px; */
       cursor: pointer;
+
       :hover {
         color: #751313;
       }
