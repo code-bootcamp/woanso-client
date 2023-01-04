@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 
-
 export const InnerWrap = styled.div`
   padding: 100px;
 `;
-
 
 export const ListWrap = styled.div`
   padding: 20px 0 20px 20px;
@@ -104,9 +102,9 @@ export const TextCircle = styled.div`
 
 export const Open = styled.p`
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 30px;
-  font-family: "yang";
+  font-family: "roundGothicBold";
 `;
 
 export const TextCircle2 = styled.div`
@@ -122,8 +120,8 @@ export const TextCircle2 = styled.div`
 
 export const Close = styled.p`
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 30px;
   color: #ddd;
-  font-family: "yang";
+  font-family: "roundGothicBold";
 `;
