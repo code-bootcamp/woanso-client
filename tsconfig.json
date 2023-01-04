@@ -22,6 +22,6 @@
     "pages/__main/index.tsx",
     "pages/__main/dot.js",
     "pages/index.js"
-  ],
+, "src/commons/styles/MediaQuery.ts", "pages/test/index.js", "pages/test/index.jsx"  ],
   "exclude": ["node_modules"]
 }
