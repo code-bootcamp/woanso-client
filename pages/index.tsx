@@ -1,5 +1,5 @@
-import Main from "../src/components/units/main";
+import Randing from "../src/components/units/randing";
 
-export default function MainPage() {
-  return <Main />;
+export default function RandingPage() {
+  return <Randing />;
 }

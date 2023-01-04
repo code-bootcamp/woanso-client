@@ -1,3 +1,4 @@
+import SliderImages from "../../commons/sliderImages";
 import * as S from "./styles";
 
 export default function Randing() {
@@ -5,12 +6,13 @@ export default function Randing() {
     <>
       <S.OuterWrap>
         <S.InnerWrap>
+          <SliderImages />
           {/* <S.VideoWrap> */}
-          <video autoPlay muted loop>
+          {/* <video autoPlay muted loop>
             <source src="/randing/randing.mp4" type="video/mp4" />
-          </video>
+          </video> */}
           {/* </S.VideoWrap> */}
-          <S.ImgWrap>
+          {/* <S.ImgWrap>
             <S.LeftImg>
               <img src="/randing/1-1.png" />
             </S.LeftImg>
@@ -20,7 +22,7 @@ export default function Randing() {
             <S.LeftImg>
               <img src="/randing/2-1.png" />
             </S.LeftImg>
-          </S.ImgWrap>
+          </S.ImgWrap> */}
         </S.InnerWrap>
       </S.OuterWrap>
     </>

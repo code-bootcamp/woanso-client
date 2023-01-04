@@ -1,9 +1,9 @@
 import BestBooks from "../../commons/bestbooks";
 import BookSliderTop from "../../commons/carousel";
 import FaqMini from "../../commons/faqmini";
-import SideMenuBar from "../../commons/sidemenubar";
 import Picks from "../../commons/picks/style";
 import Recommand from "../../commons/recommand";
+import SideMenuBar from "../../commons/sidemenubar";
 import SignupBenefit from "../../commons/signupbenefit";
 import * as S from "./style";
 

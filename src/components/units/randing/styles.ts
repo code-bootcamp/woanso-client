@@ -4,14 +4,13 @@ export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div``;
 
+export const TextWrap = styled.div``;
+
 export const VideoWrap = styled.video`
   width: 100%;
 `;
 
-export const ImgWrap = styled.div`
-  /* display: flex;
-  flex-direction: column; */
-`;
+export const ImgWrap = styled.div``;
 
 export const LeftImg = styled.div`
   display: flex;
