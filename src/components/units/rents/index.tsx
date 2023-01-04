@@ -1,12 +1,9 @@
-// import {  } from "../../../commons/styles/globalStyles";
-import Searchbar from "../../commons/searchbar";
 import * as S from "./style";
 
 export default function Rents() {
   return (
     // <OuterWrap>
     <S.InnerWrap>
-      <Searchbar />
       <S.ListWrap>
         <S.BookImgBox>
           <S.BookImg src="/item1.png" />

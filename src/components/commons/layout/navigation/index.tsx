@@ -10,7 +10,7 @@ export default function LayoutNavigation() {
     {
       name: "홈",
       //   id: "home",
-      url: "/",
+      url: "/home",
     },
     {
       name: "대여",

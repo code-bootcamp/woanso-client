@@ -73,7 +73,7 @@ export default function LayoutHeader() {
           )}
         </S.MenuWrap>
 
-        {router.asPath === "/" && <MainBanner />}
+        {router.asPath === "/home" && <MainBanner />}
         {isShowLayout && <SliderBanner />}
       </S.InnerWrap>
     </S.OuterWrap>

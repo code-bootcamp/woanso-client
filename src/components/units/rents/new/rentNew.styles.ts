@@ -12,19 +12,10 @@ export const Container = styled.div`
 `;
 
 export const TopContainer = styled.div`
-  margin: 50px 0 80px;
-  display: flex;
-  align-items: center;
-  gap: 30px;
+  margin-bottom: 50px;
 `;
 
-export const Title = styled.p`
-  font-size: 50px;
-`;
-
-export const Title2 = styled.p`
-  font-size: 32px;
-`;
+export const h2 = styled.h2``;
 
 export const MainWrapper = styled.div`
   display: flex;
@@ -33,10 +24,9 @@ export const MainWrapper = styled.div`
 
 export const Name = styled.div`
   width: 120px;
-  margin: 20px 30px 30px 0px;
-
+  margin: 20px 0px 30px;
   span {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     color: #111;
   }
@@ -44,25 +34,21 @@ export const Name = styled.div`
 
 export const Button = styled.button`
   width: 250px;
-  height: 70px;
+  height: 40px;
   background-color: #f4efe4;
-  font-size: 20px;
   border: none;
-  border-radius: 15px;
   margin-right: 50px;
   cursor: pointer;
 `;
 
 export const Button2 = styled.button`
-  width: 330px;
-  height: 70px;
+  width: 160px;
+  height: 55px;
   border: none;
-  border-radius: 20px;
   margin: 50px 7px;
-  background-color: #77170d;
+  background-color: #751312;
   color: white;
   font-size: 20px;
-  /* font-family: "Noto Sans KR", "sans-serif", "roundGothicBold"; */
   cursor: pointer;
 `;
 
@@ -74,13 +60,10 @@ export const ButtonWrapper = styled.div`
 
 export const Input = styled.input`
   width: 100%;
-  height: 64px;
-  border: 3px solid #f5efe3;
-  border-radius: 20px;
+  height: 40px;
+  border: 1px solid #bdbdbd;
   outline: none;
-  margin: 10px 2px;
-  padding: 40px;
-  font-size: 24px;
+  margin: 0 2px;
 `;
 
 export const Category = styled.div`
@@ -99,7 +82,7 @@ export const Category2 = styled.div`
 export const Category3 = styled.div`
   width: 48%;
   display: flex;
-  gap: 24px;
+  gap: 12px;
   align-items: center;
 `;
 
@@ -112,13 +95,11 @@ export const ImageButton = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
   cursor: pointer;
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
-  gap: 20px;
 `;
 
 export const BottomContainer = styled.div`
@@ -127,11 +108,10 @@ export const BottomContainer = styled.div`
 
 // export const Form = styled.form``;
 
-export const BtnInputContainer = styled.div`
+export const BtnInputContianer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 `;
 
 export const IsbnInputContainer = styled.div`
@@ -139,13 +119,12 @@ export const IsbnInputContainer = styled.div`
 `;
 
 export const PriceInputContainer = styled.div`
-  width: 50%;
+  width: 30%;
 `;
 
 export const PriceContainer = styled.div`
   width: 100%;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
-  font-size: 20px;
 `;
