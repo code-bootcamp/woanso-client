@@ -2,7 +2,7 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { Fragment, MouseEvent } from "react";
 import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../../commons/store";
+import { accessTokenState } from "../../../../commons/libraries/store";
 import MainBanner from "../../mainbanner";
 import { BannerImg } from "../../mainbanner/style";
 import SliderBanner from "../../sliderBanner";
