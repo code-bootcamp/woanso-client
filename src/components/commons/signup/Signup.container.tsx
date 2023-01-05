@@ -9,7 +9,7 @@ import {
 
 import * as S from "./Signup.styles";
 import { ChangeEvent, useState } from "react";
-import { useMutationSignUp } from "../../../commons/hooks/mutaions/UseMutationSignUP";
+import { useMutationSignUp } from "../../../commons/hooks/mutaions/useMutationSignUP";
 
 export default function SignupUI() {
   const [interest, setInterest] = useState("");
