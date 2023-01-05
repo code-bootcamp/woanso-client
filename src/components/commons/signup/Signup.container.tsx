@@ -47,7 +47,9 @@ export default function SignupUI() {
     mode: "onSubmit",
   });
   const router = useRouter();
-  const [signUp] = useMutation<Pick<IMutation, "signUp">>(SIGN_UP);
+  const [signUp] = useMutation<Pick<IMutation, "signUp">, IMutationSignUpArgs>(
+    SIGN_UP
+  );
 
   const onChangeCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
     setInterest(event.target.value);
