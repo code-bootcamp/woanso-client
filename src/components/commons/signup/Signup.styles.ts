@@ -70,7 +70,7 @@ export const ButtonWrapper = styled.div`
   margin-top: 90px;
   justify-content: center;
 `;
-export const SignupButton = styled.div`
+export const SignupButton = styled.button`
   width: 330px;
   height: 70px;
   background-color: #77170d;
@@ -88,7 +88,7 @@ export const SignupButton = styled.div`
   border-radius: 45px;
   color: #fff;
 `;
-export const BackButton = styled.div`
+export const BackButton = styled.button`
   width: 330px;
   height: 70px;
   background: #ffffff;
@@ -149,7 +149,7 @@ export const Input = styled.input`
 
 export const SubWrapper = styled.div`
   display: flex;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   margin-top: 40px;
 `;
@@ -157,4 +157,10 @@ export const SubWrapper = styled.div`
 export const CheckBox = styled.input`
   margin: 10px;
   font-size: 16px;
+`;
+export const ErrMessage = styled.div`
+  font-size: 10px;
+  color: red;
+  margin-left: 10px;
+  margin-top: 5px;
 `;
