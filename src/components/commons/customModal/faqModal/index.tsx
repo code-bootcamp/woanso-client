@@ -2,7 +2,7 @@ import * as S from "./style";
 
 interface ModalProps {
   open: boolean;
-  setOpen: (open: boolean) => boolean;
+  setOpen: (open: boolean) => void;
 }
 
 export default function FaqModal({ open, setOpen }: ModalProps) {

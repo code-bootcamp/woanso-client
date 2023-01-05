@@ -4,100 +4,146 @@ export const OuterWrap = styled.div``;
 export const InnerWrap = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 100px 50px;
 `;
 
 export const SideWrap = styled.div`
-  width: 25%;
+  width: 24%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 `;
 
 export const MainWrap = styled.div`
-  width: 75%;
+  width: 75.4%;
 `;
 
 export const UserInfoWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  text-align: center;
 `;
-
 export const UserAvatar = styled.div`
-  margin-bottom: 20px;
+  margin: 50px 0 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 50%;
   cursor: pointer;
 `;
 
 export const AvatarImg = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background: grey;
   border-radius: 50%;
 `;
-
-export const UserName = styled.p`
-  width: 150px;
-  text-align: center;
+export const UserGrade = styled.span`
+  background-color: #ddd;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+  margin-right: 4px;
 `;
 
 export const MenuBarWrap = styled.div`
-  margin-top: 80px;
+  margin-top: 20px;
 `;
 
 export const MenuLists = styled.ul`
   list-style: none;
   padding: 0;
-  padding-left: 50px;
 `;
 
 export const MenuList = styled.li`
   padding: 20px 0;
-`;
-
-export const MenuName = styled.p`
-  :hover {
-    color: #751312;
-  }
+  font-weight: 500;
   cursor: pointer;
+  :hover {
+    color: #77170d;
+  }
 `;
 
-export const TopMenusWrap = styled.div`
+export const MenuName = styled.p``;
+
+export const SectionWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 70px;
-`;
-export const ButtomMenusWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
+  margin-bottom: 10px;
 `;
 
-export const BoxBig = styled.div`
+export const LeftWrap = styled.div`
+  width: 40%;
+  min-width: 240px;
+  background-color: #ffff;
+
+  padding: 50px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+`;
+
+export const RigthWrap = styled.div`
   text-align: center;
   padding: 50px;
-  width: 30.5%;
-  min-width: 300px;
-  height: 250px;
-  background-color: #d9d9d9;
-  border-radius: 7px;
+  width: 59%;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 `;
 
-export const BoxSmall = styled.div`
-  text-align: right;
-  width: 22%;
-  min-width: 240px;
-  height: 200px;
-  background-color: #f4efe4;
-  border-radius: 7px;
-  padding: 50px;
+export const MiniWrap = styled.div`
+  margin-bottom: 50px;
 `;
 
-export const BoxTitle = styled.p`
-  padding: 15px 0;
-`;
-
-export const MyGrade = styled.span`
-  padding: 15px 30px;
-  background-color: #751312;
+export const BoxTitle = styled.div`
+  font-weight: 500;
+  width: 100%;
   color: #ffffff;
+  background-color: #7a3831eb;
+  padding: 5px 30px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-align: center;
+`;
+
+export const ContentBox = styled.div`
+  padding: 4px 8px;
+  width: 100%;
+  color: #000;
+  border: 1px solid #ddd;
+  margin-bottom: 2px;
+  cursor: pointer;
+  &:hover {
+    background-color: #f4ffe499;
+  }
+`;
+
+export const ItemsWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+export const ItemWrap = styled.div`
+  margin: 7px;
+  width: calc(100% / 4 - 14px);
   display: inline-block;
-  margin-top: 10px;
-  border-radius: 7px;
+  border: 1px solid #ddd;
+`;
+export const ItemName = styled.p``;
+export const ItemImg = styled.img`
+  width: 100px;
+  height: 130px;
+  object-fit: cover;
+`;
+export const NoItemImg = styled.img`
+  width: 100px;
+  height: 130px;
+  object-fit: contain;
+`;
+
+export const SectionWrap2 = styled.div`
+  padding: 50px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 `;

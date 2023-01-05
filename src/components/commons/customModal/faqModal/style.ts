@@ -52,9 +52,7 @@ export const ModalWrap = styled(Modal)`
   }
 
   .anticon-close {
-    position: absolute;
-    top: 74px;
-    right: 74px;
+    display: none;
   }
 
   .ant-modal-footer {
