@@ -1,31 +1,29 @@
-import { useRouter } from "next/router";
-import { useState } from "react";
-import FaqModal from "../../commons/customModal/faqModal";
 import * as S from "./style";
+import { useRouter } from "next/router";
+import { MouseEvent, useState } from "react";
+import { allDatas } from "../section/detas";
+import LogoutConfirmModal from "../../commons/customModal/logoutModal";
+import FaqModal from "../../commons/customModal/faqModal";
 
 const MenuLists = [
   { id: "mypage/myrentList", name: "대여목록" },
   { id: "mypage/myreservationList", name: "예약내역" },
+  { id: "mypage/mypoint", name: "포인트 충전" },
   { id: "userEdit", name: "회원정보 수정" },
 ];
 
-const onClickMoveToKakao = () => {
-  const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
-  window.open(kakaoUrl, "_blank");
-};
-
-export default function MypageUI() {
+export default function MyPageUI() {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
-  // const onClickMoveToPage = (e) => {
-  //   if (e.currentTarget.id === "askkakao") {
-  //     const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
-  //     window.open(kakaoUrl, "_blank");
-  //   } else {
-  //     router.push(e.currentTarget.id);
-  //   }
-  // };
+  const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
+    if (e.currentTarget.id === "askkakao") {
+      const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
+      window.open(kakaoUrl, "_blank");
+    } else {
+      router.push(e.currentTarget.id);
+    }
+  };
 
   const onClickMoveToProfileEdit = () => {
     router.push("/userEdit");
@@ -38,12 +36,14 @@ export default function MypageUI() {
   return (
     <S.OuterWrap>
       <S.InnerWrap>
-        {/* <S.SideWrap>
+        <S.SideWrap>
           <S.UserInfoWrap>
             <S.UserAvatar onClick={onClickMoveToProfileEdit}>
-              <S.AvatarImg src="/" />
+              <S.AvatarImg src="/userAvatar.jpeg" />
             </S.UserAvatar>
-            <S.UserName>완소님</S.UserName>
+            <p>
+              <S.UserGrade>브론즈</S.UserGrade>다나카상
+            </p>
           </S.UserInfoWrap>
 
           <S.MenuBarWrap>
@@ -53,42 +53,56 @@ export default function MypageUI() {
                   <S.MenuName>{el.name}</S.MenuName>
                 </S.MenuList>
               ))}
-              <S.MenuList onClick={onClickMoveToKakao}>
+              <S.MenuList id="askkakao" onClick={onClickMoveToPage}>
                 <S.MenuName>1:1 문의</S.MenuName>
               </S.MenuList>
-              <S.MenuList onClick={onClickOpenModal}>
+              {/* <S.MenuList onClick={onClickOpenModal}>
                 <S.MenuName>FAQ</S.MenuName>
               </S.MenuList>
-              <FaqModal open={open} setOpen={setOpen} />
+              <FaqModal open={open} setOpen={setOpen} /> */}
             </S.MenuLists>
           </S.MenuBarWrap>
         </S.SideWrap>
 
         <S.MainWrap>
-          <S.TopMenusWrap>
-            {["최근 본 상품", "장바구니", "이벤트"].map((el, index) => (
-              <S.BoxBig key={index}>{el}</S.BoxBig>
-            ))}
-          </S.TopMenusWrap>
-          <S.ButtomMenusWrap>
-            <S.BoxSmall>
-              <S.BoxTitle>쿠폰</S.BoxTitle>
-              <S.BoxTitle>0장</S.BoxTitle>
-            </S.BoxSmall>
-            <S.BoxSmall>
-              <S.BoxTitle>포인트</S.BoxTitle>
-              <S.BoxTitle>0P</S.BoxTitle>
-            </S.BoxSmall>
-            <S.BoxSmall>
-              <S.BoxTitle>등급</S.BoxTitle>
-              <S.MyGrade>프렌즈</S.MyGrade>
-            </S.BoxSmall>
-            <S.BoxSmall>
-              <S.BoxTitle>내 게시물</S.BoxTitle>
-              <S.BoxTitle>0장</S.BoxTitle>
-            </S.BoxSmall>
-          </S.ButtomMenusWrap>
-        </S.MainWrap> */}
+          <S.SectionWrap>
+            <S.LeftWrap>
+              <S.MiniWrap>
+                <S.BoxTitle>내가 쓴 게시물</S.BoxTitle>
+                <S.ContentBox>나는 다나카상이 제일 좋아~~~</S.ContentBox>
+                <S.ContentBox>가나다라마바사하~!</S.ContentBox>
+              </S.MiniWrap>
+
+              <S.MiniWrap>
+                <S.BoxTitle>내가 쓴 댓글</S.BoxTitle>
+                <S.ContentBox>ㅎㅎㅎ 킹받쥬?</S.ContentBox>
+                <S.ContentBox>어쩔 저쩔~</S.ContentBox>
+              </S.MiniWrap>
+            </S.LeftWrap>
+
+            <S.RigthWrap>
+              <S.BoxTitle>최근 본 상품</S.BoxTitle>
+              <S.ItemsWrap>
+                <S.ItemWrap>
+                  <S.NoItemImg src="/noitem.png" />
+                </S.ItemWrap>
+                {allDatas.map((el) => (
+                  <S.ItemWrap>
+                    <S.ItemImg src={el.imgUrl} />
+                  </S.ItemWrap>
+                ))}
+              </S.ItemsWrap>
+              <S.BoxTitle>WISH LIST</S.BoxTitle>
+              <S.ItemsWrap>
+                {allDatas.map((el) => (
+                  <S.ItemWrap>
+                    <S.ItemImg src={el.imgUrl} />
+                  </S.ItemWrap>
+                ))}
+              </S.ItemsWrap>
+            </S.RigthWrap>
+          </S.SectionWrap>
+        </S.MainWrap>
       </S.InnerWrap>
     </S.OuterWrap>
   );
