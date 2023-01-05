@@ -21,9 +21,10 @@ export const SubmitButton1 = styled(StyleButton)`
 
 export const SubmitButton2 = styled(StyleButton)`
   /* 중간 크기 */
-  width: 160px;
-  height: 55px;
-  font-size: 20px;
+  width: 200px;
+  height: 45px;
+  font-size: 16px;
+  border-radius: 4px;
 `
 
 export const SubmitButton3 = styled(StyleButton)`
