@@ -60,7 +60,7 @@ gap: 5px;
 `
 export const Number = styled.div`
 background: #e1dcd5;
-padding-left: 10px;
+padding-left: 40px;
 border-top-left-radius: 9px;
 border-top-right-radius: 9px;
 `
