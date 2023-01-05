@@ -20,6 +20,10 @@ export const globalStyles = css`
     font-weight: 400;
     max-width: 1920px;
     margin: 0 auto;
+
+    @media ${size.mobile} {
+      font-size: 8px;
+    }
   }
 
   @font-face {
@@ -51,7 +55,3 @@ export const globalStyles = css`
     margin: 0;
   }
 `;
-
-/* @media ${size.mobile} {
-      font-size: 8px;
-    } */
