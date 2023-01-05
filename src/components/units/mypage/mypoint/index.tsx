@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faP } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./style";
+import { Thead } from "../../userBoard/style";
 
 const Point = [
   {
@@ -28,30 +29,86 @@ const Point = [
 
 export default function MyPointUI() {
   return (
-    <S.PointWrapper>
-      <h1>포인트내역</h1>
-      <S.PointMainList>
-        {/* <S.TopRow>
-          <S.Status>생성일</S.Status>
-          <S.Status>상태(충전/사용)</S.Status>
-          <S.Amount>금액(p)</S.Amount>
-          <S.Status>사용내역</S.Status>
-          <S.Balance>잔액(p)</S.Balance>
-        </S.TopRow> */}
-        {Point.map((el) => (
-          <S.PointList>
-            <S.Status>{el.creatAt}</S.Status>
-            <S.Status>{el.status}</S.Status>
-            <S.Amount>
-              {el.amount} <FontAwesomeIcon icon={faP} />
-            </S.Amount>
-            <S.Status>{el.usedItem}</S.Status>
-            <S.Balance>
-              {el.balance} <FontAwesomeIcon icon={faP} />
-            </S.Balance>
-          </S.PointList>
-        ))}
-      </S.PointMainList>
-    </S.PointWrapper>
+    <S.OuterWrap>
+      <S.InnerWrap>
+        <S.LeftWrap>
+          <S.ImageWrap>
+            <S.BookCoverImg src="/academy/01.jpeg" />
+            <S.BookCoverImg src="/academy/02.jpeg" />
+            <S.BookCoverImg src="/action/01.jpeg" />
+            <S.BookCoverImg src="/action/02.jpeg" />
+            <S.BookCoverImg src="/action/03.jpeg" />
+            <S.BookCoverImg src="/mystery/01.jpeg" />
+            <S.BookCoverImg src="/academy/01.jpeg" />
+            <S.BookCoverImg src="/academy/02.jpeg" />
+            <S.BookCoverImg src="/action/01.jpeg" />
+            <S.BookCoverImg src="/action/02.jpeg" />
+            <S.BookCoverImg src="/action/03.jpeg" />
+            <S.BookCoverImg src="/mystery/01.jpeg" />
+            <S.BookCoverImg src="/academy/01.jpeg" />
+            <S.BookCoverImg src="/academy/02.jpeg" />
+            <S.BookCoverImg src="/action/01.jpeg" />
+            <S.BookCoverImg src="/action/02.jpeg" />
+            <S.BookCoverImg src="/action/03.jpeg" />
+            <S.BookCoverImg src="/mystery/01.jpeg" />
+            <S.BookCoverImg src="/academy/01.jpeg" />
+            <S.BookCoverImg src="/academy/02.jpeg" />
+            <S.BookCoverImg src="/action/01.jpeg" />
+            <S.BookCoverImg src="/action/02.jpeg" />
+            <S.BookCoverImg src="/action/03.jpeg" />
+            <S.BookCoverImg src="/mystery/01.jpeg" />
+            <S.BookCoverImg src="/mystery/01.jpeg" />
+            <S.BookCoverImg src="/academy/01.jpeg" />
+            <S.BookCoverImg src="/academy/02.jpeg" />
+            <S.BookCoverImg src="/action/01.jpeg" />
+            <S.BookCoverImg src="/action/02.jpeg" />
+            <S.BookCoverImg src="/action/03.jpeg" />
+          </S.ImageWrap>
+          <S.ChargePointWrap>
+            <S.UserWrap>
+              <S.UserPoint></S.UserPoint>
+            </S.UserWrap>
+            <S.OptionWrap>
+              {[
+                "5000냥",
+                "10000냥",
+                "15000냥",
+                "20000냥",
+                "30000냥",
+                "40000냥",
+                "50000냥",
+                "기타",
+              ].map((el) => (
+                <S.ChageOption>{el}</S.ChageOption>
+              ))}
+            </S.OptionWrap>
+          </S.ChargePointWrap>
+        </S.LeftWrap>
+        <S.PointWrapper>
+          <h1>포인트내역</h1>
+          <S.PointMainList>
+            {Point.map((el) => (
+              <S.PointList>
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="3">완소 영수증 </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{el.creatAt}</td>
+
+                      <td>{el.usedItem}</td>
+                      <td>{el.amount}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </S.PointList>
+            ))}
+          </S.PointMainList>
+        </S.PointWrapper>
+      </S.InnerWrap>
+    </S.OuterWrap>
   );
 }
