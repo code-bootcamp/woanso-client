@@ -12,6 +12,10 @@ import { ILoginFormData } from "./Login.types";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import {
+  IMutation,
+  IMutationLoginArgs,
+} from "../../../commons/types/generated/types";
 
 export const schema = yup.object({
   email: yup
@@ -39,7 +43,9 @@ export default function LoginUI() {
   });
   const router = useRouter();
   const Token = useRecoilState(accessTokenState);
-  const [login] = useMutation(LOG_IN);
+  const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
+    LOG_IN
+  );
 
   const onClickLogin = async (data: ILoginFormData) => {
     console.log("로그인 되었습니다.");
@@ -50,7 +56,7 @@ export default function LoginUI() {
           password: data.password,
         },
       });
-      const accessToken = result.data?.login.accessToken;
+      const accessToken = result.data?.login;
       if (!accessToken) {
         Modal.error({ content: "회원정보가 없습니다. 다시 확인해주세요" });
         return;

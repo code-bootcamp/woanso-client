@@ -3,9 +3,7 @@ import { GraphQLClient } from "graphql-request";
 
 const RESTORE_ACCESS_TOKEN = gql`
   mutation restoreAccessToken {
-    restoreAccessToken {
-      accessToken
-    }
+    restoreAccessToken
   }
 `;
 export const getAccessToken = async () => {
@@ -18,7 +16,7 @@ export const getAccessToken = async () => {
       }
     );
     const result = await graphQLClient.request(RESTORE_ACCESS_TOKEN);
-    const newAccessToken = result.restoreAccessToken.accessToken;
+    const newAccessToken = result.restoreAccessToken;
     return newAccessToken; // 받은 newAccessToken을 넘겨주기
   } catch (error) {
     if (error instanceof Error) console.log(error.message);
