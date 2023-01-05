@@ -1,4 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
+import { IMutation, IMutationSignUpArgs } from "../../types/generated/types";
 
 export const SIGN_UP = gql`
   mutation signUp(
@@ -16,11 +17,14 @@ export const SIGN_UP = gql`
       interest: $interest
     ) {
       id
+      nickname
     }
   }
 `;
 
 export const useMutationSignUp = () => {
-  const mutation = useMutation(SIGN_UP);
+  const mutation = useMutation<Pick<IMutation, "signUp">, IMutationSignUpArgs>(
+    SIGN_UP
+  );
   return mutation;
 };

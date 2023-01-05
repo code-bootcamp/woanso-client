@@ -1,11 +1,6 @@
-import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { JoinInput } from "../../../commons/styles/Input";
-import {
-  IMutation,
-  IMutationSignUpArgs,
-} from "../../../commons/types/generated/types";
 
 import * as S from "./Signup.styles";
 import { ChangeEvent, useState } from "react";

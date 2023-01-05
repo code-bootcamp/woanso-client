@@ -2,7 +2,9 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { Fragment, MouseEvent } from "react";
 import { useRecoilState } from "recoil";
+
 import { accessTokenState } from "../../../../commons/libraries/store";
+import LoginSuccess from "../../loginSuccess/LoginSuccess.container";
 import MainBanner from "../../mainbanner";
 import { BannerImg } from "../../mainbanner/style";
 import SliderBanner from "../../sliderBanner";
@@ -58,7 +60,10 @@ export default function LayoutHeader() {
               ))}
             </S.BtnsWrap>
           ) : (
-            <S.Btn onClick={onClickLogout}>로그아웃</S.Btn>
+            <>
+              <LoginSuccess />
+              <S.Btn onClick={onClickLogout}>로그아웃</S.Btn>
+            </>
           )}
           {accessToken ? (
             <S.BtnsWrap>

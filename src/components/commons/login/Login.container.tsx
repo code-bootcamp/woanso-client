@@ -1,21 +1,16 @@
-import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/libraries/store";
 import { LoginInput } from "../../../commons/styles/Input";
 import SignupBenefit from "../signupbenefit";
-import { LOG_IN } from "./Login.queries";
+import { useMutationLogIn } from "../../../commons/hooks/mutaions/useMutationLogin";
 import * as S from "./Login.styles";
 import * as St from "../signup/Signup.styles";
 import { ILoginFormData } from "./Login.types";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  IMutation,
-  IMutationLoginArgs,
-} from "../../../commons/types/generated/types";
 
 export const schema = yup.object({
   email: yup
@@ -42,10 +37,9 @@ export default function LoginUI() {
     mode: "onChange",
   });
   const router = useRouter();
-  const Token = useRecoilState(accessTokenState);
-  const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
-    LOG_IN
-  );
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+
+  const [login] = useMutationLogIn();
 
   const onClickLogin = async (data: ILoginFormData) => {
     console.log("로그인 되었습니다.");
@@ -57,12 +51,12 @@ export default function LoginUI() {
         },
       });
       const accessToken = result.data?.login;
+      console.log(result);
       if (!accessToken) {
         Modal.error({ content: "회원정보가 없습니다. 다시 확인해주세요" });
         return;
       }
-      Token[1](accessToken);
-      localStorage.setItem("accessToken", accessToken);
+      setAccessToken(accessToken);
       void router.push(`/`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
