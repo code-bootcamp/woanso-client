@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 
 export const SIGN_UP = gql`
   mutation signUp(
@@ -16,7 +16,11 @@ export const SIGN_UP = gql`
       interest: $interest
     ) {
       id
-      nickname
     }
   }
 `;
+
+export const useMutationSignUp = () => {
+  const mutation = useMutation(SIGN_UP);
+  return mutation;
+};
