@@ -128,3 +128,15 @@ export const PriceContainer = styled.div`
   gap: 30px;
   align-items: center;
 `;
+
+export const SubmitButton = styled.button`
+  width: 179px;
+  height: 52px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 40px;
+  cursor: pointer;
+  `
