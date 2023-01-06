@@ -159,8 +159,14 @@ export const CheckBox = styled.input`
   font-size: 16px;
 `;
 export const ErrMessage = styled.div`
-  font-size: 10px;
+  font-size: 16px;
   color: red;
-  margin-left: 10px;
-  margin-top: 5px;
+  margin-left: 42px;
+  margin-top: 15px;
+`;
+export const ErrMessage2 = styled.div`
+  font-size: 16px;
+  color: red;
+  margin-left: 155px;
+  margin-top: 15px;
 `;

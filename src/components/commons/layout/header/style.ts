@@ -10,7 +10,13 @@ export const BtnsWrap = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
 `;
+
+export const UserName = styled.p`
+  margin-right: 10px;
+`;
+export const UserPoint = styled.p``;
 
 export const MenuWrap = styled.div`
   display: flex;

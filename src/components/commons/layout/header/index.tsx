@@ -6,7 +6,6 @@ import { useRecoilState } from "recoil";
 import { Logout } from "../../../../commons/hooks/mutaions/useMutaionLogout";
 import { accessTokenState } from "../../../../commons/libraries/store";
 import MainBanner from "../../mainbanner";
-import { BannerImg } from "../../mainbanner/style";
 import SliderBanner from "../../sliderBanner";
 import * as S from "./style";
 
