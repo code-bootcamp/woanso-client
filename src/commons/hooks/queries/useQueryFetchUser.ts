@@ -16,11 +16,9 @@ export const FETCH_USER = gql`
   }
 `;
 
-const [email] = useRecoilState(getUserEmail);
-
-export const useQueryFetchUser = () => {
-  const query = useQuery(FETCH_USER, {
-    email,
-  });
-  return query;
-};
+// export const useQueryFetchUser = (email: string) => {
+//   const query = useQuery(FETCH_USER, {
+//     email,
+//   });
+//   return query;
+// };
