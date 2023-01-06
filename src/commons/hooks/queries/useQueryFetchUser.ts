@@ -1,4 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
+import { useRecoilState } from "recoil";
+import { getUserEmail } from "../../libraries/store";
 
 export const FETCH_USER = gql`
   query fetchUser($email: String!) {
@@ -9,17 +11,16 @@ export const FETCH_USER = gql`
       phone
       interest
       balance
+      userImg
     }
   }
 `;
 
-interface IPropsType {
-  email: string;
-}
+const [email] = useRecoilState(getUserEmail);
 
-export const useQueryFetchUser = ({ email }: IPropsType) => {
+export const useQueryFetchUser = () => {
   const query = useQuery(FETCH_USER, {
-    variables: { email: String(email) },
+    email,
   });
   return query;
 };
