@@ -6,9 +6,7 @@ import {
   fromPromise,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-
 import { createUploadLink } from "apollo-upload-client";
-
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
@@ -36,7 +34,6 @@ export default function ApolloSetting(props: IApolloSettingProps) {
           return fromPromise(
             getAccessToken().then((newAccessToken) => {
               setAccessToken(newAccessToken);
-
               if (typeof newAccessToken !== "string") return;
 
               operation.setContext({
@@ -51,16 +48,14 @@ export default function ApolloSetting(props: IApolloSettingProps) {
       }
     }
   });
-
+  console.log("토큰을 가져오세요", accessToken);
   const uploadLink = createUploadLink({
     uri: "https://examplezi.shop/graphql",
-
     headers: { Authorization: `Bearer ${accessToken}` }, // 모든 API에 토큰이 첨부되어 요청들어감. 토큰이 없는경우에는 빈문자열로
     credentials: "include",
   });
   const client = new ApolloClient({
     link: ApolloLink.from([errorLink, uploadLink]), // 순서 있음
-    // cache: new InMemoryCache(), // 나중에 수업//
     cache: GLOBAL_STATE,
     connectToDevTools: true,
   });

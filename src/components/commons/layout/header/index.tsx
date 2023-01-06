@@ -1,10 +1,17 @@
+import { useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { Fragment, MouseEvent } from "react";
 import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../../commons/libraries/store";
+import {
+  FETCH_USER,
+  useQueryFetchUser,
+} from "../../../../commons/hooks/queries/useQueryFetchUser";
+import {
+  accessTokenState,
+  getUserEmail,
+} from "../../../../commons/libraries/store";
 import MainBanner from "../../mainbanner";
-import { BannerImg } from "../../mainbanner/style";
 import SliderBanner from "../../sliderBanner";
 import * as S from "./style";
 
@@ -13,10 +20,16 @@ const SHOW_LAYOUT = [
     "/rents",
     "/event"
   ];
+
 export default function LayoutHeader() {
-  const [accessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
+  const [accessToken] = useRecoilState(accessTokenState);
+  const [email] = useRecoilState(getUserEmail);
   const isShowLayout = SHOW_LAYOUT.includes(router.asPath);
+  // const { data } = useQueryFetchUser(email);
+  const { data } = useQuery(FETCH_USER, {
+    variables: { email: String(email) },
+  });
 
   const onClickMoveToHome = () => {
     router.push("/");
@@ -32,15 +45,11 @@ export default function LayoutHeader() {
       },
     });
   };
-  const UserList = [
+  const LoginBeforeMenuList = [
     { name: "로그인", id: "login" },
     { name: "회원가입", id: "join" },
   ];
-  const MenuList = [
-    { name: "♡", id: "mypick" },
-    { name: "장바구니", id: "mycart" },
-    { name: "마이페이지", id: "mypage" },
-  ];
+
   return (
     <S.OuterWrap>
       <S.InnerWrap>
@@ -49,7 +58,7 @@ export default function LayoutHeader() {
 
           {!accessToken ? (
             <S.BtnsWrap>
-              {UserList.map((el) => (
+              {LoginBeforeMenuList.map((el) => (
                 <Fragment key={el.id}>
                   <S.Btn id={el.id} onClick={onClickMoveToPage}>
                     {el.name}
@@ -58,18 +67,11 @@ export default function LayoutHeader() {
               ))}
             </S.BtnsWrap>
           ) : (
-            <S.Btn onClick={onClickLogout}>로그아웃</S.Btn>
-          )}
-          {accessToken ? (
             <S.BtnsWrap>
-              {MenuList.map((el) => (
-                <S.Btn2 id={el.id} onClick={onClickMoveToPage}>
-                  {el.name}
-                </S.Btn2>
-              ))}
+              <S.UserName>{data?.fetchUser.nickname}님</S.UserName>
+              <S.UserPoint>{data?.fetchUser.balance}P</S.UserPoint>
+              <S.Btn onClick={onClickLogout}>로그아웃</S.Btn>
             </S.BtnsWrap>
-          ) : (
-            <></>
           )}
         </S.MenuWrap>
 
