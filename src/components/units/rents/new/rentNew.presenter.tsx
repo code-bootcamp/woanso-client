@@ -5,10 +5,8 @@ import dynamic from "next/dynamic";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./rentNew.validation";
-import { IMutation, IMutationCreateComicArgs } from "../../../../commons/types/generated/types";
-import { CREATE_COMIC } from "./rentNew.queries";
-import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
+import { useMutationCreateComic } from "../../../../commons/hooks/mutaions/useMutationCreateComic"
 
 
 interface IFormData {
@@ -28,11 +26,12 @@ interface IFormData {
 
 
 export default function RentNewUI() {
+  const [createComic] = useMutationCreateComic();
 
-  const [createComic] = useMutation<
-    Pick<IMutation, "createComic">,
-    IMutationCreateComicArgs
-  >(CREATE_COMIC);
+  // const [createComic] = useMutation<
+  //   Pick<IMutation, "createComic">,
+  //   IMutationCreateComicArgs
+  // >(CREATE_COMIC);
 
   const ReactQuill = dynamic(async () => await import("react-quill"), {
     ssr: false,
