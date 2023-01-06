@@ -7,14 +7,7 @@ import { schema_join } from "../validation/join";
 import { useForm } from "react-hook-form";
 import { JoinInput } from "../../../commons/styles/Input";
 import { ChangeEvent, useState } from "react";
-
-interface IFormJoinType {
-  nickname: string;
-  email: string;
-  password: string;
-  password2: string;
-  phone: number;
-}
+import { IUserFormType } from "../../../commons/types/formtypes/type";
 
 export default function SignupUI() {
   const router = useRouter();
@@ -25,7 +18,7 @@ export default function SignupUI() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormJoinType>({
+  } = useForm<IUserFormType>({
     resolver: yupResolver(schema_join),
     mode: "onChange",
   });
@@ -34,7 +27,7 @@ export default function SignupUI() {
     setInterest(event.target.value);
   };
 
-  const onClickSignUp = async (data: IFormJoinType) => {
+  const onClickSignUp = async (data: IUserFormType) => {
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
     }

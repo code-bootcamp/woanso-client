@@ -6,7 +6,7 @@ import SignupBenefit from "../signupbenefit";
 import { LOG_IN } from "./Login.queries";
 import * as S from "./Login.styles";
 import * as St from "../signup/Signup.styles";
-import { ILoginFormData } from "./Login.types";
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
@@ -19,11 +19,12 @@ import {
   getUserEmail,
 } from "../../../commons/libraries/store";
 import { schema_login } from "../validation/login";
+import { ILoginFormType } from "../../../commons/types/formtypes/type";
 
 export default function LoginUI() {
   const router = useRouter();
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const [userEmail, setUserEmail] = useRecoilState(getUserEmail);
+  const [, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setEmail] = useRecoilState(getUserEmail);
   const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
     LOG_IN
   );
@@ -32,12 +33,12 @@ export default function LoginUI() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ILoginFormData>({
+  } = useForm<ILoginFormType>({
     resolver: yupResolver(schema_login),
     mode: "onChange",
   });
 
-  const onClickLogin = async (data: ILoginFormData) => {
+  const onClickLogin = async (data: ILoginFormType) => {
     try {
       const result = await login({
         variables: {
@@ -51,7 +52,7 @@ export default function LoginUI() {
         return;
       }
       setAccessToken(accessToken);
-      setUserEmail(data.email);
+      setEmail(data.email);
       void router.push(`/home`);
       console.log("유저 로그인", data);
     } catch (error) {
