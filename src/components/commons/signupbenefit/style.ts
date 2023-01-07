@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 
-export const OuterWrap = styled.div``;
-
-export const InnerWrap = styled.div`
+export const Wrap = styled.div`
+  width: 100%;
   padding: 50px;
   background-color: #f4efe4;
 

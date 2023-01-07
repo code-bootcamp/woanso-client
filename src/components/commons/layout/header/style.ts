@@ -1,9 +1,26 @@
 import styled from "@emotion/styled";
+import { SearchOutlined } from "@ant-design/icons";
+import { size } from "../../../../commons/styles/MediaQuery";
 
-export const OuterWrap = styled.div``;
+interface IStypePros {
+  isScroll: boolean;
+}
 
-export const InnerWrap = styled.div`
-  position: relative;
+export const Header = styled.div`
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+`;
+
+export const UserMenuWrap = styled.div`
+  padding: 0 20%;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #ffffff;
+  height: 30px;
+  background-color: ${(props: IStypePros) =>
+    props.isScroll ? "#000000" : "none"};
+  color: ${(props: IStypePros) => (props.isScroll ? "#ffffff" : "#ffffff")};
 `;
 
 export const BtnsWrap = styled.div`
@@ -13,37 +30,152 @@ export const BtnsWrap = styled.div`
   align-items: center;
 `;
 
-export const UserName = styled.p`
-  margin-right: 10px;
+export const Btn = styled.div`
+  font-size: 0.75rem; //12px
+  cursor: pointer;
 `;
-export const UserPoint = styled.p``;
 
-export const MenuWrap = styled.div`
+export const Block = styled.span`
+  font-size: 0.5rem;
+  padding: 0 5px;
+`;
+
+export const Logo = styled.p`
+  font-family: "roundGothicBold";
+  letter-spacing: 3px;
+  padding-right: 20px;
+  cursor: pointer;
+
+  @media ${size.tablet} {
+    display: none;
+  }
+`;
+
+export const MenuListWrap = styled.div`
+  padding: 1.5rem 20%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 0 50px;
+  align-items: center;
+  background-color: ${(props: IStypePros) =>
+    props.isScroll ? "#ffffff" : "none"};
+  color: ${(props: IStypePros) => (props.isScroll ? "#333333" : "#ffffff")};
+  font-weight: bold;
+
+  ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    li {
+      font-size: 16px;
+      padding-right: 16px;
+      cursor: pointer;
+      padding: 0 20px;
+
+      :hover {
+        color: #751313;
+      }
+    }
+
+    @media ${size.tablet} {
+      display: none;
+    }
+  }
 `;
 
-export const Logo = styled.div`
+export const SearchWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 500px;
+  height: 32px;
+  background: #ffffff;
+  border: 1px solid #717171;
+  border-radius: 4px;
+
+  @media ${size.mobile} {
+    width: 80%;
+    height: 30px;
+    svg {
+      width: 15px;
+    }
+  }
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  background: #ffffff;
+  color: #cccccc;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  font-size: 0.75rem; //12px
+`;
+
+export const SearchIcon = styled(SearchOutlined)`
+  padding-left: 15px;
+  font-size: 24px;
+`;
+
+export const MobileMenuBtn = styled.div`
+  @media ${size.tablet} {
+    width: 5%;
+  }
+  img {
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+
+export const MobileMenu = styled.div`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  width: 70vw;
+  height: 100vh;
+  background-color: rgba(244, 239, 228);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+`;
+
+export const MLogo = styled.div`
+  font-size: 2rem;
   color: #fff;
-  padding: 20px 0;
   font-weight: bold;
   letter-spacing: 10px;
   color: #333;
   cursor: pointer;
   font-family: "roundGothicBold";
+  padding: 1rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const Btn = styled.div`
-  color: #fff;
-  padding: 20px 10px;
-  color: #333;
-  cursor: pointer;
+export const MNavagation = styled.nav`
+  width: 100%;
+  ul {
+    padding: 0;
+    li {
+      font-size: 2rem;
+      padding: 1rem;
+      border-bottom: 1px solid #bdbdbd;
+    }
+  }
 `;
 
-export const Btn2 = styled.div`
-  color: #fff;
-  padding: 0 10px;
-  font-size: 20px;
-  cursor: pointer;
+export const MCloseBtn = styled.button`
+  border: none;
+  background: none;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #111;
 `;
