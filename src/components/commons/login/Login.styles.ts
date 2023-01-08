@@ -13,14 +13,13 @@ export const LoginWrapper = styled.div`
   /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
-    /* width: 100%; */
-  width: 1920px;
-  /* height: 100%; */
+  /* width: 100%; */
   height: 1176px;
-  background: #FFFBF2;
-  /* margin: auto; */
-  /* text-align: center; */
-  padding: 10px 800px;
+  background: #fffbf2;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  /* align-items: center; */
 `;
 
 export const TitleWrapper = styled.div`
@@ -79,10 +78,8 @@ export const Input = styled.input`
   line-height: 100%;
   color: #6b6b6b;
   @media screen and (min-width: 600px) {
-        width: 600px;
-    }
-
-
+    width: 600px;
+  }
 `;
 
 export const LoginButtonWrap = styled.div`
@@ -96,20 +93,20 @@ export const LoginButtonWrap = styled.div`
 
 export const LoginButton = styled.button`
   width: 340px;
-height: 50px;
-background: #77170D;
-border-radius: 8px;
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 100%;
-/* or 16px */
-/* display: flex; */
-/* align-items: center; */
-text-align: center;
-letter-spacing: -0.05em;
-color: #FFFFFF;
-/* padding: 0px 150px; */
+  height: 50px;
+  background: #77170d;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  /* or 16px */
+  /* display: flex; */
+  /* align-items: center; */
+  text-align: center;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  /* padding: 0px 150px; */
 `;
 export const Footer = styled.div`
   display: flex;
@@ -158,55 +155,55 @@ export const Wrapper = styled.div`
 `;
 
 export const Input1 = styled.input`
-width: 340px;
-height: 50px;
-background: #FFFFFF;
-border-width: 0px 1px 1px 1px;
-border-style: solid;
-border-color: #D1D5D9;
-border: 1px solid #D1D5D9;
-padding: 20px;
-`
+  width: 340px;
+  height: 50px;
+  background: #ffffff;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #d1d5d9;
+  border: 1px solid #d1d5d9;
+  padding: 20px;
+`;
 
 export const Box = styled.div`
-width: 340px;
-height: 40px;
-background: #F5EFE3;
-border-width: 0px 1px 1px 1px;
-border-style: solid;
-border-color: #D1D5D9;
-border-radius: 0px 0px 8px 8px;
-text-align: end;
-font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 17px;
-color: #738096;
-padding: 10px 10px;
-`
+  width: 340px;
+  height: 40px;
+  background: #f5efe3;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #d1d5d9;
+  border-radius: 0px 0px 8px 8px;
+  text-align: end;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: #738096;
+  padding: 10px 10px;
+`;
 
 export const SignupButton = styled.button`
-width: 340px;
-height: 50px;
+  width: 340px;
+  height: 50px;
 
-background: #FFFFFF;
-border: 1px solid #D1D5D9;
-border-radius: 8px;
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 100%;
+  background: #ffffff;
+  border: 1px solid #d1d5d9;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
 
-/* display: flex; */
-/* align-items: center; */
-text-align: center;
-letter-spacing: -0.05em;
+  /* display: flex; */
+  /* align-items: center; */
+  text-align: center;
+  letter-spacing: -0.05em;
 
-color: #738096;
-/* padding: 0px 140px; */
-`
+  color: #738096;
+  /* padding: 0px 140px; */
+`;
 
 export const All = styled.div`
-display: flex;
-flex-direction: column;
-`
+  display: flex;
+  flex-direction: column;
+`;

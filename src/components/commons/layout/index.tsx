@@ -10,6 +10,7 @@ interface ILayoutProps {
 const HIDDEN_LAYOUT = [
   "/login",
   "/join",
+  "/idpwFind",
   
 ];
 
