@@ -1,8 +1,5 @@
 import BestBooks from "../../commons/bestbooks";
-import BookSliderTop from "../../commons/carousel";
-import HomeCarousel from "../../commons/carousel/responsive";
 import FaqMini from "../../commons/faqmini";
-import MainBanner from "../../commons/mainbanner";
 import Picks from "../../commons/picks/style";
 import Recommand from "../../commons/recommand";
 import SideMenuBar from "../../commons/sidemenubar";
@@ -15,7 +12,6 @@ export default function Main() {
     <S.OuterWrap>
       <S.InnerWrap>
         <SliderBanner />
-        {/* <BookSliderTop /> */}
         <Recommand />
         <Picks />
         <BestBooks />
