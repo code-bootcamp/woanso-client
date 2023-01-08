@@ -35,6 +35,7 @@ export default function Recommand() {
         <S.NavWrapper>
           {NavLists.map((el) => (
             <S.Nav
+              key={el.id}
               id={el.id}
               onClick={onClickMenu}
               isActive={isActive === el.id ? "active" : ""}

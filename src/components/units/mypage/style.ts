@@ -2,10 +2,13 @@ import styled from "@emotion/styled";
 
 export const MypageWrap = styled.div`
   width: 100%;
-  padding: 100px 16%;
+  padding: 180px 16%;
+  display: flex;
+  background-color: #f5f5f5;
 `;
 
 export const SideWrap = styled.div`
+  background-color: #ffffff;
   width: 230px;
   display: flex;
   flex-direction: column;
@@ -18,38 +21,60 @@ export const SideWrapTop = styled.div`
   background-color: #cdcdcd;
   width: 100%;
   height: 230px;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 `;
 
-export const SideWrapBottom = styled.div``;
-
-export const UserInfoWrap = styled.div`
-  text-align: center;
-`;
-export const UserAvatar = styled.div`
-  margin: 50px 0 20px 0;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  cursor: pointer;
+export const AvatarWrap = styled.div`
+  width: 90px;
+  height: 90px;
+  position: relative;
 `;
 
 export const AvatarImg = styled.img`
-  width: 120px;
-  height: 120px;
-  background: grey;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-`;
-export const UserGrade = styled.span`
-  background-color: #ddd;
-  border-radius: 4px;
-  color: white;
-  font-size: 0.8rem;
-  padding: 0.2rem 0.4rem;
-  margin-right: 4px;
+  object-fit: cover;
 `;
 
-export const MenuBarWrap = styled.div`
-  margin-top: 20px;
+export const EditIcon = styled.button`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #cdcdcd;
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
 `;
+
+export const EditIconImg = styled.img`
+  object-fit: contain;
+  width: 100%;
+`;
+
+export const UserName = styled.p`
+  color: #ffffff;
+`;
+
+export const PointCharge = styled.p`
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-decoration: underline;
+`;
+
+export const SideWrapBottom = styled.div`
+  height: calc(100%-230px);
+  padding: 20px 0;
+`;
+
+interface IsActiveProps {
+  isActive: string;
+}
 
 export const MenuLists = styled.ul`
   list-style: none;
@@ -58,93 +83,18 @@ export const MenuLists = styled.ul`
 
 export const MenuList = styled.li`
   padding: 20px 0;
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
   :hover {
     color: #77170d;
   }
+  color: ${(props: IsActiveProps) => (props.isActive ? "#77170d" : "#000000")};
 `;
 
 export const MenuName = styled.p``;
 
-export const SectionWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-`;
-
-export const LeftWrap = styled.div`
-  width: 40%;
-  min-width: 240px;
-  background-color: #ffff;
-
-  padding: 50px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-`;
-
-export const RigthWrap = styled.div`
-  text-align: center;
-  padding: 50px;
-  width: 59%;
-
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-`;
-
-export const MiniWrap = styled.div`
-  margin-bottom: 50px;
-`;
-
-export const BoxTitle = styled.div`
-  font-weight: 500;
-  width: 100%;
-  color: #ffffff;
-  background-color: #7a3831eb;
-  padding: 5px 30px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  text-align: center;
-`;
-
-export const ContentBox = styled.div`
-  padding: 4px 8px;
-  width: 100%;
-  color: #000;
-  border: 1px solid #ddd;
-  margin-bottom: 2px;
-  cursor: pointer;
-  &:hover {
-    background-color: #f4ffe499;
-  }
-`;
-
-export const ItemsWrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-`;
-export const ItemWrap = styled.div`
-  margin: 7px;
-  width: calc(100% / 4 - 14px);
-  display: inline-block;
-  border: 1px solid #ddd;
-`;
-export const ItemName = styled.p``;
-export const ItemImg = styled.img`
-  width: 100px;
-  height: 130px;
-  object-fit: cover;
-`;
-export const NoItemImg = styled.img`
-  width: 100px;
-  height: 130px;
-  object-fit: contain;
-`;
-
-export const SectionWrap2 = styled.div`
-  padding: 50px;
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+export const ContentsWrap = styled.div`
+  width: calc(100%-230px);
+  height: 100%;
+  background-color: #ffffff;
 `;
