@@ -2,9 +2,8 @@ import styled from "@emotion/styled";
 import { bool } from "yup";
 
 export const OutWrapper = styled.div`
-background: #FFFBF2;
-width: 1920px;
-height: 1176px;
+  background: #fffbf2;
+  height: 1176px;
 `;
 export const InnerWrapper = styled.div`
   margin: 100px 0px;
@@ -39,28 +38,30 @@ export const Nav = styled.div`
   /* border-bottom: 1px solid gray; */
   color: ${(props: StyleProps) => (props.qqq ? "#77170D" : "black")};
   padding: 7px 20px;
-  /* background-color: ${(props: StyleProps) => (props.qqq ? "#77170d" : "white")}; */
+  /* background-color: ${(props: StyleProps) =>
+    props.qqq ? "#77170d" : "white"}; */
   border-radius: 8px 8px 0 0;
   /* width: 300px; */
-height: 44px;
-font-style: normal;
-font-weight: 700;
-font-size: 30px;
-line-height: 100%;
+  height: 44px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
 `;
 export const Nav2 = styled.div`
   font-size: 20px;
   /* border-bottom: 1px solid gray; */
   color: ${(props: StyleProps) => (props.ccc ? "#77170D" : "black")};
-  /* background-color: ${(props: StyleProps) => (props.ccc ? "#77170d" : "white")}; */
+  /* background-color: ${(props: StyleProps) =>
+    props.ccc ? "#77170d" : "white"}; */
   border-radius: 8px 8px 0 0;
   padding: 7px 20px;
   /* width: 193px; */
-height: 44px;
-font-style: normal;
-font-weight: 700;
-font-size: 30px;
-line-height: 100%;
+  height: 44px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
 `;
 export const InputWrapper = styled.div`
   display: flex;
@@ -71,7 +72,6 @@ export const InputWrapper = styled.div`
     ${(props: StyleProps) => (props.bbb ? "#F5EFE3" : "#F5EFE3")}; */
   align-items: center;
   padding: 40px;
-
 `;
 export const Input = styled.input`
   /* border: none;
@@ -82,12 +82,12 @@ export const Input = styled.input`
   margin-top: 20px;
   display: flex; */
   width: 340px;
-height: 50px;
-background: #FFFFFF;
-border: 1px solid #D1D5D9;
-border-radius: 8px;
-padding: 15px;
-margin-bottom: 10px;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #d1d5d9;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
 `;
 
 export const Input2 = styled.input`
@@ -117,18 +117,18 @@ export const CheckButton = styled.div`
   background-color: #77170d;
   cursor: pointer; */
   width: 340px;
-height: 50px;
-background: #77170D;
-border-radius: 8px;
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 100%;
-color: #FFFFFF;
-text-align: center;
-display: flex;
-align-items: center;
-justify-content: center;
+  height: 50px;
+  background: #77170d;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 export const Button = styled.button`
   width: 50px;
@@ -153,20 +153,19 @@ export const CheckWrapper2 = styled.div`
 `;
 
 export const Input3 = styled.input`
-width: 340px;
-height: 50px;
-background: #FFFFFF;
-border: 1px solid #D1D5D9;
-border-radius: 8px 8px 0px 0px;
-
-`
+  width: 340px;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #d1d5d9;
+  border-radius: 8px 8px 0px 0px;
+`;
 export const Input4 = styled.input`
-width: 340px;
-height: 50px;
-background: #FFFFFF;
-border-width: 0px 1px 1px 1px;
-border-style: solid;
-border-color: #D1D5D9;
-border-radius: 0px 0px 8px 8px;
-margin-bottom: 20px;
-`
+  width: 340px;
+  height: 50px;
+  background: #ffffff;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: #d1d5d9;
+  border-radius: 0px 0px 8px 8px;
+  margin-bottom: 20px;
+`;

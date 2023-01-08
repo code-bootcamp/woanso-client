@@ -1,14 +1,11 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { Fragment, MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { Logout } from "../../../../commons/hooks/mutaions/useMutaionLogout";
 import { accessTokenState } from "../../../../commons/libraries/store";
 import { InnerWrap, OuterWrap } from "../../../../commons/styles/Wrapper";
-import HomeCarousel from "../../carousel/responsive";
-import MainBanner from "../../mainbanner";
-import SliderBanner from "../../sliderBanner";
 import * as S from "./style";
 
 // prettier-ignore
