@@ -20,6 +20,8 @@ import {
 } from "../../../commons/libraries/store";
 import { schema_login } from "../validation/login";
 import { ILoginFormType } from "../../../commons/types/formtypes/type";
+import { InnerWrap } from "../../../commons/styles/Wrapper";
+import LoginHeader from "../layout/loginHeader";
 
 export default function LoginUI() {
   const router = useRouter();
@@ -69,34 +71,39 @@ export default function LoginUI() {
   };
 
   return (
+    <S.All>
+    <LoginHeader/>
     <S.Wrapper>
+      <InnerWrap>
       <S.LoginWrapper>
-        <S.TitleWrapper>
-          <S.TitleMain>Login</S.TitleMain>
-        </S.TitleWrapper>
+        {/* <S.TitleWrapper> */}
+          {/* <S.TitleMain>Login</S.TitleMain> */}
+        {/* </S.TitleWrapper> */}
         <form onSubmit={handleSubmit(onClickLogin)}>
           <S.ContentsWrapper>
-            <S.Label>이메일</S.Label>
+            {/* <S.Label>이메일</S.Label> */}
             <div>
-              <LoginInput type="text" {...register("email")}></LoginInput>
-              <St.ErrMessage>{errors.email?.message}</St.ErrMessage>
+              <LoginInput type="text" {...register("email")} placeholder="이메일"></LoginInput>
+              {/* <St.ErrMessage>{errors.email?.message}</St.ErrMessage> */}
             </div>
-            <S.Label>비밀번호</S.Label>
+            {/* <S.Label>비밀번호</S.Label> */}
             <div>
-              <LoginInput
+              <S.Input1
                 type="password"
-                {...register("password")}
-              ></LoginInput>
+                {...register("password")} placeholder="비밀번호"
+              ></S.Input1>
+              <S.Box>아이디 찾기/비밀번호 재설정</S.Box>
               <St.ErrMessage>{errors.password?.message}</St.ErrMessage>
             </div>
             <S.LoginButtonWrap>
               <S.LoginButton>로그인</S.LoginButton>
+              <S.SignupButton>회원가입</S.SignupButton>
             </S.LoginButtonWrap>
-            <S.Footer>
+            {/* <S.Footer>
               <S.Footer1 onClick={onClickMoveToSingUp}>회원가입</S.Footer1>
               <S.Footer1 onClick={onClickFind}>이메일/비밀번호 찾기</S.Footer1>
-            </S.Footer>
-            <S.SnsLoginWrap>
+            </S.Footer> */}
+            {/* <S.SnsLoginWrap>
               <S.KakaoLogin>
                 <S.IconImg src="/icon/login_kakao.png" />
               </S.KakaoLogin>
@@ -106,11 +113,13 @@ export default function LoginUI() {
               <S.GoogleLogin>
                 <S.IconImg src="/icon/login_google.png" />
               </S.GoogleLogin>
-            </S.SnsLoginWrap>
+            </S.SnsLoginWrap> */}
           </S.ContentsWrapper>
         </form>
-        <SignupBenefit />
+        {/* <SignupBenefit /> */}
       </S.LoginWrapper>
+      </InnerWrap>
     </S.Wrapper>
+    </S.All>
   );
 }

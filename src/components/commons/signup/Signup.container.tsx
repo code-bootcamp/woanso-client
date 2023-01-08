@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { JoinInput } from "../../../commons/styles/Input";
 import { ChangeEvent, useState } from "react";
 import { IUserFormType } from "../../../commons/types/formtypes/type";
+import LoginHeader from "../layout/loginHeader";
 
 export default function SignupUI() {
   const router = useRouter();
@@ -57,27 +58,13 @@ export default function SignupUI() {
   return (
     <S.OuterWrap>
       <S.InnerWrap>
+      <LoginHeader/>
         <S.Wrapper>
-          <S.TitleWrapper>
-            <S.TitleMain>회원가입</S.TitleMain>
-            <S.TitleSub>Sign up</S.TitleSub>
-          </S.TitleWrapper>
           <form onSubmit={handleSubmit(onClickSignUp)}>
             <S.ContentsWrapper>
-              <S.SubWrapper>
-                <S.Label>닉네임</S.Label>
+            <S.SubWrapper>
                 <JoinInput
-                  placeholder="사용할 닉네임을 입력해주세요."
-                  type="text"
-                  id="nickname"
-                  {...register("nickname")}
-                />
-              </S.SubWrapper>
-              <S.ErrMessage2>{errors.nickname?.message}</S.ErrMessage2>
-              <S.SubWrapper>
-                <S.Label>이메일</S.Label>
-                <JoinInput
-                  placeholder="이메일 아이디를 @까지 정확하게 입력해주세요."
+                  placeholder="이메일 주소"
                   type="text"
                   id="email"
                   {...register("email")}
@@ -85,9 +72,8 @@ export default function SignupUI() {
               </S.SubWrapper>
               <S.ErrMessage2>{errors.email?.message}</S.ErrMessage2>
               <S.SubWrapper>
-                <S.Label>비밀번호</S.Label>
-                <JoinInput
-                  placeholder="영문+숫자 조합 8~16자리를 입력해주세요."
+                <S.Input2
+                  placeholder="비밀번호"
                   type="password"
                   id="password1"
                   min={8}
@@ -97,9 +83,8 @@ export default function SignupUI() {
               </S.SubWrapper>
               <S.ErrMessage2>{errors.password?.message}</S.ErrMessage2>
               <S.SubWrapper>
-                <S.Label>비밀번호 확인</S.Label>
-                <JoinInput
-                  placeholder="영문+숫자 조합 8~16자리를 입력해주세요."
+                <S.Input3
+                  placeholder="비밀번호 확인"
                   type="password"
                   id="password2"
                   min={8}
@@ -109,7 +94,15 @@ export default function SignupUI() {
               </S.SubWrapper>
               <S.ErrMessage2>{errors.password?.message}</S.ErrMessage2>
               <S.SubWrapper>
-                <S.Label>전화번호</S.Label>
+                <JoinInput
+                  placeholder="닉네임"
+                  type="text"
+                  id="nickname"
+                  {...register("nickname")}
+                />
+              </S.SubWrapper>
+              <S.ErrMessage2>{errors.nickname?.message}</S.ErrMessage2>
+              <S.SubWrapper>
                 <JoinInput
                   placeholder="전화번호를 입력해주세요."
                   type="number"
@@ -120,6 +113,7 @@ export default function SignupUI() {
               <S.ErrMessage2>{errors.phone?.message}</S.ErrMessage2>
               <S.SubWrapper>
                 <S.Label>장르 선택</S.Label>
+                <S.CheckBoxWrap>
                 <S.CheckBox
                   type="radio"
                   name="장르"
@@ -127,30 +121,8 @@ export default function SignupUI() {
                   id="romance"
                   onChange={onChangeCheckbox}
                 />
-                로맨스
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  value="드라마/일상"
-                  id="drama"
-                  onChange={onChangeCheckbox}
-                />
-                드라마/일상
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  value="판타지"
-                  id="fantasy"
-                  onChange={onChangeCheckbox}
-                />
-                판타지
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  id="action"
-                  onChange={onChangeCheckbox}
-                />
-                액션
+                <S.CheckBoxLavel for="romance"></S.CheckBoxLavel>
+                <S.CheckBoxTitle>로맨스</S.CheckBoxTitle>
                 <S.CheckBox
                   type="radio"
                   name="장르"
@@ -158,7 +130,40 @@ export default function SignupUI() {
                   id="school"
                   onChange={onChangeCheckbox}
                 />
-                학원
+                <S.CheckBoxLavel for="school"></S.CheckBoxLavel>
+                <S.CheckBoxTitle>학원</S.CheckBoxTitle>
+                <S.CheckBox
+                  type="radio"
+                  name="장르"
+                  value="드라마/일상"
+                  id="drama"
+                  onChange={onChangeCheckbox}
+                />
+                <S.CheckBoxLavel for="drama"></S.CheckBoxLavel>
+                <S.CheckBoxTitle>드라마/일상</S.CheckBoxTitle>
+                <S.CheckBox
+                  type="radio"
+                  name="장르"
+                  value="판타지"
+                  id="fantasy"
+                  onChange={onChangeCheckbox}
+                />
+               <S.CheckBoxLavel for="fantasy"></S.CheckBoxLavel>
+               <S.CheckBoxTitle>판타지</S.CheckBoxTitle>
+               
+               
+                <S.CheckBox
+                  type="radio"
+                  name="장르"
+                  id="action"
+                  value="액션"
+                  onChange={onChangeCheckbox}
+                />
+               <S.CheckBoxLavel for="action"></S.CheckBoxLavel>
+               <S.CheckBoxTitle>액션</S.CheckBoxTitle>
+               
+                
+                
                 <S.CheckBox
                   type="radio"
                   name="장르"
@@ -166,22 +171,18 @@ export default function SignupUI() {
                   id="horror"
                   onChange={onChangeCheckbox}
                 />
-                추리/공포
+                <S.CheckBoxLavel for="horror"></S.CheckBoxLavel>
+                <S.CheckBoxTitle>추리/공포</S.CheckBoxTitle>
+                
+                </S.CheckBoxWrap>
               </S.SubWrapper>
-              {interest === "" && (
+              {/* {interest === "" && (
                 <S.ErrMessage2>장르를 선택해주세요.</S.ErrMessage2>
-              )}
+              )} */}
             </S.ContentsWrapper>
             <S.ButtonWrapper>
-              <S.SignupButton>회원가입</S.SignupButton>
-              <S.BackButton type="button" onClick={onClickCancel}>
-                취소
-              </S.BackButton>
+              <S.SignupButton>회원가입 완료</S.SignupButton>
             </S.ButtonWrapper>
-            <S.Footer>
-              <S.Footer1>이미 아이디가 있으신가요?</S.Footer1>
-              <S.Footer2>로그인</S.Footer2>
-            </S.Footer>
           </form>
         </S.Wrapper>
       </S.InnerWrap>
