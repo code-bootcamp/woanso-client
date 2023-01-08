@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { SearchOutlined } from "@ant-design/icons";
 import { size } from "../../../../commons/styles/MediaQuery";
+import { IsAny } from "react-hook-form";
 
 interface IStypePros {
   isScroll: boolean;
@@ -16,11 +17,12 @@ export const UserMenuWrap = styled.div`
   padding: 0 20%;
   display: flex;
   justify-content: flex-end;
-  border-bottom: 1px solid #ffffff;
   height: 30px;
   background-color: ${(props: IStypePros) =>
-    props.isScroll ? "#000000" : "none"};
-  color: ${(props: IStypePros) => (props.isScroll ? "#ffffff" : "#ffffff")};
+    props.isScroll ? "#000000" : "#ffffff"};
+  color: ${(props: IStypePros) => (props.isScroll ? "#ffffff" : "#787878")};
+  border-bottom: ${(props: IStypePros) =>
+    props.isScroll ? "1px solid #ffffff" : "1px solid #ffffff"};
 `;
 
 export const BtnsWrap = styled.div`
@@ -45,6 +47,7 @@ export const Logo = styled.p`
   letter-spacing: 3px;
   padding-right: 20px;
   cursor: pointer;
+  color: #77170d;
 
   @media ${size.tablet} {
     display: none;
@@ -58,8 +61,8 @@ export const MenuListWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${(props: IStypePros) =>
-    props.isScroll ? "#ffffff" : "none"};
-  color: ${(props: IStypePros) => (props.isScroll ? "#333333" : "#ffffff")};
+    props.isScroll ? "#ffffff" : "#f5efe3"};
+  color: ${(props: IStypePros) => (props.isScroll ? "#333333" : "#000000")};
   font-weight: bold;
 
   ul {

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { IOrderFormType } from "../../../commons/types/formtypes/type";
 import RentCheckModal from "../../commons/customModal/rentcheckModal";
 import * as S from "./payment.styles";
 
@@ -7,6 +9,11 @@ export default function Payment() {
   const showModal = () => {
     setIsModalOpen(true);
   };
+
+  const { register, handleSubmit } = useForm<IOrderFormType>({
+    mode: "onChange",
+  });
+
   return (
     <S.OutWrapper>
       <RentCheckModal

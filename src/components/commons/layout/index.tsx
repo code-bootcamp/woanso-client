@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import LayoutFooter from "./footer";
 import LayoutHeader from "./header";
-import LayoutNavigation from "./navigation";
 
 interface ILayoutProps {
   children: JSX.Element;
@@ -21,7 +20,6 @@ export default function LayoutPage(props: ILayoutProps) {
   return (
     <>
       {!isHiddenLayout && <LayoutHeader />}
-      <LayoutNavigation />
       {props.children}
       <LayoutFooter />
     </>

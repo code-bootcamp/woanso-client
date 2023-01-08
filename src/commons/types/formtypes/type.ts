@@ -13,3 +13,8 @@ export interface IUserFormType {
   phone: number;
   interest?: string;
 }
+
+// 주문하기 Form type
+export interface IOrderFormType {
+  adress: string;
+}

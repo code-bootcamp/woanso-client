@@ -20,16 +20,11 @@ export default function SliderBanner() {
     <S.OuterWrap>
       <S.InnerWrap>
         <S.SliderWrap {...settings}>
-          {/* {new Array(3).fill(1).map((_, index) => {
-            <S.SliderWrap key={index + 1}>
-              <S.SliderImg src={`/sliderBanner/0${index + 1}.jpg`} />
-            </S.SliderWrap>;
-          })} */}
           <S.SliderImgWrap>
-            <S.SliderImg src="/banner.jpg" />
+            <S.SliderImg src="/mainBanner/01.png" />
           </S.SliderImgWrap>
           <S.SliderImgWrap>
-            <S.SliderImg src="/banner2.jpg" />
+            <S.SliderImg src="/mainBanner/02.png" />
           </S.SliderImgWrap>
         </S.SliderWrap>
       </S.InnerWrap>
