@@ -1,10 +1,12 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { Fragment, MouseEvent } from "react";
+import { Fragment, MouseEvent, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { Logout } from "../../../../commons/hooks/mutaions/useMutaionLogout";
 import { accessTokenState } from "../../../../commons/libraries/store";
+import { InnerWrap, OuterWrap } from "../../../../commons/styles/Wrapper";
+import HomeCarousel from "../../carousel/responsive";
 import MainBanner from "../../mainbanner";
 import SliderBanner from "../../sliderBanner";
 import * as S from "./style";
@@ -14,18 +16,45 @@ const SHOW_LAYOUT = [
     "/rents",
     "/event"
   ];
+
+const MenuList = [
+  {
+    name: "대여",
+    url: "/rents",
+  },
+  {
+    name: "커뮤니티",
+    url: "/freeboards",
+  },
+  {
+    name: "이벤트",
+    url: "/event",
+  },
+];
+
 export default function LayoutHeader() {
-  const [accessToken] = useRecoilState(accessTokenState);
   const router = useRouter();
+  const [accessToken] = useRecoilState(accessTokenState);
   const [logout] = useMutation(Logout);
   const isShowLayout = SHOW_LAYOUT.includes(router.asPath);
+  const [isScroll, setIsScroll] = useState(false);
+  const [isMenu, setIsMenu] = useState(false);
 
-  const onClickMoveToHome = () => {
-    router.push("/");
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.pageYOffset > 0 ? setIsScroll(true) : setIsScroll(false);
+    });
+  }, [isScroll]);
+
+  const onClickMenuToggle = () => {
+    setIsMenu((prev) => !prev);
   };
-  const onClickMoveToPage = (e: MouseEvent<HTMLDivElement>) => {
-    router.push(`/${e.currentTarget.id}`);
+
+  const onClickMoveToPage = (url: string) => () => {
+    router.push(`${url}`);
+    setIsMenu(false);
   };
+
   const onClickLogout = async () => {
     try {
       await logout();
@@ -40,50 +69,64 @@ export default function LayoutHeader() {
       Modal.error({ content: "로그아웃에 실패했습니다." });
     }
   };
-  const UserList = [
-    { name: "로그인", id: "login" },
-    { name: "회원가입", id: "join" },
-  ];
-  const MenuList = [
-    { name: "♡", id: "mypick" },
-    { name: "장바구니", id: "mycart" },
-    { name: "마이페이지", id: "mypage" },
-  ];
+
   return (
-    <S.OuterWrap>
-      <S.InnerWrap>
-        <S.MenuWrap>
-          <S.Logo onClick={onClickMoveToHome}>완소만화방</S.Logo>
+    <OuterWrap>
+      <InnerWrap>
+        <S.Header>
+          <S.UserMenuWrap isScroll={isScroll}>
+            {!accessToken ? (
+              <S.BtnsWrap>
+                <S.Btn onClick={onClickMoveToPage("/join")}>회원가입</S.Btn>
+                <S.Block>|</S.Block>
+                <S.Btn onClick={onClickMoveToPage("/login")}>로그인</S.Btn>
+              </S.BtnsWrap>
+            ) : (
+              <S.BtnsWrap>
+                <S.Btn onClick={onClickMoveToPage("/mypage")}>마이페이지</S.Btn>
+                <S.Block>|</S.Block>
+                <S.Btn onClick={onClickLogout}>로그아웃</S.Btn>
+              </S.BtnsWrap>
+            )}
+          </S.UserMenuWrap>
+          <S.MenuListWrap isScroll={isScroll}>
+            <S.Logo onClick={onClickMoveToPage("/home")}>Woanso</S.Logo>
+            <ul>
+              {MenuList.map((el) => {
+                return <li onClick={onClickMoveToPage(el.url)}>{el.name}</li>;
+              })}
+            </ul>
+            <S.MobileMenuBtn onClick={onClickMenuToggle}>
+              <img src="/icon/menu.png" alt="" />
+            </S.MobileMenuBtn>
+            <S.SearchWrap>
+              <S.Input placeholder="만화책을 검색하세요" />
+              <S.SearchIcon>검색</S.SearchIcon>
+            </S.SearchWrap>
+          </S.MenuListWrap>
 
-          {!accessToken ? (
-            <S.BtnsWrap>
-              {UserList.map((el) => (
-                <Fragment key={el.id}>
-                  <S.Btn id={el.id} onClick={onClickMoveToPage}>
-                    {el.name}
-                  </S.Btn>
-                </Fragment>
-              ))}
-            </S.BtnsWrap>
-          ) : (
-            <S.Btn onClick={onClickLogout}>로그아웃</S.Btn>
+          {isMenu && (
+            <S.MobileMenu>
+              <S.MLogo>
+                <span>완소만화방</span>{" "}
+                <S.MCloseBtn onClick={onClickMenuToggle}>X</S.MCloseBtn>
+              </S.MLogo>
+              <S.MNavagation>
+                <ul>
+                  {MenuList.map((el) => {
+                    return (
+                      <li onClick={onClickMoveToPage(el.url)}>{el.name}</li>
+                    );
+                  })}
+                </ul>
+              </S.MNavagation>
+            </S.MobileMenu>
           )}
-          {accessToken ? (
-            <S.BtnsWrap>
-              {MenuList.map((el) => (
-                <S.Btn2 id={el.id} onClick={onClickMoveToPage}>
-                  {el.name}
-                </S.Btn2>
-              ))}
-            </S.BtnsWrap>
-          ) : (
-            <></>
-          )}
-        </S.MenuWrap>
 
-        {router.asPath === "/home" && <MainBanner />}
-        {isShowLayout && <SliderBanner />}
-      </S.InnerWrap>
-    </S.OuterWrap>
+          {/* {router.asPath === "/home" && <MainBanner />}
+          {isShowLayout && <SliderBanner />} */}
+        </S.Header>
+      </InnerWrap>
+    </OuterWrap>
   );
 }

@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const OuterWrap = styled.div``;
 export const InnerWrap = styled.div`
-  padding: 100px 40px;
+  padding: 100px 16%;
   width: 100%;
 `;
 
@@ -13,16 +13,21 @@ export const Line = styled.div`
   margin-bottom: 20px;
   margin-top: 10px;
 `;
-export const Title = styled.div`
-  text-align: center;
-  font-size: 36px;
-  margin-right: 10px;
-`;
 
-export const SubTitle = styled.div`
+export const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   text-align: center;
-  font-size: 36px;
-  color: #77170d;
+  font-size: 1.875rem;
+
+  h3 {
+    margin-right: 15px;
+    font-weight: bolder;
+
+    span {
+      color: #77170d;
+    }
+  }
 `;
 
 export const NavWrapper = styled.div`
@@ -30,32 +35,21 @@ export const NavWrapper = styled.div`
   margin-top: 50px;
   justify-content: center;
 `;
+
+interface IsActiveProps {
+  isActive: string;
+}
+
 export const Nav = styled.div`
   margin-right: 50px;
-  font-size: 24px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  color: ${(props: IsActiveProps) => (props.isActive ? "#77170d" : "#000000")};
 `;
+
 export const BookWrapper = styled.div`
   display: flex;
-`;
-export const BookSubWrapper = styled.div`
-  margin-right: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-export const BookImg = styled.img`
-  width: 290px;
-  height: 340px;
-  margin-bottom: 10px;
-`;
-export const BookTitle = styled.div`
-  width: 200px;
-  height: 60px;
-  text-align: center;
-`;
-export const BookPrice = styled.div``;
-
-export const TitleWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  gap: 15px;
 `;

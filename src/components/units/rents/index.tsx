@@ -1,149 +1,110 @@
-import { useQuery } from "@apollo/client";
-import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics";
-import { IQuery, IQueryFetchComicArgs } from "../../../commons/types/generated/types";
+import { useState } from "react";
+import SliderMultiple from "../../commons/sliderMultiple";
+import Academy from "../section/academy";
+import Action from "../section/action";
+import { data } from "../section/detas";
+import Horror from "../section/horror";
+import Mystery from "../section/mystery";
+import Romance from "../section/romance";
+import ListMap from "./map.index";
 import * as S from "./style";
 
-const MenuList = ["순정", "판타지", "무협", "코믹", "추리"];
+const NavLists = [
+  { id: "all", name: "전체" },
+  { id: "romance", name: "로맨스" },
+  { id: "academy", name: "학원" },
+  { id: "drama", name: "드라마/일상" },
+  { id: "action", name: "액션" },
+  { id: "mystery", name: "판타지" },
+  { id: "horror", name: "추리/공포" },
+];
 
 export default function Rents() {
+  const [section, setSection] = useState<string>("all");
+  const [isActive, setIsActive] = useState<string>("all");
 
-  const { data } = useQuery<
-  Pick<IQuery, "fetchComics">,
-  IQueryFetchComicArgs
-  >(FETCH_COMICS);
-
+  const onClickMenu = (e: any) => {
+    setSection(e.currentTarget?.id);
+    setIsActive(e.currentTarget?.id);
+  };
 
   return (
-    // <OuterWrap>
-    <S.InnerWrap>
-      <S.BooksSection>
-        <S.MenusWrap>
-          <S.MenuList>순정</S.MenuList>
-          <S.MenuList>판타지</S.MenuList>
-          <S.MenuList>무협</S.MenuList>
-          <S.MenuList>코믹</S.MenuList>
-          <S.MenuList>추리</S.MenuList>
-        </S.MenusWrap>
-      </S.BooksSection>
-      <S.AllListWrap>
-        {data?.fetchComics.map((el, index) => (
-          <S.ListWrap key={el.comicId}>
-          <S.BookImgBox>
-            <S.BookSection>{el.category}</S.BookSection>
-            <S.BookImg src="/item1.png" />
-            <S.BookHoverWrap>
-              <S.BookStory>
-                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
-                고등학교 때 다시 돌아와서 드디어 썸타는데...
-              </S.BookStory>
-              <S.BookGrade>★★★✩✩</S.BookGrade>
-            </S.BookHoverWrap>
-          </S.BookImgBox>
+    <S.RentsWrap>
+      <S.NavWrapper>
+        {NavLists.map((el) => (
+          <S.Nav
+            id={el.id}
+            onClick={onClickMenu}
+            isActive={isActive === el.id ? "active" : ""}
+          >
+            {el.name}
+          </S.Nav>
+        ))}
+      </S.NavWrapper>
+      {section === "all" && (
+        <>
+          <SliderMultiple />
+          <S.BookTitleWrap>
+            <S.BookTitle>
+              가슴 설레는 <span>로맨스</span>
+            </S.BookTitle>
+            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+          </S.BookTitleWrap>
+          <S.BookWrapper>
+            <Romance />
+          </S.BookWrapper>
 
-          <S.BookInfoWrap>
-            <S.BookTitle>{el.title}</S.BookTitle>
-            <S.BookInfo>{el.author}</S.BookInfo>
-          </S.BookInfoWrap>
-        </S.ListWrap>
-         ))} 
-        
+          <S.BookTitleWrap>
+            <S.BookTitle>
+              하이틴 간접체험! <span>학원</span>
+            </S.BookTitle>
+            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+          </S.BookTitleWrap>
+          <S.BookWrapper>
+            <Academy />
+          </S.BookWrapper>
 
-        <S.ListWrap>
-          <S.BookImgBox>
-            <S.BookSection>로맨스</S.BookSection>
-            <S.BookImg src="/item2.png" />
-            <S.BookHoverWrap>
-              <S.BookStory>
-                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
-                고등학교 때 다시 돌아와서 드디어 썸타는데...
-              </S.BookStory>
-              <S.BookGrade>★★★✩✩</S.BookGrade>
-            </S.BookHoverWrap>
-          </S.BookImgBox>
+          <S.BookTitleWrap>
+            <S.BookTitle>
+              13일의 금요일엔! <span>공포/추리</span>
+            </S.BookTitle>
+            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+          </S.BookTitleWrap>
+          <S.BookWrapper>
+            <Mystery />
+          </S.BookWrapper>
 
-          <S.BookInfoWrap>
-            <S.BookTitle>순정만화 전권</S.BookTitle>
-            <S.BookInfo>정명희님/이유진님</S.BookInfo>
-          </S.BookInfoWrap>
-        </S.ListWrap>
+          <S.BookTitleWrap>
+            <S.BookTitle>
+              압도적인 몰입감, 화끈한 <span>액션</span>
+            </S.BookTitle>
+            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+          </S.BookTitleWrap>
+          <S.BookWrapper>
+            <Action />
+          </S.BookWrapper>
 
-        <S.ListWrap>
-          <S.BookImgBox>
-            <S.BookSection>로맨스</S.BookSection>
-            <S.BookImg src="/item3.png" />
-            <S.BookHoverWrap>
-              <S.BookStory>
-                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
-                고등학교 때 다시 돌아와서 드디어 썸타는데...
-              </S.BookStory>
-              <S.BookGrade>★★★✩✩</S.BookGrade>
-            </S.BookHoverWrap>
-          </S.BookImgBox>
+          <S.BookTitleWrap>
+            <S.BookTitle>
+              환상속으로! <span>판타지</span>
+            </S.BookTitle>
+            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+          </S.BookTitleWrap>
+          <S.BookWrapper>
+            <Horror />
+          </S.BookWrapper>
+        </>
+      )}
 
-          <S.BookInfoWrap>
-            <S.BookTitle>순정만화 전권</S.BookTitle>
-            <S.BookInfo>정명희님/이유진님</S.BookInfo>
-          </S.BookInfoWrap>
-        </S.ListWrap>
-
-        <S.ListWrap>
-          <S.BookImgBox>
-            <S.BookSection>로맨스</S.BookSection>
-            <S.BookImg src="/item4.png" />
-            <S.BookHoverWrap>
-              <S.BookStory>
-                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
-                고등학교 때 다시 돌아와서 드디어 썸타는데...
-              </S.BookStory>
-              <S.BookGrade>★★★✩✩</S.BookGrade>
-            </S.BookHoverWrap>
-          </S.BookImgBox>
-
-          <S.BookInfoWrap>
-            <S.BookTitle>순정만화 전권</S.BookTitle>
-            <S.BookInfo>정명희님/이유진님</S.BookInfo>
-          </S.BookInfoWrap>
-        </S.ListWrap>
-
-        <S.ListWrap>
-          <S.BookImgBox>
-            <S.BookSection>로맨스</S.BookSection>
-            <S.BookImg src="/item5.png" />
-            <S.BookHoverWrap>
-              <S.BookStory>
-                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
-                고등학교 때 다시 돌아와서 드디어 썸타는데...
-              </S.BookStory>
-              <S.BookGrade>★★★✩✩</S.BookGrade>
-            </S.BookHoverWrap>
-          </S.BookImgBox>
-
-          <S.BookInfoWrap>
-            <S.BookTitle>순정만화 전권</S.BookTitle>
-            <S.BookInfo>정명희님/이유진님</S.BookInfo>
-          </S.BookInfoWrap>
-        </S.ListWrap>
-
-        <S.ListWrap>
-          <S.BookImgBox>
-            <S.BookSection>로맨스</S.BookSection>
-            <S.BookImg src="/item5.png" />
-            <S.BookHoverWrap>
-              <S.BookStory>
-                중학교 때의 첫사랑이 썸으로 발전하기도 전에 전학을 갔는데,
-                고등학교 때 다시 돌아와서 드디어 썸타는데...
-              </S.BookStory>
-              <S.BookGrade>★★★✩✩</S.BookGrade>
-            </S.BookHoverWrap>
-          </S.BookImgBox>
-
-          <S.BookInfoWrap>
-            <S.BookTitle>순정만화 전권</S.BookTitle>
-            <S.BookInfo>정명희님/이유진님</S.BookInfo>
-          </S.BookInfoWrap>
-        </S.ListWrap>
-      </S.AllListWrap>
-    </S.InnerWrap>
-    // </OuterWrap>
+      {section !== "all" && (
+        <S.BookListWrapper>
+          {data.map((el, index) => (
+            <div key={index}>
+              <ListMap el={el} />
+            </div>
+          ))}
+        </S.BookListWrapper>
+      )}
+    </S.RentsWrap>
   );
 }

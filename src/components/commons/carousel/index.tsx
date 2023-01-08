@@ -5,21 +5,20 @@ import "slick-carousel/slick/slick-theme.css";
 import * as S from "./style";
 import { useRouter } from "next/router";
 
+const settings = {
+  dots: false,
+  arrows: false,
+  infinite: true,
+  slidesToShow: 7,
+  slidesToScroll: 1,
+  autoplay: true,
+  speed: 2000,
+  autoplaySpeed: 2000,
+  cssEase: "linear",
+};
+
 export default function BookSliderTop() {
   const router = useRouter();
-
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    slidesToShow: 7,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-  };
-
   const onClickMoveToRents = () => {
     router.push("/rents");
   };

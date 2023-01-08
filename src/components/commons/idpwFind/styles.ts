@@ -92,6 +92,7 @@ export const CheckButton = styled.div`
   color: #ffffff;
   padding: 10px;
   background-color: #77170d;
+  cursor: pointer;
 `;
 export const Button = styled.button`
   width: 50px;
@@ -101,6 +102,7 @@ export const Button = styled.button`
   background-color: #f5efe3;
   font-size: 12px;
   margin-top: 30px;
+  cursor: pointer;
   /* margin-right: 100px; */
   /* margin-left: 80px; */
 `;
