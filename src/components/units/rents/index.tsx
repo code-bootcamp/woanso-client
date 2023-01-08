@@ -1,8 +1,18 @@
+import { useQuery } from "@apollo/client";
+import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics";
+import { IQuery, IQueryFetchComicArgs } from "../../../commons/types/generated/types";
 import * as S from "./style";
 
 const MenuList = ["순정", "판타지", "무협", "코믹", "추리"];
 
 export default function Rents() {
+
+  const { data } = useQuery<
+  Pick<IQuery, "fetchComics">,
+  IQueryFetchComicArgs
+  >(FETCH_COMICS);
+
+
   return (
     // <OuterWrap>
     <S.InnerWrap>
@@ -16,9 +26,10 @@ export default function Rents() {
         </S.MenusWrap>
       </S.BooksSection>
       <S.AllListWrap>
-        <S.ListWrap>
+        {data?.fetchComics.map((el, index) => (
+          <S.ListWrap key={el.comicId}>
           <S.BookImgBox>
-            <S.BookSection>로맨스</S.BookSection>
+            <S.BookSection>{el.category}</S.BookSection>
             <S.BookImg src="/item1.png" />
             <S.BookHoverWrap>
               <S.BookStory>
@@ -30,10 +41,12 @@ export default function Rents() {
           </S.BookImgBox>
 
           <S.BookInfoWrap>
-            <S.BookTitle>순정만화 전권</S.BookTitle>
-            <S.BookInfo>정명희님/이유진님</S.BookInfo>
+            <S.BookTitle>{el.title}</S.BookTitle>
+            <S.BookInfo>{el.author}</S.BookInfo>
           </S.BookInfoWrap>
         </S.ListWrap>
+         ))} 
+        
 
         <S.ListWrap>
           <S.BookImgBox>
