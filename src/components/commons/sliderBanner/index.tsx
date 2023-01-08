@@ -11,8 +11,8 @@ export default function SliderBanner() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoPlay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
+    speed: 1000,
+    autoplaySpeed: 1000,
     cssEase: "linear",
   };
 
@@ -20,19 +20,11 @@ export default function SliderBanner() {
     <S.OuterWrap>
       <S.InnerWrap>
         <S.SliderWrap {...settings}>
-          {/* {new Array(3).fill(1).map((_, index) => {
-            <S.SliderWrap key={index + 1}>
-              <S.SliderImg src={`/sliderBanner/0${index + 1}.jpg`} />
-            </S.SliderWrap>;
-          })} */}
           <S.SliderImgWrap>
-            <S.SliderImg src={`/sliderBanner/01.jpg`} />
+            <S.SliderImg src="/mainBanner/01.png" />
           </S.SliderImgWrap>
           <S.SliderImgWrap>
-            <S.SliderImg src="/sliderBanner/02.jpg" />
-          </S.SliderImgWrap>
-          <S.SliderImgWrap>
-            <S.SliderImg src="/sliderBanner/03.jpg" />
+            <S.SliderImg src="/mainBanner/02.png" />
           </S.SliderImgWrap>
         </S.SliderWrap>
       </S.InnerWrap>
