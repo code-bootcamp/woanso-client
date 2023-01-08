@@ -1,70 +1,79 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
+export const PicksWrapper = styled.div`
   background-color: #f5efe3;
   width: 100%;
-  height: 552px;
+  height: 625px;
   display: flex;
-  padding: 80px;
+  justify-content: center;
+  padding: 100px 16%;
+  gap: 15px;
 `;
+
 export const LeftWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 `;
-export const LeftTitle = styled.div`
-  width: 82px;
-  height: 45px;
-  font-size: 32px;
+
+export const Title = styled.h3`
+  font-size: 1.875rem;
+  font-weight: bolder;
+  margin-right: 15px;
+  padding: 20px 0;
 `;
-export const LeftContents = styled.div``;
-export const ContentsTitle = styled.div`
-  color: #77170d;
+
+export const LeftContents = styled.div`
+  width: 320px;
+  height: 420px;
+  /* background-color: #ffffff; */
+  position: relative;
+  background-image: url("/picksImage/07.png");
+  background-size: cover;
 `;
-export const ContentsSubTitle = styled.div`
-  color: #77170d;
-  margin-top: 30px;
-`;
+
 export const LeftButton = styled.button`
-  width: 240px;
-  height: 50px;
+  width: 280px;
+  height: 100px;
   background-color: #77170d;
   color: white;
-`;
-export const RightWrapper = styled.div`
-  margin-left: 100px;
-`;
-export const RightContents = styled.div`
-  display: flex;
-  align-items: center;
-`;
-export const RightCard = styled.div`
-  width: 310px;
-  height: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px 20px;
-  background-color: white;
-  border-radius: 30px;
-  margin-right: 30px;
-`;
-export const CardImage = styled.img`
-  width: 200px;
-  height: 190px;
-  border-top-left-radius: 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  padding: 0;
 
-  border-top-right-radius: 10px;
+  h4 {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0;
+    color: #ffffff;
+  }
+
+  p {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 14px;
+  }
 `;
-export const CardTitle = styled.div`
-  margin-top: 30px;
-  color: #77170d;
+
+export const RightWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 500px;
+  height: 420px;
+  overflow-y: scroll;
 `;
-export const CardContents = styled.div`
-  margin-top: 30px;
-  line-height: 20px;
+
+export const RightCard = styled.div`
+  background-color: #ffffff;
+  width: calc(100% / 3 - 10px);
+  min-width: 152px;
+  height: calc(100% / 2 - 7.5px);
+  min-height: 200px;
+  background-color: white;
 `;
 
 export const Image = styled.img`
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;

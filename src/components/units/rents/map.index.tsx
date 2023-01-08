@@ -1,10 +1,10 @@
 import * as S from "./map.style";
 
-export default function ListMap(props: any) {
+export default function ListMap({ el }: any) {
   return (
     // <S.BookWrapper>
-    <S.BookSubWrapper key={props.index}>
-      <S.BookImg src={props.el.imgUrl}></S.BookImg>
+    <S.BookSubWrapper>
+      <S.BookImg src={el.imgUrl}></S.BookImg>
       <S.BookInfo>
         <S.BookTitle>우리가 명함이 없지 일을 </S.BookTitle>
         <S.BookInfoSub>

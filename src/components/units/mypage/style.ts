@@ -1,15 +1,12 @@
 import styled from "@emotion/styled";
 
-export const OuterWrap = styled.div``;
-export const InnerWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 100px 50px;
+export const MypageWrap = styled.div`
+  width: 100%;
+  padding: 100px 16%;
 `;
 
 export const SideWrap = styled.div`
-  width: 24%;
+  width: 230px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,9 +14,13 @@ export const SideWrap = styled.div`
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 `;
 
-export const MainWrap = styled.div`
-  width: 75.4%;
+export const SideWrapTop = styled.div`
+  background-color: #cdcdcd;
+  width: 100%;
+  height: 230px;
 `;
+
+export const SideWrapBottom = styled.div``;
 
 export const UserInfoWrap = styled.div`
   text-align: center;
