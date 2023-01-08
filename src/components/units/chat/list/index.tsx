@@ -2,55 +2,29 @@ import * as S from "./styles";
 
 export default function ChatList() {
   return (
-    <>
-      <S.OuterWrap>
-        <S.InnerWrap>
-          <S.TopContainer>
-            <S.TopLeft>
-              <p>실시간 채팅</p>
-              <S.Now>
-                <img src="/icon/chat3.png" />
-                <div>92명</div>
-              </S.Now>
-            </S.TopLeft>
-            <S.CloseBtn>
-              <img src="/icon/chat2.png" />
-            </S.CloseBtn>
-          </S.TopContainer>
-          <S.DateBox>2023/1/3</S.DateBox>
-          <S.ChatWrap>
-            <img src="/icon/son.png" />
-            <S.ChatTime>2:45 pm</S.ChatTime>
-            <S.ChatBox>
-              <S.ChatContents>안녕하세요</S.ChatContents>
-            </S.ChatBox>
-          </S.ChatWrap>
-          <S.MyChatBox>
-            <S.ChatTime>2:46 pm</S.ChatTime>
-            <S.MyChat>네 혹시 짱구 보셨나요?</S.MyChat>
-          </S.MyChatBox>
-          <S.ChatWrap>
-            <img src="/icon/son.png" />
-            <S.ChatTime>2:48 pm</S.ChatTime>
-            <S.ChatBox>
-              <S.ChatContents>당연히 봤져</S.ChatContents>
-            </S.ChatBox>
-          </S.ChatWrap>
-          <S.ChatWrap>
-            <img src="/icon/son.png" />
-            <S.ChatTime>2:49 pm</S.ChatTime>
-            <S.ChatBox>
-              <S.ChatContents>다른 거 추천 좀 해주세용</S.ChatContents>
-            </S.ChatBox>
-          </S.ChatWrap>
-          <S.TextareaBox>
-            <S.WriteBox placeholder="Enter a chat" />
-            <S.ChatBtn>
-              <img src="/icon/send2.png" />
-            </S.ChatBtn>
-          </S.TextareaBox>
-        </S.InnerWrap>
-      </S.OuterWrap>
-    </>
+    <S.Wrap>
+    <S.ChatListWrap>
+      <S.Wrap2>
+      <S.TopWrap>
+        <S.Line/>
+        <S.Date>2023년 1월 8일</S.Date>
+        <S.Line/>
+      </S.TopWrap>
+      <S.MyChatWrap>
+        <S.MyChat>안녕하세요!</S.MyChat>
+      </S.MyChatWrap>
+      <S.ChatWrap>
+        <S.Chat>네 안녕하세요!</S.Chat>
+      </S.ChatWrap>
+      <S.ChatWrap>
+        <S.Chat>어떤 만화 좋아해요?</S.Chat>
+      </S.ChatWrap>
+      </S.Wrap2>
+      <S.ChatTextWrap>
+      <S.CahtText>메세지를 입력해주세요.</S.CahtText>
+      <S.Send>전송</S.Send>
+    </S.ChatTextWrap>
+    </S.ChatListWrap>
+    </S.Wrap>
   );
 }
