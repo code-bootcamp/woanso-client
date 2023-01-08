@@ -14,7 +14,7 @@ export const Header = styled.div`
 `;
 
 export const UserMenuWrap = styled.div`
-  padding: 0 20%;
+  padding: 0 16%;
   display: flex;
   justify-content: flex-end;
   height: 30px;
@@ -55,7 +55,7 @@ export const Logo = styled.p`
 `;
 
 export const MenuListWrap = styled.div`
-  padding: 1.5rem 20%;
+  padding: 1.5rem 16%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

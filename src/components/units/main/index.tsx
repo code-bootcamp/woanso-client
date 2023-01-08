@@ -1,8 +1,8 @@
 import BestBooks from "../../commons/bestbooks";
+import CommunityNewList from "../../commons/communityNewlist";
 import FaqMini from "../../commons/faqmini";
-import Picks from "../../commons/picks/style";
+import Picks from "../../commons/picks";
 import Recommand from "../../commons/recommand";
-import SideMenuBar from "../../commons/sidemenubar";
 import SignupBenefit from "../../commons/signupbenefit";
 import SliderBanner from "../../commons/sliderBanner";
 import * as S from "./style";
@@ -14,10 +14,7 @@ export default function Main() {
         <SliderBanner />
         <Recommand />
         <Picks />
-        <BestBooks />
-        <FaqMini />
-        <SignupBenefit />
-        {/* <SideMenuBar /> */}
+        <CommunityNewList />
       </S.InnerWrap>
     </S.OuterWrap>
   );

@@ -1,52 +1,56 @@
+import { useState } from "react";
+import Academy from "../../units/section/academy";
+import Action from "../../units/section/action";
+import Horror from "../../units/section/horror";
+import Mystery from "../../units/section/mystery";
+import Romance from "../../units/section/romance";
 import * as S from "./styles";
 
+const NavLists = [
+  { id: "romance", name: "로맨스" },
+  { id: "academy", name: "학원" },
+  { id: "drama", name: "드라마/일상" },
+  { id: "action", name: "액션" },
+  { id: "mystery", name: "판타지" },
+  { id: "horror", name: "추리/공포" },
+];
+
 export default function Recommand() {
+  const [section, setSection] = useState<string>("romance");
+  const [isActive, setIsActive] = useState<string>("romance");
+
+  const onClickMenu = (e: any) => {
+    setSection(e.currentTarget?.id);
+    setIsActive(e.currentTarget?.id);
+  };
+
   return (
     <S.OuterWrap>
       <S.InnerWrap>
         <S.TitleWrapper>
-          <S.Title>장르별</S.Title>
-          <S.SubTitle>추천</S.SubTitle>
+          <h3>
+            장르별 <span>추천</span>
+          </h3>
         </S.TitleWrapper>
         <S.NavWrapper>
-          <S.Nav style={{ color: "#77170d" }}>순정</S.Nav>
-          <S.Nav>판타지</S.Nav>
-          <S.Nav>무협</S.Nav>
-          <S.Nav>코믹</S.Nav>
-          <S.Nav>추리</S.Nav>
+          {NavLists.map((el) => (
+            <S.Nav
+              id={el.id}
+              onClick={onClickMenu}
+              isActive={isActive === el.id ? "active" : ""}
+            >
+              {el.name}
+            </S.Nav>
+          ))}
         </S.NavWrapper>
         <S.Line />
         <S.BookWrapper>
-          <S.BookSubWrapper>
-            <S.BookImg src="/item1.png"></S.BookImg>
-            <S.BookTitle>우리가 명함이 없지 일을 안 했냐</S.BookTitle>
-            <S.BookPrice>13,500원</S.BookPrice>
-          </S.BookSubWrapper>
-          <S.BookSubWrapper>
-            <S.BookImg src="/item2.png"></S.BookImg>
-            <S.BookTitle>너를 빛나게 할 일들이 기다리고 있어</S.BookTitle>
-            <S.BookPrice>15,200원</S.BookPrice>
-          </S.BookSubWrapper>
-          <S.BookSubWrapper>
-            <S.BookImg src="/item3.png"></S.BookImg>
-            <S.BookTitle>쿼런틴</S.BookTitle>
-            <S.BookPrice>14,400원</S.BookPrice>
-          </S.BookSubWrapper>
-          <S.BookSubWrapper>
-            <S.BookImg src="/item4.png"></S.BookImg>
-            <S.BookTitle>어른들의 거짓된 삶</S.BookTitle>
-            <S.BookPrice>15,300원</S.BookPrice>
-          </S.BookSubWrapper>
-          <S.BookSubWrapper>
-            <S.BookImg src="/item5.png"></S.BookImg>
-            <S.BookTitle>크리스마스 인터내셔널</S.BookTitle>
-            <S.BookPrice>18,900원</S.BookPrice>
-          </S.BookSubWrapper>
-          <S.BookSubWrapper>
-            <S.BookImg src="/item6.png"></S.BookImg>
-            <S.BookTitle>안젤리크</S.BookTitle>
-            <S.BookPrice>16,200원</S.BookPrice>
-          </S.BookSubWrapper>
+          {section === "romance" && <Romance />}
+          {section === "drama" && <Romance />}
+          {section === "action" && <Action />}
+          {section === "academy" && <Academy />}
+          {section === "mystery" && <Mystery />}
+          {section === "horror" && <Horror />}
         </S.BookWrapper>
       </S.InnerWrap>
     </S.OuterWrap>
