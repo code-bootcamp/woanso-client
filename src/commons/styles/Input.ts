@@ -13,22 +13,42 @@ const StyleInput = styled.input`
 `
 
 // 회원가입 input
-export const JoinInput = styled(StyleInput)`
-  width: 786.96px;
-  height: 64px;
-`;
+// export const JoinInput = styled(StyleInput)`
+//   width: 786.96px;
+//   height: 64px;
+// `;
 
 // 로그인 input
-export const LoginInput = styled(StyleInput)`
-  width: 100%;
-  height: 77.48px;
+// export const LoginInput = styled(StyleInput)`
+//   width: 100%;
+//   height: 77.48px;
    
    
 
-@media screen and (max-width:568px) {
-/* 모바일 */
-width: 250px;
-/* background-color: green; */
-}
+// @media screen and (max-width:568px) {
+// /* 모바일 */
+// width: 250px;
+// /* background-color: green; */
+// }
 
-`;
+// `;
+
+
+export const LoginInput = styled.input`
+width: 340px;
+height: 50px;
+background: #ffffff;
+border: 1px solid #D1D5D9;
+border-radius: 8px 8px 0px 0px;
+padding: 20px;
+`
+
+export const JoinInput = styled.input`
+width: 340px;
+height: 50px;
+background: #FFFFFF;
+border: 1px solid #D1D5D9;
+border-radius: 8px;
+padding: 20px;
+margin-bottom: 10px;
+`

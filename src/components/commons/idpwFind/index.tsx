@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useMutationUpdatePassword } from "../../../commons/hooks/mutaions/useMutationUpdatePassword";
 import { FIND_EMAIL } from "../../../commons/hooks/queries/useQueryFindEmail";
 import { IUserFormType } from "../../../commons/types/formtypes/type";
+import LoginHeader from "../layout/loginHeader";
 import * as S from "./styles";
 
 export default function IdpwFind() {
@@ -94,17 +95,18 @@ export default function IdpwFind() {
 
   return (
     <S.OutWrapper>
+      <LoginHeader/>
       <S.InnerWrapper>
         <S.IdpwFindWrapper>
-          <S.TitleWrapper>
+          {/* <S.TitleWrapper>
             <S.Title>이메일 / 비밀번호 찾기</S.Title>
-          </S.TitleWrapper>
+          </S.TitleWrapper> */}
           <S.NavWrapper>
             <S.Nav onClick={onClickEmail} qqq={qqq}>
               이메일 찾기
             </S.Nav>
             <S.Nav2 onClick={onClickPassword} ccc={ccc}>
-              비밀번호 찾기
+              비밀번호 재설정
             </S.Nav2>
           </S.NavWrapper>
           {qqq ? (
@@ -117,40 +119,40 @@ export default function IdpwFind() {
                 ></S.Input>
               </S.InputWrapper>
               <S.ButtonWrapper>
-                <S.CheckButton onClick={onClickFindEmail}>확인</S.CheckButton>
+                <S.CheckButton onClick={onClickFindEmail}>찾기</S.CheckButton>
               </S.ButtonWrapper>
             </>
           ) : (
             <S.InputWrapper>
               <S.Input
                 type="text"
-                placeholder="이메일 입력"
+                placeholder="이메일 주소"
                 {...register("email")}
               />
               <S.CheckWrapper>
                 <S.CheckWrapper2>
-                  <S.Input2
-                    type="number"
-                    placeholder="전화번호 입력('-'제외)"
+                  <S.Input
+                    type="text"
+                    placeholder="전화번호"
                     {...register("phone")}
                   />
-                  <S.Button onClick={onClickCheckUser}>확인</S.Button>
+                  <S.Button onClick={onClickCheckUser}>찾기</S.Button>
                 </S.CheckWrapper2>
-                <S.Line />
+                {/* <S.Line /> */}
               </S.CheckWrapper>
-              <S.Input
+              <S.Input3
                 type="password"
-                placeholder="새 비밀번호 입력"
+                placeholder="새 비밀번호"
                 {...register("password")}
               />
-              <S.Input
+              <S.Input4
                 type="password"
                 placeholder="새 비밀번호 확인"
                 {...register("password2")}
               />
               <S.ButtonWrapper>
                 <S.CheckButton onClick={handleSubmit(onClickFindPassword)}>
-                  확인
+                  찾기
                 </S.CheckButton>
               </S.ButtonWrapper>
             </S.InputWrapper>
