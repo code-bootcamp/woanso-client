@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Wrap = styled.div`
 padding-top: 180px;
-margin-left: 400px;
 `
 export const ChatListWrap = styled.div`
 width: 375px;
