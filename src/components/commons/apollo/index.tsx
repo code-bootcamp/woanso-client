@@ -26,6 +26,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
       setAccessToken(newAccessToken);
     });
   }, []);
+  console.log("토큰", accessToken);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {
     if (graphQLErrors) {

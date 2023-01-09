@@ -29,6 +29,7 @@ export default function SignupUI() {
   };
 
   const onClickSignUp = async (data: IUserFormType) => {
+    console.log(interest);
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
     }
