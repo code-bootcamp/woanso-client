@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 
 export const PicksWrapper = styled.div`
+  margin: 0 auto;
   background-color: #f5efe3;
-  width: 100%;
+  width: 1000px;
   height: 625px;
   display: flex;
   justify-content: center;
-  padding: 100px 16%;
+  padding: 100px 0;
   gap: 15px;
 `;
 

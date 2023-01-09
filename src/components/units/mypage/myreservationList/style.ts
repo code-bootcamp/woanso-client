@@ -1,96 +1,84 @@
-import { EllipsisOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
-export const ReservationBox = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
+export const MyRentListWrap = styled.div`
+  width: 100%;
+  height: 620px;
+  padding: 50px 40px;
 `;
-export const ReservationList = styled.div`
-  width: 1800px;
+
+export const Title = styled.h3`
+  font-weight: bold;
+  color: #333333;
+  font-size: 1rem;
+  margin-bottom: 30px;
+
+  span {
+    color: #cccccc;
+    font-size: 0.75rem;
+  }
+`;
+
+export const ListsWrap = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 10px;
+`;
+
+export const List = styled.div`
+  width: 100%;
+  height: 100px;
+  border: 1px solid rgba(205, 205, 205, 0.7);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 `;
-export const ReservationWrapper = styled.div`
-  width: 850px;
-  height: 200px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px 8px rgba(0, 0, 0, 0.3);
-  padding: 0 25px 0 20px;
-  margin: 0 40px 40px 0;
-`;
-export const Wrap = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 80px;
-`;
-export const TopRowReservation = styled.div`
-  display: flex;
-  justify-content: center;
 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  /* gap: 200px; */
-  font-size: 25px;
-  padding: 15px 0;
+export const BookImg = styled.img`
+  width: 170px;
+  height: 100%;
+  object-fit: cover;
 `;
-export const Number = styled.span`
-  width: 180px;
-  /* margin-left: 100px; */
-  /* margin-right: 100px; */
+
+export const InfoWrap = styled.div`
+  padding: 20px;
+  width: 100%;
 `;
-export const Price = styled.span`
-  width: 200px;
-  margin-left: 100px;
-`;
-export const Icon = styled(EllipsisOutlined)`
-  width: 30px;
-  /* padding-left: 5px; */
-  * {
-    font-size: 25px;
+
+export const BookName = styled.div`
+  h4 {
+    font-weight: bold;
   }
-`;
-export const ReservationDetail = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-  padding: 20px 0;
-  text-align: center;
+  margin-bottom: 8px;
 `;
 
-export const ReservationNumber = styled.span`
-  width: 150px;
-  font-size: 20px;
-  margin-left: 20px;
+export const BookAuthor = styled.p`
+  font-size: 0.875rem;
+  color: #cccccc;
+  font-weight: bold;
+  margin-bottom: 8px;
 `;
-export const ReservationBookTitle = styled.span`
-  width: 100px;
 
-  margin-left: 30px;
-  font-size: 20px;
+export const BookRented = styled.p`
+  font-size: 0.875rem;
+  color: #cccccc;
 `;
-export const NumberAndTitle = styled.div`
-  display: flex;
-`;
-export const ReservationPrice = styled.span`
-  width: 150px;
-  margin-left: 50px;
-  font-size: 20px;
-`;
-export const ReservationPeriod = styled.span`
-  width: 250px;
 
-  /* margin-left: 10px; */
-`;
-export const Cancel = styled.button`
-  width: 130px;
+export const Btn = styled.div`
+  width: 67px;
   height: 40px;
-  background-color: #c41210;
+  border-radius: 8px;
+  margin-right: 20px;
+  background-color: #77170d;
   color: #ffffff;
-  border-radius: 4px;
-  :hover {
-    cursor: pointer;
-  }
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 40px;
+`;
+
+export const Btn2 = styled(Btn)`
+  width: 90px;
+  background-color: #ffffff;
+  color: #738096;
+  border: 1px solid #d1d5d9;
 `;

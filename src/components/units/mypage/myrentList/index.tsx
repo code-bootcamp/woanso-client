@@ -1,138 +1,60 @@
-import { SubmitButton3, SubmitButton2 } from "../../../../commons/styles/Button";
+import { flatMap } from "lodash";
+import { MouseEvent, useState } from "react";
+import {
+  SubmitButton3,
+  SubmitButton2,
+} from "../../../../commons/styles/Button";
 import { OuterWrap, InnerWrap } from "../../../../commons/styles/Wrapper";
 import * as S from "./style";
 
+const MonthLists = [
+  { id: "6", name: "6개월" },
+  { id: "3", name: "3개월" },
+  { id: "1", name: "1개월" },
+];
 
-export default function MyRentListUI() {
+export default function MyRentList() {
+  const [isActive, setIsActive] = useState("1");
+
+  const onClickList = (e: MouseEvent<HTMLParagraphElement>) => {
+    setIsActive(e.currentTarget.id);
+  };
+
   return (
-    <OuterWrap>
-      <InnerWrap>
-          <S.TitleWrap>
-            <S.Title>대여내역</S.Title>
-          </S.TitleWrap>
-        <S.Wrap>
-        {/* <S.dfskf2>
-            <S.OFDjsfdos>sdkf</S.OFDjsfdos>
-          </S.dfskf2> */}
-          <S.dfsd>
-          <S.ContentsWrap>
-          <S.Number>No. 2018061211243416525</S.Number>
-            <S.RentWrap>
-            <S.ImgWrap>
-              <S.Img src="/item1.png"></S.Img>
-            </S.ImgWrap>
-            <S.Wrap1>
-            <S.RentDate>2023.01.05 대여</S.RentDate>
-              <S.RentTitle>순정만화임당</S.RentTitle>
-              <S.RentWriter>자까</S.RentWriter>
-              <S.RentPrice>15,000원</S.RentPrice>
-            </S.Wrap1>
-            </S.RentWrap>
-            <S.ButtonWrap>
-              {/* <SubmitButton2>위시리스트</SubmitButton2> */}
-              <SubmitButton2>리뷰쓰기</SubmitButton2>
-              <SubmitButton2>재대여</SubmitButton2>
-            </S.ButtonWrap>
-          </S.ContentsWrap>
-          <S.ContentsWrap>
-          <S.Number>No. 2018061211243416525</S.Number>
-            <S.RentWrap>
-            <S.ImgWrap>
-              <S.Img src="/item2.png"></S.Img>
-            </S.ImgWrap>
-            <S.Wrap1>
-            <S.RentDate>2023.01.05 대여</S.RentDate>
-              <S.RentTitle>순정만화임당</S.RentTitle>
-              <S.RentWriter>자까</S.RentWriter>
-              <S.RentPrice>15,000원</S.RentPrice>
-            </S.Wrap1>
-            </S.RentWrap>
-            <S.ButtonWrap>
-              {/* <SubmitButton2>위시리스트</SubmitButton2> */}
-              <SubmitButton2>리뷰쓰기</SubmitButton2>
-              <SubmitButton2>재대여</SubmitButton2>
-            </S.ButtonWrap>
-          </S.ContentsWrap>
-          <S.ContentsWrap>
-          <S.Number>No. 2018061211243416525</S.Number>
-            <S.RentWrap>
-            <S.ImgWrap>
-              <S.Img src="/item3.png"></S.Img>
-            </S.ImgWrap>
-            <S.Wrap1>
-            <S.RentDate>2023.01.05 대여</S.RentDate>
-              <S.RentTitle>순정만화임당</S.RentTitle>
-              <S.RentWriter>자까</S.RentWriter>
-              <S.RentPrice>15,000원</S.RentPrice>
-            </S.Wrap1>
-            </S.RentWrap>
-            <S.ButtonWrap>
-              {/* <SubmitButton2>위시리스트</SubmitButton2> */}
-              <SubmitButton2>리뷰쓰기</SubmitButton2>
-              <SubmitButton2>재대여</SubmitButton2>
-            </S.ButtonWrap>
-          </S.ContentsWrap>
-          <S.ContentsWrap>
-          <S.Number>No. 2018061211243416525</S.Number>
-            <S.RentWrap>
-            <S.ImgWrap>
-              <S.Img src="/item1.png"></S.Img>
-            </S.ImgWrap>
-            <S.Wrap1>
-            <S.RentDate>2023.01.05 대여</S.RentDate>
-              <S.RentTitle>순정만화임당</S.RentTitle>
-              <S.RentWriter>자까</S.RentWriter>
-              <S.RentPrice>15,000원</S.RentPrice>
-            </S.Wrap1>
-            </S.RentWrap>
-            <S.ButtonWrap>
-              {/* <SubmitButton2>위시리스트</SubmitButton2> */}
-              <SubmitButton2>리뷰쓰기</SubmitButton2>
-              <SubmitButton2>재대여</SubmitButton2>
-            </S.ButtonWrap>
-          </S.ContentsWrap>
-          <S.ContentsWrap>
-          <S.Number>No. 2018061211243416525</S.Number>
-            <S.RentWrap>
-            <S.ImgWrap>
-              <S.Img src="/item2.png"></S.Img>
-            </S.ImgWrap>
-            <S.Wrap1>
-            <S.RentDate>2023.01.05 대여</S.RentDate>
-              <S.RentTitle>순정만화임당</S.RentTitle>
-              <S.RentWriter>자까</S.RentWriter>
-              <S.RentPrice>15,000원</S.RentPrice>
-            </S.Wrap1>
-            </S.RentWrap>
-            <S.ButtonWrap>
-              {/* <SubmitButton2>위시리스트</SubmitButton2> */}
-              <SubmitButton2>리뷰쓰기</SubmitButton2>
-              <SubmitButton2>재대여</SubmitButton2>
-            </S.ButtonWrap>
-          </S.ContentsWrap>
-          <S.ContentsWrap>
-          <S.Number>No. 2018061211243416525</S.Number>
-            <S.RentWrap>
-            <S.ImgWrap>
-              <S.Img src="/item3.png"></S.Img>
-            </S.ImgWrap>
-            <S.Wrap1>
-            <S.RentDate>2023.01.05 대여</S.RentDate>
-              <S.RentTitle>순정만화임당</S.RentTitle>
-              <S.RentWriter>자까</S.RentWriter>
-              <S.RentPrice>15,000원</S.RentPrice>
-            </S.Wrap1>
-            </S.RentWrap>
-            <S.ButtonWrap>
-              {/* <SubmitButton2>위시리스트</SubmitButton2> */}
-              <SubmitButton2>리뷰쓰기</SubmitButton2>
-              <SubmitButton2>재대여</SubmitButton2>
-            </S.ButtonWrap>
-          </S.ContentsWrap>
-          </S.dfsd>
-       
-        </S.Wrap>
-      </InnerWrap>
-    </OuterWrap>
+    <S.MyRentListWrap>
+      <S.Title>
+        대여내역
+        <span> 대여 내역 조회는 최근 6개월만 가능합니다.</span>
+      </S.Title>
+
+      <S.MonthWrap>
+        {MonthLists.map((el) => (
+          <S.Month
+            key={el.id}
+            id={el.id}
+            onClick={onClickList}
+            isActive={isActive === el.id ? "active" : ""}
+          >
+            {el.name}
+          </S.Month>
+        ))}
+      </S.MonthWrap>
+
+      <S.ListsWrap>
+        {new Array(4).fill(1).map((_, index) => (
+          <S.List key={index}>
+            <S.BookImg src={`/item${index + 1}.png`} />
+            <S.InfoWrap>
+              <S.BookName>
+                <h4>책제목</h4>
+                <p>주문번호(123123123123123)</p>
+              </S.BookName>
+              <S.BookAuthor>작가 이름</S.BookAuthor>
+              <S.BookRented>대여 일자</S.BookRented>
+            </S.InfoWrap>
+          </S.List>
+        ))}
+      </S.ListsWrap>
+    </S.MyRentListWrap>
   );
 }
