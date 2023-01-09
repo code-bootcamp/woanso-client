@@ -48,7 +48,6 @@ export default function ApolloSetting(props: IApolloSettingProps) {
       }
     }
   });
-  console.log("토큰을 가져오세요", accessToken);
   const uploadLink = createUploadLink({
     uri: "https://examplezi.shop/graphql",
     headers: { Authorization: `Bearer ${accessToken}` }, // 모든 API에 토큰이 첨부되어 요청들어감. 토큰이 없는경우에는 빈문자열로

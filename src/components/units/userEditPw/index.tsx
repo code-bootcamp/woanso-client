@@ -1,10 +1,7 @@
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import { useRecoilState } from "recoil";
 import { useMutationUpdateUser } from "../../../commons/hooks/mutaions/useMutaionUpdateUser";
-import { FETCH_USER } from "../../../commons/hooks/queries/useQueryFetchUser";
-import { getUserEmail } from "../../../commons/libraries/store";
 import {
   UserEditInput,
   UserEditPwInput,
@@ -111,7 +108,7 @@ export default function UserEditPw() {
             id="romance"
             onChange={onChangeCheckbox}
           />
-          <SS.CheckBoxLavel for="romance"></SS.CheckBoxLavel>
+          <SS.CheckBoxLavel htmlFor="romance"></SS.CheckBoxLavel>
           <SS.CheckBoxTitle>로맨스</SS.CheckBoxTitle>
           <SS.CheckBox
             type="radio"
@@ -120,7 +117,7 @@ export default function UserEditPw() {
             id="school"
             onChange={onChangeCheckbox}
           />
-          <SS.CheckBoxLavel for="school"></SS.CheckBoxLavel>
+          <SS.CheckBoxLavel htmlFor="school"></SS.CheckBoxLavel>
           <SS.CheckBoxTitle>학원</SS.CheckBoxTitle>
           <SS.CheckBox
             type="radio"
@@ -129,7 +126,7 @@ export default function UserEditPw() {
             id="drama"
             onChange={onChangeCheckbox}
           />
-          <SS.CheckBoxLavel for="drama"></SS.CheckBoxLavel>
+          <SS.CheckBoxLavel htmlFor="drama"></SS.CheckBoxLavel>
           <SS.CheckBoxTitle>드라마/일상</SS.CheckBoxTitle>
           <SS.CheckBox
             type="radio"
@@ -138,7 +135,7 @@ export default function UserEditPw() {
             id="fantasy"
             onChange={onChangeCheckbox}
           />
-          <SS.CheckBoxLavel for="fantasy"></SS.CheckBoxLavel>
+          <SS.CheckBoxLavel htmlFor="fantasy"></SS.CheckBoxLavel>
           <SS.CheckBoxTitle>판타지</SS.CheckBoxTitle>
 
           <SS.CheckBox
@@ -148,7 +145,7 @@ export default function UserEditPw() {
             value="액션"
             onChange={onChangeCheckbox}
           />
-          <SS.CheckBoxLavel for="action"></SS.CheckBoxLavel>
+          <SS.CheckBoxLavel htmlFor="action"></SS.CheckBoxLavel>
           <SS.CheckBoxTitle>액션</SS.CheckBoxTitle>
 
           <SS.CheckBox
@@ -158,7 +155,7 @@ export default function UserEditPw() {
             id="horror"
             onChange={onChangeCheckbox}
           />
-          <SS.CheckBoxLavel for="horror"></SS.CheckBoxLavel>
+          <SS.CheckBoxLavel htmlFor="horror"></SS.CheckBoxLavel>
           <SS.CheckBoxTitle>추리/공포</SS.CheckBoxTitle>
         </S.CheckBoxWrap>
       </SS.SubWrapper>
