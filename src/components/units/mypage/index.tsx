@@ -6,6 +6,7 @@ import MyReservationList from "./myreservationList";
 import MyRentList from "./myrentList";
 import UserEdit from "../userEdit";
 import FaqMini from "../../commons/faqmini";
+import { useQueryFetchUserLoggendIn } from "../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 
 const MenuLists = [
   { id: "myInfo", name: "내정보" },
@@ -19,6 +20,9 @@ export default function MyPageUI() {
   const router = useRouter();
   const [open, setOpen] = useState<boolean>(false);
   const [isActive, setIsActive] = useState<String>("myInfo");
+
+  const { data } = useQueryFetchUserLoggendIn();
+  console.log(data);
 
   // const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
   //   if (e.currentTarget.id === "askkakao") {

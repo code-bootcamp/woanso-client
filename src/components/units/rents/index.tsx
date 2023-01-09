@@ -1,4 +1,7 @@
+import { useQuery } from "@apollo/client";
 import { useState } from "react";
+import { useQueryFetchBoards } from "../../../commons/hooks/queries/useQueryFetchBoards";
+import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics";
 import SliderMultiple from "../../commons/sliderMultiple";
 import Academy from "../section/academy";
 import Action from "../section/action";
@@ -22,6 +25,8 @@ const NavLists = [
 export default function Rents() {
   const [section, setSection] = useState<string>("all");
   const [isActive, setIsActive] = useState<string>("all");
+  const { data } = useQuery(FETCH_COMICS);
+  console.log(data);
 
   const onClickMenu = (e: any) => {
     setSection(e.currentTarget?.id);
@@ -98,7 +103,7 @@ export default function Rents() {
 
       {section !== "all" && (
         <S.BookListWrapper>
-          {data.map((el, index) => (
+          {data.fetchComics.map((el, index) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
