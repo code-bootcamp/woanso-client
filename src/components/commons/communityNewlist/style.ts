@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 export const CommunityNewListWrap = styled.div`
-  width: 100%;
-  padding: 0 16%;
+  margin: 0 auto;
+  width: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: center;

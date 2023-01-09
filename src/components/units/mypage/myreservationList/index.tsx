@@ -1,64 +1,39 @@
-import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as S from "./style";
 
-const ResevationLists = [
-  {
-    number: "123453545",
-    title: "명탐정 코난",
-    price: "35000",
-    due: "2022/12/25~12/31",
-  },
-  {
-    number: "123453545",
-    title: "명탐정 코난",
-    price: "35000",
-    due: "2022/12/25~12/31",
-  },
-  {
-    number: "23456546",
-    title: "명탐정 코난",
-    price: "35000",
-    due: "2022/12/25~12/31",
-  },
-  {
-    number: "23456546",
-    title: "명탐정 코난",
-    price: "35000",
-    due: "2022/12/25~12/31",
-  },
-];
-export default function MyReservationListUI() {
+export default function MyReservationList() {
   return (
-    <S.ReservationBox>
-      <S.ReservationList>
-        <h1>예약내역</h1>
-        <S.Wrap>
-          {ResevationLists.map((el) => (
-            <S.ReservationWrapper>
-              <S.TopRowReservation>
-                <S.Number>예약번호</S.Number>
-                <span>상품명</span>
-                <S.Price>상품가격</S.Price>
-                <span>예약기간</span>
-              </S.TopRowReservation>
+    <S.MyRentListWrap>
+      <S.Title>
+        예약내역
+        <span> 예약 취소는 3일 전까지 가능합니다.</span>
+      </S.Title>
 
-              <S.ReservationDetail key={el.number}>
-                <S.NumberAndTitle>
-                  <S.Icon />
-                  <S.ReservationNumber>{el.number}</S.ReservationNumber>
-                  <S.ReservationBookTitle>{el.title}</S.ReservationBookTitle>
-                </S.NumberAndTitle>
-                <S.ReservationPrice> {el.price}</S.ReservationPrice>
-                <S.ReservationPeriod>{el.due}</S.ReservationPeriod>
-                <S.Cancel>
-                  <FontAwesomeIcon icon={faCircleXmark} />
-                </S.Cancel>
-              </S.ReservationDetail>
-            </S.ReservationWrapper>
-          ))}
-        </S.Wrap>
-      </S.ReservationList>
-    </S.ReservationBox>
+      <S.ListsWrap>
+        {new Array(3).fill(1).map((_, index) => (
+          <S.List key={index}>
+            <S.BookImg src={`/item${index + 1}.png`} />
+            <S.InfoWrap>
+              <S.BookName>
+                <h4>책제목</h4>
+              </S.BookName>
+              <S.BookAuthor>작가 이름</S.BookAuthor>
+              <S.BookRented>대여 일자</S.BookRented>
+            </S.InfoWrap>
+            <S.Btn>취소</S.Btn>
+          </S.List>
+        ))}
+        <S.List>
+          <S.BookImg src={`/item4.png`} />
+          <S.InfoWrap>
+            <S.BookName>
+              <h4>책제목</h4>
+            </S.BookName>
+            <S.BookAuthor>작가 이름</S.BookAuthor>
+            <S.BookRented>대여 일자</S.BookRented>
+          </S.InfoWrap>
+          <S.Btn2>취소불가</S.Btn2>
+        </S.List>
+      </S.ListsWrap>
+    </S.MyRentListWrap>
   );
 }

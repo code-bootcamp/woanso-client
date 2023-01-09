@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const MypageWrap = styled.div`
   width: 100%;
+  padding: 50px 40px;
   padding: 180px 16%;
   display: flex;
   background-color: #f5f5f5;
@@ -13,8 +14,9 @@ export const SideWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+  border-right: 1px solid rgba(205, 205, 205, 0.7);
 `;
 
 export const SideWrapTop = styled.div`
@@ -68,7 +70,7 @@ export const PointCharge = styled.p`
 `;
 
 export const SideWrapBottom = styled.div`
-  height: calc(100%-230px);
+  height: calc(620px -230px);
   padding: 20px 0;
 `;
 
@@ -94,7 +96,7 @@ export const MenuList = styled.li`
 export const MenuName = styled.p``;
 
 export const ContentsWrap = styled.div`
-  width: calc(100%-230px);
-  height: 100%;
-  background-color: #ffffff;
+  width: calc(1000px - 230px);
+  height: 620px;
+  background: #ffffff;
 `;

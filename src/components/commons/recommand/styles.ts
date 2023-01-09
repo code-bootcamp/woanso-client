@@ -2,12 +2,12 @@ import styled from "@emotion/styled";
 
 export const OuterWrap = styled.div``;
 export const InnerWrap = styled.div`
-  padding: 100px 16%;
-  width: 100%;
+  width: 1000px;
+  margin: 80px auto;
 `;
 
 export const Line = styled.div`
-  width: 100%;
+  width: 1000px;
   height: 1px;
   background-color: black;
   margin-bottom: 20px;

@@ -5,6 +5,11 @@ import { useRecoilState } from "recoil";
 import { useMutationUpdateUser } from "../../../commons/hooks/mutaions/useMutaionUpdateUser";
 import { FETCH_USER } from "../../../commons/hooks/queries/useQueryFetchUser";
 import { getUserEmail } from "../../../commons/libraries/store";
+import {
+  UserEditInput,
+  UserEditPwInput,
+  UserEditPwInput2,
+} from "../../../commons/styles/Input";
 import { IUserFormType } from "../../../commons/types/formtypes/type";
 import * as S from "./style";
 
@@ -56,59 +61,53 @@ export default function UserEditPw() {
   };
 
   return (
-    <S.OutWrapper>
-      <S.InnerWrapper>
-        <S.UserEditPwWrapper>
-          <S.TitleWrapper>
-            <S.Title>회원정보 수정</S.Title>
-          </S.TitleWrapper>
-          <S.SubTitleWrapper>
-            <S.SubTitle>기본 정보</S.SubTitle>
-          </S.SubTitleWrapper>
-          <S.BasicWrapper>
-            <S.EmailWrapper>
-              <S.EmailLabel>이메일</S.EmailLabel>
-              <S.Email>woanso@a.com</S.Email>
-            </S.EmailWrapper>
-            <S.PasswordWrapper>
-              <S.PasswordLabel>새 비밀번호</S.PasswordLabel>
-              <S.Password type="password" {...register("password")} />
-            </S.PasswordWrapper>
-            <S.PasswordWrapper>
-              <S.PasswordLabel>새 비밀번호 확인</S.PasswordLabel>
-              <S.Password type="password" {...register("password2")} />
-            </S.PasswordWrapper>
-            <S.NameWrapper>
-              <S.NameLabel>닉네임</S.NameLabel>
-              <S.Name />
-              {/* <S.NameButton>변경</S.NameButton> */}
-            </S.NameWrapper>
-          </S.BasicWrapper>
-          <S.AddWrapper>
-            <S.PhoneNumberWrapper>
-              <S.PhoneNumberLabel>전화번호</S.PhoneNumberLabel>
-              <S.PhoneNumber type="number" {...register("phone")} />
-              {/* <S.PhoneNumberButton>변경</S.PhoneNumberButton> */}
-            </S.PhoneNumberWrapper>
-            <S.LikeWrapper>
-              <S.LikeLabel>관심사</S.LikeLabel>
-              <S.Like type="text" {...register("interest")} />
-              {/* <S.LikeButton>변경</S.LikeButton> */}
-            </S.LikeWrapper>
-            <S.AvatarWrapper>
-              <S.AvatarLabel>아바타</S.AvatarLabel>
-              <S.Avatar></S.Avatar>
-              <S.AvatarButton>변경</S.AvatarButton>
-            </S.AvatarWrapper>
-          </S.AddWrapper>
-          <S.ButtonWrapper>
-            <S.SubmitButton onClick={handleSubmit(onClickEdit)}>
-              확인
-            </S.SubmitButton>
-            <S.BackButton onClick={onClickCancle}>취소</S.BackButton>
-          </S.ButtonWrapper>
-        </S.UserEditPwWrapper>
-      </S.InnerWrapper>
-    </S.OutWrapper>
+    <S.UserEditPwWrap>
+      <S.Title>개인 정보 수정</S.Title>
+
+      <UserEditInput
+        type="email"
+        {...register("email")}
+        readOnly
+        defaultValue="defaultValue"
+      />
+      <UserEditPwInput
+        type="password"
+        placeholder="새 비밀번호"
+        {...register("password")}
+      />
+
+      <UserEditPwInput2
+        type="password"
+        placeholder="새 비밀번호 확인"
+        {...register("password2")}
+      />
+
+      <UserEditInput
+        type="name"
+        {...register("nickname")}
+        readOnly
+        defaultValue="defaultValue"
+      />
+
+      <UserEditInput
+        type="number"
+        {...register("phone")}
+        readOnly
+        defaultValue="010-2220-2222"
+      />
+
+      <S.Label>장르선택</S.Label>
+      <label>
+        <input type="checkbox" /> some text
+      </label>
+      {/* <UserEditInput type="checkbox" name="romance" {...register("interest")} /> */}
+
+      <S.ButtonWrapper>
+        <S.BackButton onClick={onClickCancle}>취소</S.BackButton>
+        <S.SubmitButton onClick={handleSubmit(onClickEdit)}>
+          확인
+        </S.SubmitButton>
+      </S.ButtonWrapper>
+    </S.UserEditPwWrap>
   );
 }

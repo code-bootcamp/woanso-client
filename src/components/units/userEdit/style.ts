@@ -1,60 +1,46 @@
 import styled from "@emotion/styled";
 
-export const OutWrapper = styled.div``
-export const InnerWrapper  = styled.div`
-margin: 100px 0px;
-display: flex;
-flex-direction: column;
-align-items: center;
-`
-export const TitleWrapper  = styled.div`
-margin-bottom: 40px;
-width: 400px;
-text-align: start;
-`
-export const Title  = styled.div`
-font-size: 40px;
-`
-export const ContentsWrapper  = styled.div`
-margin-bottom: 60px;
+export const UserEditWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
 
-`
-export const ContentsTitle  = styled.div`
-font-size: 28px;
-margin-bottom: 30px;
-`
-export const Contents  = styled.div`
-font-size: 20px;
-`
-export const InputWrapper  = styled.div`
-display: flex;
-gap: 20px;
-width: 400px;
-border-top: 1px solid gray;
-border-bottom: 1px solid gray;
-margin-bottom: 60px;
-`
-export const InputName  = styled.div`
-font-size: 20px;
-margin-bottom: 60px;
-margin-top: 60px;
-width: 100px;
-`
-export const InputContents  = styled.input`
-width: 300px;
-height: 50px;
-margin-top: 50px;
-background-color: #F2F0F0;
-border: none;
-padding: 20px;
-border-radius: 10px;
-`
-export const ButtonWrapper  = styled.div``
-export const Button  = styled.button`
-width: 100px;
-height: 40px;
-border-radius: 15px;
-font-size: 20px;
-background: #77170D;
-color: white;
-`
+export const TitleWrapper = styled.div`
+  text-align: center;
+`;
+
+export const Title = styled.h3`
+  font-size: 1.25rem;
+  color: #333333;
+`;
+
+export const TitleSub = styled.p`
+  font-size: 1rem;
+  color: #888888;
+  margin: 20px 0 30px 0;
+`;
+
+export const InputPassWord = styled.input`
+  width: 340px;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 15px;
+  border: 1px solid #d1d5d9;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: #717171;
+  margin-bottom: 20px;
+`;
+
+export const Button = styled.button`
+  width: 340px;
+  height: 50px;
+  background: #77170d;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+`;

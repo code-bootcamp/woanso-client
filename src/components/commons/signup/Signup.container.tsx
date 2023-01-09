@@ -58,11 +58,11 @@ export default function SignupUI() {
   return (
     <S.OuterWrap>
       <S.InnerWrap>
-      <LoginHeader/>
+        <LoginHeader />
         <S.Wrapper>
           <form onSubmit={handleSubmit(onClickSignUp)}>
             <S.ContentsWrapper>
-            <S.SubWrapper>
+              <S.SubWrapper>
                 <JoinInput
                   placeholder="이메일 주소"
                   type="text"
@@ -114,66 +114,62 @@ export default function SignupUI() {
               <S.SubWrapper>
                 <S.Label>장르 선택</S.Label>
                 <S.CheckBoxWrap>
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  value="로맨스"
-                  id="romance"
-                  onChange={onChangeCheckbox}
-                />
-                <S.CheckBoxLavel for="romance"></S.CheckBoxLavel>
-                <S.CheckBoxTitle>로맨스</S.CheckBoxTitle>
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  value="학원"
-                  id="school"
-                  onChange={onChangeCheckbox}
-                />
-                <S.CheckBoxLavel for="school"></S.CheckBoxLavel>
-                <S.CheckBoxTitle>학원</S.CheckBoxTitle>
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  value="드라마/일상"
-                  id="drama"
-                  onChange={onChangeCheckbox}
-                />
-                <S.CheckBoxLavel for="drama"></S.CheckBoxLavel>
-                <S.CheckBoxTitle>드라마/일상</S.CheckBoxTitle>
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  value="판타지"
-                  id="fantasy"
-                  onChange={onChangeCheckbox}
-                />
-               <S.CheckBoxLavel for="fantasy"></S.CheckBoxLavel>
-               <S.CheckBoxTitle>판타지</S.CheckBoxTitle>
-               
-               
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  id="action"
-                  value="액션"
-                  onChange={onChangeCheckbox}
-                />
-               <S.CheckBoxLavel for="action"></S.CheckBoxLavel>
-               <S.CheckBoxTitle>액션</S.CheckBoxTitle>
-               
-                
-                
-                <S.CheckBox
-                  type="radio"
-                  name="장르"
-                  value="추리/공포"
-                  id="horror"
-                  onChange={onChangeCheckbox}
-                />
-                <S.CheckBoxLavel for="horror"></S.CheckBoxLavel>
-                <S.CheckBoxTitle>추리/공포</S.CheckBoxTitle>
-                
+                  <S.CheckBox
+                    type="radio"
+                    name="장르"
+                    value="로맨스"
+                    id="romance"
+                    onChange={onChangeCheckbox}
+                  />
+                  <S.CheckBoxLavel for="romance"></S.CheckBoxLavel>
+                  <S.CheckBoxTitle>로맨스</S.CheckBoxTitle>
+                  <S.CheckBox
+                    type="radio"
+                    name="장르"
+                    value="학원"
+                    id="school"
+                    onChange={onChangeCheckbox}
+                  />
+                  <S.CheckBoxLavel for="school"></S.CheckBoxLavel>
+                  <S.CheckBoxTitle>학원</S.CheckBoxTitle>
+                  <S.CheckBox
+                    type="radio"
+                    name="장르"
+                    value="드라마/일상"
+                    id="drama"
+                    onChange={onChangeCheckbox}
+                  />
+                  <S.CheckBoxLavel for="drama"></S.CheckBoxLavel>
+                  <S.CheckBoxTitle>드라마/일상</S.CheckBoxTitle>
+                  <S.CheckBox
+                    type="radio"
+                    name="장르"
+                    value="판타지"
+                    id="fantasy"
+                    onChange={onChangeCheckbox}
+                  />
+                  <S.CheckBoxLavel for="fantasy"></S.CheckBoxLavel>
+                  <S.CheckBoxTitle>판타지</S.CheckBoxTitle>
+
+                  <S.CheckBox
+                    type="radio"
+                    name="장르"
+                    id="action"
+                    value="액션"
+                    onChange={onChangeCheckbox}
+                  />
+                  <S.CheckBoxLavel for="action"></S.CheckBoxLavel>
+                  <S.CheckBoxTitle>액션</S.CheckBoxTitle>
+
+                  <S.CheckBox
+                    type="radio"
+                    name="장르"
+                    value="추리/공포"
+                    id="horror"
+                    onChange={onChangeCheckbox}
+                  />
+                  <S.CheckBoxLavel for="horror"></S.CheckBoxLavel>
+                  <S.CheckBoxTitle>추리/공포</S.CheckBoxTitle>
                 </S.CheckBoxWrap>
               </S.SubWrapper>
               {/* {interest === "" && (

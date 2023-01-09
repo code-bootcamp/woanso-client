@@ -1,156 +1,32 @@
 import styled from "@emotion/styled";
 
-export const OutWrapper = styled.div``;
-
-export const InnerWrapper = styled.div`
-  margin: auto;
-`;
-export const UserEditPwWrapper = styled.div`
+export const UserEditPwWrap = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 100px 0;
+
+  padding: 50px 40px;
 `;
-export const TitleWrapper = styled.div`
-  margin-bottom: 40px;
-  width: 400px;
-  text-align: start;
-`;
+
 export const Title = styled.div`
-  font-size: 40px;
-`;
-export const SubTitleWrapper = styled.div`
+  font-weight: bold;
+  color: #333333;
   margin-bottom: 20px;
-  width: 400px;
-  text-align: start;
-`;
-export const SubTitle = styled.div`
-  font-size: 28px;
-`;
-export const BasicWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 400px;
-  border-top: 3px solid gray;
-  border-bottom: 3px solid gray;
-  margin-bottom: 10px;
-  padding: 5px;
-`;
-export const EmailWrapper = styled.div`
-  display: flex;
-  gap: 40px;
-`;
-export const EmailLabel = styled.div``;
-export const Email = styled.div`
-  margin-left: 80px;
-`;
-export const PasswordWrapper = styled.div`
-  display: flex;
-`;
-export const PasswordLabel = styled.div``;
-export const Password = styled.input`
-  width: 230px;
-  height: 30px;
-  margin-left: auto;
-  background-color: #f2f0f0;
-  border: none;
-  padding: 20px;
-  border-radius: 10px;
-`;
-export const NameWrapper = styled.div`
-  display: flex;
-  gap: 40px;
-`;
-export const NameLabel = styled.div``;
-export const Name = styled.input`
-  width: 230px;
-  height: 30px;
-  margin-left: auto;
-  background-color: #f2f0f0;
-  border: none;
-  padding: 20px;
-  border-radius: 10px;
-`;
-export const NameButton = styled.div`
-  margin-left: auto;
-  width: 40px;
-  border: 1px solid gray;
-  padding: 4px;
-  height: 30px;
-  border-radius: 5px;
-`;
-export const AddWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 400px;
-  border-bottom: 3px solid gray;
-  margin-bottom: 60px;
-  padding: 5px;
-`;
-export const PhoneNumberWrapper = styled.div`
-  display: flex;
-`;
-export const PhoneNumberLabel = styled.div``;
-export const PhoneNumber = styled.input`
-  width: 230px;
-  height: 30px;
-  margin-left: auto;
-  background-color: #f2f0f0;
-  border: none;
-  padding: 20px;
-  border-radius: 10px;
-`;
-export const PhoneNumberButton = styled.div`
-  margin-left: auto;
-  width: 40px;
-  border: 1px solid gray;
-  padding: 4px;
-  height: 30px;
-  border-radius: 5px;
-`;
-export const LikeWrapper = styled.div`
-  display: flex;
-`;
-export const LikeLabel = styled.div``;
-export const Like = styled.input`
-  width: 230px;
-  height: 30px;
-  margin-left: auto;
-  background-color: #f2f0f0;
-  border: none;
-  padding: 20px;
-  border-radius: 10px;
-`;
-export const LikeButton = styled.div`
-  margin-left: auto;
-  width: 40px;
-  border: 1px solid gray;
-  padding: 4px;
-  height: 30px;
-  border-radius: 5px;
 `;
 
-export const AvatarWrapper = styled.div`
-  display: flex;
-  gap: 110px;
+export const Label = styled.label`
+  font-size: 0.75rem;
+  color: #738096;
 `;
-export const AvatarLabel = styled.div``;
-export const Avatar = styled.div`
-  width: 80px;
-  height: 80px;
-  background-color: #f2f0f0;
-`;
-export const AvatarButton = styled.div`
-  margin-left: auto;
-  width: 40px;
-  border: 1px solid gray;
-  padding: 4px;
-  height: 30px;
-  border-radius: 5px;
-  margin-top: 50px;
-`;
+// export const CheckBoxLavel = styled.label`
+//   cursor: pointer;
+//   content: url("/signup.png");
+//   width: 19px;
+//   height: 19px;
+
+//   :active {
+//     content: url("/signup2.png");
+//   }
+// `;
 
 export const ButtonWrapper = styled.div`
   display: flex;

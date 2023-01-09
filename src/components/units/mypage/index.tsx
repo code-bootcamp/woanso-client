@@ -2,7 +2,9 @@ import * as S from "./style";
 import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
 import MyIngo from "./myinfo";
-import MyRentList from "../../../../pages/mypage/myrentList";
+import MyReservationList from "./myreservationList";
+import MyRentList from "./myrentList";
+import UserEdit from "../userEdit";
 
 const MenuLists = [
   { id: "myInfo", name: "내정보" },
@@ -74,6 +76,8 @@ export default function MyPageUI() {
       <S.ContentsWrap>
         {isActive === "myInfo" && <MyIngo />}
         {isActive === "myrentList" && <MyRentList />}
+        {isActive === "myreservationList" && <MyReservationList />}
+        {isActive === "userEdit" && <UserEdit />}
       </S.ContentsWrap>
     </S.MypageWrap>
   );
