@@ -5,6 +5,7 @@ import MyIngo from "./myinfo";
 import MyReservationList from "./myreservationList";
 import MyRentList from "./myrentList";
 import UserEdit from "../userEdit";
+import FaqMini from "../../commons/faqmini";
 
 const MenuLists = [
   { id: "myInfo", name: "내정보" },
@@ -78,6 +79,7 @@ export default function MyPageUI() {
         {isActive === "myrentList" && <MyRentList />}
         {isActive === "myreservationList" && <MyReservationList />}
         {isActive === "userEdit" && <UserEdit />}
+        {isActive === "faq" && <FaqMini />}
       </S.ContentsWrap>
     </S.MypageWrap>
   );
