@@ -121,7 +121,7 @@ export default function SignupUI() {
                     id="romance"
                     onChange={onChangeCheckbox}
                   />
-                  <S.CheckBoxLavel for="romance"></S.CheckBoxLavel>
+                  <S.CheckBoxLavel htmlFor="romance"></S.CheckBoxLavel>
                   <S.CheckBoxTitle>로맨스</S.CheckBoxTitle>
                   <S.CheckBox
                     type="radio"
@@ -130,7 +130,7 @@ export default function SignupUI() {
                     id="school"
                     onChange={onChangeCheckbox}
                   />
-                  <S.CheckBoxLavel for="school"></S.CheckBoxLavel>
+                  <S.CheckBoxLavel htmlFor="school"></S.CheckBoxLavel>
                   <S.CheckBoxTitle>학원</S.CheckBoxTitle>
                   <S.CheckBox
                     type="radio"
@@ -139,7 +139,7 @@ export default function SignupUI() {
                     id="drama"
                     onChange={onChangeCheckbox}
                   />
-                  <S.CheckBoxLavel for="drama"></S.CheckBoxLavel>
+                  <S.CheckBoxLavel htmlFor="drama"></S.CheckBoxLavel>
                   <S.CheckBoxTitle>드라마/일상</S.CheckBoxTitle>
                   <S.CheckBox
                     type="radio"
@@ -148,7 +148,7 @@ export default function SignupUI() {
                     id="fantasy"
                     onChange={onChangeCheckbox}
                   />
-                  <S.CheckBoxLavel for="fantasy"></S.CheckBoxLavel>
+                  <S.CheckBoxLavel htmlFor="fantasy"></S.CheckBoxLavel>
                   <S.CheckBoxTitle>판타지</S.CheckBoxTitle>
 
                   <S.CheckBox
@@ -158,7 +158,7 @@ export default function SignupUI() {
                     value="액션"
                     onChange={onChangeCheckbox}
                   />
-                  <S.CheckBoxLavel for="action"></S.CheckBoxLavel>
+                  <S.CheckBoxLavel htmlFor="action"></S.CheckBoxLavel>
                   <S.CheckBoxTitle>액션</S.CheckBoxTitle>
 
                   <S.CheckBox
@@ -168,7 +168,7 @@ export default function SignupUI() {
                     id="horror"
                     onChange={onChangeCheckbox}
                   />
-                  <S.CheckBoxLavel for="horror"></S.CheckBoxLavel>
+                  <S.CheckBoxLavel htmlFor="horror"></S.CheckBoxLavel>
                   <S.CheckBoxTitle>추리/공포</S.CheckBoxTitle>
                 </S.CheckBoxWrap>
               </S.SubWrapper>
