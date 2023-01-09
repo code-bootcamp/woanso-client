@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+
 export const Wrap = styled.div`
 border-top: 1px solid #999999;
 border-bottom: 1px solid #999999;
@@ -54,10 +55,11 @@ display: flex;
 align-items: center;
 color: #999999;
 `
-export const MidWrap = styled.div``
+export const MidWrap = styled.div`
+`
 export const MidContents = styled.div`
 margin-bottom: 20px;
-width: 181px;
+width: 400px;
 height: 14px;
 font-style: normal;
 font-weight: 400;

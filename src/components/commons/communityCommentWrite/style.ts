@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+
 export const Wrap = styled.div`
 border-top: 1px solid #999999;
 border-bottom: 1px solid #999999;
@@ -54,19 +55,24 @@ display: flex;
 align-items: center;
 color: #999999;
 `
-export const MidWrap = styled.div``
-export const MidContents = styled.div`
+export const MidWrap = styled.div`
+`
+export const MidContents = styled.input`
 margin-bottom: 20px;
-width: 181px;
-height: 14px;
+width: 400px;
+height: 20px;
 font-style: normal;
 font-weight: 400;
-font-size: 14px;
+font-size: 20px;
 line-height: 100%;
 display: flex;
 align-items: center;
+justify-content: center;
 letter-spacing: -0.05em;
 color: #333333;
+border: none;
+color: #999999;
+margin-top: 20px;
 `
 export const ImgWrap = styled.div``
 export const Img = styled.img`
