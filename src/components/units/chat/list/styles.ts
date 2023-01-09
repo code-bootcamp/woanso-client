@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const Wrap = styled.div`
-padding-top: 180px;
 `
 export const ChatListWrap = styled.div`
 width: 375px;
@@ -12,7 +11,8 @@ border-radius: 16px;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-
+top: 264px;
+position: fixed;
 `
 
 
@@ -90,15 +90,14 @@ display: flex;
 justify-content: space-between;
 height: 50px;
 `
-export const CahtText = styled.div`
+export const CahtText = styled.input`
 width: 143px;
 height: 50px;
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 100%;
-/* identical to box height, or 16px */
-
+border: none;
 display: flex;
 align-items: center;
 letter-spacing: -0.05em;
