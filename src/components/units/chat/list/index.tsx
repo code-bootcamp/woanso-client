@@ -21,7 +21,7 @@ export default function ChatList() {
       </S.ChatWrap>
       </S.Wrap2>
       <S.ChatTextWrap>
-      <S.CahtText>메세지를 입력해주세요.</S.CahtText>
+      <S.CahtText placeholder="메세지를 입력해주세요."></S.CahtText>
       <S.Send>전송</S.Send>
     </S.ChatTextWrap>
     </S.ChatListWrap>

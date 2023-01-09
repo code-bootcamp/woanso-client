@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrap = styled.div`
-padding-top: 180px;
+padding: 50px 0;
 `
 export const ContentsWrap = styled.div`
 `
@@ -26,7 +26,7 @@ display: flex;
 justify-content: space-between;
 width: 1000px;
 padding: 0 10px;
-margin-top: 5px;
+margin-top: 10px;
 `
 export const ImgWrap = styled.div``
 export const Img = styled.img`

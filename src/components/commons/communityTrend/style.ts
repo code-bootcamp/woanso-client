@@ -2,11 +2,14 @@ import styled from "@emotion/styled";
 
 export const Wrap = styled.div`
 padding-top: 180px;
+padding-bottom: 50px;
+border-bottom: 1px solid #000000;
 `
 
 export const TitleWrap = styled.div`
 display: flex;
 gap: 7px;
+margin-bottom: 20px;
 `
 export const Title = styled.div`
 /* width: 195px; */
