@@ -25,34 +25,12 @@ export default function MyIngo() {
       </S.TopWrap>
 
       <S.BottomWrap>
-        <S.Title>My Pick</S.Title>
-        <S.PickListWrap>
-          <S.PickItemWrap>
-            <S.PickItemImg src="/" />
-            <S.BookName>책이름</S.BookName>
-            <S.BookAuthor>작가이름</S.BookAuthor>
-          </S.PickItemWrap>
-          <S.PickItemWrap>
-            <S.PickItemImg src="/" />
-            <S.BookName>책이름</S.BookName>
-            <S.BookAuthor>작가이름</S.BookAuthor>
-          </S.PickItemWrap>
-          <S.PickItemWrap>
-            <S.PickItemImg src="/" />
-            <S.BookName>책이름</S.BookName>
-            <S.BookAuthor>작가이름</S.BookAuthor>
-          </S.PickItemWrap>
-          <S.PickItemWrap>
-            <S.PickItemImg src="/" />
-            <S.BookName>책이름</S.BookName>
-            <S.BookAuthor>작가이름</S.BookAuthor>
-          </S.PickItemWrap>
-          <S.PickItemWrap>
-            <S.PickItemImg src="/" />
-            <S.BookName>책이름</S.BookName>
-            <S.BookAuthor>작가이름</S.BookAuthor>
-          </S.PickItemWrap>
-        </S.PickListWrap>
+        <S.Title>Posting</S.Title>
+        <S.PostingListWrap>
+          {new Array(10).fill(1).map((_, index) => (
+            <S.PostingWrap key={index}></S.PostingWrap>
+          ))}
+        </S.PostingListWrap>
       </S.BottomWrap>
     </S.MyInfoWrap>
   );

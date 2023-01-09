@@ -17,36 +17,69 @@ export const Label = styled.label`
   font-size: 0.75rem;
   color: #738096;
 `;
-// export const CheckBoxLavel = styled.label`
-//   cursor: pointer;
-//   content: url("/signup.png");
-//   width: 19px;
-//   height: 19px;
 
-//   :active {
-//     content: url("/signup2.png");
-//   }
-// `;
+export const Input = styled.input`
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] + label {
+    cursor: pointer;
+    padding-left: 23px;
+    background-repeat: no-repeat;
+    background-image: url("./img/checker-off.svg");
+  }
+  input[type="checkbox"]:checked + label {
+    background-image: url("./img/checker-on.svg");
+  }
+  input[type="checkbox"]:disabled + label {
+    background-image: url("./img/checker-disabled.svg");
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+`;
+
+export const CheckBoxWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #d1d5d9;
+  border-radius: 8px;
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
 
 export const ButtonWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 1rem;
 `;
 export const SubmitButton = styled.div`
-  width: 100px;
-  height: 40px;
+  width: 240px;
+  height: 50px;
+  line-height: 50px;
   background-color: #751312;
-  text-align: center;
-  padding: 8px;
   color: white;
-  border-radius: 15px;
+  text-align: center;
+  border-radius: 8px;
 `;
 export const BackButton = styled.div`
-  width: 100px;
-  height: 40px;
+  width: 240px;
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #d1d5d9;
+  color: #738096;
   text-align: center;
-  padding: 8px;
-  border: 1px solid gray;
-  border-radius: 15px;
+  border-radius: 8px;
   cursor: pointer;
 `;

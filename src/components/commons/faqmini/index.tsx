@@ -1,6 +1,5 @@
 import * as S from "./style";
 import { useState } from "react";
-import { UpOutlined, DownOutlined } from "@ant-design/icons";
 
 export default function FaqMini() {
   const [isOpenQ1, setIsOpenQ1] = useState(false);
@@ -12,7 +11,9 @@ export default function FaqMini() {
     <S.OuterWrap>
       <S.InnerWrap>
         <S.ListWrap>
-          <S.Title>자주 묻는 질문</S.Title>
+          <S.Title>
+            자주 묻는 질문 <span>FAQ</span>
+          </S.Title>
 
           <S.List>
             <S.Qustion
@@ -23,7 +24,7 @@ export default function FaqMini() {
               <S.Text>
                 <S.Qmark>Q</S.Qmark> 대여 기간을 연장할 수 있나요?
               </S.Text>
-              <p> {isOpenQ1 ? <UpOutlined /> : <DownOutlined />}</p>
+              <p> {isOpenQ1 ? <S.Up /> : <S.Down />}</p>
             </S.Qustion>
             {isOpenQ1 && (
               <S.Answer>
@@ -46,7 +47,7 @@ export default function FaqMini() {
                 <S.Qmark>Q</S.Qmark>보증금은 어떻게 돌려받을 수 있나요?
               </S.Text>
 
-              <p> {isOpenQ2 ? <UpOutlined /> : <DownOutlined />}</p>
+              <p> {isOpenQ2 ? <S.Up /> : <S.Down />}</p>
             </S.Qustion>
             {isOpenQ2 && (
               <S.Answer>
@@ -74,7 +75,7 @@ export default function FaqMini() {
                 <S.Qmark>Q</S.Qmark>대여 반납은 어떻게 하나요?
               </S.Text>
 
-              <p> {isOpenQ3 ? <UpOutlined /> : <DownOutlined />}</p>
+              <p> {isOpenQ3 ? <S.Up /> : <S.Down />}</p>
             </S.Qustion>
             {isOpenQ3 && (
               <S.Answer>
@@ -97,7 +98,7 @@ export default function FaqMini() {
               <S.Text>
                 <S.Qmark>Q</S.Qmark>포인트 결제는 뭔가요?
               </S.Text>
-              <p> {isOpenQ4 ? <UpOutlined /> : <DownOutlined />}</p>
+              <p> {isOpenQ4 ? <S.Up /> : <S.Down />}</p>
             </S.Qustion>
             {isOpenQ4 && (
               <S.Answer>
