@@ -8,50 +8,60 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   margin-bottom: 1.4rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid #c0c0c0;
 `;
 
 export const LeftContainer = styled.div`
-  width: 16%;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const StarBox = styled.div`
-  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 `;
 
 export const RightContainer = styled.div`
-  width: 84%;
+  width: 100%;
   position: relative;
 `;
 
 export const ReviewContent = styled.div`
-  margin: 0.6rem;
-  font-size: 1.3rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #333333;
 `;
 
 export const ReviewInfo = styled.div`
   width: 100%;
-  margin: 0.7rem;
-  display: flex;
-  gap: 1.5rem;
 `;
 
-export const Reviewer = styled.div``;
+export const Reviewer = styled.p`
+  font-size: 0.875rem;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+`;
 
-export const CreatedAt = styled.div``;
+export const CreatedAt = styled.p`
+  font-size: 0.875rem;
+  color: #999999;
+`;
 
 export const BtnWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 100%;
-  gap: 20px;
-  position: absolute;
-  top: 16px;
-  right: 0;
+  width: 44px;
+  gap: 16px;
 `;
 
-export const Button = styled.button`
-  background-color: #f5efe3;
-  padding: 5px 10px;
-  border-radius: 5px;
+export const Button = styled.div`
   cursor: pointer;
+  width: 14px;
+  height: 14px;
+
+  img {
+    width: 100%;
+  }
 `;
