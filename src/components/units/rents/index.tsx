@@ -103,7 +103,7 @@ export default function Rents() {
 
       {section !== "all" && (
         <S.BookListWrapper>
-          {data.fetchComics.map((el, index) => (
+          {data.fetchComics.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>

@@ -75,4 +75,10 @@ export const PostingWrap = styled.div`
   width: 130px;
   height: 130px;
   background-color: #d9d9d9;
+  cursor: pointer;
+`;
+
+export const PostingImg = styled.img`
+  width: 100%;
+  object-fit: cover;
 `;

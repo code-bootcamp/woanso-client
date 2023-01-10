@@ -22,7 +22,7 @@ export default function MyPageUI() {
   const [isActive, setIsActive] = useState<String>("myInfo");
 
   const { data } = useQueryFetchUserLoggendIn();
-  console.log(data);
+  console.log(data?.fetchUserLoggedIn);
 
   // const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
   //   if (e.currentTarget.id === "askkakao") {
@@ -55,7 +55,7 @@ export default function MyPageUI() {
               <S.EditIconImg src="/icon/edit_icon.png" />
             </S.EditIcon>
           </S.AvatarWrap>
-          <S.UserName>이유진</S.UserName>
+          <S.UserName>{data?.fetchUserLoggedIn.nickname}</S.UserName>
           <S.PointCharge>포인트 충전</S.PointCharge>
         </S.SideWrapTop>
 

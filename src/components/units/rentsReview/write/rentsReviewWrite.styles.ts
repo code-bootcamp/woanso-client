@@ -5,7 +5,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #77170d;
+  font-weight: bold;
+  font-size: 1.25rem;
+  padding-bottom: 7px;
+  border-bottom: 3px solid #555555;
+  margin-bottom: 15px;
 `;
 
 export const WriteWrapper = styled.div`
@@ -14,39 +18,40 @@ export const WriteWrapper = styled.div`
   flex-direction: row;
 `;
 
-export const InputWrapper = styled.div`
-  width: 84%;
-`;
-
 export const Textarea = styled.textarea`
   width: 100%;
   height: 8rem;
   border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
   resize: none;
 `;
 
 export const RateBox = styled.div`
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-weight: bold;
+    color: #999999;
+    font-size: 0.875rem;
+    margin-right: 20px;
+  }
 `;
 
-export const ContentsWrapper = styled.div``;
-
-export const Contents = styled.div``;
-
-export const BottomWrapper = styled.div``;
-
-export const ContentsLength = styled.div``;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+`;
 
 export const Button = styled.button`
-  width: 15%;
-  height: 8rem;
+  width: 120px;
+  height: 40px;
   background-color: #77170d;
+  border-radius: 8px;
   color: white;
-  border-radius: 5px;
-  margin-left: 10px;
-  font-size: 28px;
-  font-weight: 500;
-  box-sizing: content-box;
+  font-weight: bold;
+  font-size: 0.875rem;
   cursor: pointer;
 `;

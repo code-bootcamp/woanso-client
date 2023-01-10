@@ -8,24 +8,19 @@ export default function RentsCommentWriteUI() {
     <S.Wrapper>
       <S.Title>100자평</S.Title>
       <S.RateBox>
+        <p>이 만화를 평가해주세요!</p>
         <Rate />
       </S.RateBox>
       <S.WriteWrapper>
-        <S.InputWrapper>
-          <S.Textarea
-            placeholder={
-              "배송 문의나 욕설 및 인신공격성 글은 상품 페이지에서 노출 제외처리됩니다."
-            }
-          />
-        </S.InputWrapper>
-        <S.Button>등록</S.Button>
+        <S.Textarea
+          placeholder={
+            "리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 비공개될 수 있습니다."
+          }
+        />
       </S.WriteWrapper>
-      <S.ContentsWrapper>
-        <S.Contents />
-        <S.BottomWrapper>
-          <S.ContentsLength>1/100</S.ContentsLength>
-        </S.BottomWrapper>
-      </S.ContentsWrapper>
+      <S.ButtonWrapper>
+        <S.Button>등록하기</S.Button>
+      </S.ButtonWrapper>
     </S.Wrapper>
   );
 }

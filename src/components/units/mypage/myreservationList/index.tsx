@@ -1,6 +1,10 @@
+import { useQueryFetchWishlist } from "../../../../commons/hooks/queries/useQueryFetchWishlist";
 import * as S from "./style";
 
 export default function MyReservationList() {
+  const { data } = useQueryFetchWishlist();
+  console.log(data);
+
   return (
     <S.MyRentListWrap>
       <S.Title>

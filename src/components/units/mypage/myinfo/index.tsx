@@ -1,6 +1,14 @@
+import { useRouter } from "next/router";
+import { MouseEvent } from "react";
 import * as S from "./style";
 
 export default function MyIngo() {
+  const router = useRouter();
+
+  const onClickMoveToPosting = (e: MouseEvent<HTMLDivElement>) => {
+    router.push("/community");
+  };
+
   return (
     <S.MyInfoWrap>
       <S.TopWrap>
@@ -16,7 +24,7 @@ export default function MyIngo() {
         </S.ItemWrap>
         <S.ItemWrap>
           <S.TopTitle>포스팅</S.TopTitle>
-          <S.BigText>28</S.BigText>
+          <S.BigText>1</S.BigText>
         </S.ItemWrap>
         <S.ItemWrap>
           <S.TopTitle>댓글</S.TopTitle>
@@ -27,9 +35,11 @@ export default function MyIngo() {
       <S.BottomWrap>
         <S.Title>Posting</S.Title>
         <S.PostingListWrap>
-          {new Array(10).fill(1).map((_, index) => (
-            <S.PostingWrap key={index}></S.PostingWrap>
-          ))}
+          {/* {data?.fetchBoards.map((el: any) => (
+            <S.PostingWrap key={el.id} onClick={onClickMoveToPosting}>
+              <S.PostingImg src={el.boardImg[0]} />
+            </S.PostingWrap>
+          ))} */}
         </S.PostingListWrap>
       </S.BottomWrap>
     </S.MyInfoWrap>
