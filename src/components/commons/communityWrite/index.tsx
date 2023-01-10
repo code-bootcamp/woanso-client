@@ -2,17 +2,20 @@ import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
+import { useRecoilState } from "recoil";
+import { PopupModal } from "../../../commons/libraries/store";
 import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../commons/types/generated/types";
+import CommunityModal1 from "../communityModal";
 import CommunityTrendUI from "../communityTrend";
 import { CREATE_BOARD, UPDATE_BOARD } from "./queries";
 import * as S from "./styles"
 
 export default function CommunityWriteUI(props){
     const router = useRouter();
-
+    
+    const [isModalOpen, setIsModalOpen] = useRecoilState(PopupModal);
     
     const [content, setContent] = useState("");
-    // const [title, setTitle] = useState("");
 
     const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
@@ -29,10 +32,6 @@ export default function CommunityWriteUI(props){
     console.log(setContent)
   };
 
-//   const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
-//     setTitle(event.target.value);
-//   };
-
 
   const onClickSubmit = async () => {
     if (content) {
@@ -40,19 +39,17 @@ export default function CommunityWriteUI(props){
         const result = await createBoard({
           variables: {
             createBoardInput: {
-            
               content,
               boardImg:["ㅇ,러ㅏㅇ너라"]
             },
           },
         });
-        // alert(<CommunityTrendUI/>)
+        setIsModalOpen(true)
+        setTimeout(function(){ setIsModalOpen(false);}, 3000);
         if (typeof result.data?.createBoard.id !== "string") {
           alert("일시적인 오류가 있습니다. 다시 시도해 주세요.");
           return;
         }
-        // console.log(result.data.createBoard.content);
-        console.log(result)
         void router.push(`/community/${result.data?.createBoard.id}`);
       } catch (error) {
         if (error instanceof Error) Modal.error({ content: error.message });
@@ -80,12 +77,6 @@ export default function CommunityWriteUI(props){
     }
   };
 
-  // function popup(){
-  //   var url = "popup.tsx";
-  //   var name = "popup test";
-  //   var option = "width = 500, height = 500, top = 100, left = 200"
-  //   window.open(url, name, option)
-  // }
 
     return (
       <>
@@ -94,9 +85,6 @@ export default function CommunityWriteUI(props){
                 <S.contents placeholder="무슨 일이 일어나고 있나요?"
                 onChange={onChangeContents}
                 ></S.contents>
-                {/* <S.contents placeholder="제목?"
-                onChange={onChangeTitle}
-                ></S.contents> */}
             </S.ContentsWrap>
             <S.BottomWrap>
                 <S.ImgWrap>
@@ -107,11 +95,10 @@ export default function CommunityWriteUI(props){
                 </S.ButtonWrap>
             </S.BottomWrap>
         </S.Wrap>
-        {/* <a href="javascript:popup();">
-
-          <div>팝업오픈!</div>
-        </a> */}
-        </>
+        { isModalOpen && (
+          <CommunityModal1/>
+        )}
+        </>       
     )
 }
 

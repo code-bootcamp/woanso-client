@@ -6,11 +6,16 @@ import { DELETE_BOARD, FETCH_BOARD } from "./queries";
 import * as S from "./styles";
 import CommunityCommentWriteUI from "../communityCommentWrite/index"
 import CommunityModal from "../communityDeleteModal";
+import { useRecoilState } from "recoil";
+import { deleteModal } from "../../../commons/libraries/store";
+import CommunityModal1 from "../communityModal";
 
 export default function CommunityDetailUI(){
     const router = useRouter();
     
     const [isEdit, setIsEdit] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useRecoilState(deleteModal);
+
 
     const [deleteBoard] = useMutation<
     Pick<IMutation, "deleteBoard">,
@@ -34,12 +39,13 @@ export default function CommunityDetailUI(){
       };
 
       const onClickDelete = async () => {
-        await deleteBoard({
-          variables: {
-            id: router.query.boardId,
-          },
-        });
-        router.push(`/community/`);
+        // await deleteBoard({
+        //   variables: {
+        //     id: router.query.boardId,
+        //   },
+        // });
+        setIsModalOpen(true)
+        // router.push(`/community/`);
       };
 
     return (
@@ -83,7 +89,12 @@ export default function CommunityDetailUI(){
         { isEdit && (
             <CommunityCommentWriteUI/>
         )}
-        <CommunityModal/>
+        { isModalOpen && (
+            <>
+          <CommunityModal/>
+          {/* <CommunityModal1/> */}
+          </>
+        )}
         
     </>
     )

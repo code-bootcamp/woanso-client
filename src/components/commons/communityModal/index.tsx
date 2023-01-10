@@ -1,12 +1,14 @@
 import { Button, Modal } from "antd";
 import { useState } from "react";
 import styled from "@emotion/styled";
+import { useRecoilState } from "recoil";
+import { PopupModal } from "../../../commons/libraries/store";
 
 
 
-export default function CommunityModal(){
+export default function CommunityModal1(){
     
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useRecoilState(PopupModal);
 
     const handleOk = () => {
         setIsModalOpen(false);
@@ -16,27 +18,21 @@ export default function CommunityModal(){
         setIsModalOpen(false);
       };
 
-    const onClickWriteReview = async (e) => {
-        setIsModalOpen(true);
-        setTimeout(function(){ setIsModalOpen(false);}, 3000);
-      };
-
-
     return (
         <>
-        <Button onClick={onClickWriteReview}>모달</Button>
-
         { isModalOpen && <ModalCustom
               width="1100px"
               open={true}
               onOk={handleOk}
               onCancel={handleCancel}
             >
-    
+              <Wrap>게시글이 등록되었습니다.</Wrap>
             </ModalCustom>}
             </>
     )
 }
+
+const Wrap = styled.div``
 
 const ModalCustom = styled(Modal)`
   .ant-modal-header {
@@ -47,11 +43,19 @@ const ModalCustom = styled(Modal)`
     border-radius: 2px 2px 0 0;
     height: 80px;
   }
-  .ant-modal-body {
-    padding-top: 10px;
-    font-size: 14px;
-    line-height: 1.5715;
-    word-wrap: break-word;
+  .ant-modal-content {
+    display: flex;
+    flex-direction: row;
+align-items: center;
+padding: 16px 24px;
+gap: 24px;
+position: relative;
+width: 262px;
+height: 56px;
+background: #EFE7D7;
+border-radius: 16px;
+top: 10px;
+left: 400px;
   }
   .ant-modal-title {
     color: #fff;
@@ -63,10 +67,10 @@ const ModalCustom = styled(Modal)`
     padding: 0px;
   }
   .ant-modal-footer > .ant-btn-primary {
-    /* display: none; */
+    display: none;
   }
   .ant-modal-footer > .ant-btn-default {
-    /* display: none; */
+    display: none;
   }
   .ant-modal-close-x {
     /* display: none; */

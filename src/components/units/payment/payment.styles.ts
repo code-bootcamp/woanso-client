@@ -1,123 +1,108 @@
 import styled from "@emotion/styled";
 
-export const OutWrapper = styled.div`
-padding: 100px;
+export const Wrap = styled.div`
+padding-top: 180px;
 `
-export const InnerWrapper = styled.div`
-margin: auto;
-padding: 100px;
-width: 900px;
+
+export const TitleWrap = styled.div`
 display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-around;
-border: 1px solid gray;
-box-shadow: 5px 5px 5px 5px gray;
-`
-export const TitleWrapper = styled.div`
-margin-bottom: 50px;
+gap: 5px;
+width: 141px;
+height: 44px;
 `
 export const Title = styled.div`
-font-size: 32px;
-text-align: center;
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 100%;
 `
-export const ContentsWrapper = styled.div`
+export const UserWrap = styled.div``
+export const UserTitleWrap = styled.div`
+/* width: 131px; */
+width: 200px;
+height: 23px;
+`
+export const UserTitle = styled.div`
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 100%;
+color: #333333;
+`
+export const UserNameWrap = styled.div`
 display: flex;
-flex-direction: column;
-margin-bottom: 100px;
-`
-export const ContentsTitle = styled.div`
-margin-bottom: 50px;
-width: 100px;
-border-bottom: 1px solid gray;
 `
 export const Label = styled.div`
-margin-bottom: 30px;
-`
-export const SubWrapper = styled.div`
+width: 45px;
+/* height: 23px; */
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 100%;
+color: #333333;
 display: flex;
-margin-top: 10px;
+align-items: center;
+letter-spacing: -0.05em;
+justify-content: center;
 `
-export const Input = styled.input`
-background-color: #D9D9D9;
-margin-right: 40px;
-width: 200px;
-height: 40px;
-margin-bottom: 40px;
-padding: 20px;
-border: none;
-`
-export const Input2 = styled.input`
-background-color: #D9D9D9;
-width: 440px;
-height: 40px;
-margin-bottom: 20px;
-padding: 20px;
-border: none;
-`
-
-export const CouponPrice = styled.div`
-background-color: #D9D9D9;
-width: 300px;
-height: 40px;
-margin-bottom: 20px;
+export const UserName = styled.input`
+width: 160px;
+height: 50px;
+background: #FFFFFF;
+border: 1px solid #D1D5D9;
+border-radius: 8px;
 padding: 10px;
-margin-right: 60px;
-text-align: end;
-border: none;
 `
-
-export const Coupon = styled.div`
-background-color: #D9D9D9;
-width: 80px;
-height: 40px;
-margin-bottom: 20px;
+export const UserNameWrap2 = styled.div`
+display: flex;
+`
+export const UserName2 = styled.input`
+width: 160px;
+height: 50px;
+background: #FFFFFF;
+border: 1px solid #D1D5D9;
+border-radius: 8px;
 padding: 10px;
-margin-right: 30px;
 `
-
-
-export const Input5 = styled.div`
-background-color: #D9D9D9;
-width: 130px;
-height: 80px;
-`
-
-export const SubWrapper3 = styled.div`
+export const AddressWrap = styled.div`
 display: flex;
-flex-direction: column;
-margin-left: 10px;
 `
-
-export const SubWrapper4 = styled.div`
-margin-left: 160px;
-margin-top: 40px;
+export const AddressNumber = styled.input`
+width: 70px;
+height: 50px;
+background: #FFFFFF;
+border: 1px solid #D1D5D9;
+border-radius: 8px;
+padding: 10px;
 `
+export const AddressSerch = styled.div`
+width: 124px;
+height: 50px;
+background: #77170D;
+border-radius: 8px;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+/* or 16px */
 
-export const Line = styled.div`
-width: 460px;
-height: 0px;
-border: 1px solid black;
-`
-
-export const ContentsWrapper2 = styled.div`
 display: flex;
-flex-direction: column;
-margin-bottom: 40px;
-align-items: flex-end;
-margin-left: 300px;
-`
-
-export const Label2 = styled.div`
-margin-bottom: 30px;
-margin-left: 30px;
-`
-
-export const Button = styled.div`
-background-color: #77170D;
-color: white;
-width: 400px;
-height: 40px;
+align-items: center;
 text-align: center;
-padding-top: 10px;
+letter-spacing: -0.05em;
+justify-content: center;
+color: #FFFFFF;
 `
+export const Address = styled.div`
+width: 895px;
+height: 50px;
+left: 570px;
+top: 497px;
+
+background: #FFFFFF;
+border: 1px solid #D1D5D9;
+border-radius: 8px;
+`
+export const AddressDetail = styled.div``
+export const NumberWrap = styled.div``
+export const Number = styled.div``

@@ -1,13 +1,16 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
-import { IMutation, IMutationCreateCommentArgs } from "../../../commons/types/generated/types";
+import { FETCH_USER_LOGGED_IN } from "../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
+import { IMutation, IMutationCreateCommentArgs, IQuery } from "../../../commons/types/generated/types";
 import { CREATE_COMMENT } from "./queries";
 import * as S from "./style";
 
 export default function CommunityCommentWriteUI(){
     const router = useRouter();
     const [content, setContent] = useState("");
+    const [userId, setUserId] = useState("");
+    
 
 
 //     const [createComment] = useMutation<
@@ -17,8 +20,17 @@ export default function CommunityCommentWriteUI(){
 
   const [createComment] = useMutation(CREATE_COMMENT);
 
+  const { data } =
+  useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
+
+  console.log(data)
+
   const onChangeContent = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
+  };
+
+  const onChangeUserId = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setUserId(event.target.value);
   };
 
 
@@ -30,8 +42,9 @@ export default function CommunityCommentWriteUI(){
         variables: {
           createCommentInput: {
             content,
+            boardId: String(router.query.boardId),
+            userId
           },
-          boardId: router.query.id,
         },
         // refetchQueries: [
         //   {
@@ -40,11 +53,15 @@ export default function CommunityCommentWriteUI(){
         //   },
         // ],
       });
+      console.log("댓글등록")
     } catch (error) {
       if (error instanceof Error) alert(error.message);
     }
 
     setContent("");
+    setUserId("");
+
+
   };
 
     return (
@@ -52,6 +69,7 @@ export default function CommunityCommentWriteUI(){
         <S.LeftWrap>
             <S.AvatorWrap>
                 <S.Avator></S.Avator>
+                <div onChange={onChangeUserId}></div>
             </S.AvatorWrap>
             <S.ContentsWrap>
                 <S.MidWrap>
