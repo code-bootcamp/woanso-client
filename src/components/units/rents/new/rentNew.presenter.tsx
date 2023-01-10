@@ -8,6 +8,9 @@ import { schema } from "./rentNew.validation";
 import { Modal } from "antd";
 import { useMutationCreateComic } from "../../../../commons/hooks/mutaions/useMutationCreateComic";
 import { validate } from "graphql";
+import { useMutation } from "@apollo/client";
+import { IComic_Category_Enum, IMutation, IMutationCreateComicArgs } from "../../../../commons/types/generated/types";
+import { CREATE_COMIC } from "./rentNew.queries";
 
 interface IFormData {
   title: string;
@@ -22,15 +25,16 @@ interface IFormData {
   isAvailable: boolean;
   stock: number;
   url: [string];
+  category: IComic_Category_Enum;
 }
 
 export default function RentNewUI() {
-  const [createComic] = useMutationCreateComic();
+  
 
-  // const [createComic] = useMutation<
-  //   Pick<IMutation, "createComic">,
-  //   IMutationCreateComicArgs
-  // >(CREATE_COMIC);
+  const [createComic] = useMutation<
+    Pick<IMutation, "createComic">,
+    IMutationCreateComicArgs
+  >(CREATE_COMIC);
 
   const ReactQuill = dynamic(async () => await import("react-quill"), {
     ssr: false,
@@ -57,9 +61,11 @@ export default function RentNewUI() {
             totalBooks: Number(data.totalBooks),
             description: data.description,
             ISBN: data.ISBN,
-            isAvailable: vailable,
+            // isAvailable: vailable,
+            isAvailable: data.isAvailable,
             stock: Number(data.stock),
             url: data.url,
+            category: data.category
           },
         },
       });
@@ -106,7 +112,7 @@ export default function RentNewUI() {
               <S.BtnInputContianer>
                 <S.Button>카테고리 선택</S.Button>
                 <S.IsbnInputContainer>
-                  <S.Input />
+                  <S.Input type="text" {...register("category")} />
                 </S.IsbnInputContainer>
               </S.BtnInputContianer>
             </S.Category>
@@ -158,7 +164,7 @@ export default function RentNewUI() {
               <S.Name>
                 <span>대여가능여부</span>{" "}
               </S.Name>
-              <S.Input type="text" {...register("isAvailable")} />
+              <S.Input type="checkbox" checked={true} {...register("isAvailable")} />
             </S.Category3>
             <S.Category2>
               <S.Category3>

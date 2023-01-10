@@ -7,6 +7,19 @@ export const CREATE_COMIC = gql`
       title
       deliveryFee
       rentalFee
+      author
+      illustrator
+      publisher
+      totalBooks
+      description
+      ISBN
+      # isAvailable
+      wishListCount
+      comicRating{
+        comicRatingId
+        totalRating
+        comicRating
+      }
     }
   }
 `;
