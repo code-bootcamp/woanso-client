@@ -1,12 +1,15 @@
 import * as S from "./style";
 import { useRouter } from "next/router";
-import { MouseEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, useRef, useState } from "react";
 import MyIngo from "./myinfo";
 import MyReservationList from "./myreservationList";
 import MyRentList from "./myrentList";
 import UserEdit from "../userEdit";
 import FaqMini from "../../commons/faqmini";
 import { useQueryFetchUserLoggendIn } from "../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
+import { useMutationUploadOneFile } from "../../../commons/hooks/mutaions/useMutationUploadOneFile";
+import { Modal } from "antd";
+import { checkValidationImage } from "../../commons/uploads/image.validation";
 
 const MenuLists = [
   { id: "myInfo", name: "내정보" },
@@ -23,7 +26,7 @@ export default function MyPageUI() {
 
   const { data: User } = useQueryFetchUserLoggendIn();
   console.log(User?.fetchUserLoggedIn.id);
-
+  const [uploadOneFile] = useMutationUploadOneFile();
   // const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
   //   if (e.currentTarget.id === "askkakao") {
   //     const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
@@ -32,9 +35,24 @@ export default function MyPageUI() {
   //     router.push(e.currentTarget.id);
   //   }
   // };
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [imgUrl, setImgUrl] = useState<String>("");
+  const onClickUpload = () => {
+    fileRef.current?.click();
+  };
 
-  const onClickMoveToProfileEdit = () => {
-    router.push("/userEdit");
+  const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = checkValidationImage(event.target.files?.[0]);
+    console.log("file", file);
+    if (!file) return;
+
+    try {
+      const result = await uploadOneFile({ variables: { file } });
+      console.log("result", result);
+      setImgUrl(result.data?.uploadOneFile ?? "");
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
+    }
   };
 
   const onClickList = (e: MouseEvent<HTMLLIElement>) => {
@@ -49,11 +67,17 @@ export default function MyPageUI() {
     <S.MypageWrap>
       <S.SideWrap>
         <S.SideWrapTop>
-          <S.AvatarWrap onClick={onClickMoveToProfileEdit}>
+          <S.AvatarWrap onClick={onClickUpload}>
             <S.AvatarImg src="/userAvatar.jpeg" />
             <S.EditIcon>
               <S.EditIconImg src="/icon/edit_icon.png" />
             </S.EditIcon>
+            <input
+              type="file"
+              ref={fileRef}
+              hidden={true}
+              onChange={onChangeFile}
+            />
           </S.AvatarWrap>
           <S.UserName>{User?.fetchUserLoggedIn.nickname}</S.UserName>
           <S.PointCharge>포인트 충전</S.PointCharge>

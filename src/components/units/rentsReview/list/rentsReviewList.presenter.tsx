@@ -3,7 +3,7 @@ import React from "react";
 import { Modal, Rate } from "antd";
 import { useMutationDeleteReview } from "../../../../commons/hooks/mutaions/useMutationDeleteReview";
 
-export default function RentsReviewListUI() {
+export default function RentsReviewListUI({ el }: any) {
   const [deleteReview] = useMutationDeleteReview();
 
   const onClickDelete = () => {
@@ -31,15 +31,15 @@ export default function RentsReviewListUI() {
       <S.Container>
         <S.LeftContainer>
           <S.StarBox>
-            <Rate />
+            <Rate defaultValue={el.like} />
           </S.StarBox>
           <S.ReviewInfo>
-            <S.Reviewer>쩨리</S.Reviewer>
-            <S.CreatedAt>2022-12-30</S.CreatedAt>
+            <S.Reviewer>{el.user.nickname}</S.Reviewer>
+            {/* <S.CreatedAt>2022-12-30</S.CreatedAt> */}
           </S.ReviewInfo>
         </S.LeftContainer>
         <S.RightContainer>
-          <S.ReviewContent>재밌어요 추천!</S.ReviewContent>
+          <S.ReviewContent>{el.content}</S.ReviewContent>
         </S.RightContainer>
 
         <S.BtnWrapper>

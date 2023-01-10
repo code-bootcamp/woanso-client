@@ -1,6 +1,5 @@
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
-import { useQueryFetchBoards } from "../../../commons/hooks/queries/useQueryFetchBoards";
 import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics";
 import SliderMultiple from "../../commons/sliderMultiple";
 import Academy from "../section/academy";
@@ -103,7 +102,7 @@ export default function Rents() {
 
       {section !== "all" && (
         <S.BookListWrapper>
-          {data.fetchComics.map((el: any, index: number) => (
+          {data?.fetchComics.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>

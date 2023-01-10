@@ -11,20 +11,17 @@ import { IUserFormType } from "../../../commons/types/formtypes/type";
 import * as S from "./style";
 import * as SS from "./../../commons/signup/Signup.styles";
 import { ChangeEvent, useState } from "react";
+import { useQueryFetchUserLoggendIn } from "../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 
 export default function UserEditPw() {
   const router = useRouter();
-  // const [email] = useRecoilState(getUserEmail);
-  // console.log(email);
-  // const { data: user } = useQuery(FETCH_USER, {
-  //   email,
-  // });
   const [interest, setInterest] = useState("");
+  const { data: user } = useQueryFetchUserLoggendIn();
+  const [updateUser] = useMutationUpdateUser();
+
   const onChangeCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
     setInterest(event.target.value);
   };
-
-  const [updateUser] = useMutationUpdateUser();
 
   const { register, handleSubmit } = useForm<IUserFormType>({
     mode: "onChange",
@@ -37,13 +34,19 @@ export default function UserEditPw() {
     try {
       const result = await updateUser({
         variables: {
-          email: "red@red.com",
+          email: String(user.fetchUserLoggedIn.email),
           updateUserInput: {
-            email: "red@red.com",
+            email: String(user.fetchUserLoggedIn.email),
             password: data.password,
-            nickname: data.nickname,
-            phone: String(data.phone),
-            interest: data.interest,
+            nickname: data.nickname
+              ? data.nickname
+              : user.fetchUserLoggedIn.nickname,
+            phone: data.phone
+              ? String(data.phone)
+              : user.fetchUserLoggedIn.phone,
+            interest: data.interest
+              ? data.interest
+              : user.fetchUserLoggedIn.interest,
           },
         },
       });
@@ -68,9 +71,8 @@ export default function UserEditPw() {
 
       <UserEditInput
         type="email"
-        {...register("email")}
         readOnly
-        defaultValue="defaultValue"
+        defaultValue={user?.fetchUserLoggedIn.email}
       />
       <UserEditPwInput
         type="password"
@@ -87,15 +89,13 @@ export default function UserEditPw() {
       <UserEditInput
         type="name"
         {...register("nickname")}
-        readOnly
-        defaultValue="defaultValue"
+        defaultValue={user?.fetchUserLoggedIn.nickname}
       />
 
       <UserEditInput
         type="number"
         {...register("phone")}
-        readOnly
-        defaultValue="010-2220-2222"
+        defaultValue={Number(user?.fetchUserLoggedIn.phone)}
       />
 
       <SS.SubWrapper>
@@ -104,7 +104,7 @@ export default function UserEditPw() {
           <SS.CheckBox
             type="radio"
             name="장르"
-            value="로맨스"
+            value="romance"
             id="romance"
             onChange={onChangeCheckbox}
           />
@@ -113,7 +113,7 @@ export default function UserEditPw() {
           <SS.CheckBox
             type="radio"
             name="장르"
-            value="학원"
+            value="school"
             id="school"
             onChange={onChangeCheckbox}
           />
@@ -122,7 +122,7 @@ export default function UserEditPw() {
           <SS.CheckBox
             type="radio"
             name="장르"
-            value="드라마/일상"
+            value="drama"
             id="drama"
             onChange={onChangeCheckbox}
           />
@@ -131,7 +131,7 @@ export default function UserEditPw() {
           <SS.CheckBox
             type="radio"
             name="장르"
-            value="판타지"
+            value="fantasy"
             id="fantasy"
             onChange={onChangeCheckbox}
           />
@@ -142,7 +142,7 @@ export default function UserEditPw() {
             type="radio"
             name="장르"
             id="action"
-            value="액션"
+            value="action"
             onChange={onChangeCheckbox}
           />
           <SS.CheckBoxLavel htmlFor="action"></SS.CheckBoxLavel>
@@ -151,7 +151,7 @@ export default function UserEditPw() {
           <SS.CheckBox
             type="radio"
             name="장르"
-            value="추리/공포"
+            value="horror"
             id="horror"
             onChange={onChangeCheckbox}
           />
