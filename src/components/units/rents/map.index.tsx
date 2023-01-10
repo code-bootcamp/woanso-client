@@ -11,7 +11,7 @@ export default function ListMap({ el }: any) {
   return (
     // <S.BookWrapper>
     <S.BookSubWrapper id={el.comicId} onClick={onClickMoveToDetail}>
-      <S.BookImg src="/"></S.BookImg>
+      <S.BookImg src={`https://storage.googleapis.com/${el.ISBN}`}></S.BookImg>
       <S.BookInfo>
         <S.BookTitle>{el.titke}</S.BookTitle>
         <S.BookInfoSub>

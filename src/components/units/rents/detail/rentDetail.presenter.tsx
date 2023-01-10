@@ -4,13 +4,12 @@ import React, { useState } from "react";
 import RentsReviewList from "../../rentsReview/list/rentsReviewList.container";
 import { useRouter } from "next/router";
 import { useQueryFetchComic } from "../../../../commons/hooks/queries/useQueryFetchComic";
+import { Rate } from "antd";
 
 export default function RentDetailUI() {
   const router = useRouter();
   const [toggleIcon, setToggleIcon] = useState(false);
-  const [starCount, setStarCount] = useState(3);
 
-  // console.log(router.query.boardId);
   const { data } = useQueryFetchComic(router.query.boardId);
   console.log(data);
 
@@ -18,13 +17,21 @@ export default function RentDetailUI() {
     setToggleIcon((prev) => !prev);
   };
 
+  const count = data?.fetchComic.comicRating.comicRating;
+  console.log(count);
   return (
     <>
       <S.Wrapper>
         <S.Container>
           <S.DetailWrap>
-            <S.ImageWrap>
-              <img src={data?.fetchComic.illustrator} />
+            <S.ImageWrap
+              style={{
+                backgroundImage: `url(https://storage.googleapis.com/${data?.fetchComic.ISBN})`,
+              }}
+            >
+              <S.Img
+                src={`https://storage.googleapis.com/${data?.fetchComic.ISBN}`}
+              />
             </S.ImageWrap>
 
             <S.InfoWrap>
@@ -36,14 +43,9 @@ export default function RentDetailUI() {
               </S.InfoFlexWrap>
               <S.BookScore>
                 <div>
-                  {new Array(starCount).fill(1).map((_, index) => (
-                    <S.fillStar />
-                  ))}
-                  {new Array(5 - starCount).fill(1).map((_, index) => (
-                    <S.Star />
-                  ))}
+                  <Rate value={count} />
                 </div>
-                <p>3점</p>
+                <p>{count}점</p>
               </S.BookScore>
               <S.BookAuthor>{data?.fetchComic.author}</S.BookAuthor>
               <S.BookDetail>{data?.fetchComic.description}</S.BookDetail>
@@ -58,10 +60,6 @@ export default function RentDetailUI() {
 
           <RentsReviewWrite />
           <S.ReviewListBox>
-            <RentsReviewList />
-            <RentsReviewList />
-            <RentsReviewList />
-            <RentsReviewList />
             <RentsReviewList />
           </S.ReviewListBox>
         </S.Container>
