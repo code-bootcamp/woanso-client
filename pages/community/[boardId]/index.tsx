@@ -1,7 +1,7 @@
 import CommunityDetailUI from "../../../src/components/commons/communityDetail";
 import styled from "@emotion/styled";
-import CommunityCommentUI from "../../../src/components/commons/communityCommentList";
-import CommunityCommentListUI from "../../../src/components/commons/communityCommentList";
+import CommunityCommentUI from "../../../src/components/commons/communityCommentList/container";
+import CommunityCommentListUI from "../../../src/components/commons/communityCommentList/container";
 import CommunityCommentWriteUI from "../../../src/components/commons/communityCommentWrite";
 
 
@@ -18,7 +18,6 @@ export default function BoardDetailPage(){
     return (
         <Wrap>
        <CommunityDetailUI/>
-       {/* <CommunityCommentWriteUI/> */}
        <CommunityCommentListUI/>
        </Wrap>
     )

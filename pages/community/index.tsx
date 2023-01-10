@@ -3,6 +3,7 @@ import CommunityTrendUI from "../../src/components/commons/communityTrend";
 import CommunityWriteUI from "../../src/components/commons/communityWrite";
 import ChatList from "../../src/components/units/chat/list";
 import styled from "@emotion/styled";
+import CommunityDeleteModal from "../../src/components/commons/communityDeleteModal";
 
 
 const Wrap = styled.div`
@@ -25,6 +26,7 @@ export default function CommunityPage(){
     <CommunityTrendUI/>
     <CommunityWriteUI/>
     <CommunityListUI/>    
+    <CommunityDeleteModal/>
     </Wrap1>
     <Wrap2>
     <ChatList/>

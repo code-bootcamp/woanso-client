@@ -3,11 +3,13 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../commons/types/generated/types";
+import CommunityTrendUI from "../communityTrend";
 import { CREATE_BOARD, UPDATE_BOARD } from "./queries";
 import * as S from "./styles"
 
 export default function CommunityWriteUI(props){
     const router = useRouter();
+
     
     const [content, setContent] = useState("");
     // const [title, setTitle] = useState("");
@@ -44,6 +46,7 @@ export default function CommunityWriteUI(props){
             },
           },
         });
+        // alert(<CommunityTrendUI/>)
         if (typeof result.data?.createBoard.id !== "string") {
           alert("일시적인 오류가 있습니다. 다시 시도해 주세요.");
           return;
@@ -77,7 +80,15 @@ export default function CommunityWriteUI(props){
     }
   };
 
+  // function popup(){
+  //   var url = "popup.tsx";
+  //   var name = "popup test";
+  //   var option = "width = 500, height = 500, top = 100, left = 200"
+  //   window.open(url, name, option)
+  // }
+
     return (
+      <>
         <S.Wrap>
             <S.ContentsWrap>
                 <S.contents placeholder="무슨 일이 일어나고 있나요?"
@@ -96,6 +107,11 @@ export default function CommunityWriteUI(props){
                 </S.ButtonWrap>
             </S.BottomWrap>
         </S.Wrap>
+        {/* <a href="javascript:popup();">
+
+          <div>팝업오픈!</div>
+        </a> */}
+        </>
     )
 }
 

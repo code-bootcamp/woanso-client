@@ -1,8 +1,9 @@
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
-import { IQuery, IQueryFetchBoardArgs } from "../../../commons/types/generated/types";
+import { IMutation, IMutationDeleteBoardArgs, IQuery, IQueryFetchBoardArgs } from "../../../commons/types/generated/types";
 import CommunityCommentWriteUI from "../communityCommentWrite";
+import { DELETE_BOARD } from "../communityDetail/queries";
 import { FETCH_BOARDS } from "./queries";
 import * as S from "./styles";
 
@@ -16,12 +17,32 @@ export default function CommunityListUI(){
     IQueryFetchBoardArgs
     >(FETCH_BOARDS);
 
+    const [deleteBoard] = useMutation<
+    Pick<IMutation, "deleteBoard">,
+    IMutationDeleteBoardArgs
+  >(DELETE_BOARD);
+
+
     const onClickComment = () => {
         setIsEdit((prev) => !prev)
     }
 
     const onClickMoveToBoardDetail = (boardId) => (event: MouseEvent<HTMLDivElement>) => {
         void router.push(`/community/${boardId}`);
+      };
+
+      const onClickEdit = () => {
+        router.push(`/community/${router.query.boardId}/edit`);
+      };
+
+      const onClickDelete = async () => {
+        await deleteBoard({
+          variables: {
+            id: String(router.query.boardId),
+          },
+        });
+        router.push(`/community/`);
+        console.log("삭제완룡")
       };
 
     console.log(data)
@@ -60,8 +81,8 @@ export default function CommunityListUI(){
             </S.LeftWrap>
             <S.RightWrap>
                 <S.IconWrap>
-                    <S.Edit src="/Vector7.png"></S.Edit>
-                    <S.Del src="/Vector6.png"></S.Del>
+                    <S.Edit src="/Vector7.png" onClick={onClickEdit}></S.Edit>
+                    <S.Del src="/Vector6.png" onClick={onClickDelete}></S.Del>
                 </S.IconWrap>
             </S.RightWrap>
         </S.Wrap>
