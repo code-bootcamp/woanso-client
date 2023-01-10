@@ -20,14 +20,7 @@ export const FETCH_COMICS = gql`
         totalRating
         comicRating
       }
-      category {
-        romance
-        drama
-        fantasy
-        action
-        school
-        horror
-      }
+      category
     }
   }
 `;

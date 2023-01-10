@@ -9,7 +9,11 @@ import { Modal } from "antd";
 import { useMutationCreateComic } from "../../../../commons/hooks/mutaions/useMutationCreateComic";
 import { validate } from "graphql";
 import { useMutation } from "@apollo/client";
-import { IComic_Category_Enum, IMutation, IMutationCreateComicArgs } from "../../../../commons/types/generated/types";
+import {
+  IComic_Category_Enum,
+  IMutation,
+  IMutationCreateComicArgs,
+} from "../../../../commons/types/generated/types";
 import { CREATE_COMIC } from "./rentNew.queries";
 
 interface IFormData {
@@ -22,15 +26,12 @@ interface IFormData {
   totalBooks: number;
   description: string;
   ISBN: string;
-  isAvailable: boolean;
   stock: number;
   url: [string];
   category: IComic_Category_Enum;
 }
 
 export default function RentNewUI() {
-  
-
   const [createComic] = useMutation<
     Pick<IMutation, "createComic">,
     IMutationCreateComicArgs
@@ -45,9 +46,6 @@ export default function RentNewUI() {
   });
 
   const onClickSubmit = async (data: IFormData) => {
-    let vailable = Boolean(data.isAvailable);
-    vailable === true ? true : false;
-
     try {
       const result = await createComic({
         variables: {
@@ -61,11 +59,9 @@ export default function RentNewUI() {
             totalBooks: Number(data.totalBooks),
             description: data.description,
             ISBN: data.ISBN,
-            // isAvailable: vailable,
-            isAvailable: data.isAvailable,
             stock: Number(data.stock),
             url: data.url,
-            category: data.category
+            category: data.category,
           },
         },
       });
@@ -160,12 +156,16 @@ export default function RentNewUI() {
               </S.Name>
               <S.Input type="text" {...register("description")} />
             </S.Category3>
-            <S.Category3>
+            {/* <S.Category3>
               <S.Name>
                 <span>대여가능여부</span>{" "}
               </S.Name>
-              <S.Input type="checkbox" checked={true} {...register("isAvailable")} />
-            </S.Category3>
+              <S.Input
+                type="checkbox"
+                checked={true}
+                {...register("isAvailable")}
+              />
+            </S.Category3> */}
             <S.Category2>
               <S.Category3>
                 <S.Name>

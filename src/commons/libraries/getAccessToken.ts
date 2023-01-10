@@ -1,11 +1,19 @@
 import { gql } from "@apollo/client";
 import { GraphQLClient } from "graphql-request";
+import { useQueryFetchUserLoggendIn } from "../hooks/queries/useQueryFetchUserLoggedIn";
 
 const RESTORE_ACCESS_TOKEN = gql`
   mutation {
     restoreAccessToken
   }
 `;
+
+const RESTORE_ACCESS_TOKEN_FOR_ADMIN = gql`
+  mutation {
+    restoreAccessTokenForAdmin
+  }
+`;
+
 export const getAccessToken = async () => {
   try {
     const graphQLClient = new GraphQLClient("https://examplezi.shop/graphql", {
