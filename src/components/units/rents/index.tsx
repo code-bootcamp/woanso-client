@@ -14,7 +14,7 @@ import * as S from "./style";
 const NavLists = [
   { id: "all", name: "전체" },
   { id: "romance", name: "로맨스" },
-  { id: "academy", name: "학원" },
+  { id: "school", name: "학원" },
   { id: "drama", name: "드라마/일상" },
   { id: "action", name: "액션" },
   { id: "fantasy", name: "판타지" },
@@ -30,8 +30,8 @@ export default function Rents() {
   const dataRomance = copyData?.fetchComics.filter(
     (el: any) => el.category === "romance"
   );
-  const dataAcademy = copyData?.fetchComics.filter(
-    (el: any) => el.category === "academy"
+  const dataSchool = copyData?.fetchComics.filter(
+    (el: any) => el.category === "school"
   );
   const dataDrama = copyData?.fetchComics.filter(
     (el: any) => el.category === "drama"
@@ -121,7 +121,7 @@ export default function Rents() {
         </>
       )}
 
-      {section == "romance" && (
+      {section === "romance" && (
         <S.BookListWrapper>
           {dataRomance.map((el: any, index: number) => (
             <div key={index}>
@@ -130,16 +130,16 @@ export default function Rents() {
           ))}
         </S.BookListWrapper>
       )}
-      {section == "academy" && (
+      {section === "school" && (
         <S.BookListWrapper>
-          {dataAcademy.map((el: any, index: number) => (
+          {dataSchool.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
           ))}
         </S.BookListWrapper>
       )}
-      {section == "drama" && (
+      {section === "drama" && (
         <S.BookListWrapper>
           {dataDrama.map((el: any, index: number) => (
             <div key={index}>
@@ -148,7 +148,7 @@ export default function Rents() {
           ))}
         </S.BookListWrapper>
       )}
-      {section == "action" && (
+      {section === "action" && (
         <S.BookListWrapper>
           {dataAction.map((el: any, index: number) => (
             <div key={index}>
@@ -157,7 +157,7 @@ export default function Rents() {
           ))}
         </S.BookListWrapper>
       )}
-      {section == "fantasy" && (
+      {section === "fantasy" && (
         <S.BookListWrapper>
           {dataFantasy.map((el: any, index: number) => (
             <div key={index}>
@@ -166,7 +166,7 @@ export default function Rents() {
           ))}
         </S.BookListWrapper>
       )}
-      {section == "horror" && (
+      {section === "horror" && (
         <S.BookListWrapper>
           {dataHorror.map((el: any, index: number) => (
             <div key={index}>

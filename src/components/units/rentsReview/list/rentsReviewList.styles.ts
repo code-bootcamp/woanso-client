@@ -41,7 +41,7 @@ export const Reviewer = styled.p`
   font-size: 0.875rem;
   color: #333333;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
 `;
 
 export const CreatedAt = styled.p`

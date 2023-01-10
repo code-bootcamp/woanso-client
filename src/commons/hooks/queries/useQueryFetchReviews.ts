@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 
-const FETCH_REVIEWS = gql`
+export const FETCH_REVIEWS = gql`
   query fetchReviews {
     fetchReviews {
       reviewId

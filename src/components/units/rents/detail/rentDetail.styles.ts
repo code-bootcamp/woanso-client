@@ -27,12 +27,28 @@ export const DetailWrap = styled.div`
 export const ImageWrap = styled.div`
   width: 600px;
   height: 330px;
-  background-color: #d9d9d9;
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  position: relative;
 
-  img {
+  ::after {
+    content: "";
+    width: 100%;
     height: 100%;
-    object-fit: cover;
+    backdrop-filter: blur(5px);
   }
+`;
+
+export const Img = styled.img`
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 `;
 
 export const InfoWrap = styled.div`
@@ -43,7 +59,7 @@ export const InfoWrap = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 `;
 
 export const InfoFlexWrap = styled.div`
@@ -80,7 +96,6 @@ export const fillStar = styled(StarFilled)`
 export const BookScore = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 7px;
 
   div {
     display: flex;
@@ -99,11 +114,11 @@ export const BookAuthor = styled.p`
   color: #77170d;
   font-size: 0.875rem;
   font-weight: bold;
+  margin-bottom: 8px;
 `;
 
 export const BookDetail = styled.p`
   font-size: 0.875rem;
-  margin-top: 15px;
   height: 100px;
 `;
 
