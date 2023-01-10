@@ -4,13 +4,15 @@ export const FETCH_BOARDS = gql`
   query fetchBoards($page: Float, $order: String) {
     fetchBoards(page: $page, order: $order) {
       id
-      title
       content
       like
       dislike
       boardImg {
         boardImgID
         url
+      }
+      user {
+        id
       }
     }
   }

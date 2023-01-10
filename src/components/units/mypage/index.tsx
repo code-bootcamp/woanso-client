@@ -21,8 +21,8 @@ export default function MyPageUI() {
   const [open, setOpen] = useState<boolean>(false);
   const [isActive, setIsActive] = useState<String>("myInfo");
 
-  const { data } = useQueryFetchUserLoggendIn();
-  console.log(data?.fetchUserLoggedIn);
+  const { data: User } = useQueryFetchUserLoggendIn();
+  console.log(User?.fetchUserLoggedIn.id);
 
   // const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
   //   if (e.currentTarget.id === "askkakao") {
@@ -55,7 +55,7 @@ export default function MyPageUI() {
               <S.EditIconImg src="/icon/edit_icon.png" />
             </S.EditIcon>
           </S.AvatarWrap>
-          <S.UserName>{data?.fetchUserLoggedIn.nickname}</S.UserName>
+          <S.UserName>{User?.fetchUserLoggedIn.nickname}</S.UserName>
           <S.PointCharge>포인트 충전</S.PointCharge>
         </S.SideWrapTop>
 
@@ -79,7 +79,9 @@ export default function MyPageUI() {
       </S.SideWrap>
 
       <S.ContentsWrap>
-        {isActive === "myInfo" && <MyIngo />}
+        {isActive === "myInfo" && (
+          <MyIngo UserId={User?.fetchUserLoggedIn.id} />
+        )}
         {isActive === "myrentList" && <MyRentList />}
         {isActive === "myreservationList" && <MyReservationList />}
         {isActive === "userEdit" && <UserEdit />}

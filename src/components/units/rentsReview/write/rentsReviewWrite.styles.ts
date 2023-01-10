@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -38,6 +39,8 @@ export const RateBox = styled.div`
     margin-right: 20px;
   }
 `;
+
+export const StarRate = styled(Rate)``;
 
 export const ButtonWrapper = styled.div`
   display: flex;
