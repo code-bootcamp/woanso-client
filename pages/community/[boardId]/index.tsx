@@ -18,7 +18,7 @@ export default function BoardDetailPage(){
     return (
         <Wrap>
        <CommunityDetailUI/>
-       <CommunityCommentWriteUI/>
+       {/* <CommunityCommentWriteUI/> */}
        <CommunityCommentListUI/>
        </Wrap>
     )

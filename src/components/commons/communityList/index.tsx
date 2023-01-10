@@ -1,29 +1,46 @@
-import { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import { MouseEvent, useState } from "react";
+import { IQuery, IQueryFetchBoardArgs } from "../../../commons/types/generated/types";
+import CommunityCommentWriteUI from "../communityCommentWrite";
+import { FETCH_BOARDS } from "./queries";
 import * as S from "./styles";
 
 export default function CommunityListUI(){
+    const router = useRouter();
     
     const [isEdit, setIsEdit] = useState(false);
+
+    const { data } = useQuery<
+    Pick<IQuery, "fetchBoards">,
+    IQueryFetchBoardArgs
+    >(FETCH_BOARDS);
 
     const onClickComment = () => {
         setIsEdit((prev) => !prev)
     }
 
+    const onClickMoveToBoardDetail = (boardId) => (event: MouseEvent<HTMLDivElement>) => {
+        void router.push(`/community/${boardId}`);
+      };
+
+    console.log(data)
 
     return (
         <>
-        <S.Wrap>
+        {data?.fetchBoards.map((el, index) => (
+        <S.Wrap key={el.id}>
             <S.LeftWrap>
                 <S.AvatorWrap>
                     <S.Avator></S.Avator>
                 </S.AvatorWrap>
                 <S.ContentsWrap>
                     <S.TopWrap>
-                        <S.Name>이유진</S.Name>
+                        <S.Name>{el.user.nickname}</S.Name>
                         <S.Date>2시간 전</S.Date>
                     </S.TopWrap>
                     <S.MidWrap>
-                        <S.MidContents>귀멸의 칼날 실사화 캐스팅 생각남</S.MidContents>
+                        <S.MidContents onClick={onClickMoveToBoardDetail(el.id)}>{el.content}</S.MidContents>
                         <S.ImgWrap>
                             <S.Img src="/image1.png" />
                             <S.Img src="/image2.png" />
@@ -32,7 +49,7 @@ export default function CommunityListUI(){
                     <S.BottomWrap>
                         <S.LikeWrap>
                             <S.LikeIcon src="/Icon3.png"></S.LikeIcon>
-                            <S.Like>30</S.Like>
+                            <S.Like>{el.like}</S.Like>
                         </S.LikeWrap>
                         <S.CommentWrap>
                             <S.CommentIcon src="/Icon5.png" onClick={onClickComment}></S.CommentIcon>
@@ -48,54 +65,7 @@ export default function CommunityListUI(){
                 </S.IconWrap>
             </S.RightWrap>
         </S.Wrap>
-        { isEdit && (
-            <S.CommentAddWrap>
-                <S.CommentAdd>
-                    <S.CommentLeftWrap>
-                        <S.AvatorWrap>
-                            <S.Avator></S.Avator>
-                        </S.AvatorWrap>
-                        <S.CommentContents placeholder="답글을 등록합니다."></S.CommentContents>
-
-                    </S.CommentLeftWrap>
-                    <S.CommentRightWrap>
-                        <S.Button>답글</S.Button>
-                    </S.CommentRightWrap>
-                </S.CommentAdd>
-            </S.CommentAddWrap>
-        )}
-        <S.Wrap>
-        <S.LeftWrap>
-            <S.AvatorWrap>
-                <S.Avator></S.Avator>
-            </S.AvatorWrap>
-            <S.ContentsWrap>
-                <S.TopWrap>
-                    <S.Name>정명희</S.Name>
-                    <S.Date>2시간 전</S.Date>
-                </S.TopWrap>
-                <S.MidWrap>
-                    <S.MidContents>곧 방학인데 만화 추천해주세요</S.MidContents>
-                </S.MidWrap>
-                <S.BottomWrap>
-                    <S.LikeWrap>
-                        <S.LikeIcon src="/Icon8.png"></S.LikeIcon>
-                        <S.Like>30</S.Like>
-                    </S.LikeWrap>
-                    <S.CommentWrap>
-                        <S.CommentIcon src="/Icon5.png"></S.CommentIcon>
-                        <S.Comment>10</S.Comment>
-                    </S.CommentWrap>
-                </S.BottomWrap>
-            </S.ContentsWrap>
-        </S.LeftWrap>
-        <S.RightWrap>
-            <S.IconWrap>
-                <S.Edit src="/Vector7.png"></S.Edit>
-                <S.Del src="/Vector6.png"></S.Del>
-            </S.IconWrap>
-        </S.RightWrap>
-    </S.Wrap>
+        ))}
     </>
     )
 }
