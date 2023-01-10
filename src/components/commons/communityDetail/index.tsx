@@ -5,7 +5,7 @@ import { IMutation, IMutationDeleteBoardArgs, IQuery, IQueryFetchBoardArgs } fro
 import { DELETE_BOARD, FETCH_BOARD } from "./queries";
 import * as S from "./styles";
 import CommunityCommentWriteUI from "../communityCommentWrite/index"
-import CommunityModal from "../communityModal";
+import CommunityModal from "../communityDeleteModal";
 
 export default function CommunityDetailUI(){
     const router = useRouter();

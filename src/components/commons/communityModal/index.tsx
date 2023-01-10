@@ -17,8 +17,8 @@ export default function CommunityModal(){
       };
 
     const onClickWriteReview = async (e) => {
-       
         setIsModalOpen(true);
+        setTimeout(function(){ setIsModalOpen(false);}, 3000);
       };
 
 
