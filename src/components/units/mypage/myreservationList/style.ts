@@ -74,6 +74,7 @@ export const Btn = styled.div`
   font-size: 0.75rem;
   text-align: center;
   line-height: 40px;
+  cursor: pointer;
 `;
 
 export const Btn2 = styled(Btn)`

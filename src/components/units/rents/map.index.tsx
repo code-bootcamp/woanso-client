@@ -1,9 +1,16 @@
+import { useRouter } from "next/router";
+import { MouseEvent } from "react";
 import * as S from "./map.style";
 
 export default function ListMap({ el }: any) {
+  const router = useRouter();
+  const onClickMoveToDetail = (e: MouseEvent<HTMLDivElement>) => {
+    router.push(`/rents/${e.currentTarget.id}`);
+  };
+
   return (
     // <S.BookWrapper>
-    <S.BookSubWrapper>
+    <S.BookSubWrapper id={el.comicId} onClick={onClickMoveToDetail}>
       <S.BookImg src="/"></S.BookImg>
       <S.BookInfo>
         <S.BookTitle>{el.titke}</S.BookTitle>

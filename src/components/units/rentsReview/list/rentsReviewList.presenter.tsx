@@ -1,8 +1,31 @@
 import * as S from "./rentsReviewList.styles";
 import React from "react";
-import { Rate } from "antd";
+import { Modal, Rate } from "antd";
+import { useMutationDeleteReview } from "../../../../commons/hooks/mutaions/useMutationDeleteReview";
 
 export default function RentsReviewListUI() {
+  const [deleteReview] = useMutationDeleteReview();
+
+  const onClickDelete = () => {
+    try {
+      deleteReview({
+        variables: {
+          reviewId: "",
+        },
+        // refetchQueries: [
+        //   {
+        //     query: FETCH_REVIEWS,
+
+        //   },
+        // ],
+      });
+      Modal.success({ content: "리뷰를 삭제했습니다." });
+    } catch (error) {
+      Modal.error({ content: "삭제할 수 없습니다." });
+      return;
+    }
+  };
+
   return (
     <S.Wrapper>
       <S.Container>
@@ -20,10 +43,7 @@ export default function RentsReviewListUI() {
         </S.RightContainer>
 
         <S.BtnWrapper>
-          <S.Button>
-            <img src="/icon/edit_icon.png" />
-          </S.Button>
-          <S.Button>
+          <S.Button onClick={onClickDelete}>
             <img src="/icon/delete_icon.png" />
           </S.Button>
         </S.BtnWrapper>

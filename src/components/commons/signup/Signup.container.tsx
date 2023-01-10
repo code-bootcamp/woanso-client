@@ -118,7 +118,7 @@ export default function SignupUI() {
                   <S.CheckBox
                     type="radio"
                     name="장르"
-                    value="로맨스"
+                    value="romance"
                     id="romance"
                     onChange={onChangeCheckbox}
                   />
@@ -127,7 +127,7 @@ export default function SignupUI() {
                   <S.CheckBox
                     type="radio"
                     name="장르"
-                    value="학원"
+                    value="school"
                     id="school"
                     onChange={onChangeCheckbox}
                   />
@@ -136,7 +136,7 @@ export default function SignupUI() {
                   <S.CheckBox
                     type="radio"
                     name="장르"
-                    value="드라마/일상"
+                    value="drama"
                     id="drama"
                     onChange={onChangeCheckbox}
                   />
@@ -145,7 +145,7 @@ export default function SignupUI() {
                   <S.CheckBox
                     type="radio"
                     name="장르"
-                    value="판타지"
+                    value="fantasy"
                     id="fantasy"
                     onChange={onChangeCheckbox}
                   />
@@ -156,7 +156,7 @@ export default function SignupUI() {
                     type="radio"
                     name="장르"
                     id="action"
-                    value="액션"
+                    value="action"
                     onChange={onChangeCheckbox}
                   />
                   <S.CheckBoxLavel htmlFor="action"></S.CheckBoxLavel>
@@ -165,7 +165,7 @@ export default function SignupUI() {
                   <S.CheckBox
                     type="radio"
                     name="장르"
-                    value="추리/공포"
+                    value="horror"
                     id="horror"
                     onChange={onChangeCheckbox}
                   />

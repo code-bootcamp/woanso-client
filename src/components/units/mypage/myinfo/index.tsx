@@ -1,9 +1,12 @@
 import { useRouter } from "next/router";
 import { MouseEvent } from "react";
+import { useQueryFetchBoards } from "../../../../commons/hooks/queries/useQueryFetchBoards";
 import * as S from "./style";
 
-export default function MyIngo() {
+export default function MyIngo({ UserId }: any) {
   const router = useRouter();
+  const { data } = useQueryFetchBoards();
+  console.log(data?.fetchBoards);
 
   const onClickMoveToPosting = (e: MouseEvent<HTMLDivElement>) => {
     router.push("/community");
@@ -35,11 +38,14 @@ export default function MyIngo() {
       <S.BottomWrap>
         <S.Title>Posting</S.Title>
         <S.PostingListWrap>
-          {/* {data?.fetchBoards.map((el: any) => (
-            <S.PostingWrap key={el.id} onClick={onClickMoveToPosting}>
-              <S.PostingImg src={el.boardImg[0]} />
-            </S.PostingWrap>
-          ))} */}
+          {data?.fetchBoards.filter(
+            (el: any) =>
+              el.user.id === "610950a3-31ab-421a-a334-7d82cb19ce67" && (
+                <S.PostingWrap key={el.id} onClick={onClickMoveToPosting}>
+                  <S.PostingImg src={el.boardImg[0]} />
+                </S.PostingWrap>
+              )
+          )}
         </S.PostingListWrap>
       </S.BottomWrap>
     </S.MyInfoWrap>

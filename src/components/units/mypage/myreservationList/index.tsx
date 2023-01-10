@@ -1,9 +1,14 @@
 import { useQueryFetchWishlist } from "../../../../commons/hooks/queries/useQueryFetchWishlist";
 import * as S from "./style";
+import LogoutConfirmModal from "../../../commons/customModal/checkModal";
+import { useState } from "react";
 
 export default function MyReservationList() {
+  const [confirm, setConfirm] = useState(false);
   const { data } = useQueryFetchWishlist();
   console.log(data);
+
+  const onClickCancle = () => [setConfirm(true)];
 
   return (
     <S.MyRentListWrap>
@@ -23,7 +28,10 @@ export default function MyReservationList() {
               <S.BookAuthor>작가 이름</S.BookAuthor>
               <S.BookRented>대여 일자</S.BookRented>
             </S.InfoWrap>
-            <S.Btn>취소</S.Btn>
+            <S.Btn onClick={onClickCancle}>취소</S.Btn>
+            {confirm && (
+              <LogoutConfirmModal confirm={confirm} setConfirm={setConfirm} />
+            )}
           </S.List>
         ))}
         <S.List>
