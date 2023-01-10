@@ -48,9 +48,7 @@ export const CheckBoxWrap = styled.div`
   background: #ffffff;
   border: 1px solid #d1d5d9;
   border-radius: 8px;
-  padding: 10px 0px 10px 0px;
-  display: flex;
-  align-items: center;
+  padding: 10px;
   gap: 5px;
 `;
 
