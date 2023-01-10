@@ -108,6 +108,7 @@ export type ICreateComicInput = {
   title: Scalars['String'];
   totalBooks: Scalars['Int'];
   url: Array<Scalars['String']>;
+  isAvailable: Scalars['Boolean'];
 };
 
 export type ICreateCommentInput = {
