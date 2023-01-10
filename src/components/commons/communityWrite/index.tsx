@@ -2,29 +2,34 @@ import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
-import { IMutation, IMutationCreateBoardArgs } from "../../../commons/types/generated/types";
-import { CREATE_BOARD } from "./queries";
+import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../commons/types/generated/types";
+import { CREATE_BOARD, UPDATE_BOARD } from "./queries";
 import * as S from "./styles"
 
-export default function CommunityWriteUI(){
+export default function CommunityWriteUI(props){
     const router = useRouter();
     
     const [content, setContent] = useState("");
-    const [title, setTitle] = useState("");
+    // const [title, setTitle] = useState("");
 
     const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
     IMutationCreateBoardArgs
   >(CREATE_BOARD);
 
+  const [updateBoard] = useMutation<
+  Pick<IMutation, "updateBoard">,
+  IMutationUpdateBoardArgs
+>(UPDATE_BOARD);
+
   const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
     console.log(setContent)
   };
 
-  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
-    setTitle(event.target.value);
-  };
+//   const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
+//     setTitle(event.target.value);
+//   };
 
 
   const onClickSubmit = async () => {
@@ -33,7 +38,7 @@ export default function CommunityWriteUI(){
         const result = await createBoard({
           variables: {
             createBoardInput: {
-            title,
+            
               content,
               boardImg:["ㅇ,러ㅏㅇ너라"]
             },
@@ -52,15 +57,35 @@ export default function CommunityWriteUI(){
     }
   };
 
+  const onClickUpdate = async () => {
+
+    const updateBoardInput: IUpdateBoardInput = {};
+    if (content) updateBoardInput.content = content;
+
+    try {
+      if (typeof router.query.boardId !== "string") return;
+      const result = await updateBoard({
+        variables: {
+          id: router.query.boardId,
+          updateBoardInput,
+        },
+      });
+
+      void router.push(`/community/${result.data?.updateBoard.id}`);
+    } catch (error) {
+      if (error instanceof Error) alert(error.message);
+    }
+  };
+
     return (
         <S.Wrap>
             <S.ContentsWrap>
                 <S.contents placeholder="무슨 일이 일어나고 있나요?"
                 onChange={onChangeContents}
                 ></S.contents>
-                <S.contents placeholder="제목?"
+                {/* <S.contents placeholder="제목?"
                 onChange={onChangeTitle}
-                ></S.contents>
+                ></S.contents> */}
             </S.ContentsWrap>
             <S.BottomWrap>
                 <S.ImgWrap>
