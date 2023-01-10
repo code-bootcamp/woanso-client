@@ -26,12 +26,14 @@ export default function RentsReviewListUI({ el }: any) {
     }
   };
 
+  const count = el.comicRating?.comicRating;
+
   return (
     <S.Wrapper>
       <S.Container>
         <S.LeftContainer>
           <S.StarBox>
-            {/* <Rate defaultValue={el.comicRating.comicRating} /> */}
+            <Rate value={count} />
           </S.StarBox>
           <S.ReviewInfo>
             <S.Reviewer>{el.user.nickname}</S.Reviewer>

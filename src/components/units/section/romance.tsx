@@ -1,11 +1,10 @@
-import { romanceDatas } from "./detas";
 import ListMap from "./map.index";
 
-export default function Romance() {
+export default function Romance(props: any) {
   return (
     <>
-      {romanceDatas.map((el, index) => (
-        <ListMap el={el} index={index} />
+      {props.dataRomance?.map((el: any, index: number) => (
+        <ListMap el={el} key={index} />
       ))}
     </>
   );

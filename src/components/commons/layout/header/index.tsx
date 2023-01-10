@@ -21,7 +21,7 @@ const MenuList = [
   },
   {
     name: "커뮤니티",
-    url: "/freeboards",
+    url: "/community",
   },
   {
     name: "이벤트",

@@ -2,14 +2,14 @@ import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics";
 import SliderMultiple from "../../commons/sliderMultiple";
-import Academy from "../section/academy";
+import School from "../section/school";
 import Action from "../section/action";
-import { data } from "../section/detas";
 import Horror from "../section/horror";
 import Mystery from "../section/mystery";
 import Romance from "../section/romance";
 import ListMap from "./map.index";
 import * as S from "./style";
+import Fantasy from "../section/fantasy";
 
 const NavLists = [
   { id: "all", name: "전체" },
@@ -76,7 +76,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Romance />
+            <Romance dataRomance={dataRomance} />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -86,7 +86,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Academy />
+            <School dataSchool={dataSchool} />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -96,7 +96,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Mystery />
+            <Mystery dataHorror={dataHorror} />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -106,7 +106,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Action />
+            <Action dataAction={dataAction} />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -116,7 +116,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Horror />
+            <Fantasy dataFantasy={dataFantasy} />
           </S.BookWrapper>
         </>
       )}

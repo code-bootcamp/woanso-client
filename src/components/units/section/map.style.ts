@@ -1,12 +1,9 @@
 import styled from "@emotion/styled";
 
-export const BookWrapper = styled.div`
-  display: flex;
-`;
-
 export const BookSubWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 `;
 
 export const BookImg = styled.img`

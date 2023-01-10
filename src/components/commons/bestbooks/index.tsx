@@ -4,7 +4,7 @@ import Action from "../../units/section/action";
 import Romance from "../../units/section/romance";
 import Mystery from "../../units/section/mystery";
 import Horror from "../../units/section/horror";
-import Academy from "../../units/section/academy";
+import Academy from "../../units/section/school";
 import All from "../../units/section/all";
 
 const MenuLists = [
