@@ -1,18 +1,28 @@
+import { useRouter } from "next/router";
+import { MouseEvent } from "react";
 import * as S from "./map.style";
 
 export default function ListMap(props: any) {
+  const router = useRouter();
+  const onCLickMoveToDetail = (e: MouseEvent<HTMLDivElement>) => {
+    router.push(`/rents/${e.currentTarget.id}`);
+  };
   return (
-    // <S.BookWrapper>
-    <S.BookSubWrapper key={props.index}>
-      <S.BookImg src={props.el.imgUrl}></S.BookImg>
+    <S.BookSubWrapper
+      key={props.el.comicId}
+      id={props.el.comicId}
+      onClick={onCLickMoveToDetail}
+    >
+      <S.BookImg
+        src={`https://storage.googleapis.com/${props.el.ISBN}`}
+      ></S.BookImg>
       <S.BookInfo>
-        <S.BookTitle>우리가 명함이 없지 일을 </S.BookTitle>
+        <S.BookTitle>{props.el.title}</S.BookTitle>
         <S.BookInfoSub>
-          <S.BookAuthor>작가이름</S.BookAuthor>
-          <S.BookPrice>13,500원</S.BookPrice>
+          <S.BookAuthor>{props.el.autour}</S.BookAuthor>
+          <S.BookPrice>{props.el.rentPrice}</S.BookPrice>
         </S.BookInfoSub>
       </S.BookInfo>
     </S.BookSubWrapper>
-    // </S.BookWrapper>
   );
 }

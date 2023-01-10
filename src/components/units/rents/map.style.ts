@@ -7,6 +7,7 @@ export const BookWrapper = styled.div`
 export const BookSubWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 `;
 
 export const BookImg = styled.img`
@@ -16,7 +17,7 @@ export const BookImg = styled.img`
 `;
 
 export const BookInfo = styled.div`
-  padding: 8px;
+  padding: 4px 0;
 `;
 export const BookInfoSub = styled.div`
   display: flex;

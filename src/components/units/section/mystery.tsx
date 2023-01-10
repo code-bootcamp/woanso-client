@@ -1,11 +1,10 @@
-import { mysteryDatas } from "./detas";
 import ListMap from "./map.index";
 
-export default function Mystery() {
+export default function Mystery(props: any) {
   return (
     <>
-      {mysteryDatas.map((el, index) => (
-        <ListMap el={el} index={index} />
+      {props.dataHorror?.map((el: any, index: number) => (
+        <ListMap el={el} key={index} />
       ))}
     </>
   );
