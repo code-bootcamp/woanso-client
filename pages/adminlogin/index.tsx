@@ -1,3 +1,5 @@
+import AdminLoginUI from "../../src/components/commons/adminlogin/Login.container";
+
 export default function AdminLoginPage() {
-  return <>관리자 로그인 페이지</>;
+  return <AdminLoginUI />;
 }

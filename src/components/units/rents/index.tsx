@@ -17,7 +17,7 @@ const NavLists = [
   { id: "academy", name: "학원" },
   { id: "drama", name: "드라마/일상" },
   { id: "action", name: "액션" },
-  { id: "mystery", name: "판타지" },
+  { id: "fantasy", name: "판타지" },
   { id: "horror", name: "추리/공포" },
 ];
 
@@ -25,7 +25,28 @@ export default function Rents() {
   const [section, setSection] = useState<string>("all");
   const [isActive, setIsActive] = useState<string>("all");
   const { data } = useQuery(FETCH_COMICS);
-  console.log(data);
+
+  const copyData = data;
+  const dataRomance = copyData?.fetchComics.filter(
+    (el: any) => el.category === "romance"
+  );
+  const dataAcademy = copyData?.fetchComics.filter(
+    (el: any) => el.category === "academy"
+  );
+  const dataDrama = copyData?.fetchComics.filter(
+    (el: any) => el.category === "drama"
+  );
+  const dataAction = copyData?.fetchComics.filter(
+    (el: any) => el.category === "action"
+  );
+  const dataFantasy = copyData?.fetchComics.filter(
+    (el: any) => el.category === "fantasy"
+  );
+  const dataHorror = copyData?.fetchComics.filter(
+    (el: any) => el.category === "horror"
+  );
+
+  console.log(dataRomance);
 
   const onClickMenu = (e: any) => {
     setSection(e.currentTarget?.id);
@@ -100,9 +121,54 @@ export default function Rents() {
         </>
       )}
 
-      {section !== "all" && (
+      {section == "romance" && (
         <S.BookListWrapper>
-          {data?.fetchComics.map((el: any, index: number) => (
+          {dataRomance.map((el: any, index: number) => (
+            <div key={index}>
+              <ListMap el={el} />
+            </div>
+          ))}
+        </S.BookListWrapper>
+      )}
+      {section == "academy" && (
+        <S.BookListWrapper>
+          {dataAcademy.map((el: any, index: number) => (
+            <div key={index}>
+              <ListMap el={el} />
+            </div>
+          ))}
+        </S.BookListWrapper>
+      )}
+      {section == "drama" && (
+        <S.BookListWrapper>
+          {dataDrama.map((el: any, index: number) => (
+            <div key={index}>
+              <ListMap el={el} />
+            </div>
+          ))}
+        </S.BookListWrapper>
+      )}
+      {section == "action" && (
+        <S.BookListWrapper>
+          {dataAction.map((el: any, index: number) => (
+            <div key={index}>
+              <ListMap el={el} />
+            </div>
+          ))}
+        </S.BookListWrapper>
+      )}
+      {section == "fantasy" && (
+        <S.BookListWrapper>
+          {dataFantasy.map((el: any, index: number) => (
+            <div key={index}>
+              <ListMap el={el} />
+            </div>
+          ))}
+        </S.BookListWrapper>
+      )}
+      {section == "horror" && (
+        <S.BookListWrapper>
+          {dataHorror.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>

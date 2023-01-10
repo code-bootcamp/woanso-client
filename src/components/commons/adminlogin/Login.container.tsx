@@ -3,7 +3,7 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { LoginInput } from "../../../commons/styles/Input";
 import SignupBenefit from "../signupbenefit";
-import { LOG_IN } from "./Login.queries";
+import { ADMIN_LOGIN } from "./Login.queries";
 import * as S from "./Login.styles";
 import * as St from "../signup/Signup.styles";
 
@@ -11,24 +11,22 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
   IMutation,
-  IMutationLoginArgs,
+  IMutationAdminLoginArgs,
 } from "../../../commons/types/generated/types";
 import { useRecoilState } from "recoil";
-import {
-  accessTokenState,
-  getUserEmail,
-} from "../../../commons/libraries/store";
+import { accessTokenState } from "../../../commons/libraries/store";
 import { schema_login } from "../validation/login";
 import { ILoginFormType } from "../../../commons/types/formtypes/type";
 import { InnerWrap } from "../../../commons/styles/Wrapper";
 import LoginHeader from "../layout/loginHeader";
 
-export default function LoginUI() {
+export default function AdminLoginUI() {
   const router = useRouter();
   const [, setAccessToken] = useRecoilState(accessTokenState);
-  const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
-    LOG_IN
-  );
+  const [adminLogin] = useMutation<
+    Pick<IMutation, "adminLogin">,
+    IMutationAdminLoginArgs
+  >(ADMIN_LOGIN);
 
   const {
     register,
@@ -41,20 +39,21 @@ export default function LoginUI() {
 
   const onClickLogin = async (data: ILoginFormType) => {
     try {
-      const result = await login({
+      const result = await adminLogin({
         variables: {
           email: data.email,
           password: data.password,
         },
       });
-      const accessToken = result.data?.login;
+      const accessToken = result.data?.adminLogin;
       if (accessToken === undefined || accessToken === null) {
         Modal.error({ content: "회원정보가 없습니다. 다시 확인해주세요" });
         return;
       }
       setAccessToken(accessToken);
+
       void router.push(`/home`);
-      console.log("유저 로그인", data);
+      console.log("어드민 로그인", data);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
