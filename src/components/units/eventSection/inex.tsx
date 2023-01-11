@@ -1,11 +1,13 @@
 import * as S from "./style";
 
 export default function EventSection() {
+  const onCLickEvent = () => {};
+
   return (
     <S.OuterWrap>
       <S.InnerWrap>
         <S.EventsWrap>
-          <S.EventCard>
+          <S.EventCard onClick={onCLickEvent}>
             <S.EventCardInnerWrap>
               <S.EventImgBox>
                 <S.EventImg src="/event/001.png" />

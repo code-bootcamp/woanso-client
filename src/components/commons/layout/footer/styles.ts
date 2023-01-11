@@ -1,39 +1,34 @@
 import styled from "@emotion/styled";
 
-export const OuterWrap = styled.div``;
+export const OuterWrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #555555;
+  margin-top: 150px;
+`;
 
 export const InnerWrap = styled.div`
+  margin: 60px 0;
+`;
+
+export const TopContainer = styled.div`
   display: flex;
-  margin: 50px 50px;
-  justify-content: space-between;
+  gap: 20px;
 `;
 
-export const LeftContainer = styled.div``;
-
-export const LeftTitle = styled.div`
-  font-size: 1.8rem;
-  font-weight: 600;
+export const MiddleContainer = styled.div`
+  text-align: center;
+  color: #9a9ba7;
+  font-size: 0.875rem;
+  margin: 60px 0 30px 0;
 `;
 
-export const LeftNavWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  font-size: 18px;
-  gap: 30px;
-  margin: 15px 0;
+export const ButtomContainer = styled.div`
+  text-align: center;
+  color: #cac8d2;
+  font-size: 0.875rem;
 `;
-
-export const LeftNav = styled.div`
-  cursor: pointer;
-`;
-
-export const RightContainer = styled.div`
-  display: flex;
-  align-items: flex-end;
-  margin: 0 50px;
-`;
-
-export const LeftInfo = styled.div``;
 
 export const Title = styled.div`
   font-size: 1.2rem;
@@ -41,35 +36,15 @@ export const Title = styled.div`
   margin: 20px 0;
 `;
 
-export const InfoName = styled.div`
-  font-weight: 600;
+export const InfoName = styled.p`
+  font-weight: bold;
 `;
 
-export const InfoContent = styled.div``;
+export const InfoContent = styled.p``;
 
 export const LeftWrap = styled.div`
   display: flex;
-  margin: 10px 5px;
-  gap: 20px;
-  font-size: 14px;
-  span {
-    color: grey;
-    margin-top: 50px;
-    font-size: 14px;
-  }
-`;
-
-export const IconWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  margin-bottom: 7rem;
-`;
-
-export const Icon = styled.div`
-  img {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
+  gap: 5px;
+  font-size: 0.875rem;
+  color: #303441;
 `;
