@@ -1,6 +1,7 @@
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
+import { FETCH_USER_LOGGED_IN } from "../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 import { IMutation, IMutationCreateCommentArgs } from "../../../commons/types/generated/types";
 import { CREATE_COMMENT } from "./queries";
 import * as S from "./style";
@@ -17,9 +18,13 @@ export default function CommunityCommentWriteUI(){
 
   const [createComment] = useMutation(CREATE_COMMENT);
 
+  const {data} = useQuery(FETCH_USER_LOGGED_IN)
+
   const onChangeContent = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
   };
+
+  console.log(data)
 
 
   const onClickWrite = async () => {
@@ -30,8 +35,9 @@ export default function CommunityCommentWriteUI(){
         variables: {
           createCommentInput: {
             content,
+            boardId: router.query.id,
+            userId: data.fetchUserLoggedIn.id
           },
-          boardId: router.query.id,
         },
         // refetchQueries: [
         //   {

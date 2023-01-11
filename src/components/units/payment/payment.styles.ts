@@ -1,123 +1,303 @@
 import styled from "@emotion/styled";
 
-export const OutWrapper = styled.div`
-padding: 100px;
-`
-export const InnerWrapper = styled.div`
-margin: auto;
-padding: 100px;
-width: 900px;
+export const Wrap = styled.div`
+padding-top: 180px;
+margin: 0 300px;
 display: flex;
 flex-direction: column;
+gap: 20px;
+`
+export const TitleWrap = styled.div`
+height: 44px;
+`
+export const Title = styled.span`
+font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 100%;
+margin-right: 5px;
+`
+export const SubWrap = styled.div``
+export const SubTitle = styled.div`
+width: 131px;
+height: 23px;
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 100%;
+display: flex;
 align-items: center;
-justify-content: space-around;
-border: 1px solid gray;
-box-shadow: 5px 5px 5px 5px gray;
+letter-spacing: -0.05em;
+color: #333333;
 `
-export const TitleWrapper = styled.div`
-margin-bottom: 50px;
-`
-export const Title = styled.div`
-font-size: 32px;
-text-align: center;
-`
-export const ContentsWrapper = styled.div`
+
+export const PaymentWrap = styled.div``
+export const UserWrap = styled.div`
 display: flex;
-flex-direction: column;
-margin-bottom: 100px;
-`
-export const ContentsTitle = styled.div`
-margin-bottom: 50px;
-width: 100px;
-border-bottom: 1px solid gray;
-`
-export const Label = styled.div`
-margin-bottom: 30px;
-`
-export const SubWrapper = styled.div`
-display: flex;
-margin-top: 10px;
-`
-export const Input = styled.input`
-background-color: #D9D9D9;
-margin-right: 40px;
-width: 200px;
-height: 40px;
-margin-bottom: 40px;
-padding: 20px;
-border: none;
-`
-export const Input2 = styled.input`
-background-color: #D9D9D9;
-width: 440px;
-height: 40px;
-margin-bottom: 20px;
-padding: 20px;
-border: none;
-`
+gap: 50px;
 
-export const CouponPrice = styled.div`
-background-color: #D9D9D9;
-width: 300px;
-height: 40px;
-margin-bottom: 20px;
-padding: 10px;
-margin-right: 60px;
-text-align: end;
-border: none;
-`
-
-export const Coupon = styled.div`
-background-color: #D9D9D9;
-width: 80px;
-height: 40px;
-margin-bottom: 20px;
-padding: 10px;
-margin-right: 30px;
-`
-
-
-export const Input5 = styled.div`
-background-color: #D9D9D9;
-width: 130px;
-height: 80px;
-`
-
-export const SubWrapper3 = styled.div`
-display: flex;
-flex-direction: column;
-margin-left: 10px;
-`
-
-export const SubWrapper4 = styled.div`
-margin-left: 160px;
-margin-top: 40px;
 `
 
 export const Line = styled.div`
-width: 460px;
+width: 1000px;
 height: 0px;
-border: 1px solid black;
+margin: 30px 0;
+border: 1px solid #000000;
 `
-
-export const ContentsWrapper2 = styled.div`
+export const LeftUserWrap = styled.div`
 display: flex;
 flex-direction: column;
-margin-bottom: 40px;
-align-items: flex-end;
-margin-left: 300px;
+gap: 35px;
+margin-top: 15px;
+`
+export const Label = styled.div`
+width: 60px;
+height: 23px;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #333333;
+`
+export const Label2 = styled(Label)`
+margin-top: 125px;
+`
+export const RightUserWrap = styled.div`
+display: flex;
+flex-direction: column;
+gap: 10px;
 `
 
-export const Label2 = styled.div`
-margin-bottom: 30px;
-margin-left: 30px;
+const Input = styled.input`
+height: 50px;
+background: #FFFFFF;
+border: 1px solid #D1D5D9;
+border-radius: 8px;
+padding: 10px;
 `
 
-export const Button = styled.div`
-background-color: #77170D;
-color: white;
-width: 400px;
-height: 40px;
+
+export const InputMid = styled(Input)`
+width: 160px;
+`
+export const InputSmall = styled(Input)`
+width: 70px;
+`
+
+export const InputLong = styled(Input)`
+width: 895px;
+`
+
+export const AddressWrap = styled.div`
+display: flex;
+gap: 10px;
+`
+export const AdressNumber = styled.div``
+export const Button = styled.button`
+width: 124px;
+height: 50px;
+background: #77170D;
+border-radius: 8px;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+display: flex;
+align-items: center;
 text-align: center;
-padding-top: 10px;
+letter-spacing: -0.05em;
+justify-content: center;
+color: #FFFFFF;
+`
+
+export const AddressDetail = styled.div``
+export const Number = styled.div``
+
+export const PointWrap = styled.div`
+display: flex;
+flex-direction: column;
+gap: 20px;
+`
+export const PointTitleWrap = styled.div``
+export const PointTitle = styled.div`
+width: 95px;
+height: 23px;
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #333333;
+
+`
+export const PointContentsWrap = styled.div`
+display: flex;
+gap: 10px;
+`
+export const PointButton = styled.div``
+export const PaymentWrapper = styled.div``
+export const Payment = styled.div`
+width: 145px;
+height: 14px;
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #999999;
+`
+
+export const ProductWrap = styled.div`
+display: flex;
+flex-direction: column;
+gap: 20px;
+margin-top: 100px;
+width: 1000px;
+`
+export const ProductTitleWrap = styled.div``
+export const ProductTitle = styled.div`
+width: 116px;
+height: 23px;
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #333333;
+`
+export const ProductContentsWrap = styled.div`
+display: flex;
+justify-content: space-between;
+`
+export const ProductLeftWrap = styled.div`
+display: flex;
+gap: 20px;
+`
+export const ProductImgWrap = styled.div``
+export const ProductImg = styled.div`
+width: 100px;
+height: 100px;
+background: #D9D9D9;
+`
+export const LeftWrap = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 5px;
+`
+export const ProductLeftTitle = styled.div`
+width: 280px;
+height: 17px;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #000000;
+`
+export const TotleBooks = styled.div`
+width: 280px;
+height: 29px;
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #000000;
+`
+export const ProductRightWrap = styled.div`
+`
+export const Price = styled.div`
+width: 73px;
+height: 34px;
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #000000;
+padding-top: 80px;
+`
+
+export const PriceWrap = styled.div`
+display: flex;
+width: 1000px;
+gap: 300px;
+justify-content: flex-end;
+`
+export const PriceLeftWrap = styled.div`
+display: flex;
+flex-direction: column;
+gap: 20px;
+`
+export const PriceLeft = styled.div`
+width: 80px;
+height: 16px;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #000000;
+`
+export const PriceRightWrap = styled.div`
+display: flex;
+flex-direction: column;
+gap: 20px;
+`
+export const PriceRight = styled.div`
+width: 65px;
+height: 16px;
+left: 1379px;
+top: 1176px;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+display: flex;
+align-items: center;
+letter-spacing: -0.05em;
+color: #000000;
+`
+
+export const SubmitButtonWrap = styled.div`
+display: flex;
+justify-content: center;
+margin-top: 50px;
+width: 1000px;
+`
+export const SubmitButton = styled.button`
+width: 340px;
+height: 50px;
+background: #77170D;
+border-radius: 8px;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 100%;
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.05em;
+color: #FFFFFF;
+justify-content: center;
 `
