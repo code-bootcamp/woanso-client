@@ -88,6 +88,11 @@ export const Input = styled.input`
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 10px;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const Input2 = styled.input`

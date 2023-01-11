@@ -95,7 +95,9 @@ export default function LoginUI() {
                     {...register("password")}
                     placeholder="비밀번호"
                   ></S.Input1>
-                  <S.Box>아이디 찾기/비밀번호 재설정</S.Box>
+                  <S.Box onClick={onClickFind}>
+                    아이디 찾기/비밀번호 재설정
+                  </S.Box>
                   <St.ErrMessage>{errors.password?.message}</St.ErrMessage>
                 </div>
                 <S.LoginButtonWrap>
