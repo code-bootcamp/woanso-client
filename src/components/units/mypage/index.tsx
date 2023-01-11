@@ -14,7 +14,7 @@ import { checkValidationImage } from "../../commons/uploads/image.validation";
 const MenuLists = [
   { id: "myInfo", name: "내정보" },
   { id: "myrentList", name: "대여내역" },
-  { id: "myreservationList", name: "예약내역" },
+  { id: "myreservationList", name: "찜 목록" },
   { id: "userEdit", name: "개인정보 수정" },
   { id: "faq", name: "FAQ" },
 ];
@@ -103,12 +103,10 @@ export default function MyPageUI() {
       </S.SideWrap>
 
       <S.ContentsWrap>
-        {isActive === "myInfo" && (
-          <MyIngo UserId={User?.fetchUserLoggedIn.id} />
-        )}
+        {isActive === "myInfo" && <MyIngo />}
         {isActive === "myrentList" && <MyRentList />}
         {isActive === "myreservationList" && <MyReservationList />}
-        {isActive === "userEdit" && <UserEdit />}
+        {isActive === "userEdit" && <UserEdit User={User} />}
         {isActive === "faq" && <FaqMini />}
       </S.ContentsWrap>
     </S.MypageWrap>

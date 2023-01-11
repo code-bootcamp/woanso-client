@@ -48,6 +48,11 @@ export const JoinInput = styled.input`
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 10px;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const UserEditInput = styled(JoinInput)`

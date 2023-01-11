@@ -9,7 +9,6 @@ export const UPDATE_USER = gql`
       email
       phone
       interest
-      balance
       userImg {
         id
         url
