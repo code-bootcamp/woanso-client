@@ -7,8 +7,7 @@ import { useRouter } from "next/router";
 import { useQueryFetchUserLoggendIn } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 import { FETCH_REVIEWS } from "../../../../commons/hooks/queries/useQueryFetchReviews";
 
-export default function RentsCommentWriteUI() {
-  const router = useRouter();
+export default function RentsCommentWriteUI(props: any) {
   const [contents, setContents] = useState("");
   const [like, setLike] = useState();
   const { data: user } = useQueryFetchUserLoggendIn();
@@ -17,10 +16,11 @@ export default function RentsCommentWriteUI() {
   const onChangeCentents = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(e.currentTarget.value);
   };
+  console.log(props);
 
   const onClickCreateReview = async () => {
     const createReveiwInPut = {
-      comicId: router.query.boardId,
+      comicId: props.comicId,
       userId: user.fetchUserLoggedIn.id,
       content: contents,
       rating: Number(like),

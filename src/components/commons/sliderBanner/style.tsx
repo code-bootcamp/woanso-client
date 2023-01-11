@@ -3,7 +3,9 @@ import Slider from "react-slick";
 
 export const OuterWrap = styled.div``;
 
-export const InnerWrap = styled.div``;
+export const InnerWrap = styled.div`
+  padding-top: 80px;
+`;
 
 export const SliderImgWrap = styled.div`
   width: 100%;
