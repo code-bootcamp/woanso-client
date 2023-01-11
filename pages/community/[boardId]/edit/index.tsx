@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import CommunityWriteUI from "../../../../src/components/commons/communityWrite";
+import CommunityWriteUI from "../../../../src/components/units/community/write";
 
 const FETCH_BOARD = gql`
   query fetchBoard($id: String!) {

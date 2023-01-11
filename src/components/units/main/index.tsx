@@ -1,5 +1,5 @@
 import BestBooks from "../../commons/bestbooks";
-import CommunityNewList from "../../commons/communityNewlist";
+import CommunityNewList from "../community/newlist";
 import FaqMini from "../../commons/faqmini";
 import Picks from "../../commons/picks";
 import Recommand from "../../commons/recommand";

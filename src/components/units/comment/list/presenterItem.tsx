@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { IMutation, IMutationDeleteCommentArgs } from "../../../commons/types/generated/types";
+import { IMutation, IMutationDeleteCommentArgs } from "../../../../commons/types/generated/types";
 import { DELETE_COMMENT, FETCH_COMMENTS } from "./queries";
 import * as S from "./style";
 

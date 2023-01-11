@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
-import { FETCH_USER_LOGGED_IN } from "../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
-import { IMutation, IMutationCreateCommentArgs } from "../../../commons/types/generated/types";
+import { FETCH_USER_LOGGED_IN } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
+import { IMutation, IMutationCreateCommentArgs } from "../../../../commons/types/generated/types";
 import { CREATE_COMMENT } from "./queries";
 import * as S from "./style";
 

@@ -2,7 +2,7 @@ import { Button, Modal } from "antd";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { useRecoilState } from "recoil";
-import { PopupModal } from "../../../commons/libraries/store";
+import { PopupModal } from "../../../../commons/libraries/store";
 
 
 

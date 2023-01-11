@@ -1,9 +1,9 @@
-import CommunityListUI from "../../src/components/commons/communityList";
-import CommunityTrendUI from "../../src/components/commons/communityTrend";
-import CommunityWriteUI from "../../src/components/commons/communityWrite";
+import CommunityListUI from "../../src/components/units/community/list";
+import CommunityTrendUI from "../../src/components/units/community/trend";
+import CommunityWriteUI from "../../src/components/units/community/write";
 import ChatList from "../../src/components/units/chat/list";
 import styled from "@emotion/styled";
-import CommunityDeleteModal from "../../src/components/commons/communityDeleteModal";
+import CommunityDeleteModal from "../../src/components/units/community/deleteModal";
 
 
 const Wrap = styled.div`
