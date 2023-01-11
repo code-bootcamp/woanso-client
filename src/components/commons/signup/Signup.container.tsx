@@ -32,6 +32,7 @@ export default function SignupUI() {
     console.log(interest);
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
+      return;
     }
     if (interest === "") return;
     try {
@@ -82,7 +83,7 @@ export default function SignupUI() {
                   {...register("password")}
                 />
               </S.SubWrapper>
-              <S.ErrMessage2>{errors.password?.message}</S.ErrMessage2>
+              {/* <S.ErrMessage2>{errors.password?.message}</S.ErrMessage2> */}
               <S.SubWrapper>
                 <S.Input3
                   placeholder="비밀번호 확인"

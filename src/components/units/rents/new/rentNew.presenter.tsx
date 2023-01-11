@@ -6,8 +6,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./rentNew.validation";
 import { Modal } from "antd";
-import { useMutationCreateComic } from "../../../../commons/hooks/mutaions/useMutationCreateComic";
-import { validate } from "graphql";
 import { useMutation } from "@apollo/client";
 import {
   IComic_Category_Enum,
@@ -15,6 +13,9 @@ import {
   IMutationCreateComicArgs,
 } from "../../../../commons/types/generated/types";
 import { CREATE_COMIC } from "./rentNew.queries";
+import { ChangeEvent, useState } from "react";
+import { checkValidationImage } from "../../../commons/uploads/image.validation";
+import { useMutationUploadOneFile } from "../../../../commons/hooks/mutaions/useMutationUploadOneFile";
 
 interface IFormData {
   title: string;
@@ -25,9 +26,9 @@ interface IFormData {
   publisher: string;
   totalBooks: number;
   description: string;
-  ISBN: string;
+  // ISBN: string;
   stock: number;
-  url: [string];
+  // url: [string];
   category: IComic_Category_Enum;
 }
 
@@ -36,6 +37,7 @@ export default function RentNewUI() {
     Pick<IMutation, "createComic">,
     IMutationCreateComicArgs
   >(CREATE_COMIC);
+  const [uploadOneFile] = useMutationUploadOneFile();
 
   const ReactQuill = dynamic(async () => await import("react-quill"), {
     ssr: false,
@@ -44,6 +46,21 @@ export default function RentNewUI() {
   const { register, handleSubmit } = useForm<IFormData>({
     resolver: yupResolver(schema),
   });
+
+  const [imgUrl, setImgUrl] = useState<String[]>([]);
+  const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = checkValidationImage(event.target.files?.[0]);
+    console.log("file", file);
+    if (!file) return;
+
+    try {
+      const result = await uploadOneFile({ variables: { file } });
+      console.log("result", result);
+      setImgUrl(result.data?.uploadOneFile ?? "");
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
+    }
+  };
 
   const onClickSubmit = async (data: IFormData) => {
     try {
@@ -58,9 +75,9 @@ export default function RentNewUI() {
             publisher: data.publisher,
             totalBooks: Number(data.totalBooks),
             description: data.description,
-            ISBN: data.ISBN,
+            ISBN: String(imgUrl),
             stock: Number(data.stock),
-            url: data.url,
+            url: [String(imgUrl)],
             category: data.category,
           },
         },
@@ -90,7 +107,7 @@ export default function RentNewUI() {
             <S.h2>상품 기본 정보</S.h2>
           </S.TopContainer>
           <S.MainWrapper>
-            <S.Category>
+            {/* <S.Category>
               <S.Name>
                 <span>ISBN</span>
               </S.Name>
@@ -100,7 +117,7 @@ export default function RentNewUI() {
                   <S.Input type="text" {...register("ISBN")} />
                 </S.IsbnInputContainer>
               </S.BtnInputContianer>
-            </S.Category>
+            </S.Category> */}
             <S.Category>
               <S.Name>
                 <span>카테고리</span>
@@ -138,12 +155,12 @@ export default function RentNewUI() {
               </S.Name>
               <S.Input type="text" {...register("publisher")} />
             </S.Category3>
-            <S.Category3>
+            {/* <S.Category3>
               <S.Name>
                 <span>링크</span>{" "}
               </S.Name>
               <S.Input type="text" {...register("url")} />
-            </S.Category3>
+            </S.Category3> */}
             {/* <S.Category3>
             <S.Name>
               <span>재고</span>{" "}
@@ -207,7 +224,7 @@ export default function RentNewUI() {
               </S.Name>
               <S.Input type="number" {...register("totalBooks")} />
             </S.Category>
-            <S.Category>
+            {/* <S.Category>
               <S.Name>
                 {" "}
                 <span>상품 설명</span>{" "}
@@ -219,30 +236,14 @@ export default function RentNewUI() {
                   marginBottom: "100px",
                 }}
               />
-            </S.Category>
+            </S.Category> */}
             <S.Category>
               <S.Name>
                 {" "}
                 <span>상품 이미지</span>{" "}
               </S.Name>
               <S.ImageContainer>
-                <S.ImageButton>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    +
-                  </div>
-                </S.ImageButton>
-                <S.ImageButton>
-                  <div>+</div>
-                </S.ImageButton>
-                <S.ImageButton>
-                  <div>+</div>
-                </S.ImageButton>
+                <input type="file" onChange={onChangeFile} multiple />
               </S.ImageContainer>
             </S.Category>
           </S.MainWrapper>

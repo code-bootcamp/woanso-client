@@ -1,23 +1,23 @@
 import * as S from "./rentsReviewList.styles";
-import React from "react";
+import React, { MouseEvent } from "react";
 import { Modal, Rate } from "antd";
 import { useMutationDeleteReview } from "../../../../commons/hooks/mutaions/useMutationDeleteReview";
+import { FETCH_REVIEWS } from "../../../../commons/hooks/queries/useQueryFetchReviews";
 
 export default function RentsReviewListUI({ el }: any) {
   const [deleteReview] = useMutationDeleteReview();
 
-  const onClickDelete = () => {
+  const onClickDelete = (e: MouseEvent<HTMLDivElement>) => {
     try {
       deleteReview({
         variables: {
-          reviewId: "",
+          reviewId: e.currentTarget.id,
         },
-        // refetchQueries: [
-        //   {
-        //     query: FETCH_REVIEWS,
-
-        //   },
-        // ],
+        refetchQueries: [
+          {
+            query: FETCH_REVIEWS,
+          },
+        ],
       });
       Modal.success({ content: "리뷰를 삭제했습니다." });
     } catch (error) {
@@ -26,12 +26,14 @@ export default function RentsReviewListUI({ el }: any) {
     }
   };
 
+  const count = el.comicRating?.comicRating;
+
   return (
     <S.Wrapper>
       <S.Container>
         <S.LeftContainer>
           <S.StarBox>
-            <Rate defaultValue={el.like} />
+            <Rate value={count} />
           </S.StarBox>
           <S.ReviewInfo>
             <S.Reviewer>{el.user.nickname}</S.Reviewer>
@@ -43,7 +45,7 @@ export default function RentsReviewListUI({ el }: any) {
         </S.RightContainer>
 
         <S.BtnWrapper>
-          <S.Button onClick={onClickDelete}>
+          <S.Button id={el.reviewId} onClick={onClickDelete}>
             <img src="/icon/delete_icon.png" />
           </S.Button>
         </S.BtnWrapper>

@@ -51,6 +51,12 @@ export default function UserEditPw() {
         },
       });
       console.log(result);
+      Modal.success({
+        content: "회원정보가 수정되었습니다.",
+        afterClose() {
+          router.push("/home");
+        },
+      });
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }

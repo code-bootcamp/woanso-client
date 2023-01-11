@@ -2,19 +2,19 @@ import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics";
 import SliderMultiple from "../../commons/sliderMultiple";
-import Academy from "../section/academy";
+import School from "../section/school";
 import Action from "../section/action";
-import { data } from "../section/detas";
 import Horror from "../section/horror";
 import Mystery from "../section/mystery";
 import Romance from "../section/romance";
 import ListMap from "./map.index";
 import * as S from "./style";
+import Fantasy from "../section/fantasy";
 
 const NavLists = [
   { id: "all", name: "전체" },
   { id: "romance", name: "로맨스" },
-  { id: "academy", name: "학원" },
+  { id: "school", name: "학원" },
   { id: "drama", name: "드라마/일상" },
   { id: "action", name: "액션" },
   { id: "fantasy", name: "판타지" },
@@ -30,8 +30,8 @@ export default function Rents() {
   const dataRomance = copyData?.fetchComics.filter(
     (el: any) => el.category === "romance"
   );
-  const dataAcademy = copyData?.fetchComics.filter(
-    (el: any) => el.category === "academy"
+  const dataSchool = copyData?.fetchComics.filter(
+    (el: any) => el.category === "school"
   );
   const dataDrama = copyData?.fetchComics.filter(
     (el: any) => el.category === "drama"
@@ -76,7 +76,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Romance />
+            <Romance dataRomance={dataRomance} />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -86,7 +86,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Academy />
+            <School dataSchool={dataSchool} />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -96,7 +96,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Mystery />
+            <Mystery dataHorror={dataHorror} />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -106,7 +106,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Action />
+            <Action dataAction={dataAction} />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -116,12 +116,12 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Horror />
+            <Fantasy dataFantasy={dataFantasy} />
           </S.BookWrapper>
         </>
       )}
 
-      {section == "romance" && (
+      {section === "romance" && (
         <S.BookListWrapper>
           {dataRomance.map((el: any, index: number) => (
             <div key={index}>
@@ -130,16 +130,16 @@ export default function Rents() {
           ))}
         </S.BookListWrapper>
       )}
-      {section == "academy" && (
+      {section === "school" && (
         <S.BookListWrapper>
-          {dataAcademy.map((el: any, index: number) => (
+          {dataSchool.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
           ))}
         </S.BookListWrapper>
       )}
-      {section == "drama" && (
+      {section === "drama" && (
         <S.BookListWrapper>
           {dataDrama.map((el: any, index: number) => (
             <div key={index}>
@@ -148,7 +148,7 @@ export default function Rents() {
           ))}
         </S.BookListWrapper>
       )}
-      {section == "action" && (
+      {section === "action" && (
         <S.BookListWrapper>
           {dataAction.map((el: any, index: number) => (
             <div key={index}>
@@ -157,7 +157,7 @@ export default function Rents() {
           ))}
         </S.BookListWrapper>
       )}
-      {section == "fantasy" && (
+      {section === "fantasy" && (
         <S.BookListWrapper>
           {dataFantasy.map((el: any, index: number) => (
             <div key={index}>
@@ -166,7 +166,7 @@ export default function Rents() {
           ))}
         </S.BookListWrapper>
       )}
-      {section == "horror" && (
+      {section === "horror" && (
         <S.BookListWrapper>
           {dataHorror.map((el: any, index: number) => (
             <div key={index}>

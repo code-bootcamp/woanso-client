@@ -1,12 +1,20 @@
-import { useState } from "react";
+import { Modal } from "antd";
+import { ChangeEvent, useState } from "react";
 import UserEditPw from "../userEditPw";
 import * as S from "./style";
 
-export default function UserEdit() {
+export default function UserEdit({ User }: any) {
   const [edit, setEdit] = useState(false);
+  const [phonenum, setPhonenum] = useState("");
 
+  console.log(User.fetchUserLoggedIn.phone);
+  const onChangePhone = (e: ChangeEvent<HTMLInputElement>) => {
+    setPhonenum(e.target.value);
+  };
   const onClickMoveToEdit = () => {
-    setEdit(true);
+    0 + User.fetchUserLoggedIn.phone === phonenum
+      ? setEdit(true)
+      : Modal.error({ content: "본인 확인에 실패했습니다." });
   };
 
   return (
@@ -16,13 +24,17 @@ export default function UserEdit() {
       ) : (
         <S.UserEditWrap>
           <S.TitleWrapper>
-            <S.Title>비밀번호 확인</S.Title>
+            <S.Title>본인 확인</S.Title>
             <S.TitleSub>
-              개인정보보호를 위해 비밀번호를 입력해 주세요.
+              개인정보보호를 위해 핸드폰 번호를 입력해 주세요.
             </S.TitleSub>
           </S.TitleWrapper>
 
-          <S.InputPassWord type="password" placeholder="비밀번호 확인" />
+          <S.Input
+            type="number"
+            placeholder="핸드폰 번호 확인"
+            onChange={onChangePhone}
+          />
 
           <S.Button onClick={onClickMoveToEdit}>확인</S.Button>
         </S.UserEditWrap>

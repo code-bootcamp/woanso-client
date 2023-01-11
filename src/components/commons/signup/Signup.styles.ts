@@ -66,11 +66,13 @@ export const CheckBox = styled.input`
 export const ErrMessage = styled.div`
   font-size: 16px;
   color: red;
+  padding: 10px 0;
 `;
 
 export const ErrMessage2 = styled.div`
   font-size: 16px;
   color: red;
+  padding: 5px 0px 10px 0;
 `;
 
 export const Input2 = styled.input`

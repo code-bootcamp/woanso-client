@@ -5,24 +5,25 @@ import "antd/dist/antd.css";
 import { useMutationCreateReview } from "../../../../commons/hooks/mutaions/useMutationCreateReview";
 import { useRouter } from "next/router";
 import { useQueryFetchUserLoggendIn } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
+import { FETCH_REVIEWS } from "../../../../commons/hooks/queries/useQueryFetchReviews";
 
-export default function RentsCommentWriteUI() {
-  const router = useRouter();
+export default function RentsCommentWriteUI(props: any) {
   const [contents, setContents] = useState("");
-  const [rating, setRating] = useState(0);
-  const { data } = useQueryFetchUserLoggendIn();
+  const [like, setLike] = useState();
+  const { data: user } = useQueryFetchUserLoggendIn();
   const [createReview] = useMutationCreateReview();
 
   const onChangeCentents = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(e.currentTarget.value);
   };
+  console.log(props);
 
   const onClickCreateReview = async () => {
     const createReveiwInPut = {
-      comicId: router.query.boardId,
-      userId: data.fetchUserLoggedIn.id,
+      comicId: props.comicId,
+      userId: user.fetchUserLoggedIn.id,
       content: contents,
-      rating: rating,
+      rating: Number(like),
     };
     try {
       const result = await createReview({
@@ -31,13 +32,13 @@ export default function RentsCommentWriteUI() {
             ...createReveiwInPut,
           },
         },
-        // refetchQueries: [
-        //   {
-        //     query: FETCH_REVIEWS,
-
-        //   },
-        // ],
+        refetchQueries: [
+          {
+            query: FETCH_REVIEWS,
+          },
+        ],
       });
+      console.log(result);
     } catch (error) {
       Modal.error({ content: "등록할 수 없습니다." });
       return;
@@ -49,14 +50,15 @@ export default function RentsCommentWriteUI() {
       <S.Title>100자평</S.Title>
       <S.RateBox>
         <p>이 만화를 평가해주세요!</p>
-        <S.StarRate count={5} onChange={setRating} />
+        <S.StarRate onChange={setLike} value={like} />
       </S.RateBox>
       <S.WriteWrapper>
         <S.Textarea
-          onChange={onChangeCentents}
+          maxLength={100}
           placeholder={
             "리뷰 작성 시 광고 및 욕설, 비속어나 타인을 비방하는 문구를 사용하시면 비공개될 수 있습니다."
           }
+          onChange={onChangeCentents}
         />
       </S.WriteWrapper>
       <S.ButtonWrapper>

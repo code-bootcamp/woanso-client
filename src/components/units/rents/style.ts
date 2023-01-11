@@ -54,6 +54,6 @@ export const BookWrapper = styled.div`
 export const BookListWrapper = styled.div`
   display: flex;
   gap: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 50px;
   flex-wrap: wrap;
 `;

@@ -100,7 +100,7 @@ export const SearchWrap = styled.div`
   border-radius: 4px;
 
   @media ${size.mobile} {
-    width: 80%;
+    width: 70%;
     height: 30px;
     svg {
       width: 15px;
@@ -139,9 +139,9 @@ export const MobileMenu = styled.div`
   @media (min-width: 1024px) {
     display: none;
   }
-  width: 70vw;
+  width: 40vw;
   height: 100vh;
-  background-color: rgba(244, 239, 228);
+  background-color: rgba(244, 239, 228, 1);
   position: fixed;
   top: 0;
   left: 0;
@@ -149,15 +149,14 @@ export const MobileMenu = styled.div`
 `;
 
 export const MLogo = styled.div`
-  font-size: 2rem;
-  color: #fff;
+  font-size: 1.2rem;
   font-weight: bold;
-  letter-spacing: 10px;
-  color: #333;
+  letter-spacing: 3px;
+  color: #77170d;
   cursor: pointer;
   font-family: "roundGothicBold";
-  padding: 1rem;
-  margin-bottom: 3rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -168,9 +167,15 @@ export const MNavagation = styled.nav`
   ul {
     padding: 0;
     li {
-      font-size: 2rem;
-      padding: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 2rem;
       border-bottom: 1px solid #bdbdbd;
+      cursor: pointer;
+
+      :hover {
+        color: #77170d;
+      }
     }
   }
 `;

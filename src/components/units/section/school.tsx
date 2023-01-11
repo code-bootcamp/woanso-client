@@ -1,9 +1,9 @@
 import ListMap from "./map.index";
 
-export default function Action(props: any) {
+export default function School(props: any) {
   return (
     <>
-      {props.dataAction?.map((el: any, index: number) => (
+      {props.dataSchool?.map((el: any, index: number) => (
         <ListMap el={el} key={index} />
       ))}
     </>

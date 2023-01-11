@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const CREATE_COMMENT = gql`
   mutation createComment(
-    $createCommentInput: CreateBoardCommentInput!
+    $createCommentInput: CreateCommentInput!
   ) {
     createComment(
       createCommentInput: $createCommentInput
@@ -11,3 +11,4 @@ export const CREATE_COMMENT = gql`
     }
   }
 `;
+

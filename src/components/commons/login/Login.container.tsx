@@ -100,7 +100,9 @@ export default function LoginUI() {
                 </div>
                 <S.LoginButtonWrap>
                   <S.LoginButton>로그인</S.LoginButton>
-                  <S.SignupButton>회원가입</S.SignupButton>
+                  <S.SignupButton type="button" onClick={onClickMoveToSingUp}>
+                    회원가입
+                  </S.SignupButton>
                 </S.LoginButtonWrap>
                 {/* <S.Footer>
               <S.Footer1 onClick={onClickMoveToSingUp}>회원가입</S.Footer1>

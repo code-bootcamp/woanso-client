@@ -15,6 +15,7 @@ const FETCH_COMIC = gql`
         totalRating
         comicRating
       }
+      ISBN
     }
   }
 `;

@@ -21,7 +21,7 @@ const MenuList = [
   },
   {
     name: "커뮤니티",
-    url: "/freeboards",
+    url: "/community",
   },
   {
     name: "이벤트",
@@ -105,7 +105,7 @@ export default function LayoutHeader() {
           {isMenu && (
             <S.MobileMenu>
               <S.MLogo>
-                <span>완소만화방</span>{" "}
+                <span>WoanSo</span>{" "}
                 <S.MCloseBtn onClick={onClickMenuToggle}>X</S.MCloseBtn>
               </S.MLogo>
               <S.MNavagation>

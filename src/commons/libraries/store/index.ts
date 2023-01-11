@@ -18,3 +18,13 @@ export const getUserEmail = atom({
   key: "getUserEmail",
   default: "",
 });
+
+export const deleteModal = atom({
+  key: "deleteModal",
+  default: false
+});
+
+export const PopupModal = atom({
+  key: "PopupModal",
+  default: false
+});
