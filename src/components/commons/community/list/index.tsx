@@ -1,67 +1,67 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import { IMutation, IMutationDeleteBoardArgs, IQuery, IQueryFetchBoardArgs } from "../../../commons/types/generated/types";
-import { DELETE_BOARD, FETCH_BOARD } from "./queries";
+import { MouseEvent, useState } from "react";
+import { IMutation, IMutationDeleteBoardArgs, IQuery, IQueryFetchBoardArgs } from "../../../../commons/types/generated/types";
+import CommunityCommentWriteUI from "../../../units/comment/write";
+import { DELETE_BOARD } from "../detail/queries";
+import { FETCH_BOARDS } from "./queries";
 import * as S from "./styles";
-import CommunityCommentWriteUI from "../communityCommentWrite/index"
-import CommunityModal from "../communityDeleteModal";
-import { useRecoilState } from "recoil";
-import { deleteModal } from "../../../commons/libraries/store";
-import CommunityModal1 from "../communityModal";
 
-export default function CommunityDetailUI(){
+export default function CommunityListUI(){
     const router = useRouter();
     
     const [isEdit, setIsEdit] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useRecoilState(deleteModal);
 
+    const { data } = useQuery<
+    Pick<IQuery, "fetchBoards">,
+    IQueryFetchBoardArgs
+    >(FETCH_BOARDS);
 
     const [deleteBoard] = useMutation<
     Pick<IMutation, "deleteBoard">,
     IMutationDeleteBoardArgs
   >(DELETE_BOARD);
 
+
     const onClickComment = () => {
         setIsEdit((prev) => !prev)
     }
 
-
-    const { data } = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(
-        FETCH_BOARD,
-        { variables: { id: String(router.query.boardId) } }
-      );
-      console.log(data)
-
+    const onClickMoveToBoardDetail = (boardId) => (event: MouseEvent<HTMLDivElement>) => {
+        void router.push(`/community/${boardId}`);
+      };
 
       const onClickEdit = () => {
         router.push(`/community/${router.query.boardId}/edit`);
       };
 
       const onClickDelete = async () => {
-        // await deleteBoard({
-        //   variables: {
-        //     id: router.query.boardId,
-        //   },
-        // });
-        setIsModalOpen(true)
-        // router.push(`/community/`);
+        await deleteBoard({
+          variables: {
+            id: String(router.query.boardId),
+          },
+        });
+        router.push(`/community/`);
+        console.log("삭제완룡")
       };
+
+    console.log(data)
 
     return (
         <>
-        <S.Wrap>
+        {data?.fetchBoards.map((el, index) => (
+        <S.Wrap key={el.id}>
             <S.LeftWrap>
                 <S.AvatorWrap>
                     <S.Avator></S.Avator>
                 </S.AvatorWrap>
                 <S.ContentsWrap>
                     <S.TopWrap>
-                        <S.Name>이유진</S.Name>
+                        <S.Name>{el.user.nickname}</S.Name>
                         <S.Date>2시간 전</S.Date>
                     </S.TopWrap>
                     <S.MidWrap>
-                        <S.MidContents>{data?.fetchBoard.content}</S.MidContents>
+                        <S.MidContents onClick={onClickMoveToBoardDetail(el.id)}>{el.content}</S.MidContents>
                         <S.ImgWrap>
                             <S.Img src="/image1.png" />
                             <S.Img src="/image2.png" />
@@ -70,7 +70,7 @@ export default function CommunityDetailUI(){
                     <S.BottomWrap>
                         <S.LikeWrap>
                             <S.LikeIcon src="/Icon3.png"></S.LikeIcon>
-                            <S.Like>30</S.Like>
+                            <S.Like>{el.like}</S.Like>
                         </S.LikeWrap>
                         <S.CommentWrap>
                             <S.CommentIcon src="/Icon5.png" onClick={onClickComment}></S.CommentIcon>
@@ -86,16 +86,7 @@ export default function CommunityDetailUI(){
                 </S.IconWrap>
             </S.RightWrap>
         </S.Wrap>
-        { isEdit && (
-            <CommunityCommentWriteUI/>
-        )}
-        { isModalOpen && (
-            <>
-          <CommunityModal/>
-          {/* <CommunityModal1/> */}
-          </>
-        )}
-        
+        ))}
     </>
     )
 }

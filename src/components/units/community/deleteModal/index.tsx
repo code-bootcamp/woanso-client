@@ -3,9 +3,9 @@ import { Button, Modal } from "antd";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
-import { deleteModal } from "../../../commons/libraries/store";
-import { IMutation, IMutationDeleteBoardArgs } from "../../../commons/types/generated/types";
-import { DELETE_BOARD } from "../communityDetail/queries";
+import { deleteModal } from "../../../../commons/libraries/store";
+import { IMutation, IMutationDeleteBoardArgs } from "../../../../commons/types/generated/types";
+import { DELETE_BOARD } from "../detail/queries";
 import * as S from "./style";
 
 

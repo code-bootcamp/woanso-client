@@ -3,10 +3,10 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { useRecoilState } from "recoil";
-import { PopupModal } from "../../../commons/libraries/store";
-import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../commons/types/generated/types";
-import CommunityModal1 from "../communityModal";
-import CommunityTrendUI from "../communityTrend";
+import { PopupModal } from "../../../../commons/libraries/store";
+import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../../commons/types/generated/types";
+import CommunityModal1 from "../modal";
+import CommunityTrendUI from "../trend";
 import { CREATE_BOARD, UPDATE_BOARD } from "./queries";
 import * as S from "./styles"
 

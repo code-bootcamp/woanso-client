@@ -1,9 +1,9 @@
-import CommunityDetailUI from "../../../src/components/commons/communityDetail";
+import CommunityDetailUI from "../../../src/components/units/community/detail";
 import styled from "@emotion/styled";
-import CommunityCommentUI from "../../../src/components/commons/communityCommentList/container";
-import CommunityCommentListUI from "../../../src/components/commons/communityCommentList/container";
-import CommunityCommentWriteUI from "../../../src/components/commons/communityCommentWrite";
-import CommunityModal1 from "../../../src/components/commons/communityModal";
+import CommunityCommentUI from "../../../src/components/units/comment/list/container";
+import CommunityCommentListUI from "../../../src/components/units/comment/list/container";
+import CommunityCommentWriteUI from "../../../src/components/units/comment/write";
+import CommunityModal1 from "../../../src/components/units/community/modal";
 
 
 const Wrap = styled.div`

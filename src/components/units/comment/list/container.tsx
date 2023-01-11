@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { IQuery,  IQueryFetchCommentsArgs} from "../../../commons/types/generated/types";
+import { IQuery,  IQueryFetchCommentsArgs} from "../../../../commons/types/generated/types";
 import BoardCommentListUI from "./presenter";
 import { FETCH_COMMENTS } from "./queries";
 
