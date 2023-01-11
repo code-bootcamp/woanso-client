@@ -52,15 +52,27 @@ export default function IdpwFind() {
   });
 
   const onClickFindEmail = () => {
-    Modal.success({
-      content: (
-        <div>
-          <p>이메일 찾기</p>
-          <br />
-          <p style={{ marginLeft: "39px" }}>{data.findEmail.email}</p>
-        </div>
-      ),
-    });
+    {
+      data
+        ? Modal.success({
+            content: (
+              <div>
+                <p>이메일 찾기</p>
+                <br />
+                <p style={{ marginLeft: "39px" }}>{data?.findEmail.email}</p>
+              </div>
+            ),
+          })
+        : Modal.error({
+            content: (
+              <div>
+                <p>이메일 찾기 실패</p>
+                <br />
+                <p style={{ marginLeft: "39px" }}>이메일을 찾을 수 없습니다.</p>
+              </div>
+            ),
+          });
+    }
   };
 
   const onClickCheckUser = () => {};
@@ -95,7 +107,7 @@ export default function IdpwFind() {
 
   return (
     <S.OutWrapper>
-      <LoginHeader/>
+      <LoginHeader />
       <S.InnerWrapper>
         <S.IdpwFindWrapper>
           {/* <S.TitleWrapper>

@@ -180,6 +180,7 @@ export const Box = styled.div`
   line-height: 17px;
   color: #738096;
   padding: 10px 10px;
+  cursor: pointer;
 `;
 
 export const SignupButton = styled.button`
