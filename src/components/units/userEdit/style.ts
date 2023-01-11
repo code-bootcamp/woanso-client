@@ -23,7 +23,7 @@ export const TitleSub = styled.p`
   margin: 20px 0 30px 0;
 `;
 
-export const InputPassWord = styled.input`
+export const Input = styled.input`
   width: 340px;
   height: 50px;
   line-height: 50px;
@@ -33,6 +33,12 @@ export const InputPassWord = styled.input`
   font-size: 0.75rem;
   color: #717171;
   margin-bottom: 20px;
+
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const Button = styled.button`
