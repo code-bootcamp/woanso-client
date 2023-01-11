@@ -21,10 +21,10 @@ export default function SliderBanner() {
       <S.InnerWrap>
         <S.SliderWrap {...settings}>
           <S.SliderImgWrap>
-            <S.SliderImg src="/mainBanner/01.png" />
+            <S.SliderImg src="/mainBanner/001.png" />
           </S.SliderImgWrap>
           <S.SliderImgWrap>
-            <S.SliderImg src="/mainBanner/02.png" />
+            <S.SliderImg src="/mainBanner/002.png" />
           </S.SliderImgWrap>
         </S.SliderWrap>
       </S.InnerWrap>
