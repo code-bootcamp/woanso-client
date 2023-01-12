@@ -5,6 +5,21 @@ export const FETCH_BOARD = gql`
     fetchBoard(id: $id) {
       id
       content
+      # boardImg {
+      #   boardImgID
+      #   url
+      #   board {
+      #     id
+      #     boardImg
+      #   }
+      # }
+      user {
+        nickname
+      }
+      boardImg{
+        # boardImgID
+        url
+      }
     }
   }
 `;

@@ -249,7 +249,7 @@ export default function RentNewUI() {
           </S.MainWrapper>
           <S.BottomContainer>
             <S.ButtonWrapper>
-              <S.SubmitButton>등록</S.SubmitButton>
+              <S.Button2>등록</S.Button2>
               <S.Button2 style={{ backgroundColor: "#bdbdbd" }}>취소</S.Button2>
             </S.ButtonWrapper>
           </S.BottomContainer>
