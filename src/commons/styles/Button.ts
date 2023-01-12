@@ -67,7 +67,7 @@ export const RentBtn = styled(LigthButton)`
   margin: 20px 0;
 `;
 
-export const SubmitButton = styled.div`
+export const SubmitButton = styled.button`
   width: 340px;
   height: 50px;
   line-height: 50px;
