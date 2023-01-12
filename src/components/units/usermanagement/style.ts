@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div`
-  padding: 100px;
+  padding: 180px 100px;
 `;
 
 export const PageTitle = styled.div`

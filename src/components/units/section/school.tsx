@@ -1,9 +1,10 @@
+import { ReSchool } from "../../commons/recommand/data";
 import ListMap from "./map.index";
 
-export default function School(props: any) {
+export default function School() {
   return (
     <>
-      {props.dataSchool?.map((el: any, index: number) => (
+      {ReSchool?.map((el: any, index: number) => (
         <ListMap el={el} key={index} />
       ))}
     </>

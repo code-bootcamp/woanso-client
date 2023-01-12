@@ -2,16 +2,12 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { useMutationUpdateUser } from "../../../commons/hooks/mutaions/useMutaionUpdateUser";
-import {
-  UserEditInput,
-  UserEditPwInput,
-  UserEditPwInput2,
-} from "../../../commons/styles/Input";
-import { IUserFormType } from "../../../commons/types/formtypes/type";
+import { UserEditInput } from "../../../commons/styles/Input";
 import * as S from "./style";
 import * as SS from "./../../commons/signup/Signup.styles";
 import { ChangeEvent, useState } from "react";
 import { useQueryFetchUserLoggendIn } from "../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
+import { IUserUpdateFormType } from "../../../commons/types/formtypes/type";
 
 export default function UserEditPw() {
   const router = useRouter();
@@ -23,21 +19,16 @@ export default function UserEditPw() {
     setInterest(event.target.value);
   };
 
-  const { register, handleSubmit } = useForm<IUserFormType>({
+  const { register, handleSubmit } = useForm<IUserUpdateFormType>({
     mode: "onChange",
   });
-  const onClickEdit = async (data: IUserFormType) => {
-    if (data.password !== data.password2) {
-      Modal.error({ content: "비밀번호가 다릅니다. 비밀번호를 확인해주세요!" });
-      return;
-    }
+  const onClickEdit = async (data: IUserUpdateFormType) => {
     try {
       const result = await updateUser({
         variables: {
           email: String(user.fetchUserLoggedIn.email),
           updateUserInput: {
             email: String(user.fetchUserLoggedIn.email),
-            password: data.password,
             nickname: data.nickname
               ? data.nickname
               : user.fetchUserLoggedIn.nickname,
@@ -79,17 +70,6 @@ export default function UserEditPw() {
         type="email"
         readOnly
         defaultValue={user?.fetchUserLoggedIn.email}
-      />
-      <UserEditPwInput
-        type="password"
-        placeholder="새 비밀번호"
-        {...register("password")}
-      />
-
-      <UserEditPwInput2
-        type="password"
-        placeholder="새 비밀번호 확인"
-        {...register("password2")}
       />
 
       <UserEditInput

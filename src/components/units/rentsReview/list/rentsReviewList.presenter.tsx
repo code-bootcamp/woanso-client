@@ -27,6 +27,7 @@ export default function RentsReviewListUI({ el }: any) {
   };
 
   const count = el.comicRating?.comicRating;
+  console.log(count);
 
   return (
     <S.Wrapper>

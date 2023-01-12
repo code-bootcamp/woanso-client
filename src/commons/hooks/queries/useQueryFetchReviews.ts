@@ -9,6 +9,9 @@ export const FETCH_REVIEWS = gql`
       user {
         nickname
       }
+      # comicRating {
+      #   comicRating
+      # }
     }
   }
 `;

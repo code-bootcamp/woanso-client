@@ -114,12 +114,12 @@ export const CheckBoxWrap = styled.div`
 
 export const CheckBoxLavel = styled.label`
   cursor: pointer;
-  content: url("/signup.png");
+  content: url("/icon/signup.png");
   width: 19px;
   height: 19px;
 
   :active {
-    content: url("/signup2.png");
+    content: url("/icon/signup2.png");
   }
 `;
 

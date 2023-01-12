@@ -18,10 +18,6 @@ export default function ListMap(props: any) {
       ></S.BookImg>
       <S.BookInfo>
         <S.BookTitle>{props.el.title}</S.BookTitle>
-        <S.BookInfoSub>
-          <S.BookAuthor>{props.el.autour}</S.BookAuthor>
-          <S.BookPrice>{props.el.rentPrice}</S.BookPrice>
-        </S.BookInfoSub>
       </S.BookInfo>
     </S.BookSubWrapper>
   );
