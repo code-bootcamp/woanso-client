@@ -1,6 +1,7 @@
+import { memo } from "react";
 import * as S from "./styles";
 
-export default function LayoutFooter() {
+function LayoutFooter() {
   return (
     <S.OuterWrap>
       <S.InnerWrap>
@@ -44,3 +45,4 @@ export default function LayoutFooter() {
     </S.OuterWrap>
   );
 }
+export default memo(LayoutFooter);

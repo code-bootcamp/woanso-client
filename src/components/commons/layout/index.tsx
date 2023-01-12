@@ -8,21 +8,21 @@ interface ILayoutProps {
 
 // prettier-ignore
 const HIDDEN_LAYOUT = [
-  "/login",
-  "/join",
-  "/idpwFind",
-  
+  "/login/",
+  "/join/",
+  "/idpwFind/",
 ];
 
 export default function LayoutPage(props: ILayoutProps) {
   const router = useRouter();
   const isHiddenLayout = HIDDEN_LAYOUT.includes(router.asPath);
+  console.log(router, isHiddenLayout);
 
   return (
     <>
       {!isHiddenLayout && <LayoutHeader />}
       {props.children}
-      <LayoutFooter />
+      {!HIDDEN_LAYOUT && <LayoutFooter />}
     </>
   );
 }

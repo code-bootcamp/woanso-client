@@ -1,12 +1,9 @@
+import * as S from "./Login.styles";
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { LoginInput } from "../../../commons/styles/Input";
-import SignupBenefit from "../signupbenefit";
+import { Input1, Input4 } from "../../../commons/styles/Input";
 import { LOG_IN } from "./Login.queries";
-import * as S from "./Login.styles";
-import * as St from "../signup/Signup.styles";
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
@@ -14,14 +11,13 @@ import {
   IMutationLoginArgs,
 } from "../../../commons/types/generated/types";
 import { useRecoilState } from "recoil";
-import {
-  accessTokenState,
-  getUserEmail,
-} from "../../../commons/libraries/store";
+import { accessTokenState } from "../../../commons/libraries/store";
 import { schema_login } from "../validation/login";
 import { ILoginFormType } from "../../../commons/types/formtypes/type";
 import { InnerWrap } from "../../../commons/styles/Wrapper";
 import LoginHeader from "../layout/loginHeader";
+import PageMoveBtn from "../../../commons/hoc/PageMoveBtn";
+import { ErrMessage } from "../../../commons/styles/Error";
 
 export default function LoginUI() {
   const router = useRouter();
@@ -60,70 +56,38 @@ export default function LoginUI() {
     }
   };
 
-  const onClickMoveToSingUp = () => {
-    router.push("/join");
-  };
-
-  const onClickFind = () => {
-    router.push("/idpwFind");
-  };
-
   return (
     <S.All>
       <LoginHeader />
       <S.Wrapper>
         <InnerWrap>
           <S.LoginWrapper>
-            {/* <S.TitleWrapper> */}
-            {/* <S.TitleMain>Login</S.TitleMain> */}
-            {/* </S.TitleWrapper> */}
             <form onSubmit={handleSubmit(onClickLogin)}>
               <S.ContentsWrapper>
-                {/* <S.Label>이메일</S.Label> */}
                 <div>
-                  <LoginInput
+                  <Input1
                     type="text"
                     {...register("email")}
                     placeholder="이메일"
-                  ></LoginInput>
-                  {/* <St.ErrMessage>{errors.email?.message}</St.ErrMessage> */}
+                  ></Input1>
                 </div>
-                {/* <S.Label>비밀번호</S.Label> */}
                 <div>
-                  <S.Input1
+                  <Input4
                     type="password"
                     {...register("password")}
                     placeholder="비밀번호"
-                  ></S.Input1>
-                  <S.Box onClick={onClickFind}>
+                  ></Input4>
+                  <S.Box onClick={() => router.push("/idpwFind")}>
                     아이디 찾기/비밀번호 재설정
                   </S.Box>
-                  <St.ErrMessage>{errors.password?.message}</St.ErrMessage>
+                  <ErrMessage>{errors.password?.message}</ErrMessage>
                 </div>
                 <S.LoginButtonWrap>
-                  <S.LoginButton>로그인</S.LoginButton>
-                  <S.SignupButton type="button" onClick={onClickMoveToSingUp}>
-                    회원가입
-                  </S.SignupButton>
+                  <PageMoveBtn id="login" text="로그인" />
+                  <PageMoveBtn id="join" text="회원가입" />
                 </S.LoginButtonWrap>
-                {/* <S.Footer>
-              <S.Footer1 onClick={onClickMoveToSingUp}>회원가입</S.Footer1>
-              <S.Footer1 onClick={onClickFind}>이메일/비밀번호 찾기</S.Footer1>
-            </S.Footer> */}
-                {/* <S.SnsLoginWrap>
-              <S.KakaoLogin>
-                <S.IconImg src="/icon/login_kakao.png" />
-              </S.KakaoLogin>
-              <S.NaverLogin>
-                <S.IconImg src="/icon/login_naver.png" />
-              </S.NaverLogin>
-              <S.GoogleLogin>
-                <S.IconImg src="/icon/login_google.png" />
-              </S.GoogleLogin>
-            </S.SnsLoginWrap> */}
               </S.ContentsWrapper>
             </form>
-            {/* <SignupBenefit /> */}
           </S.LoginWrapper>
         </InnerWrap>
       </S.Wrapper>

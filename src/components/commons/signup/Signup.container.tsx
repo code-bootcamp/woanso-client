@@ -5,10 +5,12 @@ import * as S from "./Signup.styles";
 import { useMutationSignUp } from "../../../commons/hooks/mutaions/useMutationSignUP";
 import { schema_join } from "../validation/join";
 import { useForm } from "react-hook-form";
-import { JoinInput } from "../../../commons/styles/Input";
+import { Input1, Input2, Input3 } from "../../../commons/styles/Input";
 import { ChangeEvent, useState } from "react";
 import { IUserFormType } from "../../../commons/types/formtypes/type";
 import LoginHeader from "../layout/loginHeader";
+import { ErrMessage2 } from "../../../commons/styles/Error";
+import { SubmitButton } from "../../../commons/styles/Button";
 
 export default function SignupUI() {
   const router = useRouter();
@@ -32,7 +34,6 @@ export default function SignupUI() {
     console.log(interest);
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
-      return;
     }
     if (interest === "") return;
     try {
@@ -53,10 +54,6 @@ export default function SignupUI() {
     }
   };
 
-  const onClickCancel = () => {
-    router.push(`/home`);
-  };
-
   return (
     <S.OuterWrap>
       <S.InnerWrap>
@@ -65,16 +62,16 @@ export default function SignupUI() {
           <form onSubmit={handleSubmit(onClickSignUp)}>
             <S.ContentsWrapper>
               <S.SubWrapper>
-                <JoinInput
+                <Input3
                   placeholder="이메일 주소"
                   type="text"
                   id="email"
                   {...register("email")}
                 />
               </S.SubWrapper>
-              <S.ErrMessage2>{errors.email?.message}</S.ErrMessage2>
+              <ErrMessage2>{errors.email?.message}</ErrMessage2>
               <S.SubWrapper>
-                <S.Input2
+                <Input1
                   placeholder="비밀번호"
                   type="password"
                   id="password1"
@@ -83,9 +80,8 @@ export default function SignupUI() {
                   {...register("password")}
                 />
               </S.SubWrapper>
-              {/* <S.ErrMessage2>{errors.password?.message}</S.ErrMessage2> */}
               <S.SubWrapper>
-                <S.Input3
+                <Input2
                   placeholder="비밀번호 확인"
                   type="password"
                   id="password2"
@@ -94,25 +90,25 @@ export default function SignupUI() {
                   {...register("password2")}
                 />
               </S.SubWrapper>
-              <S.ErrMessage2>{errors.password?.message}</S.ErrMessage2>
+              <ErrMessage2>{errors.password?.message}</ErrMessage2>
               <S.SubWrapper>
-                <JoinInput
+                <Input3
                   placeholder="닉네임"
                   type="text"
                   id="nickname"
                   {...register("nickname")}
                 />
               </S.SubWrapper>
-              <S.ErrMessage2>{errors.nickname?.message}</S.ErrMessage2>
+              <ErrMessage2>{errors.nickname?.message}</ErrMessage2>
               <S.SubWrapper>
-                <JoinInput
+                <Input3
                   placeholder="전화번호를 입력해주세요."
                   type="number"
                   id="phone"
                   {...register("phone")}
                 />
               </S.SubWrapper>
-              <S.ErrMessage2>{errors.phone?.message}</S.ErrMessage2>
+              <ErrMessage2>{errors.phone?.message}</ErrMessage2>
               <S.SubWrapper>
                 <S.Label>장르 선택</S.Label>
                 <S.CheckBoxWrap>
@@ -175,11 +171,11 @@ export default function SignupUI() {
                 </S.CheckBoxWrap>
               </S.SubWrapper>
               {/* {interest === "" && (
-                <S.ErrMessage2>장르를 선택해주세요.</S.ErrMessage2>
+                <ErrMessage2>장르를 선택해주세요.</ErrMessage2>
               )} */}
             </S.ContentsWrapper>
             <S.ButtonWrapper>
-              <S.SignupButton>회원가입 완료</S.SignupButton>
+              <SubmitButton>회원가입 완료</SubmitButton>
             </S.ButtonWrapper>
           </form>
         </S.Wrapper>
