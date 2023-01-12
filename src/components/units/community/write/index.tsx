@@ -3,33 +3,53 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { useRecoilState } from "recoil";
-import { PopupModal } from "../../../../commons/libraries/store";
+import { useMutationUploadOneFile } from "../../../../commons/hooks/mutaions/useMutationUploadOneFile";
+import {  PopupModal } from "../../../../commons/libraries/store";
 import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../../commons/types/generated/types";
+import { checkValidationImage } from "../../../commons/uploads/image.validation";
+import { data } from "../../section/detas";
 import CommunityModal1 from "../modal";
 import CommunityTrendUI from "../trend";
 import { CREATE_BOARD, UPDATE_BOARD } from "./queries";
 import * as S from "./styles"
 
 export default function CommunityWriteUI(props){
-    const router = useRouter();
-    
-    const [isModalOpen, setIsModalOpen] = useRecoilState(PopupModal);
-    
-    const [content, setContent] = useState("");
+  
 
-    const [createBoard] = useMutation<
-    Pick<IMutation, "createBoard">,
-    IMutationCreateBoardArgs
+  const router = useRouter();
+    
+  const [isModalOpen, setIsModalOpen] = useRecoilState(PopupModal);
+  const [content, setContent] = useState("");
+  const [uploadOneFile] = useMutationUploadOneFile();
+
+  const [createBoard] = useMutation<
+  Pick<IMutation, "createBoard">,
+  IMutationCreateBoardArgs
   >(CREATE_BOARD);
 
   const [updateBoard] = useMutation<
   Pick<IMutation, "updateBoard">,
   IMutationUpdateBoardArgs
->(UPDATE_BOARD);
+  >(UPDATE_BOARD);
 
   const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
     console.log(setContent)
+  };
+
+  const [imgUrl, setImgUrl] = useState<String>('');
+  const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = checkValidationImage(event.target.files?.[0]);
+    console.log("file", file);
+    if (!file) return;
+
+    try {
+      const result = await uploadOneFile({ variables: { file } });
+      console.log("result", result);
+      setImgUrl(result.data?.uploadOneFile ?? "");
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
+    }
   };
 
 
@@ -40,10 +60,14 @@ export default function CommunityWriteUI(props){
           variables: {
             createBoardInput: {
               content,
-              boardImg:["ㅇ,러ㅏㅇ너라"]
+              boardImg: [
+                String(imgUrl)
+            
+            ],
             },
           },
         });
+        console.log(result)
         setIsModalOpen(true)
         setTimeout(function(){ setIsModalOpen(false);}, 3000);
         if (typeof result.data?.createBoard.id !== "string") {
@@ -88,7 +112,8 @@ export default function CommunityWriteUI(props){
             </S.ContentsWrap>
             <S.BottomWrap>
                 <S.ImgWrap>
-                    <S.Img src="/img.png"></S.Img>
+                    <S.Img src="/icon/img.png"></S.Img>
+                    <input type="file" onChange={onChangeFile} multiple />
                 </S.ImgWrap>
                 <S.ButtonWrap>
                     <S.Button onClick={onClickSubmit}>등록</S.Button>

@@ -58,8 +58,8 @@ export default function CommunityCommentListUIItem(props){
         </S.LeftWrap>
         <S.RightWrap>
             <S.IconWrap>
-                <S.Edit src="/Vector7.png" onClick={onClickUpdate}></S.Edit>
-                <S.Del src="/Vector6.png" onClick={onClickDelete}></S.Del>
+                <S.Edit src="/icon/Vector7.png" onClick={onClickUpdate}></S.Edit>
+                <S.Del src="/icon/Vector6.png" onClick={onClickDelete}></S.Del>
             </S.IconWrap>
         </S.RightWrap>
     </S.Wrap>
