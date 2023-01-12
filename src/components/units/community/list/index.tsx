@@ -54,7 +54,9 @@ export default function CommunityListUI(){
         <S.Wrap key={el.id}>
             <S.LeftWrap>
                 <S.AvatorWrap>
-                    <S.Avator></S.Avator>
+                    <S.Avator
+              src={`https://storage.googleapis.com/${el.user.thumbnail}`}
+            />
                 </S.AvatorWrap>
                 <S.ContentsWrap>
                     <S.TopWrap>
@@ -67,7 +69,7 @@ export default function CommunityListUI(){
                             {/* <S.Img src="/image1.png" />
                             <S.Img src="/image2.png" /> */}
                             <S.Img 
-                src={`https://storage.googleapis.com/${data.fetchBoards[index].boardImg[0].url}`}
+                src={`https://storage.googleapis.com/${data.fetchBoards[index].boardImg[0]?.url}`}
               />
                         </S.ImgWrap>
                     </S.MidWrap>

@@ -15,7 +15,7 @@ gap: 30px;
 export const AvatorWrap = styled.div`
 width: 48px;
 `
-export const Avator = styled.div`
+export const Avator = styled.img`
 width: 48px;
 height: 48px;
 background: #D9D9D9;

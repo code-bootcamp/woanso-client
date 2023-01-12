@@ -13,6 +13,7 @@ export const FETCH_BOARDS = gql`
       }
       user {
         nickname
+        thumbnail
       }
     }
   }

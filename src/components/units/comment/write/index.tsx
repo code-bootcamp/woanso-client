@@ -37,8 +37,7 @@ export default function CommunityCommentWriteUI(){
         variables: {
           createCommentInput: {
             content,
-            boardId: String(router.query.boardId),
-            userId: data.fetchUserLoggedIn.id
+            boardId: String(router.query.boardId)
           },
         },
         refetchQueries: [
