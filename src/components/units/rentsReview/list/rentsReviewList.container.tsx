@@ -3,7 +3,7 @@ import RentsReviewListUI from "./rentsReviewList.presenter";
 
 export default function RentsReviewList() {
   const { data } = useQueryFetchReviews();
-  console.log(data);
+  console.log("fetchReviews", data);
   return (
     <>
       {data?.fetchReviews.map((el: any) => (

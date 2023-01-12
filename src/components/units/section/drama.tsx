@@ -1,11 +1,12 @@
+import { ReSchool } from "../../commons/recommand/data";
 import ListMap from "./map.index";
 
 export default function Darama(props: any) {
   return (
     <>
-      {props.dataDrama?.map(
-        (el: any, index: number) => index < 5 && <ListMap el={el} key={index} />
-      )}
+      {ReSchool.map((el: any, index: number) => (
+        <ListMap el={el} key={index} />
+      ))}
     </>
   );
 }

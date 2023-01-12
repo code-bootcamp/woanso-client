@@ -59,12 +59,12 @@ export const UserEditInput = styled(JoinInput)`
   width: 100%;
 `;
 
-export const UserEditPwInput = styled(LoginInput)`
-  width: 100%;
-  border-radius: 8px 8px 0px 0px;
-`;
+// export const UserEditPwInput = styled(LoginInput)`
+//   width: 100%;
+//   border-radius: 8px 8px 0px 0px;
+// `;
 
-export const UserEditPwInput2 = styled(JoinInput)`
-  width: 100%;
-  border-radius: 0px 0px 8px 8px;
-`;
+// export const UserEditPwInput2 = styled(JoinInput)`
+//   width: 100%;
+//   border-radius: 0px 0px 8px 8px;
+// `;

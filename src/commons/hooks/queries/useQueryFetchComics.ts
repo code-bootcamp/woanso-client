@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
 export const FETCH_COMICS = gql`
   query fetchComics {
@@ -24,3 +24,8 @@ export const FETCH_COMICS = gql`
     }
   }
 `;
+
+export const useQueryFetchComics = () => {
+  const query = useQuery(FETCH_COMICS);
+  return query;
+};

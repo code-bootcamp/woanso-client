@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Academy from "../../units/section/school";
 import Action from "../../units/section/action";
 import Horror from "../../units/section/horror";
-import Mystery from "../../units/section/mystery";
 import Romance from "../../units/section/romance";
 import * as S from "./styles";
 import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics";
@@ -26,12 +24,7 @@ export default function Recommand() {
   const { data } = useQuery(FETCH_COMICS);
 
   const copyData = data;
-  const dataRomance = copyData?.fetchComics.filter(
-    (el: any) => el.category === "romance"
-  );
-  const dataSchool = copyData?.fetchComics.filter(
-    (el: any) => el.category === "school"
-  );
+
   const dataDrama = copyData?.fetchComics.filter(
     (el: any) => el.category === "drama"
   );
@@ -72,10 +65,10 @@ export default function Recommand() {
         </S.NavWrapper>
         <S.Line />
         <S.BookWrapper>
-          {section === "romance" && <Romance dataRomance={dataRomance} />}
-          {section === "drama" && <Darama dataDrama={dataDrama} />}
+          {section === "romance" && <Romance />}
+          {section === "drama" && <Darama />}
           {section === "action" && <Action dataAction={dataAction} />}
-          {section === "school" && <School dataSchool={dataSchool} />}
+          {section === "school" && <School />}
           {section === "fantasy" && <Fantasy dataFantasy={dataFantasy} />}
           {section === "horror" && <Horror dataHorror={dataHorror} />}
         </S.BookWrapper>

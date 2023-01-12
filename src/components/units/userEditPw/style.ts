@@ -26,14 +26,12 @@ export const Input = styled.input`
     cursor: pointer;
     padding-left: 23px;
     background-repeat: no-repeat;
-    background-image: url("./img/checker-off.svg");
+    background-image: url("/icon/signup.png");
   }
   input[type="checkbox"]:checked + label {
-    background-image: url("./img/checker-on.svg");
+    background-image: url("/icon/signup2.png");
   }
-  input[type="checkbox"]:disabled + label {
-    background-image: url("./img/checker-disabled.svg");
-  }
+
   input[type="checkbox"] {
     display: none;
   }

@@ -1,12 +1,21 @@
+import { useMutation } from "@apollo/client";
 import { MouseEvent, useState } from "react";
+import {
+  BLOCK_USER_FOR_ADMIN,
+  useMutationBlockUserForAdmin,
+} from "../../../commons/hooks/mutaions/useMutationBlockUserForAdmin";
+import { useQueryFetchBlockedUsersForAdmin } from "../../../commons/hooks/queries/useQueryFetchBlockedUsersForAdmin";
 import * as S from "./style";
 
 export default function UserManagement() {
-  const [userState, steState] = useState<string>("");
+  const [email, setEmail] = useState("");
+  const { data: block } = useQueryFetchBlockedUsersForAdmin();
+  console.log(block);
 
-  const onClickUserStatus = (e: MouseEvent<HTMLButtonElement>) => {
-    steState(e.currentTarget.id);
-    console.log(e.currentTarget.id);
+  const onClickUserUnBlock = (e: MouseEvent<HTMLButtonElement>) => {
+    setEmail(e.currentTarget.id);
+    // const [result] = useMutationBlockUserForAdmin(email);
+    // console.log(result);
   };
 
   return (
@@ -18,43 +27,35 @@ export default function UserManagement() {
         <S.Table>
           <S.Thead>
             <S.TableRow>
-              <S.TableHead>상태</S.TableHead>
-              <S.TableHead>닉네임</S.TableHead>
-              <S.TableHead>등급</S.TableHead>
-              <S.TableHead>관심 장르</S.TableHead>
-              <S.TableHead>대여 여부</S.TableHead>
-              <S.TableHead>대여 횟수</S.TableHead>
-              <S.TableHead>대여 총액</S.TableHead>
+              <S.TableHead>Status</S.TableHead>
+              <S.TableHead>Email</S.TableHead>
+              <S.TableHead>Nickname</S.TableHead>
+              <S.TableHead>Phone</S.TableHead>
+              <S.TableHead>Interest</S.TableHead>
             </S.TableRow>
           </S.Thead>
 
           <S.Tbody>
-            {["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k"].map(
-              (el, index) => (
-                <S.TableRow2 key={index}>
-                  <S.TableDaata>
-                    <S.UserStatus id={el} onClick={onClickUserStatus}>
-                      사용중지
-                    </S.UserStatus>
-                    <S.Text>
-                      {userState === el ? "이용 중지" : "이용 중"}
-                    </S.Text>
-                  </S.TableDaata>
-                  <S.TableDaata>아무게</S.TableDaata>
-                  <S.TableDaata>브론즈</S.TableDaata>
-                  <S.TableDaata>액션</S.TableDaata>
-                  <S.TableDaata>true</S.TableDaata>
-                  <S.TableDaata>5</S.TableDaata>
-                  <S.TableDaata>200000</S.TableDaata>
-                </S.TableRow2>
-              )
-            )}
+            {block?.fetchBlockedUsersForAdmin.map((el: any) => (
+              <S.TableRow2 key={el.id}>
+                <S.TableDaata>
+                  <S.UserStatus id={el.email} onClick={onClickUserUnBlock}>
+                    block해제
+                  </S.UserStatus>
+                  <S.Text>이용 중지</S.Text>
+                </S.TableDaata>
+                <S.TableDaata>{el.email}</S.TableDaata>
+                <S.TableDaata>{el.nickname}</S.TableDaata>
+                <S.TableDaata>{el.phone}</S.TableDaata>
+                <S.TableDaata>{el.interest}</S.TableDaata>
+              </S.TableRow2>
+            ))}
           </S.Tbody>
 
           {/* <tfoot>
             <tr>
-              <S.TableHead colspan="4">SUM</S.TableHead>
-              <S.TableHead>118</S.TableHead>
+              <S.TableHead colSpan={5}>SUM</S.TableHead>
+              <S.TableHead>{}</S.TableHead>
             </tr>
           </tfoot> */}
         </S.Table>

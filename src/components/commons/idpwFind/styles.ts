@@ -47,6 +47,7 @@ export const Nav = styled.div`
   font-weight: 700;
   font-size: 30px;
   line-height: 100%;
+  cursor: pointer;
 `;
 export const Nav2 = styled.div`
   font-size: 20px;
@@ -62,6 +63,7 @@ export const Nav2 = styled.div`
   font-weight: 700;
   font-size: 30px;
   line-height: 100%;
+  cursor: pointer;
 `;
 export const InputWrapper = styled.div`
   display: flex;
@@ -134,6 +136,7 @@ export const CheckButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 export const Button = styled.button`
   width: 50px;

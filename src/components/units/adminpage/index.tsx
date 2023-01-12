@@ -1,29 +1,31 @@
 import * as S from "./style";
 import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
-import { allDatas } from "../section/detas";
-import PointChangeModal from "../../commons/customModal/pointChangeModal";
 import LogoutConfirmModal from "../../commons/customModal/logoutModal";
+import { useQueryFetchUsersForAdmin } from "../../../commons/hooks/queries/useQueryFetchUsersForAdmin";
+import { useQueryFetchComics } from "../../../commons/hooks/queries/useQueryFetchComics";
 
 const MenuLists = [
   { id: "rents/new", name: "상품 추가" },
   { id: "usermanagement", name: "유저 게시글 관리" },
   { id: "usermanagement", name: "유저 권한 관리" },
-  { id: "event", name: "진행중인 이벤트" },
 ];
 
 export default function AdminpageUI() {
   const router = useRouter();
-  const [open, setOpen] = useState<boolean>(false);
   const [confirm, setConfirm] = useState<boolean>(false);
+  const { data: Users } = useQueryFetchUsersForAdmin();
+  const { data: Comics } = useQueryFetchComics();
+  console.log(Comics);
 
   const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
     router.push(e.currentTarget.id);
   };
 
-  const onClickOpenModal = () => {
-    setOpen(true);
-  };
+  // const [open, setOpen] = useState<boolean>(false);
+  // const onClickOpenModal = () => {
+  //   setOpen(true);
+  // };
 
   const onClickLogout = () => {
     setConfirm(true);
@@ -46,10 +48,10 @@ export default function AdminpageUI() {
                   <S.MenuName>{el.name}</S.MenuName>
                 </S.MenuList>
               ))}
-              <S.MenuList onClick={onClickOpenModal}>
+              {/* <S.MenuList onClick={onClickOpenModal}>
                 <S.MenuName>포인트 지불 관리</S.MenuName>
               </S.MenuList>
-              <PointChangeModal open={open} setOpen={setOpen} />
+              <PointChangeModal open={open} setOpen={setOpen} /> */}
               <S.MenuList onClick={onClickLogout}>
                 <S.MenuName>로그아웃</S.MenuName>
               </S.MenuList>
@@ -89,22 +91,12 @@ export default function AdminpageUI() {
               <S.BoxTitle>상품 리스트</S.BoxTitle>
               <S.BoxSearch placeholder="찾으시는 상품을 검색하세요." />
               <S.ItemsWrap>
-                {allDatas.map((el) => (
+                {Comics?.fetchComics.map((el: any) => (
                   <S.ItemWrap>
-                    <S.ItemImg src={el.imgUrl} />
-                    <S.ItemName>{el.name}</S.ItemName>
-                  </S.ItemWrap>
-                ))}
-                {allDatas.map((el) => (
-                  <S.ItemWrap>
-                    <S.ItemImg src={el.imgUrl} />
-                    <S.ItemName>{el.name}</S.ItemName>
-                  </S.ItemWrap>
-                ))}
-                {allDatas.map((el) => (
-                  <S.ItemWrap>
-                    <S.ItemImg src={el.imgUrl} />
-                    <S.ItemName>{el.name}</S.ItemName>
+                    <S.ItemImg
+                      src={`https://storage.googleapis.com/${el.ISBN}`}
+                    />
+                    <S.ItemName>{el.title}</S.ItemName>
                   </S.ItemWrap>
                 ))}
               </S.ItemsWrap>
@@ -118,72 +110,24 @@ export default function AdminpageUI() {
                 <tr>
                   <th>번호</th>
                   <th>닉네임</th>
-                  <th>등급</th>
+                  <th>메일</th>
+                  <th>연락처</th>
                   <th>관심 장르</th>
-                  <th>대여 여부</th>
-                  <th>대여 횟수</th>
-                  <th>대여 총액</th>
-                  <th>가입 일</th>
-                  <th>탈퇴 일</th>
+                  <th>ID</th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>아무게</td>
-                  <td>브론즈</td>
-                  <td>액션</td>
-                  <td>true</td>
-                  <td>5</td>
-                  <td>200000</td>
-                  <td>2022-12-27</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>아무게</td>
-                  <td>브론즈</td>
-                  <td>액션</td>
-                  <td>true</td>
-                  <td>5</td>
-                  <td>200000</td>
-                  <td>2022-12-27</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>아무게</td>
-                  <td>브론즈</td>
-                  <td>액션</td>
-                  <td>true</td>
-                  <td>5</td>
-                  <td>200000</td>
-                  <td>2022-12-27</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>아무게</td>
-                  <td>브론즈</td>
-                  <td>액션</td>
-                  <td>true</td>
-                  <td>5</td>
-                  <td>200000</td>
-                  <td>2022-12-27</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>아무게</td>
-                  <td>브론즈</td>
-                  <td>액션</td>
-                  <td>true</td>
-                  <td>5</td>
-                  <td>200000</td>
-                  <td>2022-12-27</td>
-                  <td>-</td>
-                </tr>
+                {Users?.fetchUsersForAdmin.map((el: any, i: number) => (
+                  <tr key={el.id}>
+                    <th scope="row">{i + 1}</th>
+                    <td>{el.nickname}</td>
+                    <td>{el.email}</td>
+                    <td>{el.phone}</td>
+                    <td>{el.interest}</td>
+                    <td>{el.id}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </S.SectionWrap2>

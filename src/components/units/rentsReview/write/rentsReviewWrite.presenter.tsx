@@ -3,27 +3,27 @@ import React, { ChangeEvent, useState } from "react";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
 import { useMutationCreateReview } from "../../../../commons/hooks/mutaions/useMutationCreateReview";
-import { useRouter } from "next/router";
 import { useQueryFetchUserLoggendIn } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 import { FETCH_REVIEWS } from "../../../../commons/hooks/queries/useQueryFetchReviews";
 
 export default function RentsCommentWriteUI(props: any) {
   const [contents, setContents] = useState("");
-  const [like, setLike] = useState();
+  // const [like, setLike] = useState<number>(5);
+  const [value, setValue] = useState(3);
   const { data: user } = useQueryFetchUserLoggendIn();
   const [createReview] = useMutationCreateReview();
 
   const onChangeCentents = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(e.currentTarget.value);
   };
-  console.log(props);
 
+  console.log(value);
   const onClickCreateReview = async () => {
     const createReveiwInPut = {
       comicId: props.comicId,
       userId: user.fetchUserLoggedIn.id,
       content: contents,
-      rating: Number(like),
+      rating: value,
     };
     try {
       const result = await createReview({
@@ -50,7 +50,7 @@ export default function RentsCommentWriteUI(props: any) {
       <S.Title>100자평</S.Title>
       <S.RateBox>
         <p>이 만화를 평가해주세요!</p>
-        <S.StarRate onChange={setLike} value={like} />
+        <S.StarRate onChange={setValue} value={value} />
       </S.RateBox>
       <S.WriteWrapper>
         <S.Textarea
@@ -62,7 +62,9 @@ export default function RentsCommentWriteUI(props: any) {
         />
       </S.WriteWrapper>
       <S.ButtonWrapper>
-        <S.Button onClick={onClickCreateReview}>등록하기</S.Button>
+        <S.Button type="submit" onClick={onClickCreateReview}>
+          등록하기
+        </S.Button>
       </S.ButtonWrapper>
     </S.Wrapper>
   );

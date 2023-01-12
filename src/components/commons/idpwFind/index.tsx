@@ -30,6 +30,7 @@ export default function IdpwFind() {
   const onChangePhone = (e: ChangeEvent<HTMLInputElement>) => {
     setPhone(String(e.currentTarget.value));
   };
+  console.log(phone);
 
   const onClickEmail = () => {
     console.log("이메일 찾아줘!!");
@@ -50,6 +51,7 @@ export default function IdpwFind() {
       phone: String(phone),
     },
   });
+  console.log(data);
 
   const onClickFindEmail = () => {
     {
@@ -76,6 +78,7 @@ export default function IdpwFind() {
   };
 
   const onClickCheckUser = () => {};
+
   const onClickFindPassword = async (data: IUserFormType) => {
     console.log(data);
     if (data.password !== data.password2) {
