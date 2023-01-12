@@ -8,9 +8,15 @@ export const FETCH_USER_LOGGED_IN = gql`
       email
       phone
       interest
-      userImg {
-        url
-      }
+      thumbnail
+      # comment
+      # review
+      # reviewLike
+      # boardDislike
+      # boardlLike
+      # board
+      # wishlist
+      # pointTransaction
     }
   }
 `;

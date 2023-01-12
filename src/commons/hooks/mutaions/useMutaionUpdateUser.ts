@@ -9,11 +9,7 @@ export const UPDATE_USER = gql`
       email
       phone
       interest
-      userImg {
-        id
-        url
-        isMain
-      }
+      thumbnail
     }
   }
 `;

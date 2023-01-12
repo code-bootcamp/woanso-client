@@ -14,7 +14,6 @@ export default function UserEditPw() {
   const [interest, setInterest] = useState("");
   const { data: user } = useQueryFetchUserLoggendIn();
   const [updateUser] = useMutationUpdateUser();
-
   const onChangeCheckbox = (event: ChangeEvent<HTMLInputElement>) => {
     setInterest(event.target.value);
   };
@@ -22,7 +21,10 @@ export default function UserEditPw() {
   const { register, handleSubmit } = useForm<IUserUpdateFormType>({
     mode: "onChange",
   });
+
+  console.log(interest);
   const onClickEdit = async (data: IUserUpdateFormType) => {
+    const phone = String(data.phone);
     try {
       const result = await updateUser({
         variables: {
@@ -32,12 +34,10 @@ export default function UserEditPw() {
             nickname: data.nickname
               ? data.nickname
               : user.fetchUserLoggedIn.nickname,
-            phone: data.phone
-              ? String(data.phone)
-              : user.fetchUserLoggedIn.phone,
-            interest: data.interest
-              ? data.interest
-              : user.fetchUserLoggedIn.interest,
+            phone: data.phone ? phone : user.fetchUserLoggedIn.phone,
+            interest:
+              interest !== "" ? interest : user.fetchUserLoggedIn.interest,
+            thumbnail: user.fetchUserLoggedIn.thumbnail,
           },
         },
       });
@@ -45,7 +45,7 @@ export default function UserEditPw() {
       Modal.success({
         content: "회원정보가 수정되었습니다.",
         afterClose() {
-          router.push("/home");
+          router.push("/mypage");
         },
       });
     } catch (error) {
@@ -81,7 +81,7 @@ export default function UserEditPw() {
       <UserEditInput
         type="number"
         {...register("phone")}
-        defaultValue={Number(user?.fetchUserLoggedIn.phone)}
+        defaultValue={user?.fetchUserLoggedIn.phone}
       />
 
       <SS.SubWrapper>

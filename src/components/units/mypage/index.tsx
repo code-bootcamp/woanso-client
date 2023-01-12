@@ -10,6 +10,7 @@ import { useQueryFetchUserLoggendIn } from "../../../commons/hooks/queries/useQu
 import { useMutationUploadOneFile } from "../../../commons/hooks/mutaions/useMutationUploadOneFile";
 import { Modal } from "antd";
 import { checkValidationImage } from "../../commons/uploads/image.validation";
+import { useMutationUpdateUser } from "../../../commons/hooks/mutaions/useMutaionUpdateUser";
 
 const MenuLists = [
   { id: "myInfo", name: "내정보" },
@@ -20,12 +21,11 @@ const MenuLists = [
 ];
 
 export default function MyPageUI() {
-  const router = useRouter();
   const [open, setOpen] = useState<boolean>(false);
   const [isActive, setIsActive] = useState<String>("myInfo");
 
   const { data: User } = useQueryFetchUserLoggendIn();
-  console.log(User?.fetchUserLoggedIn.id);
+  const [updateUser] = useMutationUpdateUser();
   const [uploadOneFile] = useMutationUploadOneFile();
   // const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
   //   if (e.currentTarget.id === "askkakao") {
@@ -36,7 +36,7 @@ export default function MyPageUI() {
   //   }
   // };
   const fileRef = useRef<HTMLInputElement>(null);
-  const [imgUrl, setImgUrl] = useState<String>("");
+  // const [imgUrl, setImgUrl] = useState<String>("");
   const onClickUpload = () => {
     fileRef.current?.click();
   };
@@ -45,11 +45,27 @@ export default function MyPageUI() {
     const file = checkValidationImage(event.target.files?.[0]);
     console.log("file", file);
     if (!file) return;
+    const result = await uploadOneFile({ variables: { file } });
+    const imgUrl = result.data?.uploadOneFile;
+    AutoChangeEmage(imgUrl);
+  };
 
+  const AutoChangeEmage = async (imgUrl: string) => {
     try {
-      const result = await uploadOneFile({ variables: { file } });
-      console.log("result", result);
-      setImgUrl(result.data?.uploadOneFile ?? "");
+      const change = await updateUser({
+        variables: {
+          email: User.fetchUserLoggedIn.email,
+          updateUserInput: {
+            email: User.fetchUserLoggedIn.email,
+            nickname: User.fetchUserLoggedIn.nickname,
+            phone: User.fetchUserLoggedIn.phone,
+            interest: User.fetchUserLoggedIn.interest,
+            thumbnail: imgUrl,
+          },
+        },
+      });
+      console.log(change);
+      Modal.success({ content: "이미지가 변경되었습니다." });
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
@@ -68,7 +84,9 @@ export default function MyPageUI() {
       <S.SideWrap>
         <S.SideWrapTop>
           <S.AvatarWrap onClick={onClickUpload}>
-            <S.AvatarImg src="/userAvatar.jpeg" />
+            <S.AvatarImg
+              src={`https://storage.googleapis.com/${User?.fetchUserLoggedIn.thumbnail}`}
+            />
             <S.EditIcon>
               <S.EditIconImg src="/icon/edit_icon.png" />
             </S.EditIcon>

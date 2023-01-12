@@ -68,6 +68,7 @@ export const SubmitButton = styled.div`
   color: white;
   text-align: center;
   border-radius: 8px;
+  cursor: pointer;
 `;
 export const BackButton = styled.div`
   width: 240px;
