@@ -9,33 +9,18 @@ import { InnerWrap, OuterWrap } from "../../../../commons/styles/Wrapper";
 import * as S from "./style";
 
 // prettier-ignore
-const SHOW_LAYOUT = [
-    "/rents",
-    "/event"
-  ];
-
 const MenuList = [
-  {
-    name: "대여",
-    url: "/rents",
-  },
-  {
-    name: "커뮤니티",
-    url: "/community",
-  },
-  {
-    name: "이벤트",
-    url: "/event",
-  },
+  { name: "대여", url: "/rents"},
+  { name: "커뮤니티", url: "/community"},
+  { name: "이벤트", url: "/event"},
 ];
 
-export default function LayoutHeader() {
+function LayoutHeader() {
   const router = useRouter();
   const [accessToken] = useRecoilState(accessTokenState);
-  const [logout] = useMutation(Logout);
-  const isShowLayout = SHOW_LAYOUT.includes(router.asPath);
   const [isScroll, setIsScroll] = useState(false);
   const [isMenu, setIsMenu] = useState(false);
+  const [logout] = useMutation(Logout);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -105,7 +90,7 @@ export default function LayoutHeader() {
           {isMenu && (
             <S.MobileMenu>
               <S.MLogo>
-                <span>WoanSo</span>{" "}
+                <span>WoanSo</span>
                 <S.MCloseBtn onClick={onClickMenuToggle}>X</S.MCloseBtn>
               </S.MLogo>
               <S.MNavagation>
@@ -119,11 +104,10 @@ export default function LayoutHeader() {
               </S.MNavagation>
             </S.MobileMenu>
           )}
-
-          {/* {router.asPath === "/home" && <MainBanner />}
-          {isShowLayout && <SliderBanner />} */}
         </S.Header>
       </InnerWrap>
     </OuterWrap>
   );
 }
+
+export default LayoutHeader;

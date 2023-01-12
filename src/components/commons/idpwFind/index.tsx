@@ -1,11 +1,12 @@
 import { useQuery } from "@apollo/client";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutationUpdatePassword } from "../../../commons/hooks/mutaions/useMutationUpdatePassword";
 import { FIND_EMAIL } from "../../../commons/hooks/queries/useQueryFindEmail";
+import { SubmitButton } from "../../../commons/styles/Button";
+import { Input1, Input2, Input3 } from "../../../commons/styles/Input";
 import { IUserFormType } from "../../../commons/types/formtypes/type";
 import LoginHeader from "../layout/loginHeader";
 import * as S from "./styles";
@@ -113,9 +114,6 @@ export default function IdpwFind() {
       <LoginHeader />
       <S.InnerWrapper>
         <S.IdpwFindWrapper>
-          {/* <S.TitleWrapper>
-            <S.Title>이메일 / 비밀번호 찾기</S.Title>
-          </S.TitleWrapper> */}
           <S.NavWrapper>
             <S.Nav onClick={onClickEmail} qqq={qqq}>
               이메일 찾기
@@ -126,49 +124,46 @@ export default function IdpwFind() {
           </S.NavWrapper>
           {qqq ? (
             <>
-              <S.InputWrapper onClick={onClickEmail} bbb={bbb}>
-                <S.Input
+              <S.InputWrapper onClick={onClickEmail}>
+                <Input3
                   type="number"
                   placeholder="전화번호 입력('-'제외)"
                   onChange={onChangePhone}
-                ></S.Input>
+                ></Input3>
+                <S.ButtonWrapper>
+                  <SubmitButton onClick={onClickFindEmail}>찾기</SubmitButton>
+                </S.ButtonWrapper>
               </S.InputWrapper>
-              <S.ButtonWrapper>
-                <S.CheckButton onClick={onClickFindEmail}>찾기</S.CheckButton>
-              </S.ButtonWrapper>
             </>
           ) : (
             <S.InputWrapper>
-              <S.Input
+              <Input3
                 type="text"
                 placeholder="이메일 주소"
                 {...register("email")}
               />
-              <S.CheckWrapper>
-                <S.CheckWrapper2>
-                  <S.Input
-                    type="text"
-                    placeholder="전화번호"
-                    {...register("phone")}
-                  />
-                  <S.Button onClick={onClickCheckUser}>찾기</S.Button>
-                </S.CheckWrapper2>
-                {/* <S.Line /> */}
-              </S.CheckWrapper>
-              <S.Input3
+              <S.DivInput>
+                <input
+                  type="text"
+                  placeholder="전화번호"
+                  {...register("phone")}
+                />
+                <S.FindBtn onClick={onClickCheckUser}>찾기</S.FindBtn>
+              </S.DivInput>
+              <Input1
                 type="password"
                 placeholder="새 비밀번호"
                 {...register("password")}
               />
-              <S.Input4
+              <Input2
                 type="password"
                 placeholder="새 비밀번호 확인"
                 {...register("password2")}
               />
               <S.ButtonWrapper>
-                <S.CheckButton onClick={handleSubmit(onClickFindPassword)}>
+                <SubmitButton onClick={handleSubmit(onClickFindPassword)}>
                   찾기
-                </S.CheckButton>
+                </SubmitButton>
               </S.ButtonWrapper>
             </S.InputWrapper>
           )}

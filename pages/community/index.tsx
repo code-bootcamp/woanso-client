@@ -17,20 +17,16 @@ const Wrap1 = styled.div`
 
 const Wrap2 = styled.div``;
 
-
-export default function CommunityPage(){
-    return (
-        <Wrap>
-    <Wrap1>
-    <CommunityTrendUI/>
-    <CommunityWriteUI/>
-    <CommunityListUI/>    
-    <CommunityDeleteModal/>
-    </Wrap1>
-    <Wrap2>
-    {/* <ChatList/> */}
-    </Wrap2>
-
+export default function CommunityPage() {
+  return (
+    <Wrap>
+      <Wrap1>
+        <CommunityTrendUI />
+        <CommunityWriteUI />
+        <CommunityListUI />
+        <CommunityDeleteModal />
+      </Wrap1>
+      <Wrap2>{/* <ChatList/> */}</Wrap2>
     </Wrap>
   );
 }

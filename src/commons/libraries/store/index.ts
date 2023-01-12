@@ -14,17 +14,12 @@ export const restoreAccessTokenLoadable = selector({
   },
 });
 
-export const getUserEmail = atom({
-  key: "getUserEmail",
-  default: "",
-});
-
 export const deleteModal = atom({
   key: "deleteModal",
-  default: false
+  default: false,
 });
 
 export const PopupModal = atom({
   key: "PopupModal",
-  default: false
+  default: false,
 });

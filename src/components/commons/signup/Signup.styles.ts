@@ -33,20 +33,7 @@ export const Label = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin: auto;
   justify-content: center;
-`;
-
-export const SignupButton = styled.button`
-  width: 340px;
-  height: 50px;
-  background: #77170d;
-  border-radius: 8px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 100%;
-  color: #ffffff;
   margin-top: 20px;
 `;
 
@@ -61,38 +48,6 @@ export const CheckBox = styled.input`
   line-height: 100%;
   color: #717171;
   display: none;
-`;
-
-export const ErrMessage = styled.div`
-  font-size: 16px;
-  color: red;
-  padding: 10px 0;
-`;
-
-export const ErrMessage2 = styled.div`
-  font-size: 16px;
-  color: red;
-  padding: 5px 0px 10px 0;
-`;
-
-export const Input2 = styled.input`
-  width: 340px;
-  height: 50px;
-  background: #ffffff;
-  border: 1px solid #d1d5d9;
-  border-radius: 8px 8px 0px 0px;
-  padding: 20px;
-`;
-export const Input3 = styled.input`
-  width: 340px;
-  height: 50px;
-  background: #ffffff;
-  border-width: 0px 1px 1px 1px;
-  border-style: solid;
-  border-color: #d1d5d9;
-  border-radius: 0px 0px 8px 8px;
-  padding: 20px;
-  margin-bottom: 10px;
 `;
 
 export const CheckBoxWrap = styled.div`
