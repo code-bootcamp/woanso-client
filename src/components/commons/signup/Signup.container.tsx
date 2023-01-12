@@ -31,17 +31,19 @@ export default function SignupUI() {
   };
 
   const onClickSignUp = async (data: IUserFormType) => {
+    console.log(data);
     console.log(interest);
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
     }
     if (interest === "") return;
+    const phone = "0" + String(data.phone);
     try {
       const result = await signUp({
         variables: {
           email: data.email,
           password: data.password,
-          phone: String(data.phone),
+          phone,
           nickname: data.nickname,
           interest,
         },
