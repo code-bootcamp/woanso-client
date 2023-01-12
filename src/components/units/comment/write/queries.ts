@@ -11,4 +11,3 @@ export const CREATE_COMMENT = gql`
     }
   }
 `;
-

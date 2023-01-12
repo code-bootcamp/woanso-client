@@ -24,7 +24,6 @@ export const UPDATE_BOARD = gql`
       updateBoardInput: $updateBoardInput
     ) {
       id
-  
     }
   }
 `;

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 
-
 export const Wrap = styled.div`
 border-top: 1px solid #999999;
 border-bottom: 1px solid #999999;
@@ -38,7 +37,6 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 100%;
-/* identical to box height, or 16px */
 display: flex;
 align-items: center;
 letter-spacing: -0.05em;
@@ -100,8 +98,6 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 100%;
-/* identical to box height, or 16px */
-
 display: flex;
 align-items: center;
 letter-spacing: -0.05em;
@@ -125,15 +121,16 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 100%;
-/* identical to box height, or 16px */
-
 display: flex;
 align-items: center;
 letter-spacing: -0.05em;
 margin-top: 5px;
 color: #71767B;
 `
-export const RightWrap = styled.div``
+export const RightWrap = styled.div`
+display: flex;
+align-items: center;
+`
 export const IconWrap = styled.div`
 display: flex;
 gap: 15px;
@@ -160,7 +157,6 @@ width: 1000px;
 `
 export const CommentLeftWrap = styled.div`
 display: flex;
-
 `
 export const CommentContents = styled.input`
 border: none;
@@ -186,18 +182,14 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 100%;
-/* or 16px */
-
 display: flex;
 align-items: center;
 text-align: center;
 letter-spacing: -0.05em;
 justify-content: center;
-
 color: #FFFFFF;
 width: 80px;
 height: 36px;
-
 background: #77170D;
 border-radius: 8px;
 `

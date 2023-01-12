@@ -7,7 +7,6 @@ import { useMutationUploadOneFile } from "../../../../commons/hooks/mutaions/use
 import {  PopupModal } from "../../../../commons/libraries/store";
 import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../../commons/types/generated/types";
 import { checkValidationImage } from "../../../commons/uploads/image.validation";
-import { data } from "../../section/detas";
 import CommunityModal1 from "../modal";
 import CommunityTrendUI from "../trend";
 import { CREATE_BOARD, UPDATE_BOARD } from "./queries";
@@ -62,7 +61,6 @@ export default function CommunityWriteUI(props){
               content,
               boardImg: [
                 String(imgUrl)
-            
             ],
             },
           },
@@ -90,24 +88,24 @@ export default function CommunityWriteUI(props){
       if (typeof router.query.boardId !== "string") return;
       const result = await updateBoard({
         variables: {
-          id: router.query.boardId,
+          id: String(router.query.boardId),
           updateBoardInput,
         },
       });
-
       void router.push(`/community/${result.data?.updateBoard.id}`);
     } catch (error) {
       if (error instanceof Error) alert(error.message);
     }
   };
-
-
+  
+  
     return (
       <>
         <S.Wrap>
             <S.ContentsWrap>
                 <S.contents placeholder="무슨 일이 일어나고 있나요?"
                 onChange={onChangeContents}
+                defaultValue={props.data?.fetchBoard.content}
                 ></S.contents>
             </S.ContentsWrap>
             <S.BottomWrap>
@@ -116,7 +114,12 @@ export default function CommunityWriteUI(props){
                     <input type="file" onChange={onChangeFile} multiple />
                 </S.ImgWrap>
                 <S.ButtonWrap>
-                    <S.Button onClick={onClickSubmit}>등록</S.Button>
+                    <S.Button
+                    //  onClick={onClickSubmit}
+                    onClick={props.isEdit ? onClickUpdate : onClickSubmit}
+                    >
+                      {props.isEdit ? "수정" : "등록"}
+                      </S.Button>
                 </S.ButtonWrap>
             </S.BottomWrap>
         </S.Wrap>

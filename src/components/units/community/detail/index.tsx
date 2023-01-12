@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { IMutation, IMutationDeleteBoardArgs, IQuery, IQueryFetchBoardArgs } from "../../../../commons/types/generated/types";
-import { DELETE_BOARD, FETCH_BOARD } from "./queries";
+import { IMutation, IMutationDeleteBoardArgs, IMutationLikeBoardArgs, IQuery, IQueryFetchBoardArgs } from "../../../../commons/types/generated/types";
+import { DELETE_BOARD, FETCH_BOARD, LIKE_BOARD } from "./queries";
 import * as S from "./styles";
 import CommunityCommentWriteUI from "../../comment/write/index"
 import CommunityModal from "../deleteModal";
@@ -21,6 +21,11 @@ export default function CommunityDetailUI(){
     Pick<IMutation, "deleteBoard">,
     IMutationDeleteBoardArgs
   >(DELETE_BOARD);
+
+    const [likeBoard] = useMutation<
+    Pick<IMutation, "likeBoard">,
+    IMutationLikeBoardArgs
+    >(LIKE_BOARD);
 
     const onClickComment = () => {
         setIsEdit((prev) => !prev)
@@ -48,6 +53,22 @@ export default function CommunityDetailUI(){
         // router.push(`/community/`);
       };
 
+
+      const onClickLike = async () => {
+        await likeBoard({
+          variables: {
+            id: router.query.boardId,
+          },
+          refetchQueries: [
+            {
+              query: FETCH_BOARD,
+              variables: { id: router.query.boardId },
+            },
+          ],
+        });
+      };
+
+
     return (
         <>
         <S.Wrap>
@@ -73,8 +94,8 @@ export default function CommunityDetailUI(){
                     </S.MidWrap>
                     <S.BottomWrap>
                         <S.LikeWrap>
-                            <S.LikeIcon src="/icon/Icon3.png"></S.LikeIcon>
-                            <S.Like>30</S.Like>
+                            <S.LikeIcon src="/icon/Icon3.png" onClick={onClickLike}></S.LikeIcon>
+                            <S.Like>{data?.fetchBoard.like}</S.Like>
                         </S.LikeWrap>
                         <S.CommentWrap>
                             <S.CommentIcon src="/icon/Icon5.png" onClick={onClickComment}></S.CommentIcon>

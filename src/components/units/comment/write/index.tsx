@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { FETCH_USER_LOGGED_IN } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 import { IMutation, IMutationCreateCommentArgs } from "../../../../commons/types/generated/types";
+import { FETCH_COMMENTS } from "../list/queries";
 import { CREATE_COMMENT } from "./queries";
 import * as S from "./style";
 
@@ -11,17 +12,18 @@ export default function CommunityCommentWriteUI(){
     const [content, setContent] = useState("");
 
 
-//     const [createComment] = useMutation<
-//     Pick<IMutation, "createComment">,
-//     IMutationCreateCommentArgs
-//   >(CREATE_COMMENT);
+    const [createComment] = useMutation<
+    Pick<IMutation, "createComment">,
+    IMutationCreateCommentArgs
+  >(CREATE_COMMENT);
 
-  const [createComment] = useMutation(CREATE_COMMENT);
 
   const {data} = useQuery(FETCH_USER_LOGGED_IN)
 
   const onChangeContent = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(event.target.value);
+
+    console.log(setContent)
   };
 
   console.log(data)
@@ -35,16 +37,16 @@ export default function CommunityCommentWriteUI(){
         variables: {
           createCommentInput: {
             content,
-            boardId: router.query.id,
+            boardId: String(router.query.boardId),
             userId: data.fetchUserLoggedIn.id
           },
         },
-        // refetchQueries: [
-        //   {
-        //     query: FETCH_BOARD_COMMENTS,
-        //     variables: { boardId: router.query.id },
-        //   },
-        // ],
+        refetchQueries: [
+          {
+            query: FETCH_COMMENTS,
+            variables: { boardId: router.query.boardId },
+          },
+        ],
       });
     } catch (error) {
       if (error instanceof Error) alert(error.message);
