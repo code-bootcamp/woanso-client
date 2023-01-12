@@ -20,6 +20,7 @@ export const FETCH_BOARD = gql`
         # boardImgID
         url
       }
+      like
     }
   }
 `;
@@ -27,5 +28,11 @@ export const FETCH_BOARD = gql`
 export const DELETE_BOARD = gql`
   mutation deleteBoard($id: String!) {
     deleteBoard(id: $id)
+  }
+`;
+
+export const LIKE_BOARD = gql`
+  mutation likeBoard($id: String!) {
+    likeBoard(id: $id)
   }
 `;

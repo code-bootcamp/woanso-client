@@ -14,8 +14,10 @@ export default function CommunityCommentListUI(){
     variables: { id: router.query.boardId },
   });
 
-  
 
+  console.log(data)
+
+  
   const onLoadMore = () => {
     if (!data) return;
 
