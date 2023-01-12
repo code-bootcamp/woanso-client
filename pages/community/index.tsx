@@ -29,7 +29,7 @@ export default function CommunityPage(){
     <CommunityDeleteModal/>
     </Wrap1>
     <Wrap2>
-    <ChatList/>
+    {/* <ChatList/> */}
     </Wrap2>
     </Wrap>
     )

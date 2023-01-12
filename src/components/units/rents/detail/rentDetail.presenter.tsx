@@ -31,6 +31,8 @@ export default function RentDetailUI() {
 
   const count = data?.fetchComic.comicRating.comicRating;
 
+
+  console.log(data)
   return (
     <>
       <S.Wrapper>

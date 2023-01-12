@@ -17,6 +17,8 @@ export default function CommunityListUI(){
     IQueryFetchBoardArgs
     >(FETCH_BOARDS);
 
+    console.log(data)
+
     const [deleteBoard] = useMutation<
     Pick<IMutation, "deleteBoard">,
     IMutationDeleteBoardArgs
@@ -45,7 +47,6 @@ export default function CommunityListUI(){
         console.log("삭제완룡")
       };
 
-    console.log(data)
 
     return (
         <>
@@ -58,22 +59,25 @@ export default function CommunityListUI(){
                 <S.ContentsWrap>
                     <S.TopWrap>
                         <S.Name>{el.user.nickname}</S.Name>
-                        <S.Date>2시간 전</S.Date>
+                        {/* <S.Date>2시간 전</S.Date> */}
                     </S.TopWrap>
                     <S.MidWrap>
                         <S.MidContents onClick={onClickMoveToBoardDetail(el.id)}>{el.content}</S.MidContents>
                         <S.ImgWrap>
-                            <S.Img src="/image1.png" />
-                            <S.Img src="/image2.png" />
+                            {/* <S.Img src="/image1.png" />
+                            <S.Img src="/image2.png" /> */}
+                            <S.Img 
+                src={`https://storage.googleapis.com/${data.fetchBoards[index].boardImg[0].url}`}
+              />
                         </S.ImgWrap>
                     </S.MidWrap>
                     <S.BottomWrap>
                         <S.LikeWrap>
-                            <S.LikeIcon src="/Icon3.png"></S.LikeIcon>
+                            <S.LikeIcon src="/icon/Icon3.png"></S.LikeIcon>
                             <S.Like>{el.like}</S.Like>
                         </S.LikeWrap>
                         <S.CommentWrap>
-                            <S.CommentIcon src="/Icon5.png" onClick={onClickComment}></S.CommentIcon>
+                            <S.CommentIcon src="/icon/Icon5.png" onClick={onClickComment}></S.CommentIcon>
                             <S.Comment>10</S.Comment>
                         </S.CommentWrap>
                     </S.BottomWrap>
@@ -81,8 +85,8 @@ export default function CommunityListUI(){
             </S.LeftWrap>
             <S.RightWrap>
                 <S.IconWrap>
-                    <S.Edit src="/Vector7.png" onClick={onClickEdit}></S.Edit>
-                    <S.Del src="/Vector6.png" onClick={onClickDelete}></S.Del>
+                    <S.Edit src="/icon/Vector7.png" onClick={onClickEdit}></S.Edit>
+                    <S.Del src="/icon/Vector6.png" onClick={onClickDelete}></S.Del>
                 </S.IconWrap>
             </S.RightWrap>
         </S.Wrap>

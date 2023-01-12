@@ -6,12 +6,13 @@ export const FETCH_BOARDS = gql`
       id
       content
       like
-      user {
-        nickname
-      }
       boardImg{
         boardImgID
         url
+        # board
+      }
+      user {
+        nickname
       }
     }
   }
