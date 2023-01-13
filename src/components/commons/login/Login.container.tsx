@@ -12,12 +12,12 @@ import {
 } from "../../../commons/types/generated/types";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/libraries/store";
-import { schema_login } from "../validation/login";
 import { ILoginFormType } from "../../../commons/types/formtypes/type";
 import { InnerWrap } from "../../../commons/styles/Wrapper";
 import LoginHeader from "../layout/loginHeader";
 import PageMoveBtn from "../../../commons/hoc/PageMoveBtn";
-import { ErrMessage } from "../../../commons/styles/Error";
+import ErrMessage from "../../../commons/styles/Error";
+import { schema_login } from "../validation/schema";
 
 export default function LoginUI() {
   const router = useRouter();
@@ -80,7 +80,7 @@ export default function LoginUI() {
                   <S.Box onClick={() => router.push("/idpwFind")}>
                     아이디 찾기/비밀번호 재설정
                   </S.Box>
-                  <ErrMessage>{errors.password?.message}</ErrMessage>
+                  <ErrMessage text={errors.email?.message} />
                 </div>
                 <S.LoginButtonWrap>
                   <PageMoveBtn id="login" text="로그인" />

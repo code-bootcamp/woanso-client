@@ -98,7 +98,7 @@ export default function MyPageUI() {
             />
           </S.AvatarWrap>
           <S.UserName>{User?.fetchUserLoggedIn.nickname}</S.UserName>
-          <S.PointCharge>포인트 충전</S.PointCharge>
+          {/* <S.PointCharge>포인트 충전</S.PointCharge> */}
         </S.SideWrapTop>
 
         <S.SideWrapBottom>

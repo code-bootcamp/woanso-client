@@ -3,14 +3,14 @@ import { useRouter } from "next/router";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as S from "./Signup.styles";
 import { useMutationSignUp } from "../../../commons/hooks/mutaions/useMutationSignUP";
-import { schema_join } from "../validation/join";
+import { schema_join } from "../validation/schema";
 import { useForm } from "react-hook-form";
 import { Input1, Input2, Input3 } from "../../../commons/styles/Input";
 import { ChangeEvent, useState } from "react";
 import { IUserFormType } from "../../../commons/types/formtypes/type";
 import LoginHeader from "../layout/loginHeader";
-import { ErrMessage2 } from "../../../commons/styles/Error";
 import { SubmitButton } from "../../../commons/styles/Button";
+import ErrMessage from "../../../commons/styles/Error";
 
 export default function SignupUI() {
   const router = useRouter();
@@ -35,8 +35,12 @@ export default function SignupUI() {
     console.log(interest);
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
+      return;
     }
-    if (interest === "") return;
+    if (interest === "") {
+      Modal.error({ content: "장르를 선택해주세요." });
+      return;
+    }
     const phone = "0" + String(data.phone);
     try {
       const result = await signUp({
@@ -71,7 +75,7 @@ export default function SignupUI() {
                   {...register("email")}
                 />
               </S.SubWrapper>
-              <ErrMessage2>{errors.email?.message}</ErrMessage2>
+              <ErrMessage text={errors.email?.message} />
               <S.SubWrapper>
                 <Input1
                   placeholder="비밀번호"
@@ -92,7 +96,7 @@ export default function SignupUI() {
                   {...register("password2")}
                 />
               </S.SubWrapper>
-              <ErrMessage2>{errors.password?.message}</ErrMessage2>
+              <ErrMessage text={errors.password?.message} />
               <S.SubWrapper>
                 <Input3
                   placeholder="닉네임"
@@ -101,7 +105,7 @@ export default function SignupUI() {
                   {...register("nickname")}
                 />
               </S.SubWrapper>
-              <ErrMessage2>{errors.nickname?.message}</ErrMessage2>
+              <ErrMessage text={errors.nickname?.message} />
               <S.SubWrapper>
                 <Input3
                   placeholder="전화번호를 입력해주세요."
@@ -110,7 +114,7 @@ export default function SignupUI() {
                   {...register("phone")}
                 />
               </S.SubWrapper>
-              <ErrMessage2>{errors.phone?.message}</ErrMessage2>
+              <ErrMessage text={errors.phone?.message} />
               <S.SubWrapper>
                 <S.Label>장르 선택</S.Label>
                 <S.CheckBoxWrap>
@@ -172,9 +176,6 @@ export default function SignupUI() {
                   <S.CheckBoxTitle>추리/공포</S.CheckBoxTitle>
                 </S.CheckBoxWrap>
               </S.SubWrapper>
-              {/* {interest === "" && (
-                <ErrMessage2>장르를 선택해주세요.</ErrMessage2>
-              )} */}
             </S.ContentsWrapper>
             <S.ButtonWrapper>
               <SubmitButton>회원가입 완료</SubmitButton>

@@ -23,14 +23,12 @@ export const NavWrapper = styled.div`
 `;
 
 interface StyleProps {
-  qqq?: boolean;
-  ccc?: boolean;
-  bbb?: boolean;
+  change?: boolean;
 }
 
 export const Nav = styled.div`
   font-size: 20px;
-  color: ${(props: StyleProps) => (props.qqq ? "#77170D" : "black")};
+  color: ${(props: StyleProps) => (props.change ? "black" : "#77170D")};
   padding: 7px 20px;
   height: 44px;
   font-style: normal;
@@ -42,7 +40,7 @@ export const Nav = styled.div`
 
 export const Nav2 = styled.div`
   font-size: 20px;
-  color: ${(props: StyleProps) => (props.ccc ? "#77170D" : "black")};
+  color: ${(props: StyleProps) => (props.change ? "#77170D" : "black")};
   border-radius: 8px 8px 0 0;
   padding: 7px 20px;
   height: 44px;
@@ -54,11 +52,9 @@ export const Nav2 = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-  display: flex;
-  width: 450px;
-  flex-direction: column;
-  align-items: center;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -92,17 +88,22 @@ export const DivInput = styled.div`
 `;
 
 export const FindBtn = styled.button`
-  width: 50px;
   height: 28px;
-  padding: 6px;
-  background-color: #f5efe3;
+  border-radius: 8px;
+  padding: 6px 16px;
+  background-color: #77170d;
+  color: #ffffff;
   font-size: 12px;
   margin-top: 30px;
   cursor: pointer;
-  :hover {
-    color: #77170d;
-  }
+
   position: absolute;
   right: 20px;
   top: -20px;
+`;
+
+export const DisabledBtn = styled(FindBtn)`
+  background-color: #efe7d7;
+  color: #ffffff;
+  cursor: default;
 `;

@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 
 export const MypageWrap = styled.div`
   width: 100%;
-  padding: 50px 40px;
   padding: 180px 16%;
   display: flex;
+  justify-content: center;
   background-color: #f5f5f5;
 `;
 
@@ -61,12 +61,6 @@ export const EditIconImg = styled.img`
 
 export const UserName = styled.p`
   color: #ffffff;
-`;
-
-export const PointCharge = styled.p`
-  color: #ffffff;
-  font-size: 0.75rem;
-  text-decoration: underline;
 `;
 
 export const SideWrapBottom = styled.div`

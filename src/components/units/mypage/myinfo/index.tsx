@@ -21,11 +21,6 @@ export default function MyIngo() {
           <S.TopInfo>실버</S.TopInfo>
         </S.ItemWrap>
         <S.ItemWrap>
-          <S.TopTitle>포인트</S.TopTitle>
-          <S.PointImg src="/icon/point.png" />
-          <S.TopInfo>3,000</S.TopInfo>
-        </S.ItemWrap>
-        <S.ItemWrap>
           <S.TopTitle>포스팅</S.TopTitle>
           <S.BigText>1</S.BigText>
         </S.ItemWrap>
