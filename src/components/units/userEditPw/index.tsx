@@ -86,62 +86,62 @@ export default function UserEditPw() {
 
       <S.Label>장르 선택</S.Label>
       <S.CheckBoxWrap>
-        <SS.CheckBox
+        <S.CheckBox
           type="radio"
           name="장르"
           value="romance"
           id="romance"
           onChange={onChangeCheckbox}
         />
-        <SS.CheckBoxLavel htmlFor="romance"></SS.CheckBoxLavel>
-        <SS.CheckBoxTitle>로맨스</SS.CheckBoxTitle>
-        <SS.CheckBox
+        <S.CheckBoxLavel htmlFor="romance"></S.CheckBoxLavel>
+        <S.CheckBoxTitle>로맨스</S.CheckBoxTitle>
+        <S.CheckBox
           type="radio"
           name="장르"
           value="school"
           id="school"
           onChange={onChangeCheckbox}
         />
-        <SS.CheckBoxLavel htmlFor="school"></SS.CheckBoxLavel>
-        <SS.CheckBoxTitle>학원</SS.CheckBoxTitle>
-        <SS.CheckBox
+        <S.CheckBoxLavel htmlFor="school"></S.CheckBoxLavel>
+        <S.CheckBoxTitle>학원</S.CheckBoxTitle>
+        <S.CheckBox
           type="radio"
           name="장르"
           value="drama"
           id="drama"
           onChange={onChangeCheckbox}
         />
-        <SS.CheckBoxLavel htmlFor="drama"></SS.CheckBoxLavel>
-        <SS.CheckBoxTitle>드라마/일상</SS.CheckBoxTitle>
-        <SS.CheckBox
+        <S.CheckBoxLavel htmlFor="drama"></S.CheckBoxLavel>
+        <S.CheckBoxTitle>드라마/일상</S.CheckBoxTitle>
+        <S.CheckBox
           type="radio"
           name="장르"
           value="fantasy"
           id="fantasy"
           onChange={onChangeCheckbox}
         />
-        <SS.CheckBoxLavel htmlFor="fantasy"></SS.CheckBoxLavel>
-        <SS.CheckBoxTitle>판타지</SS.CheckBoxTitle>
+        <S.CheckBoxLavel htmlFor="fantasy"></S.CheckBoxLavel>
+        <S.CheckBoxTitle>판타지</S.CheckBoxTitle>
 
-        <SS.CheckBox
+        <S.CheckBox
           type="radio"
           name="장르"
           id="action"
           value="action"
           onChange={onChangeCheckbox}
         />
-        <SS.CheckBoxLavel htmlFor="action"></SS.CheckBoxLavel>
-        <SS.CheckBoxTitle>액션</SS.CheckBoxTitle>
+        <S.CheckBoxLavel htmlFor="action"></S.CheckBoxLavel>
+        <S.CheckBoxTitle>액션</S.CheckBoxTitle>
 
-        <SS.CheckBox
+        <S.CheckBox
           type="radio"
           name="장르"
           value="horror"
           id="horror"
           onChange={onChangeCheckbox}
         />
-        <SS.CheckBoxLavel htmlFor="horror"></SS.CheckBoxLavel>
-        <SS.CheckBoxTitle>추리/공포</SS.CheckBoxTitle>
+        <S.CheckBoxLavel htmlFor="horror"></S.CheckBoxLavel>
+        <S.CheckBoxTitle>추리/공포</S.CheckBoxTitle>
       </S.CheckBoxWrap>
 
       <S.ButtonWrapper>

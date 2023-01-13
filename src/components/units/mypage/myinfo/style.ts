@@ -80,5 +80,6 @@ export const PostingWrap = styled.div`
 
 export const PostingImg = styled.img`
   width: 100%;
+  height: 100%;
   object-fit: cover;
 `;

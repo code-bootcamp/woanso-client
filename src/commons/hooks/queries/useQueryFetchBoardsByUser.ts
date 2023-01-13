@@ -4,10 +4,9 @@ const FETCH_BOARDS_BYUSER = gql`
   query fetchBoardsByUser {
     fetchBoardsByUser {
       id
-      content
-      boardImg {
-        url
-      }
+      # boardImg {
+      #   url
+      # }
     }
   }
 `;

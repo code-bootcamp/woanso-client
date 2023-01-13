@@ -41,7 +41,7 @@ export default function MyRentList() {
       </S.MonthWrap>
 
       <S.ListsWrap>
-        {new Array(4).fill(1).map((_, index) => (
+        {new Array(2).fill(1).map((_, index) => (
           <S.List key={index}>
             <S.BookImg src={`/item${index + 1}.png`} />
             <S.InfoWrap>

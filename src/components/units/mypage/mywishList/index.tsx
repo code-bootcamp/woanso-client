@@ -1,54 +1,88 @@
-import { useState } from "react";
-import { useQueryFetchWishlist } from "../../../../commons/hooks/queries/useQueryFetchWishlist";
+import { Modal } from "antd";
+import { MouseEvent, useState } from "react";
+import { useMutationCreateWishList } from "../../../../commons/hooks/mutaions/useMutationCreateWishlist";
+import {
+  FETCH_WISHLIST,
+  useQueryFetchWishlist,
+} from "../../../../commons/hooks/queries/useQueryFetchWishlist";
+import { SubmitButton2 } from "../../../../commons/styles/Button";
 import { OuterWrap, InnerWrap } from "../../../../commons/styles/Wrapper";
 import ConfirmModal from "../../../commons/customModal/checkModal";
 import * as S from "./style";
 
-export default function MyWishList() {
+export default function MyWishList({ User }: any) {
   const [confirm, setConfirm] = useState(false);
   const { data } = useQueryFetchWishlist();
+  const [createWishlist] = useMutationCreateWishList();
   console.log("===============", data);
 
-  const onClickCancle = () => {
-    setConfirm(true);
+  const onClickCancle = async (e: MouseEvent<HTMLDivElement>) => {
+    // setConfirm(true);
+    try {
+      const result = await createWishlist({
+        variables: {
+          createWishInput: {
+            comicId: e.currentTarget.id,
+            userId: String(User.fetchUserLoggedIn.id),
+          },
+        },
+        refetchQueries: [{ query: FETCH_WISHLIST }],
+      });
+      console.log(result);
+      Modal.success({ content: "찜 목록에서 삭제했습니다." });
+    } catch (error) {
+      Modal.error({ content: "삭제할 수 없습니다." });
+      return;
+    }
   };
+
+  const TrueList = data?.fetchWishlist.filter((el) => el.isDib === true);
 
   return (
     <OuterWrap>
       <InnerWrap>
-        <S.MyWishListWrap>
-          <S.Title>찜 목록</S.Title>
-          <S.ListsWrap>
-            {new Array(3).fill(1).map((_, index) => (
-              <S.List key={index}>
-                <S.BookImg src={`/item${index + 1}.png`} />
-                <S.InfoWrap>
-                  <S.BookName>
-                    <h4>책제목</h4>
-                  </S.BookName>
-                  <S.BookAuthor>작가 이름</S.BookAuthor>
-                  <S.BookRented>대여 일자</S.BookRented>
-                </S.InfoWrap>
-                <S.Btn onClick={onClickCancle}>취소</S.Btn>
-                {confirm && (
-                  <ConfirmModal confirm={confirm} setConfirm={setConfirm} />
-                )}
-              </S.List>
-            ))}
-          </S.ListsWrap>
-        </S.MyWishListWrap>
+        {TrueList.length > 0 ? (
+          <S.MyWishListWrap>
+            <S.Title>찜 목록</S.Title>
+            <S.ListsWrap>
+              {TrueList?.map((el: any) => (
+                <S.List key={el.wishlistId}>
+                  <S.BookImg
+                    src={`https://storage.googleapis.com/${el.comic.ISBN}`}
+                  />
+
+                  <S.InfoWrap>
+                    <S.BookName>
+                      <h4>{el.comic.title}</h4>
+                    </S.BookName>
+                    <S.BookAuthor>{el.comic.author}</S.BookAuthor>
+                    {/* <S.BookRented>{}</S.BookRented> */}
+                  </S.InfoWrap>
+
+                  <S.Btn id={el.comic.comicId} onClick={onClickCancle}>
+                    취소
+                  </S.Btn>
+
+                  {confirm && (
+                    <ConfirmModal confirm={confirm} setConfirm={setConfirm} />
+                  )}
+                </S.List>
+              ))}
+            </S.ListsWrap>
+          </S.MyWishListWrap>
+        ) : (
+          <S.MyWishListWrap>
+            <S.ContentsWrap>
+              <S.ContentsIcon src="/icon/2.png"></S.ContentsIcon>
+              <S.ContentsGrup>
+                <S.Content>위시리스트가 비어있네요!</S.Content>
+                <S.Content>취향에 맞는 만화책으로 채워보세요.</S.Content>
+              </S.ContentsGrup>
+              <SubmitButton2>추천리스트 보기</SubmitButton2>
+            </S.ContentsWrap>
+          </S.MyWishListWrap>
+        )}
       </InnerWrap>
     </OuterWrap>
   );
-  /* <S.Wrap>
-             <S.ContentsWrap>
-               <S.ContentsIcon src="/icon/2.png"></S.ContentsIcon>
-               <S.ContentsGrup>
-                 <S.Content>위시리스트가 비어있네요!</S.Content>
-                 <S.Content>취향에 맞는 만화책으로 채워보세요.</S.Content>
-               </S.ContentsGrup>
-               <SubmitButton2>추천리스트 보기</SubmitButton2>
-             </S.ContentsWrap>
-           </S.Wrap>
-         )} */
 }

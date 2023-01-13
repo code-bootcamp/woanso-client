@@ -34,7 +34,6 @@ export default function MyPageUI() {
   //   }
   // };
   const fileRef = useRef<HTMLInputElement>(null);
-  // const [imgUrl, setImgUrl] = useState<String>("");
   const onClickUpload = () => {
     fileRef.current?.click();
   };
@@ -115,9 +114,9 @@ export default function MyPageUI() {
       </S.SideWrap>
 
       <S.ContentsWrap>
-        {isActive === "myInfo" && <MyIngo />}
+        {isActive === "myInfo" && <MyIngo User={User} />}
         {isActive === "myrentList" && <MyRentList />}
-        {isActive === "mywishList" && <MyWishList />}
+        {isActive === "mywishList" && <MyWishList User={User} />}
         {isActive === "userEdit" && <UserEdit User={User} />}
         {isActive === "faq" && <FaqMini />}
       </S.ContentsWrap>
