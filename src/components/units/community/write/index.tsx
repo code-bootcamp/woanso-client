@@ -7,6 +7,8 @@ import { useMutationUploadOneFile } from "../../../../commons/hooks/mutaions/use
 import {  PopupModal } from "../../../../commons/libraries/store";
 import { IMutation, IMutationCreateBoardArgs, IMutationUpdateBoardArgs, IUpdateBoardInput } from "../../../../commons/types/generated/types";
 import { checkValidationImage } from "../../../commons/uploads/image.validation";
+import { FETCH_BOARD } from "../detail/queries";
+import { FETCH_BOARDS } from "../list/queries";
 import CommunityModal1 from "../modal";
 import CommunityTrendUI from "../trend";
 import { CREATE_BOARD, UPDATE_BOARD } from "./queries";
@@ -64,6 +66,12 @@ export default function CommunityWriteUI(props){
             ],
             },
           },
+          refetchQueries: [
+            {
+              query: FETCH_BOARDS,
+              variables: { id: router.query.boardId },
+            },
+          ],
         });
         console.log(result)
         setIsModalOpen(true)
@@ -89,14 +97,26 @@ export default function CommunityWriteUI(props){
       const result = await updateBoard({
         variables: {
           id: String(router.query.boardId),
-          updateBoardInput,
+          updateBoardInput: {
+            content,
+            boardImg: [
+              String(imgUrl)
+          ],
+          }
         },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD,
+            variables: { id: router.query.boardId },
+          },
+        ],
       });
       void router.push(`/community/${result.data?.updateBoard.id}`);
     } catch (error) {
       if (error instanceof Error) alert(error.message);
     }
   };
+  
   
   
     return (

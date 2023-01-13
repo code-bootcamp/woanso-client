@@ -74,7 +74,9 @@ export default function CommunityDetailUI(){
         <S.Wrap>
             <S.LeftWrap>
                 <S.AvatorWrap>
-                    <S.Avator></S.Avator>
+                    <S.Avator
+              src={`https://storage.googleapis.com/${data?.fetchBoard.user.thumbnail}`}
+            />
                 </S.AvatorWrap>
                 <S.ContentsWrap>
                     <S.TopWrap>
@@ -88,7 +90,7 @@ export default function CommunityDetailUI(){
                             {/* <S.Img src="/image1.png" />
                             <S.Img src="/image2.png" /> */}
                             <S.Img
-                src={`https://storage.googleapis.com/${data?.fetchBoard.boardImg[0].url}`}
+                src={`https://storage.googleapis.com/${data?.fetchBoard.boardImg[0]?.url}`}
               />
                         </S.ImgWrap>
                     </S.MidWrap>
