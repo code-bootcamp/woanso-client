@@ -16,7 +16,6 @@ import * as S from "./styles"
 
 export default function CommunityWriteUI(props){
   
-
   const router = useRouter();
     
   const [isModalOpen, setIsModalOpen] = useRecoilState(PopupModal);
@@ -116,8 +115,6 @@ export default function CommunityWriteUI(props){
       if (error instanceof Error) alert(error.message);
     }
   };
-  
-  
   
     return (
       <>

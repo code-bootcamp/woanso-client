@@ -1,4 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import Payment from "../../../src/components/units/payment/payment.container";
 
 const FETCH_COMIC = gql`
   query fetchComic($comicId: String!) {
@@ -22,11 +24,14 @@ const FETCH_COMIC = gql`
   }
 `;
 
-export const useQueryFetchComic = (comicId: string) => {
-  const query = useQuery(FETCH_COMIC, {
-    variables: {
-      comicId,
-    },
-  });
-  return query;
-};
+
+export default function PaymentPage() {
+    const router = useRouter();
+    const { data } = useQuery(FETCH_COMIC, {
+        variables: { comicId: router.query.comicId },
+      });
+
+    return (
+        <Payment data={data}/>
+    );
+  }

@@ -8,8 +8,10 @@ export const FETCH_USER = gql`
       email
       phone
       interest
-      balance
-      userImg
+      thumbnail
+      # pointTransaction {
+      #   impUid
+      # }
     }
   }
 `;

@@ -1,19 +1,74 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useQueryFetchComic } from "../../../commons/hooks/queries/useQueryFetchComic";
 import { OuterWrap, InnerWrap } from "../../../commons/styles/Wrapper";
 import { IOrderFormType } from "../../../commons/types/formtypes/type";
 import RentCheckModal from "../../commons/customModal/rentcheckModal";
 import * as S from "./payment.styles";
 
-export default function Payment() {
+export default function Payment(props) {
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { data } = useQueryFetchComic(router.query.comicId);
+
   const showModal = () => {
     setIsModalOpen(true);
   };
 
+  console.log(data);
+  console.log(props.data);
+  console.log(props.data?.fetchComic);
+
+
   const { register, handleSubmit } = useForm<IOrderFormType>({
     mode: "onChange",
   });
+
+  const onClickPayment = () => {
+    const amount = data.fetchComic.deliveryFee + data.fetchComic.rentalFee
+
+    const IMP = window.IMP; 
+    IMP.init("imp87181188"); 
+
+    IMP.request_pay(
+      {
+        pg: "nice",
+        pay_method: "card", 
+        name: data.fetchComic.title,
+        amount: amount,
+        buyer_email: user2?.fetchUser.email,
+        buyer_name: user2?.fetchUser.nickname,
+        buyer_tel: user2?.fetchUser.phone,
+        // buyer_addr: "서울특별시 강남구 신사동",
+        buyer_postcode: "01181",
+        m_redirect_url: "http://localhost:3000/28-01-payment", 
+      },
+      (rsp: any) => {
+        if (rsp.success) {
+          console.log(rsp);
+          // createPointTransactionOfLoading
+        } else {
+          // alert("결제에 실패했습니다! 다시 시도해 주세요!");
+        }
+      }
+    );
+  };
+
+  // const [account, setAccount] = useState({
+  //   name: "",
+  //   number: "",
+  // });
+
+  // const onChangeAccount = (e) => {
+  //   setAccount({
+  //     ...account,
+  //     [e.target.name]: e.target.value,
+  //   });
+  //   console.log(account.name);
+
+  // };
+
 
   return (
    <OuterWrap>
@@ -35,15 +90,17 @@ export default function Payment() {
               <S.Label2>전화번호</S.Label2>
             </S.LeftUserWrap>
             <S.RightUserWrap>
-              <S.InputMid></S.InputMid>
-              <S.InputMid></S.InputMid>
+              {/* <S.InputMid id="name" name="name" onChange={onChangeAccount}/>
+              <S.InputMid id="number" name="number" onChange={onChangeAccount}/> */}
+              <S.InputMid/>
+              <S.InputMid/>
               <S.AddressWrap>
                 <S.InputSmall></S.InputSmall>
                 <S.Button>우편번호 검색</S.Button>
               </S.AddressWrap>
-              <S.InputLong></S.InputLong>
-              <S.InputLong></S.InputLong>
-              <S.InputMid></S.InputMid>
+              <S.InputLong/>
+              <S.InputLong/>
+              <S.InputMid/>
             </S.RightUserWrap>
           </S.UserWrap>
           <S.Line/>
@@ -102,6 +159,7 @@ export default function Payment() {
           </S.PriceRightWrap>
         </S.PriceWrap>
         <S.SubmitButtonWrap>
+          {/* <S.SubmitButton onClick={onClickPayment}>결제하기</S.SubmitButton> */}
           <S.SubmitButton>결제하기</S.SubmitButton>
         </S.SubmitButtonWrap>
       </S.Wrap>
