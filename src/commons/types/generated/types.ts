@@ -541,6 +541,7 @@ export type IUser = {
   nickname: Scalars['String'];
   phone: Scalars['String'];
   userImg?: Maybe<IUserImg>;
+  pointTransaction: any;
 };
 
 export type IUserImg = {

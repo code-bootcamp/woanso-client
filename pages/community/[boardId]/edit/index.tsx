@@ -23,6 +23,7 @@ export default function GraphqlMutationPage() {
     variables: { boardId: router.query.boardId },
   });
 
+
   return (
     <Wrap>
     <CommunityWriteUI isEdit={true} data={data} />
