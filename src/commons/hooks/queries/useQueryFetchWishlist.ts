@@ -9,6 +9,8 @@ export const FETCH_WISHLIST = gql`
         comicId
         title
         author
+        ISBN
+        isAvailable
       }
     }
   }

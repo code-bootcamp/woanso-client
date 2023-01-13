@@ -22,6 +22,8 @@ export const ListsWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: scroll;
+  height: 500px;
 `;
 
 export const List = styled.div`
@@ -35,7 +37,7 @@ export const List = styled.div`
 `;
 
 export const BookImg = styled.img`
-  width: 170px;
+  width: 70px;
   height: 100%;
   object-fit: cover;
 `;
@@ -78,7 +80,6 @@ export const Btn = styled.div`
 `;
 
 export const Btn2 = styled(Btn)`
-  width: 90px;
   background-color: #ffffff;
   color: #738096;
   border: 1px solid #d1d5d9;

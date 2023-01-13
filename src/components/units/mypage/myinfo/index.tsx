@@ -1,16 +1,26 @@
 import { useRouter } from "next/router";
 import { MouseEvent } from "react";
+import { string } from "yup";
+import { useQueryFetchBoards } from "../../../../commons/hooks/queries/useQueryFetchBoards";
 import { useQueryFetchBoardsByUser } from "../../../../commons/hooks/queries/useQueryFetchBoardsByUser";
 import * as S from "./style";
 
-export default function MyIngo() {
+export default function MyIngo({ User }: any) {
   const router = useRouter();
-  const { data } = useQueryFetchBoardsByUser();
-  console.log(data?.fetchBoardsByUser);
+  // const { data } = useQueryFetchBoardsByUser();
+  // console.log("fetchBoardsByUser", data?.fetchBoardsByUser);
+  const { data } = useQueryFetchBoards();
+  const userId = User?.fetchUserLoggedIn.id;
+  const fetchBoardsByUser = data?.fetchBoards.filter(
+    (el: any) => el.user.id === userId
+  );
 
   const onClickMoveToPosting = (e: MouseEvent<HTMLDivElement>) => {
-    router.push("/community");
+    console.log(e.currentTarget.id);
+    router.push(`/community/${e.currentTarget.id}`);
   };
+
+  console.log(fetchBoardsByUser);
 
   return (
     <S.MyInfoWrap>
@@ -33,9 +43,15 @@ export default function MyIngo() {
       <S.BottomWrap>
         <S.Title>Posting</S.Title>
         <S.PostingListWrap>
-          {data?.fetchBoardsByUser.map((el: any) => (
-            <S.PostingWrap key={el.id} onClick={onClickMoveToPosting}>
-              <S.PostingImg src={el.boardImg.url} />
+          {fetchBoardsByUser?.map((el: any) => (
+            <S.PostingWrap
+              key={el.id}
+              id={el.id}
+              onClick={onClickMoveToPosting}
+            >
+              <S.PostingImg
+                src={`https://storage.googleapis.com/${el.boardImg[0].url}`}
+              />
             </S.PostingWrap>
           ))}
         </S.PostingListWrap>
