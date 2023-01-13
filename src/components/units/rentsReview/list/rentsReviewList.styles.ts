@@ -1,15 +1,26 @@
 import styled from "@emotion/styled";
+import { HeartOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   width: 100%;
 `;
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
   margin-bottom: 1.4rem;
   padding-bottom: 1.4rem;
   border-bottom: 1px solid #c0c0c0;
+`;
+
+export const ContainerTop = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const ContainerSub = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const LeftContainer = styled.div`
@@ -41,12 +52,25 @@ export const Reviewer = styled.p`
   font-size: 0.875rem;
   color: #333333;
   font-weight: bold;
-  margin: 0.5rem 0;
+  margin: 4px 0 8px 0;
 `;
 
 export const CreatedAt = styled.p`
   font-size: 0.875rem;
   color: #999999;
+`;
+
+export const LikeWrap = styled.div`
+  font-size: 0.875rem;
+  color: #999999;
+  display: flex;
+`;
+
+export const Heart = styled(HeartOutlined)`
+  font-size: 0.875rem;
+  color: #999999;
+  cursor: pointer;
+  margin-right: 3px;
 `;
 
 export const BtnWrapper = styled.div`

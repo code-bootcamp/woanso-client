@@ -31,8 +31,7 @@ export default function RentDetailUI() {
 
   const count = data?.fetchComic.comicRating.comicRating;
 
-
-  console.log(data)
+  console.log(data);
   return (
     <>
       <S.Wrapper>
@@ -74,7 +73,7 @@ export default function RentDetailUI() {
 
           <RentsReviewWrite comicId={router.query.boardId} />
           <S.ReviewListBox>
-            <RentsReviewList />
+            <RentsReviewList comicId={router.query.boardId} />
           </S.ReviewListBox>
         </S.Container>
       </S.Wrapper>

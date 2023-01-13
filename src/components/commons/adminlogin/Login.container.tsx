@@ -1,12 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { LoginInput } from "../../../commons/styles/Input";
-import SignupBenefit from "../signupbenefit";
 import { ADMIN_LOGIN } from "./Login.queries";
 import * as S from "./Login.styles";
-import * as St from "../signup/Signup.styles";
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
@@ -15,10 +11,12 @@ import {
 } from "../../../commons/types/generated/types";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/libraries/store";
-import { schema_login } from "../validation/login";
 import { ILoginFormType } from "../../../commons/types/formtypes/type";
 import { InnerWrap } from "../../../commons/styles/Wrapper";
 import LoginHeader from "../layout/loginHeader";
+import { schema_login } from "../validation/schema";
+import { Input3 } from "../../../commons/styles/Input";
+import ErrMessage from "../../../commons/styles/Error";
 
 export default function AdminLoginUI() {
   const router = useRouter();
@@ -80,11 +78,11 @@ export default function AdminLoginUI() {
               <S.ContentsWrapper>
                 {/* <S.Label>이메일</S.Label> */}
                 <div>
-                  <LoginInput
+                  <Input3
                     type="text"
                     {...register("email")}
                     placeholder="이메일"
-                  ></LoginInput>
+                  ></Input3>
                   {/* <St.ErrMessage>{errors.email?.message}</St.ErrMessage> */}
                 </div>
                 {/* <S.Label>비밀번호</S.Label> */}
@@ -95,7 +93,7 @@ export default function AdminLoginUI() {
                     placeholder="비밀번호"
                   ></S.Input1>
                   <S.Box>아이디 찾기/비밀번호 재설정</S.Box>
-                  <St.ErrMessage>{errors.password?.message}</St.ErrMessage>
+                  <ErrMessage text={errors.password?.message} />
                 </div>
                 <S.LoginButtonWrap>
                   <S.LoginButton>로그인</S.LoginButton>

@@ -16,6 +16,7 @@ export const Title = styled.div`
 export const Label = styled.label`
   font-size: 0.75rem;
   color: #738096;
+  padding-top: 10px;
 `;
 
 export const Input = styled.input`
@@ -48,6 +49,7 @@ export const CheckBoxWrap = styled.div`
   border-radius: 8px;
   padding: 10px;
   gap: 5px;
+  margin-top: 5px;
 `;
 
 export const ButtonWrapper = styled.div`

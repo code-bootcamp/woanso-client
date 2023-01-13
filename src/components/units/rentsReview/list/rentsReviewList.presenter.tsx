@@ -2,10 +2,13 @@ import * as S from "./rentsReviewList.styles";
 import React, { MouseEvent } from "react";
 import { Modal, Rate } from "antd";
 import { useMutationDeleteReview } from "../../../../commons/hooks/mutaions/useMutationDeleteReview";
-import { FETCH_REVIEWS } from "../../../../commons/hooks/queries/useQueryFetchReviews";
+import { FETCH_REVIEW } from "../../../../commons/hooks/queries/useQueryFetchReview";
+import { useMutionLikeReviewBoard } from "../../../../commons/hooks/mutaions/useMutationLikeReviewBoard";
+import { getDays } from "../../../../commons/libraries/getTimes";
 
 export default function RentsReviewListUI({ el }: any) {
   const [deleteReview] = useMutationDeleteReview();
+  const [likeReviewBoard] = useMutionLikeReviewBoard();
 
   const onClickDelete = (e: MouseEvent<HTMLDivElement>) => {
     try {
@@ -14,9 +17,7 @@ export default function RentsReviewListUI({ el }: any) {
           reviewId: e.currentTarget.id,
         },
         refetchQueries: [
-          {
-            query: FETCH_REVIEWS,
-          },
+          { query: FETCH_REVIEW, variables: { comicId: el.comic.comicId } },
         ],
       });
       Modal.success({ content: "리뷰를 삭제했습니다." });
@@ -26,30 +27,55 @@ export default function RentsReviewListUI({ el }: any) {
     }
   };
 
-  const count = el.comicRating?.comicRating;
-  console.log(count);
+  const onClickLike = (e: MouseEvent<HTMLDivElement>) => {
+    try {
+      likeReviewBoard({
+        variables: {
+          reviewId: e.currentTarget.id,
+        },
+        refetchQueries: [
+          { query: FETCH_REVIEW, variables: { comicId: el.comic.comicId } },
+        ],
+      });
+    } catch (error) {
+      Modal.error({ content: "로그인 후 이용가능합니다." });
+      return;
+    }
+  };
+  console.log("=========", el);
 
   return (
     <S.Wrapper>
       <S.Container>
-        <S.LeftContainer>
-          <S.StarBox>
-            <Rate value={count} />
-          </S.StarBox>
-          <S.ReviewInfo>
-            <S.Reviewer>{el.user.nickname}</S.Reviewer>
-            {/* <S.CreatedAt>2022-12-30</S.CreatedAt> */}
-          </S.ReviewInfo>
-        </S.LeftContainer>
-        <S.RightContainer>
-          <S.ReviewContent>{el.content}</S.ReviewContent>
-        </S.RightContainer>
+        <S.ContainerTop>
+          <S.LeftContainer>
+            <S.StarBox>
+              <Rate defaultValue={el.rating} />
+            </S.StarBox>
+            <S.ReviewInfo>
+              <S.Reviewer>{el.user.nickname}</S.Reviewer>
+            </S.ReviewInfo>
+          </S.LeftContainer>
 
-        <S.BtnWrapper>
-          <S.Button id={el.reviewId} onClick={onClickDelete}>
-            <img src="/icon/delete_icon.png" />
-          </S.Button>
-        </S.BtnWrapper>
+          <S.RightContainer>
+            <S.ReviewContent>{el.content}</S.ReviewContent>
+          </S.RightContainer>
+
+          <S.BtnWrapper>
+            <S.Button id={el.reviewId} onClick={onClickDelete}>
+              <img src="/icon/delete_icon.png" />
+            </S.Button>
+          </S.BtnWrapper>
+        </S.ContainerTop>
+        <S.ContainerSub>
+          <S.CreatedAt>{getDays(el.createdAt)}</S.CreatedAt>
+          <S.LikeWrap>
+            <div id={el.reviewId} onClick={onClickLike}>
+              <S.Heart />
+            </div>{" "}
+            {el.like}
+          </S.LikeWrap>
+        </S.ContainerSub>
       </S.Container>
     </S.Wrapper>
   );

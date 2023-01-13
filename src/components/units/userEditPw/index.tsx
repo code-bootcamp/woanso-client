@@ -84,67 +84,65 @@ export default function UserEditPw() {
         defaultValue={user?.fetchUserLoggedIn.phone}
       />
 
-      <SS.SubWrapper>
-        <S.Label>장르 선택</S.Label>
-        <S.CheckBoxWrap>
-          <SS.CheckBox
-            type="radio"
-            name="장르"
-            value="romance"
-            id="romance"
-            onChange={onChangeCheckbox}
-          />
-          <SS.CheckBoxLavel htmlFor="romance"></SS.CheckBoxLavel>
-          <SS.CheckBoxTitle>로맨스</SS.CheckBoxTitle>
-          <SS.CheckBox
-            type="radio"
-            name="장르"
-            value="school"
-            id="school"
-            onChange={onChangeCheckbox}
-          />
-          <SS.CheckBoxLavel htmlFor="school"></SS.CheckBoxLavel>
-          <SS.CheckBoxTitle>학원</SS.CheckBoxTitle>
-          <SS.CheckBox
-            type="radio"
-            name="장르"
-            value="drama"
-            id="drama"
-            onChange={onChangeCheckbox}
-          />
-          <SS.CheckBoxLavel htmlFor="drama"></SS.CheckBoxLavel>
-          <SS.CheckBoxTitle>드라마/일상</SS.CheckBoxTitle>
-          <SS.CheckBox
-            type="radio"
-            name="장르"
-            value="fantasy"
-            id="fantasy"
-            onChange={onChangeCheckbox}
-          />
-          <SS.CheckBoxLavel htmlFor="fantasy"></SS.CheckBoxLavel>
-          <SS.CheckBoxTitle>판타지</SS.CheckBoxTitle>
+      <S.Label>장르 선택</S.Label>
+      <S.CheckBoxWrap>
+        <SS.CheckBox
+          type="radio"
+          name="장르"
+          value="romance"
+          id="romance"
+          onChange={onChangeCheckbox}
+        />
+        <SS.CheckBoxLavel htmlFor="romance"></SS.CheckBoxLavel>
+        <SS.CheckBoxTitle>로맨스</SS.CheckBoxTitle>
+        <SS.CheckBox
+          type="radio"
+          name="장르"
+          value="school"
+          id="school"
+          onChange={onChangeCheckbox}
+        />
+        <SS.CheckBoxLavel htmlFor="school"></SS.CheckBoxLavel>
+        <SS.CheckBoxTitle>학원</SS.CheckBoxTitle>
+        <SS.CheckBox
+          type="radio"
+          name="장르"
+          value="drama"
+          id="drama"
+          onChange={onChangeCheckbox}
+        />
+        <SS.CheckBoxLavel htmlFor="drama"></SS.CheckBoxLavel>
+        <SS.CheckBoxTitle>드라마/일상</SS.CheckBoxTitle>
+        <SS.CheckBox
+          type="radio"
+          name="장르"
+          value="fantasy"
+          id="fantasy"
+          onChange={onChangeCheckbox}
+        />
+        <SS.CheckBoxLavel htmlFor="fantasy"></SS.CheckBoxLavel>
+        <SS.CheckBoxTitle>판타지</SS.CheckBoxTitle>
 
-          <SS.CheckBox
-            type="radio"
-            name="장르"
-            id="action"
-            value="action"
-            onChange={onChangeCheckbox}
-          />
-          <SS.CheckBoxLavel htmlFor="action"></SS.CheckBoxLavel>
-          <SS.CheckBoxTitle>액션</SS.CheckBoxTitle>
+        <SS.CheckBox
+          type="radio"
+          name="장르"
+          id="action"
+          value="action"
+          onChange={onChangeCheckbox}
+        />
+        <SS.CheckBoxLavel htmlFor="action"></SS.CheckBoxLavel>
+        <SS.CheckBoxTitle>액션</SS.CheckBoxTitle>
 
-          <SS.CheckBox
-            type="radio"
-            name="장르"
-            value="horror"
-            id="horror"
-            onChange={onChangeCheckbox}
-          />
-          <SS.CheckBoxLavel htmlFor="horror"></SS.CheckBoxLavel>
-          <SS.CheckBoxTitle>추리/공포</SS.CheckBoxTitle>
-        </S.CheckBoxWrap>
-      </SS.SubWrapper>
+        <SS.CheckBox
+          type="radio"
+          name="장르"
+          value="horror"
+          id="horror"
+          onChange={onChangeCheckbox}
+        />
+        <SS.CheckBoxLavel htmlFor="horror"></SS.CheckBoxLavel>
+        <SS.CheckBoxTitle>추리/공포</SS.CheckBoxTitle>
+      </S.CheckBoxWrap>
 
       <S.ButtonWrapper>
         <S.BackButton onClick={onClickCancle}>취소</S.BackButton>

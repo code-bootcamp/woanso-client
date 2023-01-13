@@ -3,9 +3,11 @@ import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRecoilState } from "recoil";
 import { useMutationSendToken } from "../../../commons/hooks/mutaions/useMutationSendToken";
 import { useMutationUpdatePassword } from "../../../commons/hooks/mutaions/useMutationUpdatePassword";
 import { useQueryEindEmail } from "../../../commons/hooks/queries/useQueryFindEmail";
+import { accessTokenState } from "../../../commons/libraries/store";
 import { SubmitButton } from "../../../commons/styles/Button";
 import ErrMessage from "../../../commons/styles/Error";
 import { Input1, Input2, Input3 } from "../../../commons/styles/Input";
@@ -24,6 +26,7 @@ export default function IdpwFind() {
   const [value, setValue] = useState<string>("");
   const [token, setToken] = useState<string>();
   const [sendToken] = useMutationSendToken();
+  const [, setAccessToken] = useRecoilState(accessTokenState);
   const [updatePassword] = useMutationUpdatePassword();
 
   const {
@@ -115,6 +118,7 @@ export default function IdpwFind() {
     if (token === number) {
       Modal.success({ content: "인증에 성공했습니다." });
       setDisable(true);
+      setAccessToken(token);
     } else {
       Modal.error({ content: "인증에 실패했습니다." });
       setNext(false);
@@ -124,7 +128,6 @@ export default function IdpwFind() {
   };
 
   const onClickFindPassword = async (data: IUserFormType) => {
-    console.log(data);
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
       return;
@@ -133,21 +136,19 @@ export default function IdpwFind() {
       const result = await updatePassword({
         variables: {
           email: data.email,
-          phone: phone,
-          newPassword: data.password,
+          updateUserPwdInput: data.password,
         },
       });
+
       console.log(result);
       Modal.success({
-        content: "비밀번호가 변경되었습니다!",
+        content: "비밀번호가 변경되었습니다.",
       });
     } catch (error) {
       if (error instanceof Error)
         Modal.error({
           content: error.message,
-          afterClose() {
-            router.push("/home");
-          },
+          // "비밀번호를 변경할 수 없습니다.",
         });
     }
   };
@@ -226,7 +227,9 @@ export default function IdpwFind() {
                   />
                 </S.DivInput>
                 <S.ButtonWrapper>
-                  <SubmitButton onClick={onClickFindEmail}>찾기</SubmitButton>
+                  <SubmitButton onClick={onClickFindEmail}>
+                    비밀번호 변경
+                  </SubmitButton>
                 </S.ButtonWrapper>
               </>
             )}

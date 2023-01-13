@@ -10,10 +10,6 @@ const CREATE_REVIEW = gql`
         id
         nickname
       }
-      comic {
-        comicId
-        title
-      }
     }
   }
 `;

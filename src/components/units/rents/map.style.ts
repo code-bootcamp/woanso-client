@@ -8,6 +8,7 @@ export const BookSubWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  cursor: pointer;
 `;
 
 export const BookImg = styled.img`
