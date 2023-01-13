@@ -1,12 +1,12 @@
-import { useQueryFetchReviews } from "../../../../commons/hooks/queries/useQueryFetchReviews";
+import { useQueryFetchReview } from "../../../../commons/hooks/queries/useQueryFetchReview";
 import RentsReviewListUI from "./rentsReviewList.presenter";
 
-export default function RentsReviewList() {
-  const { data } = useQueryFetchReviews();
-  console.log("fetchReviews", data);
+export default function RentsReviewList({ comicId }: any) {
+  const { data } = useQueryFetchReview(comicId);
+  console.log("fetchReview", data);
   return (
     <>
-      {data?.fetchReviews.map((el: any) => (
+      {data?.fetchReview.map((el: any) => (
         <RentsReviewListUI key={el.reviewId} el={el} />
       ))}
     </>

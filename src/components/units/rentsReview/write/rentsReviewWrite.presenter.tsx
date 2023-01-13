@@ -4,12 +4,11 @@ import { Modal } from "antd";
 import "antd/dist/antd.css";
 import { useMutationCreateReview } from "../../../../commons/hooks/mutaions/useMutationCreateReview";
 import { useQueryFetchUserLoggendIn } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
-import { FETCH_REVIEWS } from "../../../../commons/hooks/queries/useQueryFetchReviews";
+import { FETCH_REVIEW } from "../../../../commons/hooks/queries/useQueryFetchReview";
 
-export default function RentsCommentWriteUI(props: any) {
+export default function RentsCommentWriteUI({ comicId }: any) {
   const [contents, setContents] = useState("");
-  // const [like, setLike] = useState<number>(5);
-  const [value, setValue] = useState(3);
+  const [value, setValue] = useState(5);
   const { data: user } = useQueryFetchUserLoggendIn();
   const [createReview] = useMutationCreateReview();
 
@@ -17,11 +16,11 @@ export default function RentsCommentWriteUI(props: any) {
     setContents(e.currentTarget.value);
   };
 
-  console.log(value);
+  console.log(contents);
   const onClickCreateReview = async () => {
     const createReveiwInPut = {
-      comicId: props.comicId,
-      userId: user.fetchUserLoggedIn.id,
+      comicId,
+      userId: user.fetchUserLoggedIn?.id,
       content: contents,
       rating: value,
     };
@@ -32,13 +31,10 @@ export default function RentsCommentWriteUI(props: any) {
             ...createReveiwInPut,
           },
         },
-        refetchQueries: [
-          {
-            query: FETCH_REVIEWS,
-          },
-        ],
+        refetchQueries: [{ query: FETCH_REVIEW, variables: { comicId } }],
       });
       console.log(result);
+      Modal.success({ content: "리뷰를 등록했습니다." });
     } catch (error) {
       Modal.error({ content: "등록할 수 없습니다." });
       return;

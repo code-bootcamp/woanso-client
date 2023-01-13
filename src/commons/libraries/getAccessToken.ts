@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client";
 import { GraphQLClient } from "graphql-request";
-import { useQueryFetchUserLoggendIn } from "../hooks/queries/useQueryFetchUserLoggedIn";
 
 const RESTORE_ACCESS_TOKEN = gql`
   mutation {
@@ -20,7 +19,7 @@ export const getAccessToken = async () => {
       credentials: "include",
     });
     const result = await graphQLClient.request(RESTORE_ACCESS_TOKEN);
-    const newAccessToken = result.restoreAccessToken;
+    const newAccessToken = result.restoreAccessTokenForAdmin;
     return newAccessToken; // 받은 newAccessToken을 넘겨주기
   } catch (error) {
     if (error instanceof Error) console.log(error.message);

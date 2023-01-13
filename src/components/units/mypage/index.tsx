@@ -1,8 +1,6 @@
 import * as S from "./style";
-import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent, useRef, useState } from "react";
 import MyIngo from "./myinfo";
-import MyReservationList from "./myreservationList";
 import MyRentList from "./myrentList";
 import UserEdit from "../userEdit";
 import FaqMini from "../../commons/faqmini";
@@ -11,17 +9,17 @@ import { useMutationUploadOneFile } from "../../../commons/hooks/mutaions/useMut
 import { Modal } from "antd";
 import { checkValidationImage } from "../../commons/uploads/image.validation";
 import { useMutationUpdateUser } from "../../../commons/hooks/mutaions/useMutaionUpdateUser";
+import MyWishList from "./mywishList";
 
 const MenuLists = [
   { id: "myInfo", name: "내정보" },
   { id: "myrentList", name: "대여내역" },
-  { id: "myreservationList", name: "찜 목록" },
+  { id: "mywishList", name: "찜 목록" },
   { id: "userEdit", name: "개인정보 수정" },
   { id: "faq", name: "FAQ" },
 ];
 
 export default function MyPageUI() {
-  const [open, setOpen] = useState<boolean>(false);
   const [isActive, setIsActive] = useState<String>("myInfo");
 
   const { data: User } = useQueryFetchUserLoggendIn();
@@ -75,10 +73,6 @@ export default function MyPageUI() {
     setIsActive(e.currentTarget.id);
   };
 
-  const onClickOpenModal = () => {
-    setOpen(true);
-  };
-
   return (
     <S.MypageWrap>
       <S.SideWrap>
@@ -123,7 +117,7 @@ export default function MyPageUI() {
       <S.ContentsWrap>
         {isActive === "myInfo" && <MyIngo />}
         {isActive === "myrentList" && <MyRentList />}
-        {isActive === "myreservationList" && <MyReservationList />}
+        {isActive === "mywishList" && <MyWishList />}
         {isActive === "userEdit" && <UserEdit User={User} />}
         {isActive === "faq" && <FaqMini />}
       </S.ContentsWrap>

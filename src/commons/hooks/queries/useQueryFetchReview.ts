@@ -1,16 +1,19 @@
 import { gql, useQuery } from "@apollo/client";
 
 export const FETCH_REVIEW = gql`
-  query fetchReview($comicId: String) {
+  query fetchReview($comicId: String!) {
     fetchReview(comicId: $comicId) {
       reviewId
       content
       like
+      createdAt
+      rating
       user {
         nickname
+        thumbnail
       }
-      comicRating {
-        comicRating
+      comic {
+        comicId
       }
     }
   }

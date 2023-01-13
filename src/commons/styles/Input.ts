@@ -34,4 +34,5 @@ export const Input4 = styled(Input)`
 
 export const UserEditInput = styled(Input3)`
   width: 100%;
+  margin-bottom: 10px;
 `;
