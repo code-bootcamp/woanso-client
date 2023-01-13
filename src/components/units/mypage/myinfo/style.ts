@@ -14,7 +14,7 @@ export const TopWrap = styled.div`
 `;
 
 export const ItemWrap = styled.div`
-  width: calc(100% / 4);
+  width: calc(100% / 3);
   height: 100%;
   border-left: 1px solid rgba(205, 205, 205, 0.7);
   display: flex;

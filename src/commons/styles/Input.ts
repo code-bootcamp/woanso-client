@@ -25,7 +25,7 @@ export const Input2 = styled(Input)`
 
 export const Input3 = styled(Input)`
   border-radius: 8px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 `;
 
 export const Input4 = styled(Input)`
