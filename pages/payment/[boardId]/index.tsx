@@ -28,9 +28,9 @@ const FETCH_COMIC = gql`
 export default function PaymentPage() {
     const router = useRouter();
     const { data } = useQuery(FETCH_COMIC, {
-        variables: { comicId: router.query.comicId },
+        variables: { comicId: router.query.boardId },
       });
-
+console.log(data)
     return (
         <Payment data={data}/>
     );

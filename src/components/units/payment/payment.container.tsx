@@ -1,5 +1,7 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
+import { Address } from "react-daum-postcode";
 import { useForm } from "react-hook-form";
 import { useQueryFetchComic } from "../../../commons/hooks/queries/useQueryFetchComic";
 import { OuterWrap, InnerWrap } from "../../../commons/styles/Wrapper";
@@ -11,22 +13,23 @@ export default function Payment(props) {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { data } = useQueryFetchComic(router.query.comicId);
+  const [isOpen, setIsOpen] = useState(false);
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
 
   const showModal = () => {
     setIsModalOpen(true);
   };
 
-  console.log(data);
-  console.log(props.data);
-  console.log(props.data?.fetchComic);
-
-
   const { register, handleSubmit } = useForm<IOrderFormType>({
     mode: "onChange",
   });
 
+  const amount = props.data?.fetchComic.deliveryFee + props.data?.fetchComic.rentalFee
+
   const onClickPayment = () => {
-    const amount = data.fetchComic.deliveryFee + data.fetchComic.rentalFee
+    console.log(amount)
 
     const IMP = window.IMP; 
     IMP.init("imp87181188"); 
@@ -35,42 +38,71 @@ export default function Payment(props) {
       {
         pg: "nice",
         pay_method: "card", 
-        name: data.fetchComic.title,
+        name: account.order,
         amount: amount,
-        buyer_email: user2?.fetchUser.email,
-        buyer_name: user2?.fetchUser.nickname,
-        buyer_tel: user2?.fetchUser.phone,
-        // buyer_addr: "서울특별시 강남구 신사동",
-        buyer_postcode: "01181",
+        // buyer_email: user2?.fetchUser.email,
+        buyer_name: account.order,
+        buyer_tel: account.number,
+        buyer_addr: address,
+        buyer_postcode: zipcode,
         m_redirect_url: "http://localhost:3000/28-01-payment", 
       },
       (rsp: any) => {
         if (rsp.success) {
           console.log(rsp);
-          // createPointTransactionOfLoading
         } else {
-          // alert("결제에 실패했습니다! 다시 시도해 주세요!");
+          alert("결제에 실패했습니다! 다시 시도해 주세요!");
         }
       }
     );
   };
 
-  // const [account, setAccount] = useState({
-  //   name: "",
-  //   number: "",
-  // });
+  const [account, setAccount] = useState({
+    order: "",
+    recipient: "",
+    number: "",
+  });
 
-  // const onChangeAccount = (e) => {
-  //   setAccount({
-  //     ...account,
-  //     [e.target.name]: e.target.value,
-  //   });
-  //   console.log(account.name);
+  const onChangeAccount = (e) => {
+    setAccount({
+      ...account,
+      [e.target.name]: e.target.value,
+    });
+  };
+console.log(account.order);
 
-  // };
+const onChangeAddressDetail = (event: ChangeEvent<HTMLInputElement>) => {
+  setAddressDetail(event.target.value);
+};
+
+const onClickAddressSearch = () => {
+  setIsOpen((prev) => !prev);
+};
+
+const onCompleteAddressSearch = (address: Address) => {
+  setAddress(address.address);
+  setZipcode(address.zonecode);
+  setIsOpen((prev) => !prev);
+};
 
 
   return (
+    <>
+    <Head>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
+    ></script>
+  </Head>
+  {isOpen && (
+        <S.AddressModal visible={true}>
+          <S.AddressSearchInput onComplete={onCompleteAddressSearch} />
+        </S.AddressModal>
+      )}
    <OuterWrap>
     <InnerWrap>
       <S.Wrap>
@@ -90,32 +122,21 @@ export default function Payment(props) {
               <S.Label2>전화번호</S.Label2>
             </S.LeftUserWrap>
             <S.RightUserWrap>
-              {/* <S.InputMid id="name" name="name" onChange={onChangeAccount}/>
-              <S.InputMid id="number" name="number" onChange={onChangeAccount}/> */}
-              <S.InputMid/>
-              <S.InputMid/>
+              <S.InputMid id="order" name="order" onChange={onChangeAccount}/>
+              <S.InputMid id="recipient" name="recipient" onChange={onChangeAccount}/>
+              {/* <S.InputMid/>
+              <S.InputMid/> */}
               <S.AddressWrap>
-                <S.InputSmall></S.InputSmall>
-                <S.Button>우편번호 검색</S.Button>
+                <S.InputSmall 
+                value={ zipcode }></S.InputSmall>
+                <S.Button onClick={onClickAddressSearch}>우편번호 검색</S.Button>
               </S.AddressWrap>
-              <S.InputLong/>
-              <S.InputLong/>
-              <S.InputMid/>
+              <S.InputLong value = {address} />
+              <S.InputLong value = {addressDetail} onChange={onChangeAddressDetail}/>
+              <S.InputMid id="number" name="number" onChange={onChangeAccount} />
             </S.RightUserWrap>
           </S.UserWrap>
           <S.Line/>
-          <S.PointWrap>
-            <S.PointTitleWrap>
-              <S.PointTitle>포인트 적용</S.PointTitle>
-            </S.PointTitleWrap>
-            <S.PointContentsWrap>
-              <S.InputMid></S.InputMid>
-              <S.Button>포인트 적용</S.Button>
-            </S.PointContentsWrap>
-            <S.PaymentWrapper>
-              <S.Payment>잔여 포인트: 3,000 포인트</S.Payment>
-            </S.PaymentWrapper>
-          </S.PointWrap>
         </S.PaymentWrap>
         <S.ProductWrap>
           <S.ProductTitleWrap>
@@ -124,15 +145,15 @@ export default function Payment(props) {
           <S.ProductContentsWrap>
             <S.ProductLeftWrap>
               <S.ProductImgWrap>
-                <S.ProductImg></S.ProductImg>
+                <S.ProductImg  src={`https://storage.googleapis.com/${props.data?.fetchComic.ISBN}`}/>
               </S.ProductImgWrap>
               <S.LeftWrap>
-                <S.ProductLeftTitle>만화책 제목</S.ProductLeftTitle>
-                <S.TotleBooks>전 12권</S.TotleBooks>
+                <S.ProductLeftTitle>{props.data?.fetchComic.title}</S.ProductLeftTitle>
+                <S.TotleBooks>전 {props.data?.fetchComic.totalBooks}권</S.TotleBooks>
               </S.LeftWrap>
             </S.ProductLeftWrap>
             <S.ProductRightWrap>
-              <S.Price>18,000원</S.Price>
+              <S.Price>{props.data?.fetchComic.rentalFee}원</S.Price>
             </S.ProductRightWrap>
           </S.ProductContentsWrap>
         </S.ProductWrap>
@@ -141,12 +162,10 @@ export default function Payment(props) {
           <S.PriceLeftWrap>
             <S.PriceLeft>상품가격</S.PriceLeft>
             <S.PriceLeft>배송비</S.PriceLeft>
-            <S.PriceLeft>포인트</S.PriceLeft>
           </S.PriceLeftWrap>
           <S.PriceRightWrap>
-            <S.PriceRight>18,000원</S.PriceRight>
-            <S.PriceRight>+2,500원</S.PriceRight>
-            <S.PriceRight>-1,000원</S.PriceRight>
+            <S.PriceRight>{props.data?.fetchComic.rentalFee}원</S.PriceRight>
+            <S.PriceRight>{props.data?.fetchComic.deliveryFee}원</S.PriceRight>
           </S.PriceRightWrap>
         </S.PriceWrap>
         <S.Line/>
@@ -155,15 +174,15 @@ export default function Payment(props) {
             <S.PriceLeft>총 결제금액</S.PriceLeft>
           </S.PriceLeftWrap>
           <S.PriceRightWrap>
-            <S.PriceRight>69,500원</S.PriceRight>
+            <S.PriceRight>{amount}원</S.PriceRight>
           </S.PriceRightWrap>
         </S.PriceWrap>
         <S.SubmitButtonWrap>
-          {/* <S.SubmitButton onClick={onClickPayment}>결제하기</S.SubmitButton> */}
-          <S.SubmitButton>결제하기</S.SubmitButton>
+          <S.SubmitButton onClick={onClickPayment}>결제하기</S.SubmitButton>
         </S.SubmitButtonWrap>
       </S.Wrap>
     </InnerWrap>
    </OuterWrap>
+   </>
   );
 }

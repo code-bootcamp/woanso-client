@@ -1,10 +1,12 @@
 import styled from "@emotion/styled";
+import { Modal } from "antd";
+import DaumPostcode from "react-daum-postcode";
 
 export const Wrap = styled.div`
 padding-top: 180px;
-margin: 0 300px;
 display: flex;
 flex-direction: column;
+justify-content: center;
 gap: 20px;
 `
 export const TitleWrap = styled.div`
@@ -31,7 +33,8 @@ letter-spacing: -0.05em;
 color: #333333;
 `
 
-export const PaymentWrap = styled.div``
+export const PaymentWrap = styled.div`
+`
 export const UserWrap = styled.div`
 display: flex;
 gap: 50px;
@@ -116,49 +119,10 @@ color: #FFFFFF;
 export const AddressDetail = styled.div``
 export const Number = styled.div``
 
-export const PointWrap = styled.div`
-display: flex;
-flex-direction: column;
-gap: 20px;
-`
-export const PointTitleWrap = styled.div``
-export const PointTitle = styled.div`
-width: 95px;
-height: 23px;
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 100%;
-display: flex;
-align-items: center;
-letter-spacing: -0.05em;
-color: #333333;
-
-`
-export const PointContentsWrap = styled.div`
-display: flex;
-gap: 10px;
-`
-export const PointButton = styled.div``
-export const PaymentWrapper = styled.div``
-export const Payment = styled.div`
-width: 145px;
-height: 14px;
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 100%;
-display: flex;
-align-items: center;
-letter-spacing: -0.05em;
-color: #999999;
-`
-
 export const ProductWrap = styled.div`
 display: flex;
 flex-direction: column;
 gap: 20px;
-margin-top: 100px;
 width: 1000px;
 `
 export const ProductTitleWrap = styled.div``
@@ -184,7 +148,7 @@ display: flex;
 gap: 20px;
 `
 export const ProductImgWrap = styled.div``
-export const ProductImg = styled.div`
+export const ProductImg = styled.img`
 width: 100px;
 height: 100px;
 background: #D9D9D9;
@@ -277,6 +241,7 @@ display: flex;
 align-items: center;
 letter-spacing: -0.05em;
 color: #000000;
+justify-content: center;
 `
 
 export const SubmitButtonWrap = styled.div`
@@ -301,3 +266,7 @@ letter-spacing: -0.05em;
 color: #FFFFFF;
 justify-content: center;
 `
+
+export const AddressModal = styled(Modal)``;
+
+export const AddressSearchInput = styled(DaumPostcode)``;
