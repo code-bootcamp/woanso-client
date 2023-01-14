@@ -111,7 +111,6 @@ export const SearchWrap = styled.div`
 export const Input = styled.input`
   width: 100%;
   background: #ffffff;
-  color: #cccccc;
   border: none;
   outline: none;
   padding-left: 15px;
@@ -119,7 +118,7 @@ export const Input = styled.input`
 `;
 
 export const SearchIcon = styled(SearchOutlined)`
-  padding-left: 15px;
+  padding: 0 15px;
   font-size: 24px;
 `;
 

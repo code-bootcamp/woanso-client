@@ -6,7 +6,11 @@ export const BLOCK_USER_FOR_ADMIN = gql`
   }
 `;
 
-export const useMutationBlockUserForAdmin = (props) => {
+interface IPropsType {
+  email: string;
+}
+
+export const useMutationBlockUserForAdmin = (props: IPropsType) => {
   const mutation = useMutation(BLOCK_USER_FOR_ADMIN, {
     variables: {
       email: props.email,

@@ -18,6 +18,10 @@ import LoginHeader from "../layout/loginHeader";
 import PageMoveBtn from "../../../commons/hoc/PageMoveBtn";
 import ErrMessage from "../../../commons/styles/Error";
 import { schema_login } from "../validation/schema";
+import {
+  getAccessToken,
+  RESTORE_ACCESS_TOKEN,
+} from "../../../commons/libraries/getAccessToken";
 
 export default function LoginUI() {
   const router = useRouter();
@@ -49,6 +53,7 @@ export default function LoginUI() {
         return;
       }
       setAccessToken(accessToken);
+      getAccessToken(RESTORE_ACCESS_TOKEN);
       void router.push(`/home`);
       console.log("유저 로그인", data);
     } catch (error) {

@@ -1,4 +1,4 @@
-import { useMutation } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { ADMIN_LOGIN } from "./Login.queries";
@@ -15,8 +15,12 @@ import { ILoginFormType } from "../../../commons/types/formtypes/type";
 import { InnerWrap } from "../../../commons/styles/Wrapper";
 import LoginHeader from "../layout/loginHeader";
 import { schema_login } from "../validation/schema";
-import { Input3 } from "../../../commons/styles/Input";
+import { Input1, Input4 } from "../../../commons/styles/Input";
 import ErrMessage from "../../../commons/styles/Error";
+import {
+  getAccessToken,
+  RESTORE_ACCESS_TOKEN_FOR_ADMIN,
+} from "../../../commons/libraries/getAccessToken";
 
 export default function AdminLoginUI() {
   const router = useRouter();
@@ -49,7 +53,7 @@ export default function AdminLoginUI() {
         return;
       }
       setAccessToken(accessToken);
-
+      getAccessToken(RESTORE_ACCESS_TOKEN_FOR_ADMIN);
       void router.push(`/adminpage`);
       console.log("어드민 로그인", data);
     } catch (error) {
@@ -71,52 +75,30 @@ export default function AdminLoginUI() {
       <S.Wrapper>
         <InnerWrap>
           <S.LoginWrapper>
-            {/* <S.TitleWrapper> */}
-            {/* <S.TitleMain>Login</S.TitleMain> */}
-            {/* </S.TitleWrapper> */}
             <form onSubmit={handleSubmit(onClickLogin)}>
               <S.ContentsWrapper>
-                {/* <S.Label>이메일</S.Label> */}
                 <div>
-                  <Input3
+                  <Input1
                     type="text"
                     {...register("email")}
                     placeholder="이메일"
-                  ></Input3>
+                  ></Input1>
                   {/* <St.ErrMessage>{errors.email?.message}</St.ErrMessage> */}
                 </div>
-                {/* <S.Label>비밀번호</S.Label> */}
                 <div>
-                  <S.Input1
+                  <Input4
                     type="password"
                     {...register("password")}
                     placeholder="비밀번호"
-                  ></S.Input1>
+                  ></Input4>
                   <S.Box>아이디 찾기/비밀번호 재설정</S.Box>
                   <ErrMessage text={errors.password?.message} />
                 </div>
                 <S.LoginButtonWrap>
                   <S.LoginButton>로그인</S.LoginButton>
-                  {/* <S.SignupButton>회원가입</S.SignupButton> */}
                 </S.LoginButtonWrap>
-                {/* <S.Footer>
-              <S.Footer1 onClick={onClickMoveToSingUp}>회원가입</S.Footer1>
-              <S.Footer1 onClick={onClickFind}>이메일/비밀번호 찾기</S.Footer1>
-            </S.Footer> */}
-                {/* <S.SnsLoginWrap>
-              <S.KakaoLogin>
-                <S.IconImg src="/icon/login_kakao.png" />
-              </S.KakaoLogin>
-              <S.NaverLogin>
-                <S.IconImg src="/icon/login_naver.png" />
-              </S.NaverLogin>
-              <S.GoogleLogin>
-                <S.IconImg src="/icon/login_google.png" />
-              </S.GoogleLogin>
-            </S.SnsLoginWrap> */}
               </S.ContentsWrapper>
             </form>
-            {/* <SignupBenefit /> */}
           </S.LoginWrapper>
         </InnerWrap>
       </S.Wrapper>

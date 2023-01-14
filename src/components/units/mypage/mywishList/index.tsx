@@ -36,7 +36,7 @@ export default function MyWishList({ User }: any) {
     }
   };
 
-  const TrueList = data?.fetchWishlist.filter((el) => el.isDib === true);
+  const TrueList = data?.fetchWishlist.filter((el: any) => el.isDib === true);
 
   return (
     <OuterWrap>

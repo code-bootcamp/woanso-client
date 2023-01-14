@@ -1,9 +1,13 @@
 import * as S from "./style";
 import { useRouter } from "next/router";
-import { MouseEvent, useState } from "react";
+import { MouseEvent } from "react";
 import LogoutConfirmModal from "../../commons/customModal/logoutModal";
 import { useQueryFetchUsersForAdmin } from "../../../commons/hooks/queries/useQueryFetchUsersForAdmin";
 import { useQueryFetchComics } from "../../../commons/hooks/queries/useQueryFetchComics";
+import { Modal } from "antd";
+import { useMutation } from "@apollo/client";
+import { LogoutForAdmin } from "../../../commons/hooks/mutaions/useMutaionLogoutForAdmin";
+import Search from "../../commons/search";
 
 const MenuLists = [
   { id: "rents/new", name: "상품 추가" },
@@ -13,11 +17,9 @@ const MenuLists = [
 
 export default function AdminpageUI() {
   const router = useRouter();
-  const [confirm, setConfirm] = useState<boolean>(false);
   const { data: Users } = useQueryFetchUsersForAdmin();
-  const { data: Comics } = useQueryFetchComics();
-  console.log(Comics);
-
+  const { data: Comics, refetch } = useQueryFetchComics();
+  const [logoutForAdmin] = useMutation(LogoutForAdmin);
   const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
     router.push(e.currentTarget.id);
   };
@@ -27,8 +29,19 @@ export default function AdminpageUI() {
   //   setOpen(true);
   // };
 
-  const onClickLogout = () => {
-    setConfirm(true);
+  const onClickLogout = async () => {
+    try {
+      await logoutForAdmin();
+      Modal.success({
+        content: "로그아웃 되었습니다!",
+        afterClose() {
+          location.reload();
+          router.push("/adminlogin");
+        },
+      });
+    } catch (error) {
+      Modal.error({ content: "로그아웃에 실패했습니다." });
+    }
   };
 
   return (
@@ -55,7 +68,6 @@ export default function AdminpageUI() {
               <S.MenuList onClick={onClickLogout}>
                 <S.MenuName>로그아웃</S.MenuName>
               </S.MenuList>
-              <LogoutConfirmModal confirm={confirm} setConfirm={setConfirm} />
             </S.MenuLists>
           </S.MenuBarWrap>
         </S.SideWrap>
@@ -89,7 +101,8 @@ export default function AdminpageUI() {
 
             <S.RigthWrap>
               <S.BoxTitle>상품 리스트</S.BoxTitle>
-              <S.BoxSearch placeholder="찾으시는 상품을 검색하세요." />
+              {/* <S.BoxSearch placeholder="찾으시는 상품을 검색하세요." /> */}
+              <Search refetch={refetch} />
               <S.ItemsWrap>
                 {Comics?.fetchComics.map((el: any) => (
                   <S.ItemWrap>
