@@ -1,13 +1,4 @@
 import * as S from "./style";
-import {
-  faThumbsDown,
-  faThumbsUp,
-  faCommentDots,
-} from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
-import ChatList from "../chat/list";
-import FreeBoardsWrite from "./write";
 const FreeBoardsContents = [
   { nickName: "닉네임", time: "· 1시간", contents: "이거봄?" },
   { nickName: "ㄸㅜ", time: "· 3시간", contents: "오히려..." },
@@ -60,7 +51,6 @@ export default function FreeBoards() {
           </>
         ))}
       </S.TalkBox>
-      <ChatList />
     </S.Wrapper>
   );
 }

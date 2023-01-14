@@ -18,7 +18,11 @@ const FETCH_BOARD = gql`
   }
 `;
 
-export const useQueryFetchBoard = (id) => {
+interface IPropsType {
+  id: string;
+}
+
+export const useQueryFetchBoard = (id: IPropsType) => {
   const query = useQuery(FETCH_BOARD, {
     variables: {
       id,

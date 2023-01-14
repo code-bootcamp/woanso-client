@@ -10,7 +10,10 @@ import { useQueryFetchUserLoggendIn } from "../../../../commons/hooks/queries/us
 import { useMutationcreatePointTransaction } from "../../../../commons/hooks/mutaions/useCreatePointTransaction";
 import { useQuery } from "@apollo/client";
 import { FETCH_USER } from "../../../../commons/hooks/queries/useQueryFetchUser";
-import { IQuery, IQueryFetchUserArgs } from "../../../../commons/types/generated/types";
+import {
+  IQuery,
+  IQueryFetchUserArgs,
+} from "../../../../commons/types/generated/types";
 import Head from "next/head";
 import Payment from "../../payment/payment.container";
 
@@ -20,18 +23,18 @@ export default function RentDetailUI() {
   const [createWishlist] = useMutationCreateWishList();
   const [createPointTransaction] = useMutationcreatePointTransaction();
   const { data: user } = useQueryFetchUserLoggendIn();
-  const { data } = useQueryFetchComic(router.query.boardId);
+  const { data } = useQueryFetchComic(String(router.query.boardId));
   const [payment, setPayment] = useState(false);
   console.log(data);
 
-  const { data: user2  } = useQuery<
-  Pick<IQuery,"fetchUser">,
-  IQueryFetchUserArgs>
-  (FETCH_USER, {
+  const { data: user2 } = useQuery<
+    Pick<IQuery, "fetchUser">,
+    IQueryFetchUserArgs
+  >(FETCH_USER, {
     variables: {
-      email: user?.fetchUserLoggedIn.email
-    }
-  })
+      email: user?.fetchUserLoggedIn.email,
+    },
+  });
 
   const onClickToggle = async () => {
     setToggleIcon((prev) => !prev);
@@ -47,8 +50,8 @@ export default function RentDetailUI() {
   };
 
   const onClickPayment = () => {
-    router.push(`/payment/${router.query.boardId}`)
-  }
+    router.push(`/payment/${router.query.boardId}`);
+  };
 
   // const onClickPayment = async () => {
   //   await createPointTransaction({
@@ -65,13 +68,13 @@ export default function RentDetailUI() {
   // const onClickPayment = () => {
   //   const amount = data.fetchComic.deliveryFee + data.fetchComic.rentalFee
 
-  //   const IMP = window.IMP; 
-  //   IMP.init("imp87181188"); 
+  //   const IMP = window.IMP;
+  //   IMP.init("imp87181188");
 
   //   IMP.request_pay(
   //     {
   //       pg: "nice",
-  //       pay_method: "card", 
+  //       pay_method: "card",
   //       name: data.fetchComic.title,
   //       amount: amount,
   //       buyer_email: user2?.fetchUser.email,
@@ -79,7 +82,7 @@ export default function RentDetailUI() {
   //       buyer_tel: user2?.fetchUser.phone,
   //       // buyer_addr: "서울특별시 강남구 신사동",
   //       buyer_postcode: "01181",
-  //       m_redirect_url: "http://localhost:3000/28-01-payment", 
+  //       m_redirect_url: "http://localhost:3000/28-01-payment",
   //     },
   //     (rsp: any) => {
   //       if (rsp.success) {
@@ -92,16 +95,13 @@ export default function RentDetailUI() {
   //   );
   // };
 
-
-
-
   const count = data?.fetchComic.comicRating.comicRating;
 
-  console.log(data)
+  console.log(data);
 
   return (
     <>
-     <Head>
+      <Head>
         <script
           type="text/javascript"
           src="https://code.jquery.com/jquery-1.12.4.min.js"

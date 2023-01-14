@@ -76,7 +76,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Romance dataRomance={dataRomance} />
+            {/* <Romance dataRomance={dataRomance} /> */}
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -86,7 +86,7 @@ export default function Rents() {
             <S.MoreBtn>더보기 &gt;</S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <School dataSchool={dataSchool} />
+            {/* <School dataSchool={dataSchool} /> */}
           </S.BookWrapper>
 
           <S.BookTitleWrap>

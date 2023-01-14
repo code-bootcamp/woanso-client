@@ -1,9 +1,10 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { Logout } from "../../../../commons/hooks/mutaions/useMutaionLogout";
+import { useQueryFetchComicsWithTitle } from "../../../../commons/hooks/queries/useQueryFetchComicsWithTitle";
 import { accessTokenState } from "../../../../commons/libraries/store";
 import { InnerWrap, OuterWrap } from "../../../../commons/styles/Wrapper";
 import * as S from "./style";
@@ -20,6 +21,7 @@ function LayoutHeader() {
   const [accessToken] = useRecoilState(accessTokenState);
   const [isScroll, setIsScroll] = useState(false);
   const [isMenu, setIsMenu] = useState(false);
+  const [search, setSearch] = useState("");
   const [logout] = useMutation(Logout);
 
   useEffect(() => {
@@ -43,14 +45,21 @@ function LayoutHeader() {
       Modal.success({
         content: "로그아웃 되었습니다!",
         afterClose() {
-          router.push("/home");
           location.reload();
+          router.push("/home");
         },
       });
     } catch (error) {
       Modal.error({ content: "로그아웃에 실패했습니다." });
     }
   };
+
+  const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.currentTarget.value);
+  };
+
+  const { data: resultSearch } = useQueryFetchComicsWithTitle(search);
+  console.log(resultSearch);
 
   return (
     <OuterWrap>
@@ -82,7 +91,11 @@ function LayoutHeader() {
               <img src="/icon/menu.png" alt="" />
             </S.MobileMenuBtn>
             <S.SearchWrap>
-              <S.Input placeholder="만화책을 검색하세요" />
+              <S.Input
+                placeholder="만화책을 검색하세요"
+                type="text"
+                onChange={onChangeSearch}
+              />
               <S.SearchIcon>검색</S.SearchIcon>
             </S.SearchWrap>
           </S.MenuListWrap>

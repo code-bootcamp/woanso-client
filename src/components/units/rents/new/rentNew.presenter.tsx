@@ -33,10 +33,7 @@ interface IFormData {
 }
 
 export default function RentNewUI() {
-  const [createComic] = useMutation<
-    Pick<IMutation, "createComic">,
-    IMutationCreateComicArgs
-  >(CREATE_COMIC);
+  const [createComic] = useMutation(CREATE_COMIC);
   const [uploadOneFile] = useMutationUploadOneFile();
 
   const ReactQuill = dynamic(async () => await import("react-quill"), {
@@ -76,8 +73,8 @@ export default function RentNewUI() {
             totalBooks: Number(data.totalBooks),
             description: data.description,
             ISBN: String(imgUrl),
-            stock: Number(data.stock),
             url: [String(imgUrl)],
+            stock: Number(data.stock),
             category: data.category,
           },
         },
