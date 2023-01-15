@@ -20,7 +20,7 @@ export const SideWrap = styled.div`
 `;
 
 export const SideWrapTop = styled.div`
-  background-color: #cdcdcd;
+  /* background-color: #cdcdcd; */
   width: 100%;
   height: 230px;
   padding: 30px 0;
@@ -28,6 +28,7 @@ export const SideWrapTop = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  border-bottom: 1px solid rgba(205, 205, 205, 0.7);
 `;
 
 export const AvatarWrap = styled.div`
@@ -41,6 +42,13 @@ export const AvatarImg = styled.img`
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
+`;
+
+export const AvatarImg2 = styled.img`
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: contain;
 `;
 
 export const EditIcon = styled.button`
@@ -60,7 +68,7 @@ export const EditIconImg = styled.img`
 `;
 
 export const UserName = styled.p`
-  color: #ffffff;
+  color: #333;
 `;
 
 export const SideWrapBottom = styled.div`
