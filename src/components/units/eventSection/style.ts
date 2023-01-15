@@ -21,6 +21,7 @@ export const EventCard = styled.div`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   position: relative;
+  cursor: pointer;
 `;
 
 export const EventCardInnerWrap = styled.div`
@@ -40,6 +41,15 @@ export const EventImg = styled.img`
   width: 320px;
   height: 320px;
   object-fit: cover;
+`;
+
+export const EventDetailImg = styled.img`
+  /* width: 320px;
+  height: 320px; */
+  object-fit: cover;
+  width: 800px;
+  height: 2626px;
+  margin: auto;
 `;
 
 export const EventBtn = styled.button`
