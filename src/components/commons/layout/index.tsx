@@ -12,7 +12,9 @@ const HIDDEN_LAYOUT = [
   "/join/",
   "/idpwFind/",
   "/adminlogin/",
-  "/adminpage/"
+  "/adminsignup/",
+  "/adminpage/",
+  "/adminIdpwFind/"
 ];
 
 export default function LayoutPage(props: ILayoutProps) {

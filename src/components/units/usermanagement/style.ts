@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 export const OuterWrap = styled.div``;
 
 export const InnerWrap = styled.div`
-  padding: 180px 100px;
+  padding-top: 180px;
+  width: 760px;
 `;
 
 export const PageTitle = styled.div`
@@ -64,10 +65,18 @@ export const TableDaata = styled.td`
 export const UserStatus = styled.button`
   background-color: #7a3831eb;
   color: #ffffff;
-  margin-right: 15px;
   padding: 3px 10px;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 15px;
+  margin-bottom: 3px;
+`;
+
+export const UserStatus2 = styled(UserStatus)`
+  background-color: #ffffff;
+  border: 1px solid #7a3831eb;
+  color: #7a3831eb;
+  margin-bottom: 0px;
 `;
 
 export const Text = styled.span``;

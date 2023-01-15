@@ -2,24 +2,11 @@ import { BulbFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 export const LoginWrapper = styled.div`
-  /* width: 742px; */
-  /* width: 50%; */
-  /* height: 1200px; */
-  /* background: #ffffff; */
-  /* box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.07); */
-  /* border-radius: 10px; */
-  /* padding: 60px; */
-  /* margin: 20px auto 100px auto; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* width: 100%; */
   height: 1176px;
   background: #fffbf2;
   display: flex;
   justify-content: center;
   padding: 50px 0;
-  /* align-items: center; */
 `;
 
 export const TitleWrapper = styled.div`
@@ -65,7 +52,6 @@ export const Label = styled.div`
   margin-bottom: 20px;
 `;
 export const Input = styled.input`
-  /* width: 400px; */
   width: 100%;
   height: 77.48px;
   background: white;
@@ -86,9 +72,6 @@ export const LoginButtonWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* padding: 70px; */
 `;
 
 export const LoginButton = styled.button`
@@ -100,14 +83,11 @@ export const LoginButton = styled.button`
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
-  /* or 16px */
-  /* display: flex; */
-  /* align-items: center; */
   text-align: center;
   letter-spacing: -0.05em;
   color: #ffffff;
-  /* padding: 0px 150px; */
 `;
+
 export const Footer = styled.div`
   display: flex;
   align-items: center;
@@ -115,6 +95,7 @@ export const Footer = styled.div`
   margin-top: 60px;
   margin-right: 50px;
 `;
+
 export const Footer1 = styled.div`
   width: 170px;
   height: 18px;
@@ -145,14 +126,7 @@ export const IconImg = styled.img`
   object-fit: contain;
 `;
 
-export const Wrapper = styled.div`
-  /* width: 100%; */
-  /* width: 1920px; */
-  /* height: 100%; */
-  /* height: 1176px; */
-  /* background: #FFFBF2; */
-  /* display: flex; */
-`;
+export const Wrapper = styled.div``;
 
 export const Input1 = styled.input`
   width: 340px;
@@ -180,12 +154,12 @@ export const Box = styled.div`
   line-height: 17px;
   color: #738096;
   padding: 10px 10px;
+  cursor: pointer;
 `;
 
 export const SignupButton = styled.button`
   width: 340px;
   height: 50px;
-
   background: #ffffff;
   border: 1px solid #d1d5d9;
   border-radius: 8px;
@@ -193,14 +167,9 @@ export const SignupButton = styled.button`
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
-
-  /* display: flex; */
-  /* align-items: center; */
   text-align: center;
   letter-spacing: -0.05em;
-
   color: #738096;
-  /* padding: 0px 140px; */
 `;
 
 export const All = styled.div`
