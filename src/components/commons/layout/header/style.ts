@@ -11,6 +11,7 @@ export const Header = styled.div`
   position: fixed;
   z-index: 99;
   width: 100%;
+  box-shadow: rgba(99, 99, 99, 0.4) 0px 0px 20px 0px;
 `;
 
 export const UserMenuWrap = styled.div`

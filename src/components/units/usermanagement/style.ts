@@ -19,7 +19,7 @@ export const BoxTitle = styled.div`
   width: 100%;
   color: #ffffff;
   background-color: #7a3831eb;
-  padding: 5px 30px;
+  padding: 5px 15px;
   border-radius: 4px;
   text-align: left;
 `;
@@ -28,7 +28,7 @@ export const BoxSearch = styled.input`
   width: 100%;
   color: #000;
   background-color: #f4efe4;
-  padding: 5px 30px;
+  padding: 5px 15px;
   margin: 10px 0;
   border: none;
 `;
@@ -38,7 +38,9 @@ export const Table = styled.table`
   text-align: left;
 `;
 
-export const Thead = styled.thead``;
+export const Thead = styled.thead`
+  font-size: 0.75rem;
+`;
 
 export const Tbody = styled.tbody``;
 
@@ -58,8 +60,9 @@ export const TableHead = styled.th`
   padding: 8px 20px;
 `;
 
-export const TableDaata = styled.td`
+export const TableData = styled.td`
   padding: 8px 20px;
+  font-size: 0.75rem;
 `;
 
 export const UserStatus = styled.button`
