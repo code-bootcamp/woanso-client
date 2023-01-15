@@ -46,8 +46,6 @@ export default function Rents() {
     (el: any) => el.category === "horror"
   );
 
-  console.log(dataRomance);
-
   const onClickMenu = (e: any) => {
     setSection(e.currentTarget?.id);
     setIsActive(e.currentTarget?.id);

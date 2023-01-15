@@ -57,6 +57,8 @@ export const MenuList = styled.li`
 
 export const MenuName = styled.p``;
 
+export const SectionsWrap = styled.div``;
+
 export const SectionWrap = styled.div`
   padding: 50px 40px;
   width: 760px;

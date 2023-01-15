@@ -57,9 +57,16 @@ function LayoutHeader() {
   const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.currentTarget.value);
   };
-
   const { data: resultSearch } = useQueryFetchComicsWithTitle(search);
   console.log(resultSearch);
+  const onClickMoveToBook = () => {
+    if (resultSearch?.fetchComicsWithTitle.length === 0) {
+      Modal.error({ content: "검색결과를 찾을 수 없습니다." });
+      return;
+    } else {
+      router.push(`/rents/${resultSearch?.fetchComicsWithTitle[0]?.comicId}`);
+    }
+  };
 
   return (
     <OuterWrap>
@@ -96,7 +103,7 @@ function LayoutHeader() {
                 type="text"
                 onChange={onChangeSearch}
               />
-              <S.SearchIcon>검색</S.SearchIcon>
+              <S.SearchIcon onClick={onClickMoveToBook} />
             </S.SearchWrap>
           </S.MenuListWrap>
 

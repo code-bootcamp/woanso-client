@@ -1,14 +1,13 @@
 import * as S from "./style";
 import { useRouter } from "next/router";
-import { MouseEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
+import { Modal } from "antd";
+import { debounce } from "lodash";
+import { useMutation } from "@apollo/client";
 import { useQueryFetchUsersForAdmin } from "../../../commons/hooks/queries/useQueryFetchUsersForAdmin";
 import { useQueryFetchComics } from "../../../commons/hooks/queries/useQueryFetchComics";
-import { Modal } from "antd";
-import { useMutation } from "@apollo/client";
 import { LogoutForAdmin } from "../../../commons/hooks/mutaions/useMutaionLogoutForAdmin";
 import { useQueryAvailableComicsForAdmin } from "../../../commons/hooks/queries/useQueryAvailableComicsForAdmin";
-import { ChangeEvent } from "react";
-import { debounce } from "lodash";
 import { useQueryFetchComicsWithTitle } from "../../../commons/hooks/queries/useQueryFetchComicsWithTitle";
 import Search from "../../commons/search";
 
@@ -47,16 +46,14 @@ export default function AdminpageUI() {
     }
   };
 
-  const getDebounce = debounce((value) => {
-    setKeyword(value);
-  }, 500);
-
+  const { data: search } = useQueryFetchComicsWithTitle(keyword);
   const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setIsSearch(true);
     getDebounce(e.currentTarget.value);
   };
-  const { data: search } = useQueryFetchComicsWithTitle(keyword);
-  console.log(search?.fetchComicsWithTitle);
+  const getDebounce = debounce((value) => {
+    setKeyword(value);
+  }, 500);
 
   return (
     <S.OuterWrap>
@@ -82,7 +79,7 @@ export default function AdminpageUI() {
           </S.MenuBarWrap>
         </S.SideWrap>
 
-        <S.ActiveWrap>
+        <S.SectionsWrap>
           <S.SectionWrap>
             <S.BoxTitle>상품 관리</S.BoxTitle>
             <S.MiniWrap>
@@ -151,7 +148,7 @@ export default function AdminpageUI() {
               </tbody>
             </table>
           </S.SectionWrap>
-        </S.ActiveWrap>
+        </S.SectionsWrap>
       </S.InnerWrap>
     </S.OuterWrap>
   );
