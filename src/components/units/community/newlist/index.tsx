@@ -1,6 +1,13 @@
+import { useQuery } from "@apollo/client";
+import { FETCH_BOARDS } from "../../../../commons/hooks/queries/useQueryFetchBoards";
+import { getDays } from "../../../../commons/libraries/getTimes";
 import * as S from "./style";
 
 export default function CommunityNewList() {
+
+  const { data } = useQuery(FETCH_BOARDS);
+  console.log(data);
+
   return (
     <S.CommunityNewListWrap>
       <S.TitleWrapper>
@@ -9,13 +16,14 @@ export default function CommunityNewList() {
         <span></span>
         <button>더보기 &gt;</button>
       </S.TitleWrapper>
+      
       <S.ContentsWrap>
-        {new Array(12).fill(1).map((el, index) => (
-          <S.Content>
-            <S.Image src="" />
+        {data?.fetchBoards.map((el: any, index: number) => (
+          <S.Content key={el}>
+            <S.Image src={`https://storage.googleapis.com/${el.boardImg[0].url}`}/>
             <S.Info>
-              <p>다나카</p>
-              <span>1시간전</span>
+              <p>{el.user.nickname}</p>
+              <span>{getDays(el.createdAt)}</span>
             </S.Info>
           </S.Content>
         ))}

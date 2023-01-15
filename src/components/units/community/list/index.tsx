@@ -86,17 +86,17 @@ export default function CommunityListUI() {
                     src="/icon/Icon5.png"
                     onClick={onClickComment}
                   ></S.CommentIcon>
-                  <S.Comment>10</S.Comment>
+                  {/* <S.Comment>10</S.Comment> */}
                 </S.CommentWrap>
               </S.BottomWrap>
             </S.ContentsWrap>
           </S.LeftWrap>
-          <S.RightWrap>
+          {/* <S.RightWrap>
             <S.IconWrap>
               <S.Edit src="/icon/Vector7.png" onClick={onClickEdit}></S.Edit>
               <S.Del src="/icon/Vector6.png" onClick={onClickDelete}></S.Del>
             </S.IconWrap>
-          </S.RightWrap>
+          </S.RightWrap> */}
         </S.Wrap>
       ))}
     </>

@@ -81,4 +81,7 @@ export const Content = styled.div`
   }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+width: 140px;
+height: 140px;
+`;
