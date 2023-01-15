@@ -1,12 +1,18 @@
 import { useQuery } from "@apollo/client";
+import Router, { useRouter } from "next/router";
 import { FETCH_BOARDS } from "../../../../commons/hooks/queries/useQueryFetchBoards";
 import { getDays } from "../../../../commons/libraries/getTimes";
 import * as S from "./style";
 
 export default function CommunityNewList() {
+  const router = useRouter();
 
   const { data } = useQuery(FETCH_BOARDS);
   console.log(data);
+
+  const onClickCommunity = () => {
+    void router.push(`/community`);
+  }
 
   return (
     <S.CommunityNewListWrap>
@@ -14,7 +20,7 @@ export default function CommunityNewList() {
         <p></p>
         <h3>커뮤니티 최신글</h3>
         <span></span>
-        <button>더보기 &gt;</button>
+        <button onClick={onClickCommunity}>더보기 &gt;</button>
       </S.TitleWrapper>
       
       <S.ContentsWrap>
