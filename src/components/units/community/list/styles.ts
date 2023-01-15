@@ -7,6 +7,8 @@ padding: 20px 10px;
 width: 1000px;
 display: flex;
 justify-content: space-between;
+width: 320px;
+height: 380px;
 `
 export const LeftWrap = styled.div`
 display: flex;

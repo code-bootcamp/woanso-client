@@ -32,7 +32,7 @@ display: flex;
 gap: 10px;
 `
 export const Name = styled.div`
-width: 43px;
+/* width: 43px; */
 height: 16px;
 font-style: normal;
 font-weight: 700;

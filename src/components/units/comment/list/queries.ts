@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const FETCH_COMMENTS = gql`
-  query fetchComments{
-    fetchComments {
+  query fetchComments($page: Float, $order: String){
+    fetchComments(page: $page, order: $order) {
       id
       content
       createdAt

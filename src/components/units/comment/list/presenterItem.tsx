@@ -1,6 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
+import { getDays } from "../../../../commons/libraries/getTimes";
 import {
   IMutation,
   IMutationDeleteCommentArgs,
@@ -15,6 +16,7 @@ export default function CommunityCommentListUIItem(props: any) {
     Pick<IMutation, "deleteComment">,
     IMutationDeleteCommentArgs
   >(DELETE_COMMENT);
+  console.log(router)
 
   const onClickDelete = async () => {
     try {
@@ -24,8 +26,7 @@ export default function CommunityCommentListUIItem(props: any) {
         },
         refetchQueries: [
           {
-            query: FETCH_COMMENTS,
-            variables: { boardId: router.query.id },
+            query: FETCH_COMMENTS
           },
         ],
       });
@@ -43,7 +44,7 @@ export default function CommunityCommentListUIItem(props: any) {
         <S.ContentsWrap>
           <S.TopWrap>
             <S.Name>{props.el?.user.nickname}</S.Name>
-            <S.Date>{props.el?.createdAt}</S.Date>
+            <S.Date>{getDays(props.el?.createdAt)}</S.Date>
           </S.TopWrap>
           <S.MidWrap>
             <S.MidContents>{props.el?.content}</S.MidContents>
