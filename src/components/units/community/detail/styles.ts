@@ -12,10 +12,10 @@ export const LeftWrap = styled.div`
 display: flex;
 gap: 30px;
 `
-export const AvatorWrap = styled.div`
+export const AvatarWrap = styled.div`
 width: 48px;
 `
-export const Avator = styled.img`
+export const Avatar = styled.img`
 width: 48px;
 height: 48px;
 background: #D9D9D9;
@@ -29,13 +29,14 @@ gap: 20px;
 export const TopWrap = styled.div`
 display: flex;
 gap: 10px;
+margin-bottom: 30px;
 `
 export const Name = styled.div`
 /* width: 43px; */
 height: 16px;
 font-style: normal;
 font-weight: 700;
-font-size: 16px;
+font-size: 20px;
 line-height: 100%;
 /* identical to box height, or 16px */
 display: flex;
@@ -57,16 +58,17 @@ color: #999999;
 export const MidWrap = styled.div``
 export const MidContents = styled.div`
 margin-bottom: 20px;
-width: 181px;
+/* width: 181px; */
 height: 14px;
 font-style: normal;
 font-weight: 400;
-font-size: 14px;
+font-size: 16px;
 line-height: 100%;
 display: flex;
 align-items: center;
 letter-spacing: -0.05em;
 color: #333333;
+margin-bottom: 80px;
 `
 export const ImgWrap = styled.div``
 export const Img = styled.img`
@@ -76,6 +78,7 @@ height: 200px;
 export const BottomWrap = styled.div`
 display: flex;
 gap: 20px;
+
 `
 export const LikeWrap = styled.div`
 display: flex;
