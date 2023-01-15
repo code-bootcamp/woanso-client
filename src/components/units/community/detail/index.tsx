@@ -73,22 +73,19 @@ export default function CommunityDetailUI() {
     <>
       <S.Wrap>
         <S.LeftWrap>
-          <S.AvatorWrap>
-            <S.Avator
+          <S.AvatarWrap>
+            <S.Avatar
               src={`https://storage.googleapis.com/${data?.fetchBoard.user.thumbnail}`}
             />
-          </S.AvatorWrap>
+          </S.AvatarWrap>
           <S.ContentsWrap>
             <S.TopWrap>
               <S.Name>{data?.fetchBoard.user.nickname}</S.Name>
-              {/* <S.Name>이유진</S.Name> */}
               {/* <S.Date>2시간 전</S.Date> */}
             </S.TopWrap>
             <S.MidWrap>
               <S.MidContents>{data?.fetchBoard.content}</S.MidContents>
               <S.ImgWrap>
-                {/* <S.Img src="/image1.png" />
-                            <S.Img src="/image2.png" /> */}
                 <S.Img
                   src={`https://storage.googleapis.com/${data?.fetchBoard.boardImg[0]?.url}`}
                 />
