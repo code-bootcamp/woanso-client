@@ -72,14 +72,21 @@ export default function MyPageUI() {
     setIsActive(e.currentTarget.id);
   };
 
+  console.log(User?.fetchUserLoggedIn.thumbnail.length === 0);
+
   return (
     <S.MypageWrap>
       <S.SideWrap>
         <S.SideWrapTop>
           <S.AvatarWrap onClick={onClickUpload}>
-            <S.AvatarImg
-              src={`https://storage.googleapis.com/${User?.fetchUserLoggedIn.thumbnail}`}
-            />
+            {User?.fetchUserLoggedIn.thumbnail.length > 0 ? (
+              <S.AvatarImg
+                src={`https://storage.googleapis.com/${User?.fetchUserLoggedIn.thumbnail}`}
+              />
+            ) : (
+              <S.AvatarImg2 src="/icon/avatar.png" />
+            )}
+
             <S.EditIcon>
               <S.EditIconImg src="/icon/edit_icon.png" />
             </S.EditIcon>

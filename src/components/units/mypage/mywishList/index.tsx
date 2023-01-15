@@ -37,11 +37,11 @@ export default function MyWishList({ User }: any) {
   };
 
   const TrueList = data?.fetchWishlist.filter((el: any) => el.isDib === true);
-
+  // console.log(el.comic.ISBN);
   return (
     <OuterWrap>
       <InnerWrap>
-        {TrueList.length > 0 ? (
+        {TrueList?.length > 0 ? (
           <S.MyWishListWrap>
             <S.Title>찜 목록</S.Title>
             <S.ListsWrap>

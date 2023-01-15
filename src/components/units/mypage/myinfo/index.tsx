@@ -28,7 +28,7 @@ export default function MyIngo({ User }: any) {
         <S.ItemWrap>
           <S.TopTitle>등급</S.TopTitle>
           <S.GradeImg src="/grade/01.png" />
-          <S.TopInfo>실버</S.TopInfo>
+          <S.TopInfo>브론즈</S.TopInfo>
         </S.ItemWrap>
         <S.ItemWrap>
           <S.TopTitle>포스팅</S.TopTitle>
