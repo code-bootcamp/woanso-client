@@ -114,25 +114,27 @@ export const BookAuthor = styled.p`
   color: #77170d;
   font-size: 0.875rem;
   font-weight: bold;
-  margin-bottom: 8px;
 `;
 
 export const BookDetail = styled.p`
   font-size: 0.875rem;
   height: 100px;
+  margin-bottom: 8px;
 `;
 
 export const Price = styled.p`
   color: #77170d;
   font-weight: bold;
-  line-height: 47px;
+  line-height: 40px;
 `;
 
 export const RentBtn = styled.button`
-  width: 136px;
-  height: 47px;
+  width: 120px;
+  height: 40px;
   background-color: #77170d;
   color: #ffffff;
+  border-radius: 8px;
+  font-weight: bold;
 `;
 
 export const ReviewListBox = styled.div`
