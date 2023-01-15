@@ -26,9 +26,11 @@ const Button = styled.button`
   text-align: center;
   letter-spacing: -0.05em;
   background: ${(props: IPropsType) =>
-    props.id === "join" ? "#77170d" : "#ffffff"};
+    props.id === "join" || props.id === "adminsignup" ? "#77170d" : "#ffffff"};
   border: ${(props: IPropsType) =>
-    props.id === "join" ? "none" : "1px solid #d1d5d9"};
+    props.id === "join" || props.id === "adminsignup"
+      ? "none"
+      : "1px solid #d1d5d9"};
   color: ${(props: IPropsType) =>
-    props.id === "join" ? "#ffffff" : " #738096"};
+    props.id === "join" || props.id === "adminsignup" ? "#ffffff" : " #738096"};
 `;

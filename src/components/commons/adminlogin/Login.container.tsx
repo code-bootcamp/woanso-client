@@ -21,6 +21,7 @@ import {
   getAccessToken,
   RESTORE_ACCESS_TOKEN_FOR_ADMIN,
 } from "../../../commons/libraries/getAccessToken";
+import PageMoveBtn from "../../../commons/hoc/PageMoveBtn";
 
 export default function AdminLoginUI() {
   const router = useRouter();
@@ -61,12 +62,8 @@ export default function AdminLoginUI() {
     }
   };
 
-  const onClickMoveToSingUp = () => {
-    router.push("/join");
-  };
-
   const onClickFind = () => {
-    router.push("/idpwFind");
+    router.push("/adminIdpwFind");
   };
 
   return (
@@ -83,7 +80,6 @@ export default function AdminLoginUI() {
                     {...register("email")}
                     placeholder="이메일"
                   ></Input1>
-                  {/* <St.ErrMessage>{errors.email?.message}</St.ErrMessage> */}
                 </div>
                 <div>
                   <Input4
@@ -91,11 +87,12 @@ export default function AdminLoginUI() {
                     {...register("password")}
                     placeholder="비밀번호"
                   ></Input4>
-                  <S.Box>아이디 찾기/비밀번호 재설정</S.Box>
-                  <ErrMessage text={errors.password?.message} />
+                  <S.Box onClick={onClickFind}>아이디 찾기</S.Box>
+                  <ErrMessage text={errors.email?.message} />
                 </div>
                 <S.LoginButtonWrap>
-                  <S.LoginButton>로그인</S.LoginButton>
+                  <PageMoveBtn id="adminlogin" text="로그인" />
+                  <PageMoveBtn id="adminsignup" text="회원가입" />
                 </S.LoginButtonWrap>
               </S.ContentsWrapper>
             </form>

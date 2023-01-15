@@ -26,3 +26,12 @@ export interface IUserUpdateFormType {
 export interface IOrderFormType {
   adress: string;
 }
+
+// 관리자 회원가입 Form type
+export interface IAdminFormType {
+  nickname?: string;
+  email?: string;
+  password: string;
+  password2: string;
+  phone: number;
+}

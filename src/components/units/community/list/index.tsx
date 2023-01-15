@@ -4,10 +4,7 @@ import { MouseEvent, useState } from "react";
 import {
   IMutation,
   IMutationDeleteBoardArgs,
-  IQuery,
-  IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
-import CommunityCommentWriteUI from "../../comment/write";
 import { DELETE_BOARD } from "../detail/queries";
 import { FETCH_BOARDS } from "./queries";
 import * as S from "./styles";

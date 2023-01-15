@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 
-const FETCH_BLOCKED_USERS_FOR_ADMIN = gql`
+export const FETCH_BLOCKED_USERS_FOR_ADMIN = gql`
   query fetchBlockedUsersForAdmin {
     fetchBlockedUsersForAdmin {
       id

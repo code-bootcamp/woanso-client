@@ -1,16 +1,16 @@
 import { gql, useQuery } from "@apollo/client";
 
-const FETCH_COMICS_WITH_TITLE = gql`
+export const FETCH_COMICS_WITH_TITLE = gql`
   query fetchComicsWithTitle($title: String!, $page: Float!) {
     fetchComicsWithTitle(title: $title, page: $page) {
-      cominId
-      #   title
-      #   ISBN
+      title
+      comicId
+      ISBN
     }
   }
 `;
 
-export const useQueryFetchComicsWithTitle = (title: any) => {
+export const useQueryFetchComicsWithTitle = (title: string) => {
   const query = useQuery(FETCH_COMICS_WITH_TITLE, {
     variables: {
       title,
