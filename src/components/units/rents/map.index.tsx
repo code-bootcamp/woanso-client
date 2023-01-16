@@ -12,7 +12,7 @@ export default function ListMap({ el }: any) {
     <S.BookSubWrapper id={el.comicId} onClick={onClickMoveToDetail}>
       <S.BookImg src={`https://storage.googleapis.com/${el.ISBN}`}></S.BookImg>
       <S.BookInfo>
-        <S.BookTitle>{el.title}</S.BookTitle>
+        <S.BookTitle>{el.title.slice(0, 18)}</S.BookTitle>
         <S.BookInfoSub>
           <S.BookAuthor>{el.author}</S.BookAuthor>
           <S.BookPrice>{el.rentalFee}원</S.BookPrice>

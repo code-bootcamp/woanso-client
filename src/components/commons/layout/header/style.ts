@@ -15,22 +15,25 @@ export const Header = styled.div`
 `;
 
 export const UserMenuWrap = styled.div`
-  padding: 0 16%;
-  display: flex;
-  justify-content: flex-end;
   height: 30px;
   background-color: ${(props: IStypePros) =>
     props.isScroll ? "#000000" : "#ffffff"};
   color: ${(props: IStypePros) => (props.isScroll ? "#ffffff" : "#787878")};
   border-bottom: ${(props: IStypePros) =>
     props.isScroll ? "1px solid #ffffff" : "1px solid #ffffff"};
+  position: relative;
 `;
 
 export const BtnsWrap = styled.div`
+  width: 1000px;
+  line-height: 30px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export const Btn = styled.div`
@@ -55,16 +58,23 @@ export const Logo = styled.p`
   }
 `;
 
-export const MenuListWrap = styled.div`
-  padding: 1.5rem 16%;
+export const MenuWrap = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: ${(props: IStypePros) =>
     props.isScroll ? "#ffffff" : "#f5efe3"};
   color: ${(props: IStypePros) => (props.isScroll ? "#333333" : "#000000")};
   font-weight: bold;
+`;
+
+export const MenuListWrap = styled.div`
+  padding: 1.5rem 0;
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
   ul {
     width: 100%;

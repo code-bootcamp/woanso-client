@@ -32,6 +32,7 @@ export const Month = styled.p`
   padding-left: 10px;
   font-size: 0.75rem;
   color: ${(props: IsActiveProps) => (props.isActive ? "#333333" : "#cccccc")};
+  font-weight: ${(props: IsActiveProps) => (props.isActive ? "bold" : "nomal")};
 `;
 
 export const ListsWrap = styled.div`
@@ -45,11 +46,11 @@ export const List = styled.div`
   height: 100px;
   border: 1px solid rgba(205, 205, 205, 0.7);
   display: flex;
+  cursor: pointer;
 `;
 
 export const BookImg = styled.img`
-  width: 170px;
-  height: 100%;
+  width: 150px;
   object-fit: cover;
 `;
 
