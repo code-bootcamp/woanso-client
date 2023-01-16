@@ -71,7 +71,9 @@ export default function Rents() {
             <S.BookTitle>
               가슴 설레는 <span>로맨스</span>
             </S.BookTitle>
-            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+            <S.MoreBtn id="romance" onClick={onClickMenu}>
+              더보기 &gt;
+            </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
             {/* <Romance dataRomance={dataRomance} /> */}
@@ -81,7 +83,9 @@ export default function Rents() {
             <S.BookTitle>
               하이틴 간접체험! <span>학원</span>
             </S.BookTitle>
-            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+            <S.MoreBtn id="school" onClick={onClickMenu}>
+              더보기 &gt;
+            </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
             {/* <School dataSchool={dataSchool} /> */}
@@ -91,7 +95,9 @@ export default function Rents() {
             <S.BookTitle>
               13일의 금요일엔! <span>공포/추리</span>
             </S.BookTitle>
-            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+            <S.MoreBtn id="horror" onClick={onClickMenu}>
+              더보기 &gt;
+            </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
             <Mystery dataHorror={dataHorror} />
@@ -101,7 +107,9 @@ export default function Rents() {
             <S.BookTitle>
               압도적인 몰입감, 화끈한 <span>액션</span>
             </S.BookTitle>
-            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+            <S.MoreBtn id="action" onClick={onClickMenu}>
+              더보기 &gt;
+            </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
             <Action dataAction={dataAction} />
@@ -111,7 +119,9 @@ export default function Rents() {
             <S.BookTitle>
               환상속으로! <span>판타지</span>
             </S.BookTitle>
-            <S.MoreBtn>더보기 &gt;</S.MoreBtn>
+            <S.MoreBtn id="fantasy" onClick={onClickMenu}>
+              더보기 &gt;
+            </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
             <Fantasy dataFantasy={dataFantasy} />

@@ -31,7 +31,6 @@ export default function SignupUI() {
   };
 
   const onClickSignUp = async (data: IUserFormType) => {
-    console.log(data);
     console.log(interest);
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
@@ -47,15 +46,17 @@ export default function SignupUI() {
         variables: {
           email: data.email,
           password: data.password,
-          phone,
           nickname: data.nickname,
+          phone,
+          interest: String(interest),
         },
       });
       console.log(result);
       Modal.success({ content: "회원가입을 축하합니다!!" });
       void router.push(`/login`);
     } catch (error) {
-      if (error instanceof Error) console.log(error.message);
+      if (error instanceof Error)
+        Modal.error({ content: "이미 존재하는 email입니다." });
     }
   };
 

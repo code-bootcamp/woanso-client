@@ -1,26 +1,24 @@
 import { useRouter } from "next/router";
 import { MouseEvent } from "react";
-import { string } from "yup";
+import { useQueryFetchAllComments } from "../../../../commons/hooks/queries/useQueryFetchAllComments";
 import { useQueryFetchBoards } from "../../../../commons/hooks/queries/useQueryFetchBoards";
-import { useQueryFetchBoardsByUser } from "../../../../commons/hooks/queries/useQueryFetchBoardsByUser";
 import * as S from "./style";
 
 export default function MyIngo({ User }: any) {
   const router = useRouter();
-  // const { data } = useQueryFetchBoardsByUser();
-  // console.log("fetchBoardsByUser", data?.fetchBoardsByUser);
   const { data } = useQueryFetchBoards();
+  const { data: comments } = useQueryFetchAllComments();
   const userId = User?.fetchUserLoggedIn.id;
   const fetchBoardsByUser = data?.fetchBoards.filter(
     (el: any) => el.user.id === userId
   );
+  const userComments = comments?.fetchAllComments.filter((el: any) => {
+    el.user.id === userId;
+  });
 
   const onClickMoveToPosting = (e: MouseEvent<HTMLDivElement>) => {
-    console.log(e.currentTarget.id);
     router.push(`/community/${e.currentTarget.id}`);
   };
-
-  console.log(fetchBoardsByUser);
 
   return (
     <S.MyInfoWrap>
@@ -32,11 +30,11 @@ export default function MyIngo({ User }: any) {
         </S.ItemWrap>
         <S.ItemWrap>
           <S.TopTitle>포스팅</S.TopTitle>
-          <S.BigText>1</S.BigText>
+          <S.BigText>{fetchBoardsByUser?.length}</S.BigText>
         </S.ItemWrap>
         <S.ItemWrap>
           <S.TopTitle>댓글</S.TopTitle>
-          <S.BigText>10</S.BigText>
+          <S.BigText>{userComments?.length}</S.BigText>
         </S.ItemWrap>
       </S.TopWrap>
 

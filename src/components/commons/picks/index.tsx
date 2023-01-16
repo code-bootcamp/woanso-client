@@ -1,9 +1,15 @@
+import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/libraries/store";
 import * as S from "./styles";
 
 export default function Picks() {
+  const router = useRouter();
   const [accessToken] = useRecoilState(accessTokenState);
+
+  const onClickMoveToPage = () => {
+    router.push("/join");
+  };
 
   return (
     <S.PicksWrapper>
@@ -11,7 +17,7 @@ export default function Picks() {
         <S.Title>Picks</S.Title>
         <S.LeftContents>
           {!accessToken ? (
-            <S.LeftButton>
+            <S.LeftButton onClick={onClickMoveToPage}>
               <h4>로그인하고 더 많은 추천 받기</h4>
               <p>
                 발견의 기쁨을 선물합니다
