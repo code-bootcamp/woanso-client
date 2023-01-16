@@ -32,6 +32,7 @@ export const ImgWrap = styled.div``
 export const Img = styled.img`
 width: 24px;
 height: 24px;
+ cursor: pointer;
 `
 export const ButtonWrap = styled.div``
 export const Button = styled.button`
@@ -51,4 +52,8 @@ text-align: center;
 letter-spacing: -0.05em;
 justify-content: center;
 color: #FFFFFF;
+`
+
+export const Input = styled.input`
+  display: none;
 `

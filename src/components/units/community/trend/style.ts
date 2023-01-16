@@ -32,7 +32,7 @@ export const ContentsWrap = styled.div`
 display: flex;
 gap: 2px;
 `
-export const Contents = styled.div`
+export const Contents = styled.img`
 width: 140px;
 height: 140px;
 background: #D9D9D9;
