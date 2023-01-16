@@ -72,8 +72,6 @@ export default function MyPageUI() {
     setIsActive(e.currentTarget.id);
   };
 
-  console.log(User?.fetchUserLoggedIn.thumbnail.length === 0);
-
   return (
     <S.MypageWrap>
       <S.SideWrap>

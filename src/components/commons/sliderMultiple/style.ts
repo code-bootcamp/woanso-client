@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 319px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 15px;
 `;

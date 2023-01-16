@@ -7,13 +7,12 @@ export default function UserEdit({ User }: any) {
   const [edit, setEdit] = useState(false);
   const [phonenum, setPhonenum] = useState("");
 
-  console.log(User.fetchUserLoggedIn.phone);
   const onChangePhone = (e: ChangeEvent<HTMLInputElement>) => {
     setPhonenum(e.target.value);
   };
 
   const onClickMoveToEdit = () => {
-    User.fetchUserLoggedIn.phone === String(phonenum)
+    User?.fetchUserLoggedIn.phone === String(phonenum)
       ? setEdit(true)
       : Modal.error({ content: "본인 확인에 실패했습니다." });
   };

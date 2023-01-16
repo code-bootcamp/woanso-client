@@ -1,4 +1,5 @@
 import { Modal } from "antd";
+import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
 import { useMutationCreateWishList } from "../../../../commons/hooks/mutaions/useMutationCreateWishlist";
 import {
@@ -11,13 +12,13 @@ import ConfirmModal from "../../../commons/customModal/checkModal";
 import * as S from "./style";
 
 export default function MyWishList({ User }: any) {
+  const router = useRouter();
   const [confirm, setConfirm] = useState(false);
   const { data } = useQueryFetchWishlist();
   const [createWishlist] = useMutationCreateWishList();
-  console.log("===============", data);
+  const TrueList = data?.fetchWishlist.filter((el: any) => el.isDib === true);
 
   const onClickCancle = async (e: MouseEvent<HTMLDivElement>) => {
-    // setConfirm(true);
     try {
       const result = await createWishlist({
         variables: {
@@ -36,8 +37,10 @@ export default function MyWishList({ User }: any) {
     }
   };
 
-  const TrueList = data?.fetchWishlist.filter((el: any) => el.isDib === true);
-  // console.log(el.comic.ISBN);
+  const onClickMoveToPage = () => {
+    router.push("/rents");
+  };
+
   return (
     <OuterWrap>
       <InnerWrap>
@@ -78,7 +81,9 @@ export default function MyWishList({ User }: any) {
                 <S.Content>위시리스트가 비어있네요!</S.Content>
                 <S.Content>취향에 맞는 만화책으로 채워보세요.</S.Content>
               </S.ContentsGrup>
-              <SubmitButton2>추천리스트 보기</SubmitButton2>
+              <SubmitButton2 onClick={onClickMoveToPage}>
+                추천리스트 보기
+              </SubmitButton2>
             </S.ContentsWrap>
           </S.MyWishListWrap>
         )}
