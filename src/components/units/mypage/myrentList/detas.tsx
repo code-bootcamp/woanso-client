@@ -1,0 +1,58 @@
+export const OrderList = [
+  {
+    comicId: "b83df26c-3369-45ff-b96f-a1948d1791f2",
+    imgUrl:
+      "woanso-storage/2023/1/10/1e6be95e-35e3-4497-a4a4-a50779f71131/origin/ㅌㅌㅌ.jpeg",
+    name: "풀하우스",
+    orderNumber: "008445a7fa89",
+    author: "원수연",
+    rentDay: "2023.01.03",
+    rentWithin: "2023.01.03 ~ 2023.01.10",
+    rentalFee: 6000,
+    adress: "서울특별시 구로구 디지털로 300",
+    phone: "010-8311-4706",
+    totalBooks: 16,
+  },
+  {
+    comicId: "79822171-2e49-4ba6-aaca-e4fcdfd66ee7",
+    imgUrl:
+      "woanso-storage/2023/1/10/1af80a41-c915-4052-8d75-3bed0bb8ab60/origin/ted.jpeg",
+    name: "테니스의 왕자",
+    orderNumber: "2e81615a215a78",
+    author: "코노미 타케시",
+    rentDay: "2023.01.05",
+    rentWithin: "2023.01.05 ~ 2023.01.12",
+    rentalFee: 28000,
+    adress: "서울특별시 구로구 디지털로 300",
+    phone: "010-8311-4706",
+    totalBooks: 35,
+  },
+  {
+    comicId: "6395a8a4-12cf-4c39-873d-da9f0c535232",
+    imgUrl:
+      "woanso-storage/2023/1/10/8498585d-72d0-4171-a916-0b35fc3eb2e1/origin/a.png",
+    name: "블리치",
+    orderNumber: "2da9f0c535232",
+    author: "쿠보 타이토",
+    rentDay: "2023.01.10",
+    rentWithin: "2023.01.10 ~ 2023.01.17",
+    rentalFee: 56000,
+    adress: "서울특별시 구로구 디지털로 300",
+    phone: "010-8311-4706",
+    totalBooks: 74,
+  },
+  {
+    comicId: "4dfc9931-b2f9-4982-ae76-f884cb865102",
+    imgUrl:
+      "woanso-storage/2023/1/10/2ebc3465-03ae-49d7-a598-8916470f139b/origin/fks.jpeg",
+    name: "란마 1/2",
+    orderNumber: "f884cb865102a",
+    author: "타카하시 루미코",
+    rentDay: "2023.01.13",
+    rentWithin: "2023.01.13 ~ 2023.01.20",
+    rentalFee: 20000,
+    adress: "서울특별시 구로구 디지털로 300",
+    phone: "010-8311-4706",
+    totalBooks: 38,
+  },
+];

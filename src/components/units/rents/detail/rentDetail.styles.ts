@@ -71,6 +71,7 @@ export const InfoFlexWrap = styled.div`
 export const BookName = styled.h3`
   font-weight: bold;
   font-size: 1.25rem;
+  text-align: left;
 `;
 
 export const HearIcon = styled(HeartOutlined)`

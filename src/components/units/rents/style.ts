@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 
 export const RentsWrap = styled.div`
-  width: 100%;
-  padding: 0 16%;
+  width: 1000px;
+  margin: 0 auto;
 `;
 
 export const NavWrapper = styled.div`
   display: flex;
-  padding-top: 180px;
   justify-content: center;
+  padding-top: 180px;
   margin-bottom: 25px;
 `;
 

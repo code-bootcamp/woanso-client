@@ -1,4 +1,4 @@
-import { horrorDatas } from "./detas";
+import { horrorDatas } from "../mypage/myrentList/detas";
 import ListMap from "./map.index";
 
 export default function Fantasy(props: any) {

@@ -87,25 +87,28 @@ function LayoutHeader() {
               </S.BtnsWrap>
             )}
           </S.UserMenuWrap>
-          <S.MenuListWrap isScroll={isScroll}>
-            <S.Logo onClick={onClickMoveToPage("/home")}>Woanso</S.Logo>
-            <ul>
-              {MenuList.map((el) => {
-                return <li onClick={onClickMoveToPage(el.url)}>{el.name}</li>;
-              })}
-            </ul>
-            <S.MobileMenuBtn onClick={onClickMenuToggle}>
-              <img src="/icon/menu.png" alt="" />
-            </S.MobileMenuBtn>
-            <S.SearchWrap>
-              <S.Input
-                placeholder="만화책을 검색하세요"
-                type="text"
-                onChange={onChangeSearch}
-              />
-              <S.SearchIcon onClick={onClickMoveToBook} />
-            </S.SearchWrap>
-          </S.MenuListWrap>
+          <S.MenuWrap isScroll={isScroll}>
+            <S.MenuListWrap>
+              <S.Logo onClick={onClickMoveToPage("/home")}>Woanso</S.Logo>
+              <ul>
+                {MenuList.map((el) => {
+                  return <li onClick={onClickMoveToPage(el.url)}>{el.name}</li>;
+                })}
+              </ul>
+
+              <S.MobileMenuBtn onClick={onClickMenuToggle}>
+                <img src="/icon/menu.png" alt="" />
+              </S.MobileMenuBtn>
+              <S.SearchWrap>
+                <S.Input
+                  placeholder="만화책을 검색하세요"
+                  type="text"
+                  onChange={onChangeSearch}
+                />
+                <S.SearchIcon onClick={onClickMoveToBook} />
+              </S.SearchWrap>
+            </S.MenuListWrap>
+          </S.MenuWrap>
 
           {isMenu && (
             <S.MobileMenu>
