@@ -1,9 +1,10 @@
+import { dataAction } from "./datas";
 import ListMap from "./map.index";
 
-export default function Action(props: any) {
+export default function Action() {
   return (
     <>
-      {props.dataAction?.map((el: any, index: number) => (
+      {dataAction?.map((el: any, index: number) => (
         <ListMap el={el} key={index} />
       ))}
     </>
