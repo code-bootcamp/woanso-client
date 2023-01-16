@@ -4,7 +4,6 @@ import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics
 import SliderMultiple from "../../commons/sliderMultiple";
 import School from "../section/school";
 import Action from "../section/action";
-import Horror from "../section/horror";
 import Mystery from "../section/mystery";
 import Romance from "../section/romance";
 import ListMap from "./map.index";
@@ -45,6 +44,7 @@ export default function Rents() {
   const dataHorror = copyData?.fetchComics.filter(
     (el: any) => el.category === "horror"
   );
+  console.log(dataDrama);
 
   const onClickMenu = (e: any) => {
     setSection(e.currentTarget?.id);
@@ -76,7 +76,7 @@ export default function Rents() {
             </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            {/* <Romance dataRomance={dataRomance} /> */}
+            <Romance />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -88,7 +88,7 @@ export default function Rents() {
             </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            {/* <School dataSchool={dataSchool} /> */}
+            <School />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -100,7 +100,7 @@ export default function Rents() {
             </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Mystery dataHorror={dataHorror} />
+            <Mystery />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -112,7 +112,7 @@ export default function Rents() {
             </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Action dataAction={dataAction} />
+            <Action />
           </S.BookWrapper>
 
           <S.BookTitleWrap>
@@ -124,7 +124,7 @@ export default function Rents() {
             </S.MoreBtn>
           </S.BookTitleWrap>
           <S.BookWrapper>
-            <Fantasy dataFantasy={dataFantasy} />
+            <Fantasy />
           </S.BookWrapper>
         </>
       )}

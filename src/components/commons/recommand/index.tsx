@@ -1,13 +1,11 @@
+import * as S from "./styles";
 import { useState } from "react";
 import Action from "../../units/section/action";
-import Horror from "../../units/section/horror";
 import Romance from "../../units/section/romance";
-import * as S from "./styles";
-import { FETCH_COMICS } from "../../../commons/hooks/queries/useQueryFetchComics";
-import { useQuery } from "@apollo/client";
-import Fantasy from "../../units/section/fantasy";
-import School from "../../units/section/school";
 import Darama from "../../units/section/drama";
+import School from "../../units/section/school";
+import Fantasy from "../../units/section/fantasy";
+import Horror from "../../units/section/horror";
 
 const NavLists = [
   { id: "romance", name: "로맨스" },
@@ -21,22 +19,6 @@ const NavLists = [
 export default function Recommand() {
   const [section, setSection] = useState<string>("romance");
   const [isActive, setIsActive] = useState<string>("romance");
-  const { data } = useQuery(FETCH_COMICS);
-
-  const copyData = data;
-
-  const dataDrama = copyData?.fetchComics.filter(
-    (el: any) => el.category === "drama"
-  );
-  const dataAction = copyData?.fetchComics.filter(
-    (el: any) => el.category === "action"
-  );
-  const dataFantasy = copyData?.fetchComics.filter(
-    (el: any) => el.category === "fantasy"
-  );
-  const dataHorror = copyData?.fetchComics.filter(
-    (el: any) => el.category === "horror"
-  );
 
   const onClickMenu = (e: any) => {
     setSection(e.currentTarget?.id);
@@ -66,11 +48,11 @@ export default function Recommand() {
         <S.Line />
         <S.BookWrapper>
           {section === "romance" && <Romance />}
-          {section === "drama" && <Darama />}
-          {section === "action" && <Action dataAction={dataAction} />}
           {section === "school" && <School />}
-          {section === "fantasy" && <Fantasy dataFantasy={dataFantasy} />}
-          {section === "horror" && <Horror dataHorror={dataHorror} />}
+          {section === "drama" && <Darama />}
+          {section === "action" && <Action />}
+          {section === "fantasy" && <Fantasy />}
+          {section === "horror" && <Horror />}
         </S.BookWrapper>
       </S.InnerWrap>
     </S.OuterWrap>

@@ -1,10 +1,10 @@
-import { horrorDatas } from "../mypage/myrentList/detas";
+import { dataFantasy } from "./datas";
 import ListMap from "./map.index";
 
-export default function Fantasy(props: any) {
+export default function Fantasy() {
   return (
     <>
-      {props.dataFantasy?.map((el: any, index: number) => (
+      {dataFantasy?.map((el: any, index: number) => (
         <ListMap el={el} key={index} />
       ))}
     </>
