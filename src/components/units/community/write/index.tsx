@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { useMutationUploadOneFile } from "../../../../commons/hooks/mutaions/useMutationUploadOneFile";
 import { PopupModal } from "../../../../commons/libraries/store";
@@ -21,6 +21,7 @@ import * as S from "./styles";
 
 export default function CommunityWriteUI(props: any) {
   const router = useRouter();
+  const fileRef = useRef<HTMLInputElement>(null);
 
   const [isModalOpen, setIsModalOpen] = useRecoilState(PopupModal);
   const [content, setContent] = useState("");
@@ -54,6 +55,10 @@ export default function CommunityWriteUI(props: any) {
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
+  };
+
+  const onClickUpload = () => {
+    fileRef.current?.click();
   };
 
   const onClickSubmit = async () => {
@@ -116,6 +121,8 @@ export default function CommunityWriteUI(props: any) {
     }
   };
 
+
+
   return (
     <>
       <S.Wrap>
@@ -128,8 +135,8 @@ export default function CommunityWriteUI(props: any) {
         </S.ContentsWrap>
         <S.BottomWrap>
           <S.ImgWrap>
-            <S.Img src="/icon/img.png"></S.Img>
-            <input type="file" onChange={onChangeFile} multiple />
+            <S.Img src="/icon/img.png" onClick={onClickUpload}></S.Img>
+            <S.Input type="file" onChange={onChangeFile}  ref={fileRef} multiple />
           </S.ImgWrap>
           <S.ButtonWrap>
             <S.Button

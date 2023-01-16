@@ -22,6 +22,7 @@ export const FETCH_BOARD = gql`
         url
       }
       like
+      dislike
     }
   }
 `;
@@ -35,5 +36,11 @@ export const DELETE_BOARD = gql`
 export const LIKE_BOARD = gql`
   mutation likeBoard($id: String!) {
     likeBoard(id: $id)
+  }
+`;
+
+export const DISLIKE_BOARD = gql`
+  mutation dislikeBoard($id: String!) {
+    dislikeBoard(id: $id)
   }
 `;

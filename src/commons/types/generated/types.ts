@@ -23,11 +23,22 @@ export type IAdmin = {
 
 export type IBoard = {
   __typename?: 'Board';
+  boardDislike: Array<IBoardDislike>;
   boardImg: Array<IBoardImg>;
+  boardLike: Array<IBoardLike>;
+  comment: Array<IComment>;
   content: Scalars['String'];
+  createdAt: Scalars['DateTime'];
   dislike: Scalars['Int'];
   id: Scalars['String'];
   like: Scalars['Int'];
+  user: IUser;
+};
+
+export type IBoardDislike = {
+  __typename?: 'BoardDislike';
+  board: IBoard;
+  id: Scalars['String'];
   user: IUser;
 };
 
@@ -36,6 +47,13 @@ export type IBoardImg = {
   board: IBoard;
   boardImgID: Scalars['String'];
   url?: Maybe<Scalars['String']>;
+};
+
+export type IBoardLike = {
+  __typename?: 'BoardLike';
+  board: IBoard;
+  id: Scalars['String'];
+  user: IUser;
 };
 
 export enum IComic_Category_Enum {
@@ -53,16 +71,20 @@ export type IComic = {
   author: Scalars['String'];
   category: IComic_Category_Enum;
   comicId?: Maybe<Scalars['String']>;
+  comicImg: Array<IComicImg>;
   comicRating: IComicRating;
   deliveryFee: Scalars['Int'];
   description: Scalars['String'];
   illustrator: Scalars['String'];
   isAvailable: Scalars['Boolean'];
+  pointTransaction: IPointTransaction;
   publisher: Scalars['String'];
   rentalFee: Scalars['Int'];
+  review: Array<IReview>;
   title: Scalars['String'];
   totalBooks: Scalars['Int'];
   wishListCount: Scalars['Int'];
+  wishlist: Array<IWishlist>;
 };
 
 export type IComicImg = {
@@ -70,7 +92,7 @@ export type IComicImg = {
   comic: IComic;
   id: Scalars['String'];
   isMain: Scalars['Boolean'];
-  url: Scalars['String'];
+  url?: Maybe<Scalars['String']>;
 };
 
 export type IComicRating = {
@@ -107,14 +129,12 @@ export type ICreateComicInput = {
   stock: Scalars['Int'];
   title: Scalars['String'];
   totalBooks: Scalars['Int'];
-  url: Array<Scalars['String']>;
-  isAvailable: Scalars['Boolean'];
+  url?: InputMaybe<Array<Scalars['String']>>;
 };
 
 export type ICreateCommentInput = {
   boardId: Scalars['String'];
   content: Scalars['String'];
-  userId: Scalars['String'];
 };
 
 export type ICreateReviewInput = {
@@ -122,11 +142,6 @@ export type ICreateReviewInput = {
   content: Scalars['String'];
   rating: Scalars['Float'];
   userId: Scalars['String'];
-};
-
-export type ICreateUrlInput = {
-  isMain: Scalars['Boolean'];
-  url: Array<Scalars['String']>;
 };
 
 export type ICreateWishInput = {
@@ -137,8 +152,6 @@ export type ICreateWishInput = {
 export type IMutation = {
   __typename?: 'Mutation';
   adminLogin: Scalars['String'];
-  authToken: Scalars['String'];
-  authTokenForAdmin: Scalars['String'];
   blockUserForAdmin: Scalars['Boolean'];
   cancelPointTransaction: IPointTransaction;
   createBoard: IBoard;
@@ -161,8 +174,6 @@ export type IMutation = {
   logoutForAdmin: Scalars['String'];
   restoreAccessToken: Scalars['String'];
   restoreAccessTokenForAdmin: Scalars['String'];
-  restoreComic: Scalars['Boolean'];
-  restoreReview: Scalars['Boolean'];
   sendToken: Scalars['String'];
   signUp: IUser;
   signUpForAdmin: IAdmin;
@@ -170,9 +181,8 @@ export type IMutation = {
   updateAdmin: IAdmin;
   updateBoard: IBoard;
   updateComic: IComic;
-  updatePassword: Scalars['String'];
+  updatePassword: Scalars['Boolean'];
   updateUser: IUser;
-  uploadComicImg: Array<IComicImg>;
   uploadFile: Array<Scalars['String']>;
   uploadOneFile: Scalars['String'];
 };
@@ -181,18 +191,6 @@ export type IMutation = {
 export type IMutationAdminLoginArgs = {
   email: Scalars['String'];
   password: Scalars['String'];
-};
-
-
-export type IMutationAuthTokenArgs = {
-  phone: Scalars['String'];
-  token: Scalars['String'];
-};
-
-
-export type IMutationAuthTokenForAdminArgs = {
-  phone: Scalars['String'];
-  token: Scalars['String'];
 };
 
 
@@ -223,6 +221,7 @@ export type IMutationCreateCommentArgs = {
 
 
 export type IMutationCreatePointTransactionArgs = {
+  address: Scalars['String'];
   amount: Scalars['Int'];
   comicId: Scalars['String'];
   impUid: Scalars['String'];
@@ -261,6 +260,7 @@ export type IMutationDeleteCommentArgs = {
 
 
 export type IMutationDeleteReviewArgs = {
+  comicId: Scalars['ID'];
   reviewId: Scalars['ID'];
 };
 
@@ -289,16 +289,6 @@ export type IMutationLikeReviewBoardArgs = {
 export type IMutationLoginArgs = {
   email: Scalars['String'];
   password: Scalars['String'];
-};
-
-
-export type IMutationRestoreComicArgs = {
-  comicId: Scalars['ID'];
-};
-
-
-export type IMutationRestoreReviewArgs = {
-  reviewId: Scalars['ID'];
 };
 
 
@@ -343,14 +333,12 @@ export type IMutationUpdateBoardArgs = {
 
 export type IMutationUpdateComicArgs = {
   comicId: Scalars['String'];
-  createUrlInput: ICreateUrlInput;
   updateComicInput: IUpdateComicInput;
 };
 
 
 export type IMutationUpdatePasswordArgs = {
   email: Scalars['String'];
-  phone: Scalars['String'];
   updateUserPwdInput: Scalars['String'];
 };
 
@@ -358,12 +346,6 @@ export type IMutationUpdatePasswordArgs = {
 export type IMutationUpdateUserArgs = {
   email: Scalars['String'];
   updateUserInput: IUpdateUserInput;
-};
-
-
-export type IMutationUploadComicImgArgs = {
-  comicId: Scalars['String'];
-  url: Array<Scalars['String']>;
 };
 
 
@@ -383,11 +365,15 @@ export enum IPoint_Transaction_Status_Enum {
 
 export type IPointTransaction = {
   __typename?: 'PointTransaction';
+  address: Scalars['String'];
   amount: Scalars['Int'];
+  comic: IComic;
   createdAt: Scalars['DateTime'];
+  deliveryFee: Scalars['Int'];
   id: Scalars['String'];
   impUid: Scalars['String'];
   status: IPoint_Transaction_Status_Enum;
+  totalPrice: Scalars['Int'];
   user: IUser;
 };
 
@@ -396,18 +382,16 @@ export type IQuery = {
   authAdmin: Scalars['String'];
   authUser: Scalars['String'];
   availableComicsForAdmin: Array<Scalars['Int']>;
-  fetchAllCrewBoardImages: Array<IComicImg>;
+  fetchAllComments: Array<IComment>;
   fetchBlockedUsersForAdmin: Array<IUser>;
   fetchBoard: IBoard;
-  fetchBoardImage: Array<IComicImg>;
   fetchBoards: Array<IBoard>;
   fetchBoardsByUser: Array<IBoard>;
   fetchComic: IComic;
   fetchComics: Array<IComic>;
-  fetchComment: IComment;
+  fetchComicsWithTitle: Array<IComic>;
   fetchComments: Array<IComment>;
-  fetchLoginUserForAdmin: IUser;
-  fetchReview: IReview;
+  fetchReview: Array<IReview>;
   fetchReviews: Array<IReview>;
   fetchUser: IUser;
   fetchUserLoggedIn: IUser;
@@ -415,18 +399,18 @@ export type IQuery = {
   fetchWishlist: Array<IWishlist>;
   findEmail: IUser;
   findEmailForAdmin: IAdmin;
-  searchComics: Array<IComic>;
-  searchUsersForAdmin: Array<IUser>;
+  searchUserForAdmin: Array<IUser>;
+};
+
+
+export type IQueryFetchAllCommentsArgs = {
+  order?: InputMaybe<Scalars['String']>;
+  page?: InputMaybe<Scalars['Float']>;
 };
 
 
 export type IQueryFetchBoardArgs = {
   id: Scalars['String'];
-};
-
-
-export type IQueryFetchBoardImageArgs = {
-  comicId: Scalars['String'];
 };
 
 
@@ -441,22 +425,43 @@ export type IQueryFetchComicArgs = {
 };
 
 
-export type IQueryFetchCommentArgs = {
-  ID: Scalars['String'];
+export type IQueryFetchComicsArgs = {
+  page?: InputMaybe<Scalars['Float']>;
 };
 
+
+export type IQueryFetchComicsWithTitleArgs = {
+  page: Scalars['Float'];
+  title: Scalars['String'];
+};
+
+
 export type IQueryFetchCommentsArgs = {
-  ID: Scalars['String'];
+  boardId: Scalars['String'];
+  order?: InputMaybe<Scalars['String']>;
+  page?: InputMaybe<Scalars['Float']>;
 };
 
 
 export type IQueryFetchReviewArgs = {
-  reviewId: Scalars['String'];
+  comicId: Scalars['String'];
+};
+
+
+export type IQueryFetchReviewsArgs = {
+  order?: InputMaybe<Scalars['String']>;
+  page?: InputMaybe<Scalars['Float']>;
 };
 
 
 export type IQueryFetchUserArgs = {
   email: Scalars['String'];
+};
+
+
+export type IQueryFetchUsersForAdminArgs = {
+  order?: InputMaybe<Scalars['String']>;
+  page?: InputMaybe<Scalars['Float']>;
 };
 
 
@@ -470,21 +475,28 @@ export type IQueryFindEmailForAdminArgs = {
 };
 
 
-export type IQuerySearchComicsArgs = {
-  search?: InputMaybe<Scalars['String']>;
-};
-
-
-export type IQuerySearchUsersForAdminArgs = {
-  search?: InputMaybe<Scalars['String']>;
+export type IQuerySearchUserForAdminArgs = {
+  nickname: Scalars['String'];
+  page: Scalars['Float'];
 };
 
 export type IReview = {
   __typename?: 'Review';
   comic: IComic;
+  comicRating: IComicRating;
   content: Scalars['String'];
+  createdAt: Scalars['DateTime'];
   like: Scalars['Int'];
-  reviewId: Scalars['String'];
+  rating: Scalars['Float'];
+  reviewId?: Maybe<Scalars['String']>;
+  reviewLike: Array<IReviewLike>;
+  user: IUser;
+};
+
+export type IReviewLike = {
+  __typename?: 'ReviewLike';
+  review: IReview;
+  reviewLikeId: Scalars['String'];
   user: IUser;
 };
 
@@ -500,7 +512,6 @@ export enum IUser_Interest_Enum {
 export type IUpdateAdminInput = {
   email?: InputMaybe<Scalars['String']>;
   nickname?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
   phone?: InputMaybe<Scalars['String']>;
 };
 
@@ -528,27 +539,26 @@ export type IUpdateUserInput = {
   email?: InputMaybe<Scalars['String']>;
   interest?: InputMaybe<Scalars['String']>;
   nickname?: InputMaybe<Scalars['String']>;
-  password?: InputMaybe<Scalars['String']>;
   phone?: InputMaybe<Scalars['String']>;
+  thumbnail?: InputMaybe<Scalars['String']>;
 };
 
 export type IUser = {
   __typename?: 'User';
-  balance: Scalars['Int'];
+  board: Array<IBoard>;
+  boardDislike: Array<IBoardDislike>;
+  boardlLike: Array<IBoardLike>;
+  comment: Array<IComment>;
   email: Scalars['String'];
   id?: Maybe<Scalars['String']>;
   interest: IUser_Interest_Enum;
   nickname: Scalars['String'];
   phone: Scalars['String'];
-  userImg?: Maybe<IUserImg>;
-  pointTransaction: any;
-};
-
-export type IUserImg = {
-  __typename?: 'UserImg';
-  id: Scalars['String'];
-  isMain: Scalars['Boolean'];
-  url: Scalars['String'];
+  pointTransaction: Array<IPointTransaction>;
+  review: Array<IReview>;
+  reviewLike: Array<IReviewLike>;
+  thumbnail: Scalars['String'];
+  wishlist: Array<IWishlist>;
 };
 
 export type IWishlist = {

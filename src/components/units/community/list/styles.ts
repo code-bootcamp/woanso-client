@@ -19,13 +19,13 @@ transition: .15s all ease-in-out;
     :hover {
       transform: scale(1.1);
     }
-margin-bottom: 20px;
+margin-bottom: 40px;
 `
 
 export const MidWrap = styled.div``
 export const MidContents = styled.div`
 margin-bottom: 30px;
-width: 320px;
+width: 300px;
 height: 10px;
 font-style: normal;
 font-weight: 400;
@@ -36,17 +36,14 @@ align-items: center;
 letter-spacing: -0.05em;
 color: #333333;
 padding: 20px 20px;
-
 `
 export const ImgWrap = styled.div`
 margin-bottom: 20px;
 cursor: pointer;
 `
 export const Img = styled.img`
-/* width: 200px; */
-/* height: 200px; */
-width: 320px;
 height: 280px;
 border-top-left-radius: 20px;
 border-top-right-radius: 20px;
+width: 300px;
 `

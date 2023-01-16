@@ -4,11 +4,12 @@ import { useState } from "react";
 import {
   IMutation,
   IMutationDeleteBoardArgs,
+  IMutationDislikeBoardArgs,
   IMutationLikeBoardArgs,
   IQuery,
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
-import { DELETE_BOARD, FETCH_BOARD, LIKE_BOARD } from "./queries";
+import { DELETE_BOARD, DISLIKE_BOARD, FETCH_BOARD, LIKE_BOARD } from "./queries";
 import * as S from "./styles";
 import CommunityCommentWriteUI from "../../comment/write/index";
 import CommunityModal from "../deleteModal";
@@ -32,6 +33,11 @@ export default function CommunityDetailUI() {
     IMutationLikeBoardArgs
   >(LIKE_BOARD);
 
+  const [dislikeBoard] = useMutation<
+  Pick<IMutation, "dislikeBoard">,
+  IMutationDislikeBoardArgs
+>(DISLIKE_BOARD);
+
   const onClickComment = () => {
     setIsEdit((prev) => !prev);
   };
@@ -53,10 +59,25 @@ export default function CommunityDetailUI() {
     // });
     setIsModalOpen(true);
     // router.push(`/community/`);
+    console.log("delete");
   };
 
   const onClickLike = async () => {
     await likeBoard({
+      variables: {
+        id: String(router.query.boardId),
+      },
+      refetchQueries: [
+        {
+          query: FETCH_BOARD,
+          variables: { id: router.query.boardId },
+        },
+      ],
+    });
+  };
+
+  const onClickDisLike = async () => {
+    await dislikeBoard({
       variables: {
         id: String(router.query.boardId),
       },
@@ -94,17 +115,24 @@ export default function CommunityDetailUI() {
             <S.BottomWrap>
               <S.LikeWrap>
                 <S.LikeIcon
-                  src="/icon/Icon3.png"
+                  src="/icon/thumbs-up.png"
                   onClick={onClickLike}
                 ></S.LikeIcon>
                 <S.Like>{data?.fetchBoard.like}</S.Like>
               </S.LikeWrap>
+              <S.LikeWrap>
+                <S.LikeIcon
+                  src="/icon/thumbs-down.png"
+                  onClick={onClickDisLike}
+                ></S.LikeIcon>
+                <S.Like>{data?.fetchBoard.dislike}</S.Like>
+              </S.LikeWrap>
               <S.CommentWrap>
                 <S.CommentIcon
-                  src="/icon/Icon5.png"
+                  src="/icon/comment-regular.svg"
                   onClick={onClickComment}
                 ></S.CommentIcon>
-                <S.Comment>10</S.Comment>
+                <S.Comment></S.Comment>
               </S.CommentWrap>
             </S.BottomWrap>
           </S.ContentsWrap>
