@@ -20,11 +20,7 @@ export default function CommunityCommentWriteUI() {
 
   const onChangeContent = (event: ChangeEvent<HTMLInputElement>) => {
     setContent(event.target.value);
-
-    console.log(setContent);
   };
-
-  console.log(data);
 
   const onClickWrite = async () => {
     if (typeof router.query.boardId !== "string") return;

@@ -7,7 +7,6 @@ import * as S from "./style";
 export default function MyRentDetail({ clickedId }: any) {
   const router = useRouter();
   const Detail = OrderList?.filter((el: any) => el.orderNumber === clickedId);
-  console.log(Detail);
 
   const TotalPrice = Number(Detail[0]?.rentalFee) + 8000 + 50000;
   const TP = TotalPrice.toString().replace(

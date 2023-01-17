@@ -17,7 +17,6 @@ export default function RentDetailUI() {
   const [createPointTransaction] = useMutationcreatePointTransaction();
   const { data: user } = useQueryFetchUserLoggendIn();
   const { data } = useQueryFetchComic(String(router.query.boardId));
-  console.log(data);
   const onClickToggle = async () => {
     setToggleIcon((prev) => !prev);
     await createWishlist({

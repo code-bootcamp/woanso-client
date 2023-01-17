@@ -25,14 +25,13 @@ export default function AdminSignupUI() {
   });
 
   const onClickSignUp = async (data: IAdminFormType) => {
-    console.log(data);
     if (data.password !== data.password2) {
       Modal.error({ content: "비밀번호가 다릅니다." });
       return;
     }
     const phone = "0" + String(data.phone);
     try {
-      const result = await signUpForAdmin({
+      await signUpForAdmin({
         variables: {
           email: data.email,
           password: data.password,
@@ -40,11 +39,10 @@ export default function AdminSignupUI() {
           nickname: data.nickname,
         },
       });
-      console.log(result);
       Modal.success({ content: "회원가입을 축하합니다!!" });
       void router.push(`/adminlogin`);
     } catch (error) {
-      if (error instanceof Error) console.log(error.message);
+      if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
 

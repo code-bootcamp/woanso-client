@@ -26,8 +26,6 @@ export default function MyPageUI() {
   const [updateUser] = useMutationUpdateUser();
   const [uploadOneFile] = useMutationUploadOneFile();
 
-  console.log(User?.fetchUserLoggedIn.id);
-
   const fileRef = useRef<HTMLInputElement>(null);
   const onClickUpload = () => {
     fileRef.current?.click();

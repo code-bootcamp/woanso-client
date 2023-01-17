@@ -24,14 +24,10 @@ const FETCH_COMIC = gql`
   }
 `;
 
-
 export default function PaymentPage() {
-    const router = useRouter();
-    const { data } = useQuery(FETCH_COMIC, {
-        variables: { comicId: router.query.boardId },
-      });
-console.log(data)
-    return (
-        <Payment data={data}/>
-    );
-  }
+  const router = useRouter();
+  const { data } = useQuery(FETCH_COMIC, {
+    variables: { comicId: router.query.boardId },
+  });
+  return <Payment data={data} />;
+}
