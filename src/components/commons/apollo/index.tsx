@@ -9,7 +9,11 @@ import { onError } from "@apollo/client/link/error";
 import { createUploadLink } from "apollo-upload-client";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { getAccessToken } from "../../../commons/libraries/getAccessToken";
+import {
+  getAccessToken,
+  RESTORE_ACCESS_TOKEN,
+  RESTORE_ACCESS_TOKEN_FOR_ADMIN,
+} from "../../../commons/libraries/getAccessToken";
 import { accessTokenState } from "../../../commons/libraries/store";
 
 interface IApolloSettingProps {
@@ -22,7 +26,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   useEffect(() => {
-    void getAccessToken(null).then((newAccessToken) => {
+    void getAccessToken(RESTORE_ACCESS_TOKEN).then((newAccessToken) => {
       setAccessToken(newAccessToken);
     });
   }, []);
@@ -32,7 +36,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
       for (const err of graphQLErrors) {
         if (err.extensions.code === "UNAUTHENTICATED") {
           return fromPromise(
-            getAccessToken(null).then((newAccessToken) => {
+            getAccessToken(RESTORE_ACCESS_TOKEN).then((newAccessToken) => {
               setAccessToken(newAccessToken);
               if (typeof newAccessToken !== "string") return;
 

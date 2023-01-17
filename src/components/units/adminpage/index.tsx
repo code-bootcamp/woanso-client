@@ -13,7 +13,6 @@ import Search from "../../commons/search";
 
 const MenuLists = [
   { id: "/rents/new", name: "상품 추가" },
-  { id: "/usermanagement", name: "상품 관리" },
   { id: "/adminpage/usermanagement", name: "유저 권한 관리" },
 ];
 
