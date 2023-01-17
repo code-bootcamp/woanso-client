@@ -6,8 +6,6 @@ import {
   IMutationDeleteBoardArgs,
   IMutationDislikeBoardArgs,
   IMutationLikeBoardArgs,
-  IQuery,
-  IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
 import {
   DELETE_BOARD,
@@ -20,7 +18,6 @@ import CommunityCommentWriteUI from "../../comment/write/index";
 import CommunityModal from "../deleteModal";
 import { useRecoilState } from "recoil";
 import { deleteModal } from "../../../../commons/libraries/store";
-import CommunityModal1 from "../modal";
 import { FETCH_USER_LOGGED_IN } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 
 export default function CommunityDetailUI() {
@@ -30,11 +27,6 @@ export default function CommunityDetailUI() {
   const [isModalOpen, setIsModalOpen] = useRecoilState(deleteModal);
 
   const {data: loggedInData} = useQuery(FETCH_USER_LOGGED_IN)
-
-  const [deleteBoard] = useMutation<
-    Pick<IMutation, "deleteBoard">,
-    IMutationDeleteBoardArgs
-  >(DELETE_BOARD);
 
   const [likeBoard] = useMutation<
     Pick<IMutation, "likeBoard">,
@@ -59,14 +51,7 @@ export default function CommunityDetailUI() {
   };
 
   const onClickDelete = async () => {
-    // await deleteBoard({
-    //   variables: {
-    //     id: router.query.boardId,
-    //   },
-    // });
     setIsModalOpen(true);
-    // router.push(`/community/`);
-    console.log("delete");
   };
 
   const onClickLike = async () => {

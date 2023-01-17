@@ -59,6 +59,7 @@ export default function CommunityWriteUI(props: any) {
   };
 
   const onClickSubmit = async () => {
+    
     if (content) {
       try {
         const result = await createBoard({
@@ -111,6 +112,10 @@ export default function CommunityWriteUI(props: any) {
           },
         ],
       });
+      setIsModalOpen(true);
+      setTimeout(function () {
+        setIsModalOpen(false);
+      }, 3000);
       void router.push(`/community/${result.data?.updateBoard.id}`);
     } catch (error) {
       if (error instanceof Error) alert(error.message);
@@ -139,7 +144,6 @@ export default function CommunityWriteUI(props: any) {
           </S.ImgWrap>
           <S.ButtonWrap>
             <S.Button
-              //  onClick={onClickSubmit}
               onClick={props.isEdit ? onClickUpdate : onClickSubmit}
             >
               {props.isEdit ? "수정" : "등록"}

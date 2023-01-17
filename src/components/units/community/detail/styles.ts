@@ -32,17 +32,16 @@ gap: 10px;
 margin-bottom: 30px;
 `
 export const Name = styled.div`
-/* width: 43px; */
 height: 16px;
 font-style: normal;
 font-weight: 700;
 font-size: 20px;
 line-height: 100%;
-/* identical to box height, or 16px */
 display: flex;
 align-items: center;
 letter-spacing: -0.05em;
 color: #333333;
+margin-top: 15px;
 `
 export const Date = styled.div`
 width: 50px;
@@ -58,7 +57,6 @@ color: #999999;
 export const MidWrap = styled.div``
 export const MidContents = styled.div`
 margin-bottom: 20px;
-/* width: 181px; */
 height: 14px;
 font-style: normal;
 font-weight: 400;
@@ -68,12 +66,12 @@ display: flex;
 align-items: center;
 letter-spacing: -0.05em;
 color: #333333;
-margin-bottom: 80px;
+margin-bottom: 20px;
 `
 export const ImgWrap = styled.div``
 export const Img = styled.img`
-width: 200px;
-height: 200px;
+width: 500px;
+height: 500px;
 `
 export const BottomWrap = styled.div`
 display: flex;
@@ -97,8 +95,6 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 100%;
-/* identical to box height, or 16px */
-
 display: flex;
 align-items: center;
 letter-spacing: -0.05em;
@@ -122,8 +118,6 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 100%;
-/* identical to box height, or 16px */
-
 display: flex;
 align-items: center;
 letter-spacing: -0.05em;
@@ -185,18 +179,14 @@ font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 100%;
-/* or 16px */
-
 display: flex;
 align-items: center;
 text-align: center;
 letter-spacing: -0.05em;
 justify-content: center;
-
 color: #FFFFFF;
 width: 80px;
 height: 36px;
-
 background: #77170D;
 border-radius: 8px;
 `
