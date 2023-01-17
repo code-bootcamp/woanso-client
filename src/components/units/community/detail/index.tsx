@@ -9,7 +9,12 @@ import {
   IQuery,
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
-import { DELETE_BOARD, DISLIKE_BOARD, FETCH_BOARD, LIKE_BOARD } from "./queries";
+import {
+  DELETE_BOARD,
+  DISLIKE_BOARD,
+  FETCH_BOARD,
+  LIKE_BOARD,
+} from "./queries";
 import * as S from "./styles";
 import CommunityCommentWriteUI from "../../comment/write/index";
 import CommunityModal from "../deleteModal";
@@ -34,9 +39,9 @@ export default function CommunityDetailUI() {
   >(LIKE_BOARD);
 
   const [dislikeBoard] = useMutation<
-  Pick<IMutation, "dislikeBoard">,
-  IMutationDislikeBoardArgs
->(DISLIKE_BOARD);
+    Pick<IMutation, "dislikeBoard">,
+    IMutationDislikeBoardArgs
+  >(DISLIKE_BOARD);
 
   const onClickComment = () => {
     setIsEdit((prev) => !prev);
@@ -45,7 +50,6 @@ export default function CommunityDetailUI() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { id: String(router.query.boardId) },
   });
-  console.log(data);
 
   const onClickEdit = () => {
     router.push(`/community/${router.query.boardId}/edit`);

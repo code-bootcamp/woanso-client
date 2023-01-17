@@ -16,7 +16,6 @@ export default function CommunityCommentListUIItem(props: any) {
     Pick<IMutation, "deleteComment">,
     IMutationDeleteCommentArgs
   >(DELETE_COMMENT);
-  console.log(router)
 
   const onClickDelete = async () => {
     try {
@@ -26,7 +25,7 @@ export default function CommunityCommentListUIItem(props: any) {
         },
         refetchQueries: [
           {
-            query: FETCH_COMMENTS
+            query: FETCH_COMMENTS,
           },
         ],
       });

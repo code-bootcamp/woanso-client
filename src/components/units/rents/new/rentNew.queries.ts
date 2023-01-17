@@ -13,9 +13,8 @@ export const CREATE_COMIC = gql`
       totalBooks
       description
       ISBN
-      # isAvailable
       wishListCount
-      comicRating{
+      comicRating {
         comicRatingId
         totalRating
         comicRating

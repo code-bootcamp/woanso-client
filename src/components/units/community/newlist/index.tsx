@@ -8,11 +8,10 @@ export default function CommunityNewList() {
   const router = useRouter();
 
   const { data } = useQuery(FETCH_BOARDS);
-  console.log(data);
 
   const onClickCommunity = () => {
     void router.push(`/community`);
-  }
+  };
 
   return (
     <S.CommunityNewListWrap>
@@ -22,11 +21,13 @@ export default function CommunityNewList() {
         <span></span>
         <button onClick={onClickCommunity}>더보기 &gt;</button>
       </S.TitleWrapper>
-      
+
       <S.ContentsWrap>
         {data?.fetchBoards.map((el: any, index: number) => (
           <S.Content key={el}>
-            <S.Image src={`https://storage.googleapis.com/${el.boardImg[0].url}`}/>
+            <S.Image
+              src={`https://storage.googleapis.com/${el.boardImg[0].url}`}
+            />
             <S.Info>
               <p>{el.user.nickname}</p>
               <span>{getDays(el.createdAt)}</span>

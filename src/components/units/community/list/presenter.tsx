@@ -6,7 +6,7 @@ export default function CommunityBoardListUI(props: any) {
   return (
     <InfiniteScroll pageStart={0} loadMore={props.onLoadMore} hasMore={true}>
       {props.data?.fetchBoards.map((el: any) => (
-        <CommunityListUI key={el.id}/>
+        <CommunityListUI key={el.id} />
       ))}
     </InfiniteScroll>
   );

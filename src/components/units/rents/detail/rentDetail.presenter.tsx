@@ -8,14 +8,7 @@ import { Rate } from "antd";
 import { useMutationCreateWishList } from "../../../../commons/hooks/mutaions/useMutationCreateWishlist";
 import { useQueryFetchUserLoggendIn } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 import { useMutationcreatePointTransaction } from "../../../../commons/hooks/mutaions/useCreatePointTransaction";
-import { useQuery } from "@apollo/client";
-import { FETCH_USER } from "../../../../commons/hooks/queries/useQueryFetchUser";
-import {
-  IQuery,
-  IQueryFetchUserArgs,
-} from "../../../../commons/types/generated/types";
 import Head from "next/head";
-import Payment from "../../payment/payment.container";
 
 export default function RentDetailUI() {
   const router = useRouter();
@@ -24,21 +17,10 @@ export default function RentDetailUI() {
   const [createPointTransaction] = useMutationcreatePointTransaction();
   const { data: user } = useQueryFetchUserLoggendIn();
   const { data } = useQueryFetchComic(String(router.query.boardId));
-  const [payment, setPayment] = useState(false);
-  console.log(data);
-
-  const { data: user2 } = useQuery<
-    Pick<IQuery, "fetchUser">,
-    IQueryFetchUserArgs
-  >(FETCH_USER, {
-    variables: {
-      email: user?.fetchUserLoggedIn.email,
-    },
-  });
 
   const onClickToggle = async () => {
     setToggleIcon((prev) => !prev);
-    const result = await createWishlist({
+    await createWishlist({
       variables: {
         createWishInput: {
           comicId: router.query.boardId,
@@ -46,7 +28,6 @@ export default function RentDetailUI() {
         },
       },
     });
-    console.log(result);
   };
 
   const onClickPayment = () => {
@@ -97,8 +78,6 @@ export default function RentDetailUI() {
 
   const count = data?.fetchComic.comicRating.comicRating;
 
-  console.log(data);
-
   return (
     <>
       <Head>
@@ -140,9 +119,10 @@ export default function RentDetailUI() {
               <S.BookDetail>{data?.fetchComic.description}</S.BookDetail>
               <S.InfoFlexWrap>
                 <S.Price>{data?.fetchComic.rentalFee}원</S.Price>
-                <S.RentBtn onClick={onClickPayment}>
-                  {/* {data?.fetchComic.isAvailable ? "대여" : "대여불가"} */}
-                  대여
+                <S.RentBtn
+                  onClick={data?.fetchComic.isAvailable && onClickPayment}
+                >
+                  {data?.fetchComic.isAvailable ? "대여" : "대여불가"}
                 </S.RentBtn>
               </S.InfoFlexWrap>
             </S.InfoWrap>

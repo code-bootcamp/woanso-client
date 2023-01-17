@@ -58,7 +58,7 @@ function LayoutHeader() {
     setSearch(e.currentTarget.value);
   };
   const { data: resultSearch } = useQueryFetchComicsWithTitle(search);
-  console.log(resultSearch);
+
   const onClickMoveToBook = () => {
     if (resultSearch?.fetchComicsWithTitle.length === 0) {
       Modal.error({ content: "검색결과를 찾을 수 없습니다." });

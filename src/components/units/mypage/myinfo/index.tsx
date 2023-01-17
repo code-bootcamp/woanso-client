@@ -9,9 +9,11 @@ export default function MyIngo({ User }: any) {
   const { data } = useQueryFetchBoards();
   const { data: comments } = useQueryFetchAllComments();
   const userId = User?.fetchUserLoggedIn.id;
+
   const fetchBoardsByUser = data?.fetchBoards.filter(
     (el: any) => el.user.id === userId
   );
+
   const userComments = comments?.fetchAllComments.filter((el: any) => {
     el.user.id === userId;
   });

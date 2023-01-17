@@ -22,11 +22,10 @@ export default function UserEditPw() {
     mode: "onChange",
   });
 
-  console.log(interest);
   const onClickEdit = async (data: IUserUpdateFormType) => {
     const phone = String(data.phone);
     try {
-      const result = await updateUser({
+      await updateUser({
         variables: {
           email: String(user.fetchUserLoggedIn.email),
           updateUserInput: {
@@ -41,7 +40,6 @@ export default function UserEditPw() {
           },
         },
       });
-      console.log(result);
       Modal.success({
         content: "회원정보가 수정되었습니다.",
         afterClose() {

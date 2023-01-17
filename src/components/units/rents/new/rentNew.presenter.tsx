@@ -1,17 +1,12 @@
 import * as S from "./rentNew.styles";
 import "react-quill/dist/quill.snow.css";
-import ReactQuill from "react-quill";
 import dynamic from "next/dynamic";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./rentNew.validation";
 import { Modal } from "antd";
 import { useMutation } from "@apollo/client";
-import {
-  IComic_Category_Enum,
-  IMutation,
-  IMutationCreateComicArgs,
-} from "../../../../commons/types/generated/types";
+import { IComic_Category_Enum } from "../../../../commons/types/generated/types";
 import { CREATE_COMIC } from "./rentNew.queries";
 import { ChangeEvent, useState } from "react";
 import { checkValidationImage } from "../../../commons/uploads/image.validation";
@@ -26,9 +21,7 @@ interface IFormData {
   publisher: string;
   totalBooks: number;
   description: string;
-  // ISBN: string;
   stock: number;
-  // url: [string];
   category: IComic_Category_Enum;
 }
 
@@ -47,12 +40,10 @@ export default function RentNewUI() {
   const [imgUrl, setImgUrl] = useState<String[]>([]);
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = checkValidationImage(event.target.files?.[0]);
-    console.log("file", file);
     if (!file) return;
 
     try {
       const result = await uploadOneFile({ variables: { file } });
-      console.log("result", result);
       setImgUrl(result.data?.uploadOneFile ?? "");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
@@ -80,17 +71,12 @@ export default function RentNewUI() {
         },
       });
 
-      const productId = result.data?.createComic.comicId;
-      // if (typeof productId === "string")
-      //   void router.push(`/markets/${productId}`);
-
-      console.log(result);
       console.log("상품등록");
+      const productId = result.data?.createComic.comicId;
       if (typeof result.data?.createComic.comicId !== "string") {
         alert("일시적인 오류가 있습니다. 다시 시도해 주세요.");
         return;
       }
-      // void router.push(`/markets/${result.data?.createUseditem._id}`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
@@ -104,17 +90,6 @@ export default function RentNewUI() {
             <S.h2>상품 기본 정보</S.h2>
           </S.TopContainer>
           <S.MainWrapper>
-            {/* <S.Category>
-              <S.Name>
-                <span>ISBN</span>
-              </S.Name>
-              <S.BtnInputContianer>
-                <S.Button>검색</S.Button>
-                <S.IsbnInputContainer>
-                  <S.Input type="text" {...register("ISBN")} />
-                </S.IsbnInputContainer>
-              </S.BtnInputContianer>
-            </S.Category> */}
             <S.Category>
               <S.Name>
                 <span>카테고리</span>
@@ -152,34 +127,14 @@ export default function RentNewUI() {
               </S.Name>
               <S.Input type="text" {...register("publisher")} />
             </S.Category3>
-            {/* <S.Category3>
-              <S.Name>
-                <span>링크</span>{" "}
-              </S.Name>
-              <S.Input type="text" {...register("url")} />
-            </S.Category3> */}
-            {/* <S.Category3>
-            <S.Name>
-              <span>재고</span>{" "}
-            </S.Name>
-            <S.Input type="text" {...register("stock")}/>
-          </S.Category3> */}
+
             <S.Category3>
               <S.Name>
                 <span>작품설명</span>{" "}
               </S.Name>
               <S.Input type="text" {...register("description")} />
             </S.Category3>
-            {/* <S.Category3>
-              <S.Name>
-                <span>대여가능여부</span>{" "}
-              </S.Name>
-              <S.Input
-                type="checkbox"
-                checked={true}
-                {...register("isAvailable")}
-              />
-            </S.Category3> */}
+
             <S.Category2>
               <S.Category3>
                 <S.Name>
@@ -221,19 +176,7 @@ export default function RentNewUI() {
               </S.Name>
               <S.Input type="number" {...register("totalBooks")} />
             </S.Category>
-            {/* <S.Category>
-              <S.Name>
-                {" "}
-                <span>상품 설명</span>{" "}
-              </S.Name>
-              <ReactQuill
-                style={{
-                  width: "600px",
-                  height: "200px",
-                  marginBottom: "100px",
-                }}
-              />
-            </S.Category> */}
+
             <S.Category>
               <S.Name>
                 {" "}

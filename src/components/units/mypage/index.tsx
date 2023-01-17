@@ -1,15 +1,15 @@
 import * as S from "./style";
-import { ChangeEvent, MouseEvent, useRef, useState } from "react";
 import MyIngo from "./myinfo";
 import MyRentList from "./myrentList";
 import UserEdit from "../userEdit";
 import FaqMini from "../../commons/faqmini";
+import MyWishList from "./mywishList";
+import { ChangeEvent, MouseEvent, useRef, useState } from "react";
 import { useQueryFetchUserLoggendIn } from "../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 import { useMutationUploadOneFile } from "../../../commons/hooks/mutaions/useMutationUploadOneFile";
 import { Modal } from "antd";
 import { checkValidationImage } from "../../commons/uploads/image.validation";
 import { useMutationUpdateUser } from "../../../commons/hooks/mutaions/useMutaionUpdateUser";
-import MyWishList from "./mywishList";
 
 const MenuLists = [
   { id: "myInfo", name: "내정보" },
@@ -25,14 +25,9 @@ export default function MyPageUI() {
   const { data: User } = useQueryFetchUserLoggendIn();
   const [updateUser] = useMutationUpdateUser();
   const [uploadOneFile] = useMutationUploadOneFile();
-  // const onClickMoveToPage = (e: MouseEvent<HTMLLIElement>) => {
-  //   if (e.currentTarget.id === "askkakao") {
-  //     const kakaoUrl = `https://open.kakao.com/o/s8iiqXVe`;
-  //     window.open(kakaoUrl, "_blank");
-  //   } else {
-  //     router.push(e.currentTarget.id);
-  //   }
-  // };
+
+  console.log(User?.fetchUserLoggedIn.id);
+
   const fileRef = useRef<HTMLInputElement>(null);
   const onClickUpload = () => {
     fileRef.current?.click();
@@ -40,7 +35,6 @@ export default function MyPageUI() {
 
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = checkValidationImage(event.target.files?.[0]);
-    console.log("file", file);
     if (!file) return;
     const result = await uploadOneFile({ variables: { file } });
     const imgUrl = result.data?.uploadOneFile;
@@ -49,7 +43,7 @@ export default function MyPageUI() {
 
   const AutoChangeEmage = async (imgUrl: string) => {
     try {
-      const change = await updateUser({
+      await updateUser({
         variables: {
           email: User.fetchUserLoggedIn.email,
           updateUserInput: {
@@ -61,7 +55,6 @@ export default function MyPageUI() {
           },
         },
       });
-      console.log(change);
       Modal.success({ content: "이미지가 변경되었습니다." });
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
@@ -96,7 +89,6 @@ export default function MyPageUI() {
             />
           </S.AvatarWrap>
           <S.UserName>{User?.fetchUserLoggedIn.nickname}</S.UserName>
-          {/* <S.PointCharge>포인트 충전</S.PointCharge> */}
         </S.SideWrapTop>
 
         <S.SideWrapBottom>
@@ -111,9 +103,6 @@ export default function MyPageUI() {
                 <S.MenuName>{el.name}</S.MenuName>
               </S.MenuList>
             ))}
-            {/* <S.MenuList id="askkakao" onClick={onClickMoveToPage}>
-              <S.MenuName>1:1 문의</S.MenuName>
-            </S.MenuList> */}
           </S.MenuLists>
         </S.SideWrapBottom>
       </S.SideWrap>

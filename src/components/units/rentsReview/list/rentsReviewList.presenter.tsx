@@ -42,7 +42,6 @@ export default function RentsReviewListUI({ el }: any) {
       return;
     }
   };
-  console.log("=========", el);
 
   return (
     <S.Wrapper>

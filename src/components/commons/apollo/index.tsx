@@ -26,7 +26,6 @@ export default function ApolloSetting(props: IApolloSettingProps) {
       setAccessToken(newAccessToken);
     });
   }, []);
-  console.log("토큰", accessToken);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {
     if (graphQLErrors) {
@@ -51,11 +50,11 @@ export default function ApolloSetting(props: IApolloSettingProps) {
   });
   const uploadLink = createUploadLink({
     uri: "https://examplezi.shop/graphql",
-    headers: { Authorization: `Bearer ${accessToken}` }, // 모든 API에 토큰이 첨부되어 요청들어감. 토큰이 없는경우에는 빈문자열로
+    headers: { Authorization: `Bearer ${accessToken}` },
     credentials: "include",
   });
   const client = new ApolloClient({
-    link: ApolloLink.from([errorLink, uploadLink]), // 순서 있음
+    link: ApolloLink.from([errorLink, uploadLink]),
     cache: GLOBAL_STATE,
     connectToDevTools: true,
   });
