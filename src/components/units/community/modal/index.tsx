@@ -6,7 +6,7 @@ import { PopupModal } from "../../../../commons/libraries/store";
 
 
 
-export default function CommunityModal1(props){
+export default function CommunityModal1(props: any){
     
     const [isModalOpen, setIsModalOpen] = useRecoilState(PopupModal);
 
