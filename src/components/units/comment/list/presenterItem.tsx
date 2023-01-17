@@ -26,6 +26,7 @@ export default function CommunityCommentListUIItem(props: any) {
         refetchQueries: [
           {
             query: FETCH_COMMENTS,
+            variables: { boardId: router.query.boardId },
           },
         ],
       });

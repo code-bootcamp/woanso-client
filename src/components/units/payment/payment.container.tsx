@@ -1,3 +1,4 @@
+import { useMutation } from "@apollo/client";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
@@ -6,6 +7,8 @@ import { useForm } from "react-hook-form";
 import { useQueryFetchComic } from "../../../commons/hooks/queries/useQueryFetchComic";
 import { OuterWrap, InnerWrap } from "../../../commons/styles/Wrapper";
 import { IOrderFormType } from "../../../commons/types/formtypes/type";
+import { IMutation, IMutationCreatePointTransactionArgs } from "../../../commons/types/generated/types";
+import { CREATE_POINT_TRANSACTION } from "./payment.queries";
 import * as S from "./payment.styles";
 
 declare const window: typeof globalThis & {
@@ -21,6 +24,11 @@ export default function Payment(props: any) {
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
 
+  const [createPointTransaction] = useMutation<
+  Pick<IMutation, "createPointTransaction">,
+  IMutationCreatePointTransactionArgs
+>(CREATE_POINT_TRANSACTION);
+
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -32,35 +40,37 @@ export default function Payment(props: any) {
   const amount =
     props.data?.fetchComic.deliveryFee + props.data?.fetchComic.rentalFee;
 
-  const onClickPayment = () => {
-    console.log(amount);
+  // const onClickPayment = () => {
+  //   console.log(amount);
 
-    const IMP = window.IMP;
-    IMP.init("imp87181188");
+  //   const IMP = window.IMP;
+  //   IMP.init("imp87181188");
 
-    IMP.request_pay(
-      {
-        pg: "nice",
-        pay_method: "card",
-        name: account.order,
-        amount: amount,
-        // buyer_email: user2?.fetchUser.email,
-        buyer_name: account.order,
-        buyer_tel: account.number,
-        buyer_addr: address,
-        buyer_postcode: zipcode,
-        m_redirect_url: "http://localhost:3000/28-01-payment",
-      },
-      (rsp: any) => {
-        if (rsp.success) {
-          console.log(rsp);
-        } else {
-          alert("결제에 실패했습니다! 다시 시도해 주세요!");
-        }
-      }
-    );
-  };
+  //   IMP.request_pay(
+  //     {
+  //       pg: "nice",
+  //       pay_method: "card",
+  //       name: account.order,
+  //       amount: amount,
+  //       // buyer_email: user2?.fetchUser.email,
+  //       buyer_name: account.order,
+  //       buyer_tel: account.number,
+  //       buyer_addr: address,
+  //       buyer_postcode: zipcode,
+  //       m_redirect_url: "http://localhost:3000/28-01-payment",
+  //     },
+  //     (rsp: any) => {
+  //       if (rsp.success) {
+  //         console.log(rsp);
+  //       } else {
+  //         alert("결제에 실패했습니다! 다시 시도해 주세요!");
+  //       }
+  //     }
+  //   );
+  // };
 
+
+  
   const [account, setAccount] = useState({
     order: "",
     recipient: "",
