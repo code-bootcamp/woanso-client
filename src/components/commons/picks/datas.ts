@@ -20,7 +20,7 @@ export const PicksList = [
     comicId: "e5655f59-2f81-48de-8ba2-3e8455930e8e",
   },
   {
-    ISBN: "woanso-storage/2023/1/10/23e7bdd1-fbfb-4b4f-b533-acd8d1c0b24c/origin/ㅠ.jpeg",
-    comicId: "a579bc88-f00d-466a-accc-2dcc09e9a1a2",
+    ISBN: "woanso-storage/2023/1/17/f7f31236-8236-4161-b020-64ad69521711/origin/24.jpg",
+    comicId: "59e266f7-5c58-4323-8556-bc3c84814cc8",
   },
 ];

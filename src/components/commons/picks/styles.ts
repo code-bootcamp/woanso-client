@@ -27,7 +27,7 @@ export const LeftContents = styled.div`
   height: 420px;
   /* background-color: #ffffff; */
   position: relative;
-  background-image: url("/picksImage/07.png");
+  background-image: url("https://storage.googleapis.com/woanso-storage/2023/1/16/8b728350-e8bf-4d75-b426-8a0db9730814/origin/11.jpg");
   background-size: cover;
 `;
 

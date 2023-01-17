@@ -17,6 +17,7 @@ export default function RentDetailUI() {
   const [createPointTransaction] = useMutationcreatePointTransaction();
   const { data: user } = useQueryFetchUserLoggendIn();
   const { data } = useQueryFetchComic(String(router.query.boardId));
+  console.log(data);
   const onClickToggle = async () => {
     setToggleIcon((prev) => !prev);
     await createWishlist({
@@ -33,6 +34,9 @@ export default function RentDetailUI() {
     router.push(`/payment/${router.query.boardId}`);
   };
 
+  const onClickCantrent = () => {
+    Modal.error({ content: "현재 대여가 불가한 상품입니다." });
+  };
   const count = data?.fetchComic.comicRating.comicRating;
 
   return (
