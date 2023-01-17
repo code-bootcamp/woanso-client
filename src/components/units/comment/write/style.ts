@@ -12,10 +12,10 @@ export const LeftWrap = styled.div`
 display: flex;
 gap: 30px;
 `
-export const AvatorWrap = styled.div`
+export const AvatarWrap = styled.div`
 width: 48px;
 `
-export const Avator = styled.div`
+export const Avatar = styled.div`
 width: 48px;
 height: 48px;
 background: #D9D9D9;
@@ -57,11 +57,11 @@ export const MidWrap = styled.div`
 `
 export const MidContents = styled.input`
 margin-bottom: 20px;
-width: 400px;
-height: 20px;
+width: 800px;
+height: 80px;
 font-style: normal;
 font-weight: 400;
-font-size: 20px;
+font-size: 16px;
 line-height: 100%;
 display: flex;
 align-items: center;
@@ -71,6 +71,7 @@ color: #333333;
 border: none;
 color: #999999;
 margin-top: 20px;
+padding: 20px;
 `
 export const ImgWrap = styled.div``
 export const Img = styled.img`

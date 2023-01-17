@@ -16,12 +16,15 @@ import CommunityModal from "../deleteModal";
 import { useRecoilState } from "recoil";
 import { deleteModal } from "../../../../commons/libraries/store";
 import CommunityModal1 from "../modal";
+import { FETCH_USER_LOGGED_IN } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 
 export default function CommunityDetailUI() {
   const router = useRouter();
 
   const [isEdit, setIsEdit] = useState(false);
   const [isModalOpen, setIsModalOpen] = useRecoilState(deleteModal);
+
+  const {data: loggedInData} = useQuery(FETCH_USER_LOGGED_IN)
 
   const [deleteBoard] = useMutation<
     Pick<IMutation, "deleteBoard">,
@@ -45,7 +48,8 @@ export default function CommunityDetailUI() {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { id: String(router.query.boardId) },
   });
-  console.log(data);
+  console.log(loggedInData?.fetchUserLoggedIn.id , data?.fetchBoard.user.id)
+
 
   const onClickEdit = () => {
     router.push(`/community/${router.query.boardId}/edit`);
@@ -138,10 +142,15 @@ export default function CommunityDetailUI() {
           </S.ContentsWrap>
         </S.LeftWrap>
         <S.RightWrap>
-          <S.IconWrap>
-            <S.Edit src="/icon/Vector7.png" onClick={onClickEdit}></S.Edit>
-            <S.Del src="/icon/Vector6.png" onClick={onClickDelete}></S.Del>
-          </S.IconWrap>
+          {loggedInData?.fetchUserLoggedIn.id === data?.fetchBoard.user.id ?
+           <S.IconWrap>
+           <S.Edit src="/icon/Vector7.png" onClick={onClickEdit}></S.Edit>
+           <S.Del src="/icon/Vector6.png" onClick={onClickDelete}></S.Del>
+         </S.IconWrap>
+        :
+        ""
+        }
+         
         </S.RightWrap>
       </S.Wrap>
       {isEdit && <CommunityCommentWriteUI />}

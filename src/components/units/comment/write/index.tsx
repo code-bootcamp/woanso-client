@@ -54,9 +54,9 @@ export default function CommunityCommentWriteUI() {
   return (
     <S.Wrap>
       <S.LeftWrap>
-        <S.AvatorWrap>
-          <S.Avator></S.Avator>
-        </S.AvatorWrap>
+        <S.AvatarWrap>
+          <S.Avatar></S.Avatar>
+        </S.AvatarWrap>
         <S.ContentsWrap>
           <S.MidWrap>
             <S.MidContents
