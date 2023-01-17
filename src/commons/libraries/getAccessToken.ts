@@ -13,25 +13,25 @@ export const RESTORE_ACCESS_TOKEN_FOR_ADMIN = gql`
   }
 `;
 
-export const getAccessToken = async (ACCESS_TOKEN: any) => {
+export const getAccessToken = async () => {
   // 관리자 로그인시 토큰 발급
-  if (ACCESS_TOKEN === RESTORE_ACCESS_TOKEN_FOR_ADMIN) {
-    try {
-      const graphQLClient = new GraphQLClient(
-        "https://examplezi.shop/graphql",
-        {
-          credentials: "include",
-        }
-      );
-      const result = await graphQLClient.request(
-        RESTORE_ACCESS_TOKEN_FOR_ADMIN
-      );
-      const newAccessToken = result.restoreAccessTokenForAdmin;
-      return newAccessToken; // 받은 newAccessToken을 넘겨주기
-    } catch (error) {
-      if (error instanceof Error) console.log(error.message);
-    }
-  } else if (ACCESS_TOKEN === RESTORE_ACCESS_TOKEN) {
+  // if (ACCESS_TOKEN === RESTORE_ACCESS_TOKEN_FOR_ADMIN) {
+  //   try {
+  //     const graphQLClient = new GraphQLClient(
+  //       "https://examplezi.shop/graphql",
+  //       {
+  //         credentials: "include",
+  //       }
+  //     );
+  //     const result = await graphQLClient.request(
+  //       RESTORE_ACCESS_TOKEN_FOR_ADMIN
+  //     );
+  //     const newAccessToken = result.restoreAccessTokenForAdmin;
+  //     return newAccessToken; // 받은 newAccessToken을 넘겨주기
+  //   } catch (error) {
+  //     if (error instanceof Error) console.log(error.message);
+  //   }
+  // } else if (ACCESS_TOKEN === RESTORE_ACCESS_TOKEN) {
     try {
       const graphQLClient = new GraphQLClient(
         "https://examplezi.shop/graphql",
@@ -45,7 +45,7 @@ export const getAccessToken = async (ACCESS_TOKEN: any) => {
     } catch (error) {
       if (error instanceof Error) console.log(error.message);
     }
-  } else {
-    return;
-  }
+  // } else {
+  //   return;
+  // }
 };

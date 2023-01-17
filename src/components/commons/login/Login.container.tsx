@@ -53,7 +53,7 @@ export default function LoginUI() {
         return;
       }
       setAccessToken(accessToken);
-      getAccessToken(RESTORE_ACCESS_TOKEN);
+      // getAccessToken(RESTORE_ACCESS_TOKEN);
       void router.push(`/home`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });

@@ -26,7 +26,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   useEffect(() => {
-    void getAccessToken(RESTORE_ACCESS_TOKEN).then((newAccessToken) => {
+    void getAccessToken().then((newAccessToken) => {
       setAccessToken(newAccessToken);
     });
   }, []);
@@ -36,7 +36,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
       for (const err of graphQLErrors) {
         if (err.extensions.code === "UNAUTHENTICATED") {
           return fromPromise(
-            getAccessToken(RESTORE_ACCESS_TOKEN).then((newAccessToken) => {
+            getAccessToken().then((newAccessToken) => {
               setAccessToken(newAccessToken);
               if (typeof newAccessToken !== "string") return;
 

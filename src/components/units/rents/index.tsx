@@ -130,7 +130,7 @@ export default function Rents() {
 
       {section === "romance" && (
         <S.BookListWrapper>
-          {dataRomance.map((el: any, index: number) => (
+          {dataRomance?.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
@@ -139,7 +139,7 @@ export default function Rents() {
       )}
       {section === "school" && (
         <S.BookListWrapper>
-          {dataSchool.map((el: any, index: number) => (
+          {dataSchool?.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
@@ -148,7 +148,7 @@ export default function Rents() {
       )}
       {section === "drama" && (
         <S.BookListWrapper>
-          {dataDrama.map((el: any, index: number) => (
+          {dataDrama?.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
@@ -157,7 +157,7 @@ export default function Rents() {
       )}
       {section === "action" && (
         <S.BookListWrapper>
-          {dataAction.map((el: any, index: number) => (
+          {dataAction?.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
@@ -166,7 +166,7 @@ export default function Rents() {
       )}
       {section === "fantasy" && (
         <S.BookListWrapper>
-          {dataFantasy.map((el: any, index: number) => (
+          {dataFantasy?.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
@@ -175,7 +175,7 @@ export default function Rents() {
       )}
       {section === "horror" && (
         <S.BookListWrapper>
-          {dataHorror.map((el: any, index: number) => (
+          {dataHorror?.map((el: any, index: number) => (
             <div key={index}>
               <ListMap el={el} />
             </div>
