@@ -16,7 +16,6 @@ export default function RentsCommentWriteUI({ comicId }: any) {
     setContents(e.currentTarget.value);
   };
 
-  console.log(contents);
   const onClickCreateReview = async () => {
     const createReveiwInPut = {
       comicId,
@@ -24,6 +23,7 @@ export default function RentsCommentWriteUI({ comicId }: any) {
       content: contents,
       rating: value,
     };
+
     try {
       const result = await createReview({
         variables: {
@@ -33,7 +33,7 @@ export default function RentsCommentWriteUI({ comicId }: any) {
         },
         refetchQueries: [{ query: FETCH_REVIEW, variables: { comicId } }],
       });
-      console.log(result);
+
       Modal.success({ content: "리뷰를 등록했습니다." });
     } catch (error) {
       Modal.error({ content: "등록할 수 없습니다." });

@@ -55,7 +55,6 @@ export default function LoginUI() {
       setAccessToken(accessToken);
       getAccessToken(RESTORE_ACCESS_TOKEN);
       void router.push(`/home`);
-      console.log("유저 로그인", data);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }

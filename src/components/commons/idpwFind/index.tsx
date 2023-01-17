@@ -133,27 +133,26 @@ export default function IdpwFind() {
       return;
     }
     try {
-      const result = await updatePassword({
+      await updatePassword({
         variables: {
           email: data.email,
           updateUserPwdInput: data.password,
         },
       });
 
-      console.log(result);
       Modal.success({
         content: "비밀번호가 변경되었습니다.",
+        afterClose() {
+          router.push("/login");
+        },
       });
     } catch (error) {
       if (error instanceof Error)
         Modal.error({
-          content: error.message,
-          // "비밀번호를 변경할 수 없습니다.",
+          content: "비밀번호를 변경할 수 없습니다.",
         });
     }
   };
-
-  console.log("token", token);
 
   return (
     <S.OutWrapper>
@@ -211,7 +210,7 @@ export default function IdpwFind() {
                 />
                 <S.ButtonWrapper>
                   <SubmitButton onClick={handleSubmit(onClickFindPassword)}>
-                    찾기
+                    비밀번호 변경
                   </SubmitButton>
                 </S.ButtonWrapper>
               </>
@@ -227,9 +226,7 @@ export default function IdpwFind() {
                   />
                 </S.DivInput>
                 <S.ButtonWrapper>
-                  <SubmitButton onClick={onClickFindEmail}>
-                    비밀번호 변경
-                  </SubmitButton>
+                  <SubmitButton onClick={onClickFindEmail}>찾기</SubmitButton>
                 </S.ButtonWrapper>
               </>
             )}

@@ -15,10 +15,8 @@ export default function CommunityCommentListUI() {
     Pick<IQuery, "fetchComments">,
     IQueryFetchCommentsArgs
   >(FETCH_COMMENTS, {
-    variables: { boardId : String(router.query.boardId) },
+    variables: { boardId: String(router.query.boardId) },
   });
-
-  console.log(data);
 
   const onLoadMore = () => {
     if (!data) return;

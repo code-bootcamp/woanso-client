@@ -44,7 +44,6 @@ export default function Rents() {
   const dataHorror = copyData?.fetchComics.filter(
     (el: any) => el.category === "horror"
   );
-  console.log(dataDrama);
 
   const onClickMenu = (e: any) => {
     setSection(e.currentTarget?.id);
