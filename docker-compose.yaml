@@ -1,0 +1,15 @@
+version: "3.7"
+
+# 컴퓨터들
+services:
+  # 컴퓨터 이름
+  my-frontend:
+    build:
+      # 현위치의 context 도커파일 위치 dockerfile
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      # 내 컴에서 3000으로 넘어온거 도커 3000으로 보내줄래
+      - 3000:3000
+  # 두번째 컴퓨터 이름
+  # 세번째 컴퓨터 이름
