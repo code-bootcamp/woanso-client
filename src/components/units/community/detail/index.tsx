@@ -3,12 +3,10 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import {
   IMutation,
-  IMutationDeleteBoardArgs,
   IMutationDislikeBoardArgs,
   IMutationLikeBoardArgs,
 } from "../../../../commons/types/generated/types";
 import {
-  DELETE_BOARD,
   DISLIKE_BOARD,
   FETCH_BOARD,
   LIKE_BOARD,
@@ -87,14 +85,17 @@ export default function CommunityDetailUI() {
       <S.Wrap>
         <S.LeftWrap>
           <S.AvatarWrap>
-            <S.Avatar
-              src={`https://storage.googleapis.com/${data?.fetchBoard.user.thumbnail}`}
-            />
+          {data?.fetchBoard.user.thumbnail ? (
+              <S.Avatar
+                src={`https://storage.googleapis.com/${data?.fetchBoard.user.thumbnail}`}
+              />
+            ) : (
+              <S.Avatar src="/icon/avatar.png" />
+            )}
           </S.AvatarWrap>
           <S.ContentsWrap>
             <S.TopWrap>
               <S.Name>{data?.fetchBoard.user.nickname}</S.Name>
-              {/* <S.Date>2시간 전</S.Date> */}
             </S.TopWrap>
             <S.MidWrap>
               <S.MidContents>{data?.fetchBoard.content}</S.MidContents>
@@ -138,7 +139,6 @@ export default function CommunityDetailUI() {
         :
         ""
         }
-         
         </S.RightWrap>
       </S.Wrap>
       {isEdit && <CommunityCommentWriteUI />}

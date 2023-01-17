@@ -13,10 +13,10 @@ export const LeftWrap = styled.div`
 display: flex;
 gap: 30px;
 `
-export const AvatorWrap = styled.div`
+export const AvatarWrap = styled.div`
 width: 48px;
 `
-export const Avator = styled.div`
+export const Avatar = styled.img`
 width: 48px;
 height: 48px;
 background: #D9D9D9;

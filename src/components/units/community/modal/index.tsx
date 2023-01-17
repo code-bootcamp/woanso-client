@@ -27,7 +27,6 @@ export default function CommunityModal1(props: any){
               onCancel={handleCancel}
             >
               <Wrap>게시글이 등록되었습니다.</Wrap>
-              <Wrap>{props.edit ? "수정" : "등록"}</Wrap>
             </ModalCustom>}
             </>
     )
