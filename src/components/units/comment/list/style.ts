@@ -134,13 +134,10 @@ export const IconWrap = styled.div`
 display: flex;
 gap: 15px;
 `
-export const Edit = styled.img`
-width: 12px;
-height: 12px;
-`
 export const Del = styled.img`
 width: 12px;
 height: 12px;
+cursor: pointer;
 `
 
 export const CommentAddWrap = styled.div`

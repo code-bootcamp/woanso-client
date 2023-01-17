@@ -26,7 +26,7 @@ export default function CommunityNewList() {
       <S.ContentsWrap>
         {data?.fetchBoards.map((el: any, index: number) => (
           <S.Content key={el}>
-            <S.Image src={`https://storage.googleapis.com/${el.boardImg[0].url}`}/>
+            <S.Image src={`https://storage.googleapis.com/${el.boardImg[0].url}`} />
             <S.Info>
               <p>{el.user.nickname}</p>
               <span>{getDays(el.createdAt)}</span>
