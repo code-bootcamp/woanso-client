@@ -46,10 +46,7 @@ export default function CommunityListUI() {
       },
     });
     router.push(`/community/`);
-    console.log("삭제완룡");
   };
-
-  console.log(data);
 
   return (
     <>

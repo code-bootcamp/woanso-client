@@ -29,6 +29,3 @@ export const useQueryFetchBoards = () => {
   });
   return query;
 };
-
-// const { data } = useQueryFetchBoards();
-// console.log(data?.fetchBoards);

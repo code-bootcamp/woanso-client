@@ -25,17 +25,15 @@ export default function UserManagement() {
       },
       refetchQueries: [{ query: FETCH_BLOCKED_USERS_FOR_ADMIN }],
     });
-    console.log(result);
   };
 
   const onClickUnblockUser = async (e: MouseEvent<HTMLButtonElement>) => {
-    const result = await unblockUserForAdmin({
+    await unblockUserForAdmin({
       variables: {
         email: e.currentTarget.id,
       },
       refetchQueries: [{ query: FETCH_BLOCKED_USERS_FOR_ADMIN }],
     });
-    console.log(result);
   };
 
   const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {

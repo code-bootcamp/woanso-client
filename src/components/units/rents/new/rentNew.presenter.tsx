@@ -71,7 +71,6 @@ export default function RentNewUI() {
         },
       });
 
-      console.log("상품등록");
       const productId = result.data?.createComic.comicId;
       if (typeof result.data?.createComic.comicId !== "string") {
         alert("일시적인 오류가 있습니다. 다시 시도해 주세요.");

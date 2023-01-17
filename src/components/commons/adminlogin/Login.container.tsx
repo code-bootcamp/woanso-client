@@ -56,7 +56,6 @@ export default function AdminLoginUI() {
       setAccessToken(accessToken);
       getAccessToken(RESTORE_ACCESS_TOKEN_FOR_ADMIN);
       void router.push(`/adminpage`);
-      console.log("어드민 로그인", data);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }

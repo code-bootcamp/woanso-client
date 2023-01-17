@@ -20,7 +20,7 @@ export default function MyWishList({ User }: any) {
 
   const onClickCancle = async (e: MouseEvent<HTMLDivElement>) => {
     try {
-      const result = await createWishlist({
+      await createWishlist({
         variables: {
           createWishInput: {
             comicId: e.currentTarget.id,
@@ -29,7 +29,6 @@ export default function MyWishList({ User }: any) {
         },
         refetchQueries: [{ query: FETCH_WISHLIST }],
       });
-      console.log(result);
       Modal.success({ content: "찜 목록에서 삭제했습니다." });
     } catch (error) {
       Modal.error({ content: "삭제할 수 없습니다." });

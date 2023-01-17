@@ -11,7 +11,6 @@ export default function RentCheckModal(props: ModalProps) {
 
   const handleOk = () => {
     props.setIsModalOpen(false);
-    console.log("결제하기 API날리기");
   };
   return (
     <>
