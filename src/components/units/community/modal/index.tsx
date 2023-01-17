@@ -6,7 +6,7 @@ import { PopupModal } from "../../../../commons/libraries/store";
 
 
 
-export default function CommunityModal1(){
+export default function CommunityModal1(props){
     
     const [isModalOpen, setIsModalOpen] = useRecoilState(PopupModal);
 
@@ -27,6 +27,7 @@ export default function CommunityModal1(){
               onCancel={handleCancel}
             >
               <Wrap>게시글이 등록되었습니다.</Wrap>
+              <Wrap>{props.edit ? "수정" : "등록"}</Wrap>
             </ModalCustom>}
             </>
     )
