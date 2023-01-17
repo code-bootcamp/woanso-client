@@ -112,10 +112,6 @@ export default function CommunityWriteUI(props: any) {
           },
         ],
       });
-      setIsModalOpen(true);
-      setTimeout(function () {
-        setIsModalOpen(false);
-      }, 3000);
       void router.push(`/community/${result.data?.updateBoard.id}`);
     } catch (error) {
       if (error instanceof Error) alert(error.message);

@@ -9,7 +9,7 @@ export const accessTokenState = atom({
 export const restoreAccessTokenLoadable = selector({
   key: "restoreAccessTokenLoadable",
   get: async () => {
-    const newAccessToken = await getAccessToken(null);
+    const newAccessToken = await getAccessToken();
     return newAccessToken;
   },
 });

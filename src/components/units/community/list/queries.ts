@@ -9,11 +9,6 @@ export const FETCH_BOARDS = gql`
       boardImg{
         boardImgID
         url
-        # board
-      }
-      user {
-        nickname
-        thumbnail
       }
     }
   }

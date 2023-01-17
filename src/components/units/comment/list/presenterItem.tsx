@@ -42,9 +42,15 @@ export default function CommunityCommentListUIItem(props: any) {
   return (
     <S.Wrap>
       <S.LeftWrap>
-        <S.AvatorWrap>
-          <S.Avator></S.Avator>
-        </S.AvatorWrap>
+        <S.AvatarWrap>
+        {props.el?.user.thumbnail  ? (
+              <S.Avatar
+                src={`https://storage.googleapis.com/${props.el?.user.thumbnail}`}
+              />
+            ) : (
+              <S.Avatar src="/icon/avatar.png" />
+            )}
+        </S.AvatarWrap>
         <S.ContentsWrap>
           <S.TopWrap>
             <S.Name>{props.el?.user.nickname}</S.Name>

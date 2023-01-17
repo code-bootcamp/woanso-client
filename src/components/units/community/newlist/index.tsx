@@ -13,6 +13,11 @@ export default function CommunityNewList() {
     void router.push(`/community`);
   };
 
+  const onClickDetailCommunity = (boardId: any) => () => {
+    void router.push(`/community/${boardId}`);
+  }
+
+    console.log(data);
   return (
     <S.CommunityNewListWrap>
       <S.TitleWrapper>
@@ -25,8 +30,9 @@ export default function CommunityNewList() {
       <S.ContentsWrap>
         {data?.fetchBoards.map((el: any, index: number) => (
           <S.Content key={el}>
-            <S.Image src={`https://storage.googleapis.com/${el.boardImg[0].url}`} />
-
+            <S.Image src={`https://storage.googleapis.com/${el.boardImg[0].url}`} onClick={onClickDetailCommunity(el.id)}
+            
+            />
             <S.Info>
               <p>{el.user.nickname}</p>
               <span>{getDays(el.createdAt)}</span>

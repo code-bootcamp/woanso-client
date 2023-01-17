@@ -54,7 +54,7 @@ export default function AdminLoginUI() {
         return;
       }
       setAccessToken(accessToken);
-      getAccessToken(RESTORE_ACCESS_TOKEN_FOR_ADMIN);
+      // getAccessToken(RESTORE_ACCESS_TOKEN_FOR_ADMIN);
       void router.push(`/adminpage`);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
