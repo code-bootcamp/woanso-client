@@ -40,37 +40,40 @@ export default function Payment(props: any) {
   const amount =
     props.data?.fetchComic.deliveryFee + props.data?.fetchComic.rentalFee;
 
-  // const onClickPayment = () => {
-  //   console.log(amount);
+  const onClickPayment = () => {
+    const IMP = window.IMP;
+    IMP.init("imp87181188");
 
-  //   const IMP = window.IMP;
-  //   IMP.init("imp87181188");
+    IMP.request_pay(
+      {
+        pg: "nice",
+        pay_method: "card",
+        name: account.order,
+        amount: amount,
+        buyer_name: account.order,
+        buyer_tel: account.number,
+        buyer_addr: address,
+        buyer_postcode: zipcode,
+        m_redirect_url: "http://localhost:3000/28-01-payment",
+      },
+      (rsp: any) => {
+        if (rsp.success) {
+          const impUid = rsp.imp_uid
+          const result = createPointTransaction({
+            variables: {
+              impUid: impUid,
+              comicId: props.data.fetchComic.comicId,
+              amount,
+              address
+            }
+          })
+        } else {
+          alert("결제에 실패했습니다! 다시 시도해 주세요!");
+        }
+      }
+    );
+  };
 
-  //   IMP.request_pay(
-  //     {
-  //       pg: "nice",
-  //       pay_method: "card",
-  //       name: account.order,
-  //       amount: amount,
-  //       // buyer_email: user2?.fetchUser.email,
-  //       buyer_name: account.order,
-  //       buyer_tel: account.number,
-  //       buyer_addr: address,
-  //       buyer_postcode: zipcode,
-  //       m_redirect_url: "http://localhost:3000/28-01-payment",
-  //     },
-  //     (rsp: any) => {
-  //       if (rsp.success) {
-  //         console.log(rsp);
-  //       } else {
-  //         alert("결제에 실패했습니다! 다시 시도해 주세요!");
-  //       }
-  //     }
-  //   );
-  // };
-
-
-  
   const [account, setAccount] = useState({
     order: "",
     recipient: "",
@@ -83,7 +86,6 @@ export default function Payment(props: any) {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(account.order);
 
   const onChangeAddressDetail = (event: ChangeEvent<HTMLInputElement>) => {
     setAddressDetail(event.target.value);

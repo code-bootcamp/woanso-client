@@ -33,52 +33,6 @@ export default function RentDetailUI() {
     router.push(`/payment/${router.query.boardId}`);
   };
 
-  const onClickCantrent = () => {
-    Modal.error({ content: "대여가 불가능한 상품입니다." });
-  };
-
-  // const onClickPayment = async () => {
-  //   await createPointTransaction({
-  //     variables: {
-  //       impUid: String(user2?.fetchUser.pointTransaction.impUid),
-  //       comicId: String(data?.fetchComic.comicId),
-  //       amount: Number(data?.fetchComic.rentalFee)
-  //     },
-  //   });
-  //   alert("구매가 완료되었습니다.");
-  //   router.push("/rents/");
-  // };
-
-  // const onClickPayment = () => {
-  //   const amount = data.fetchComic.deliveryFee + data.fetchComic.rentalFee
-
-  //   const IMP = window.IMP;
-  //   IMP.init("imp87181188");
-
-  //   IMP.request_pay(
-  //     {
-  //       pg: "nice",
-  //       pay_method: "card",
-  //       name: data.fetchComic.title,
-  //       amount: amount,
-  //       buyer_email: user2?.fetchUser.email,
-  //       buyer_name: user2?.fetchUser.nickname,
-  //       buyer_tel: user2?.fetchUser.phone,
-  //       // buyer_addr: "서울특별시 강남구 신사동",
-  //       buyer_postcode: "01181",
-  //       m_redirect_url: "http://localhost:3000/28-01-payment",
-  //     },
-  //     (rsp: any) => {
-  //       if (rsp.success) {
-  //         console.log(rsp);
-  //         // createPointTransactionOfLoading
-  //       } else {
-  //         // alert("결제에 실패했습니다! 다시 시도해 주세요!");
-  //       }
-  //     }
-  //   );
-  // };
-
   const count = data?.fetchComic.comicRating.comicRating;
 
   return (
