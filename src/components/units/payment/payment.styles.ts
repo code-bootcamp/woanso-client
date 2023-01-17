@@ -8,6 +8,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 gap: 20px;
+width: 1000px;
+margin: auto;
 `
 export const TitleWrap = styled.div`
 height: 44px;
@@ -188,7 +190,6 @@ export const ProductRightWrap = styled.div`
 export const Price = styled.div`
 width: 73px;
 height: 34px;
-font-family: 'Noto Sans KR';
 font-style: normal;
 font-weight: 700;
 font-size: 16px;
@@ -198,6 +199,7 @@ align-items: center;
 letter-spacing: -0.05em;
 color: #000000;
 padding-top: 80px;
+padding-left: 17px;
 `
 
 export const PriceWrap = styled.div`
