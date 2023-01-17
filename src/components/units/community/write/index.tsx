@@ -39,18 +39,15 @@ export default function CommunityWriteUI(props: any) {
 
   const onChangeContents = (event: ChangeEvent<HTMLInputElement>) => {
     setContent(event.target.value);
-    console.log(setContent);
   };
 
   const [imgUrl, setImgUrl] = useState<String>("");
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = checkValidationImage(event.target.files?.[0]);
-    console.log("file", file);
     if (!file) return;
 
     try {
       const result = await uploadOneFile({ variables: { file } });
-      console.log("result", result);
       setImgUrl(result.data?.uploadOneFile ?? "");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
@@ -78,7 +75,6 @@ export default function CommunityWriteUI(props: any) {
             },
           ],
         });
-        console.log(result);
         setIsModalOpen(true);
         setTimeout(function () {
           setIsModalOpen(false);
@@ -121,8 +117,6 @@ export default function CommunityWriteUI(props: any) {
     }
   };
 
-
-
   return (
     <>
       <S.Wrap>
@@ -136,7 +130,12 @@ export default function CommunityWriteUI(props: any) {
         <S.BottomWrap>
           <S.ImgWrap>
             <S.Img src="/icon/img.png" onClick={onClickUpload}></S.Img>
-            <S.Input type="file" onChange={onChangeFile}  ref={fileRef} multiple />
+            <S.Input
+              type="file"
+              onChange={onChangeFile}
+              ref={fileRef}
+              multiple
+            />
           </S.ImgWrap>
           <S.ButtonWrap>
             <S.Button
