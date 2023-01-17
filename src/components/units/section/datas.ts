@@ -84,14 +84,29 @@ export const dataAction = [
 
 export const dataHorror = [
   {
+    ISBN: "woanso-storage/2023/1/17/021c1736-2230-409a-bc21-398bf1da44dc/origin/26.jpg",
+    comicId: "997cfec7-bbc3-4f6e-8d0a-34badd88ade5",
+    title: "보이는 여고생",
+  },
+  {
     ISBN: "woanso-storage/2023/1/10/285fea76-7599-4162-82ec-d3b1392262f5/origin/ㅊㅊ.jpeg",
     comicId: "0e550b2d-32cb-4ade-b73d-348cf01e5ff1",
     title: "소년탐정 김전일",
   },
   {
+    ISBN: "woanso-storage/2023/1/17/6a5a3c55-e946-4ecf-9c50-f78540826ea5/origin/25.jpg",
+    comicId: "2ca7e4be-0c95-4c3a-80fc-5700fbe4d9ab",
+    title: "환괴지대",
+  },
+  {
     ISBN: "woanso-storage/2023/1/10/23e7bdd1-fbfb-4b4f-b533-acd8d1c0b24c/origin/ㅠ.jpeg",
     comicId: "a579bc88-f00d-466a-accc-2dcc09e9a1a2",
     title: "명탐정 코난",
+  },
+  {
+    ISBN: "woanso-storage/2023/1/17/389a1874-0c7e-4cd4-934b-9040d8d11e90/origin/22.jpg",
+    comicId: "b3403305-0320-4e17-81af-c2bda5ba9bb9",
+    title: "데스노트",
   },
 ];
 
@@ -105,6 +120,21 @@ export const dataFantasy = [
     ISBN: "woanso-storage/2023/1/10/4da73b68-45a5-48af-94ab-4b18d5cf8da8/origin/이누.jpeg",
     comicId: "d750f735-4d51-4494-a79a-1e98447c89b8",
     title: "이누야사",
+  },
+  {
+    ISBN: "woanso-storage/2023/1/17/2ca02e67-25d5-489f-864d-9255f908a229/origin/14.jpg",
+    comicId: "f00d3d6c-b251-4378-9f29-78b0d59fdb17",
+    title: "유녀전기",
+  },
+  {
+    ISBN: "woanso-storage/2023/1/17/2d29e2aa-499b-4911-81c1-024616a5e95d/origin/13.jpg",
+    comicId: "e035b604-23aa-4427-9abd-606b5329d33b",
+    title: "고깔모자의 아틀리에",
+  },
+  {
+    ISBN: "woanso-storage/2023/1/17/42f8747f-8b83-4401-9ee8-9b6a9326594d/origin/12.jpg",
+    comicId: "beb52ba4-42c2-427b-9a84-3f024dc61cd8",
+    title: "마왕성에서 잘 자요",
   },
 ];
 
