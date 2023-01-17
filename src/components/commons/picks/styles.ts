@@ -71,6 +71,7 @@ export const RightCard = styled.div`
   height: calc(100% / 2 - 7.5px);
   min-height: 200px;
   background-color: white;
+  cursor: pointer;
 `;
 
 export const Image = styled.img`

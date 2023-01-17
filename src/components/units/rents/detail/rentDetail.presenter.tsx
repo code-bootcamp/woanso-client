@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import RentsReviewList from "../../rentsReview/list/rentsReviewList.container";
 import { useRouter } from "next/router";
 import { useQueryFetchComic } from "../../../../commons/hooks/queries/useQueryFetchComic";
-import { Rate } from "antd";
+import { Modal, Rate } from "antd";
 import { useMutationCreateWishList } from "../../../../commons/hooks/mutaions/useMutationCreateWishlist";
 import { useQueryFetchUserLoggendIn } from "../../../../commons/hooks/queries/useQueryFetchUserLoggedIn";
 import { useMutationcreatePointTransaction } from "../../../../commons/hooks/mutaions/useCreatePointTransaction";
@@ -17,7 +17,6 @@ export default function RentDetailUI() {
   const [createPointTransaction] = useMutationcreatePointTransaction();
   const { data: user } = useQueryFetchUserLoggendIn();
   const { data } = useQueryFetchComic(String(router.query.boardId));
-
   const onClickToggle = async () => {
     setToggleIcon((prev) => !prev);
     await createWishlist({
@@ -78,7 +77,11 @@ export default function RentDetailUI() {
               <S.InfoFlexWrap>
                 <S.Price>{data?.fetchComic.rentalFee}원</S.Price>
                 <S.RentBtn
-                  onClick={data?.fetchComic.isAvailable && onClickPayment}
+                  onClick={
+                    data?.fetchComic.isAvailable
+                      ? onClickPayment
+                      : onClickCantrent
+                  }
                 >
                   {data?.fetchComic.isAvailable ? "대여" : "대여불가"}
                 </S.RentBtn>

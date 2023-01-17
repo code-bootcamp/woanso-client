@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
+import { MouseEvent } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/libraries/store";
+import { PicksList } from "./datas";
 import * as S from "./styles";
 
 export default function Picks() {
@@ -9,6 +11,9 @@ export default function Picks() {
 
   const onClickMoveToPage = () => {
     router.push("/join");
+  };
+  const onClickMoveToBook = (e: MouseEvent<HTMLDivElement>) => {
+    router.push(`/rents/${e.currentTarget.id}`);
   };
 
   return (
@@ -36,9 +41,13 @@ export default function Picks() {
         </S.LeftContents>
       </S.LeftWrapper>
       <S.RightWrapper>
-        {new Array(6).fill(1).map((_, index) => (
-          <S.RightCard key={index + 1}>
-            <S.Image src={`/picksImage/0${index + 1}.png`} />
+        {PicksList.map((el: any) => (
+          <S.RightCard
+            key={el.comicId}
+            id={el.comicId}
+            onClick={onClickMoveToBook}
+          >
+            <S.Image src={`https://storage.googleapis.com/${el.ISBN}`} />
           </S.RightCard>
         ))}
       </S.RightWrapper>
