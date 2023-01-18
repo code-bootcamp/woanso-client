@@ -9,8 +9,6 @@ export default function CommunityListUI() {
 
   const { data } = useQuery(FETCH_BOARDS);
 
-  console.log(data);
-
   const onClickMoveToBoardDetail =
     (boardId: string) => (event: MouseEvent<HTMLDivElement>) => {
       void router.push(`/community/${boardId}`);

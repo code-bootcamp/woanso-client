@@ -1,4 +1,5 @@
 import { useMutation } from "@apollo/client";
+import { Modal } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
@@ -58,6 +59,8 @@ export default function Payment(props: any) {
       },
       (rsp: any) => {
         if (rsp.success) {
+          Modal.success({content: "결제에 성공했습니다!"})
+          void router.push(`/rents`)
           const impUid = rsp.imp_uid
           const result = createPointTransaction({
             variables: {
@@ -66,7 +69,9 @@ export default function Payment(props: any) {
               amount,
               address
             }
+            
           })
+          
         } else {
           alert("결제에 실패했습니다! 다시 시도해 주세요!");
         }
