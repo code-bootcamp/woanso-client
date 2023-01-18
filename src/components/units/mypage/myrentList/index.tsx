@@ -47,7 +47,7 @@ export default function MyRentList() {
           </S.MonthWrap>
 
           <S.ListsWrap>
-            {OrderList.map((el: any) => (
+            {/* {OrderList.map((el: any) => (
               <S.List
                 key={el.orderNumber}
                 id={el.orderNumber}
@@ -65,7 +65,7 @@ export default function MyRentList() {
                   <S.BookRented>{el.rentDay}</S.BookRented>
                 </S.InfoWrap>
               </S.List>
-            ))}
+            ))} */}
           </S.ListsWrap>
         </>
       )}
