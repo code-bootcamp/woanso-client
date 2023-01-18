@@ -101,14 +101,11 @@ export default function UserManagement() {
             {Blocked?.fetchBlockedUsersForAdmin.map((el: any) => (
               <S.TableRow2 key={el.id}>
                 <S.TableData>
-                  {/* <S.UserStatus id={el.email} onClick={onClickBlockUser}>
-                    유저 정지
-                  </S.UserStatus> */}
                   <S.UserStatus2 id={el.email} onClick={onClickUnblockUser}>
                     정지 풀기
                   </S.UserStatus2>
                 </S.TableData>
-                <S.TableData>사용</S.TableData>
+                <S.TableData>정지</S.TableData>
                 <S.TableData>{el.email}</S.TableData>
                 <S.TableData>{el.nickname}</S.TableData>
                 <S.TableData>{el.phone}</S.TableData>
@@ -116,13 +113,6 @@ export default function UserManagement() {
               </S.TableRow2>
             ))}
           </S.Tbody>
-
-          {/* <tfoot>
-            <tr>
-              <S.TableHead colSpan={5}>SUM</S.TableHead>
-              <S.TableHead>{}</S.TableHead>
-            </tr>
-          </tfoot> */}
         </S.Table>
       </S.InnerWrap>
     </S.OuterWrap>
