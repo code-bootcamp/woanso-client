@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
 export const FETCH_BOARDS = gql`
-  query fetchBoards($page: Float, $order: String) {
-    fetchBoards(page: $page, order: $order) {
+  query fetchBoards($order: String) {
+    fetchBoards(order: $order) {
       id
       content
       like
@@ -23,8 +23,7 @@ export const FETCH_BOARDS = gql`
 export const useQueryFetchBoards = () => {
   const query = useQuery(FETCH_BOARDS, {
     variables: {
-      page: 1,
-      oeder: "DESC",
+      order: "DESC",
     },
   });
   return query;

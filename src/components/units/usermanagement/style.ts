@@ -5,6 +5,7 @@ export const OuterWrap = styled.div``;
 export const InnerWrap = styled.div`
   padding-top: 180px;
   width: 760px;
+  margin: auto;
 `;
 
 export const PageTitle = styled.div`
